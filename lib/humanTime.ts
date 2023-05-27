@@ -1,0 +1,75 @@
+
+/* lib/terminal/utilities/humanTime - A utility to generate human readable time sequences. */
+/*eslint no-console: 0*/
+import common from "./common.js";
+import text from "./text.js";
+
+// converting time durations into something people read
+const humanTime = function terminal_utilities_humanTime(startTime:bigint, finished:boolean):string {
+    const numberString = function terminal_utilities_humanTime_numberString(numb:bigint):string {
+            const str:string = numb.toString();
+            return (str.length < 2)
+                ? `0${str}`
+                : str;
+        },
+        plural = function terminal_utilities_humanTime_plural(x:bigint, y:string):string {
+            if (y === " second") {
+                if (x === 1n) {
+                    if (nanosecond === 0n) {
+                        return `01.${nanoString} second `;
+                    }
+                    return `01.${nanoString} seconds `;
+                }
+                return `${numberString(x)}.${nanoString} seconds `;
+            }
+            if (x === 1n) {
+                return `${numberString(x) + y} `;
+            }
+            return `${numberString(x) + y}s `;
+        },
+        elapsed:bigint     = process.hrtime.bigint() - startTime,
+        factorSec:bigint   = BigInt(1e9),
+        factorMin:bigint   = (60n * factorSec),
+        factorHour:bigint  = (3600n * factorSec),
+        hours:bigint       = (elapsed / factorHour),
+        elapsedHour:bigint = (hours * factorHour),
+        minutes:bigint     = ((elapsed - elapsedHour) / factorMin),
+        elapsedMin:bigint  = (minutes * factorMin),
+        seconds:bigint     = ((elapsed - (elapsedHour + elapsedMin)) / factorSec),
+        nanosecond:bigint  = (elapsed - (elapsedHour + elapsedMin + (seconds * factorSec))),
+        nanoString:string  = (function terminal_utilities_humanTime_nanoString():string {
+            let nano:string = nanosecond.toString(),
+                a:number = nano.length;
+            if (a < 9) {
+                do {
+                    nano = `0${nano}`;
+                    a = a + 1;
+                } while (a < 9);
+            }
+            return nano;
+        }()),
+        secondString:string = (finished === true)
+            ? plural(seconds, " second")
+            : `${numberString(seconds)}.${nanoString}`,
+        minuteString:string = (finished === true)
+            ? plural(minutes, " minute")
+            : numberString(minutes),
+        hourString:string = (finished === true)
+            ? plural(hours, " hour")
+            : numberString(hours);
+
+    //last line for additional instructions without bias to the timer
+    if (finished === true) {
+        const finalMem:string    = common.prettyBytes(process.memoryUsage.rss()),
+            finalTime:string = hourString + minuteString + secondString,
+            // eslint-disable-next-line
+            logger:(input:string) => void = console.log;
+        logger("");
+        logger(`${finalMem} of memory consumed`);
+        logger(`${finalTime}total time`);
+        logger("");
+    }
+    return `${text.cyan}[${hourString}:${minuteString}:${secondString}]${text.none} `;
+};
+
+export default humanTime;

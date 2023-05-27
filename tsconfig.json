@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "module": "ES2020",
+        "moduleResolution": "node",
+        "outDir": "./js/lib",
+        "noEmit": true,
+        "noImplicitAny": true,
+        "pretty": true,
+        "strictFunctionTypes": true,
+        "target": "ES2020",
+        "types": ["node"],
+        "typeRoots": ["./node_modules/@types"]
+    },
+    "exclude": [
+        "js",
+        "lib/terminal/test/storageTest/temp",
+        "**/node_modules",
+        "**/.*/"
+    ],
+    "include": [
+        "**/*.ts"
+    ]
+}
