@@ -13,7 +13,8 @@ import writeStream from "./writeStream.js";
 // cspell:words Audiobook, Bhangra, Breakbeat, Breakz, Chillout, Darkwave, Dubstep, Electroclash, Eurodance, Illbient, Industro, Jpop, jsmediatags, Krautrock, Leftfield, Negerpunk, Neue, Polsk, Psybient, Psytrance, Shoegaze, Showtunes, Synthpop, TALB, TLEN, TRCK, Welle
 
 const init = function () {
-    const startTime:bigint = process.hrtime.bigint(),
+    const mp3dir:string = process.argv[2],
+        startTime:bigint = process.hrtime.bigint(),
         dirCallback = function (title:string, text:string[], list:directory_list):void {
             let index:number = 0;
             const listLength:number = list.length,
@@ -244,6 +245,9 @@ const init = function () {
                                 "11": "DEC"
                             };
                         return `${pad(date.getDate(), false)} ${months[date.getMonth()]} ${date.getFullYear()} ${pad(date.getHours(), false)}:${pad(date.getMinutes(), false)}:${pad(date.getSeconds(), false)}.${pad(date.getMilliseconds(), true)}`;
+                    },
+                    absolute = function (dir:string):string {
+                        return mp3dir + sep + dir.replace(/\//g, sep);
                     };
                     if (index < listLength) {
                         /*
@@ -406,7 +410,7 @@ const init = function () {
                             }
                         });
                         */
-                        tags.read(list[index][0], {
+                        tags.read(absolute(list[index][0]), {
                             onSuccess: function(tag) {
                                 list[index][5].album = tag.tags.album;
                                 list[index][5].artist = tag.tags.artist;
@@ -422,7 +426,7 @@ const init = function () {
                             },
                             onError: function(error) {
                                 log([
-                                    `Error reading ID3 tag of file ${list[index][0]}`,
+                                    `Error reading ID3 tag of file ${mp3dir + sep + list[index][0]}`,
                                     error.type,
                                     error.info
                                 ]);

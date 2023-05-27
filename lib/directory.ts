@@ -65,14 +65,6 @@ const directory = function terminal_commands_library_directory(args:config_comma
                     ? `Directory ${searchType} search`
                     : `Directory ${common.capitalize(args.mode)}`
                 : "",
-            relative:boolean = (function terminal_commands_library_directory_relative():boolean {
-                const relIndex:number = process.argv.indexOf("relative");
-                if (relIndex < 0) {
-                    return false;
-                }
-                process.argv.splice(relIndex, 1);
-                return true;
-            }()),
             callback = function terminal_commands_library_directory_callback():void {
                 if (args.mode === "hash") {
                     let index:number = 0,
@@ -87,7 +79,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                 args.callback(title, [summary, String(longest)], mp3List);
                             } else {
                                 hashInput.parent = list[index][3];
-                                hashInput.source = list[index][0];
+                                hashInput.source = args.path + sep + list[index][0].replace(/\//g, sep);
                                 hashInput.stat = list[index][5];
                                 hash(hashInput);
                             }
@@ -199,9 +191,10 @@ const directory = function terminal_commands_library_directory(args:config_comma
                         driveLetter = function terminal_commands_library_directory_statWrapper_stat_driveLetter(input:string):string {
                             return `${input}\\`;
                         },
-                        relPath:string = (relative === true)
-                            ? filePath.replace(args.path + sep, "")
-                            : filePath,
+                        relative = function (input:string):string {
+                            return input.replace(args.path + sep, "").replace(/\\/g, "/");
+                        },
+                        relPath:string = relative(filePath),
                         search = function terminal_commands_library_directory_statWrapper_stat_search(searchItem:string):boolean {
                             const names:string = searchItem.split(sep).pop(),
                                 named:string = (sep === "\\")
@@ -223,9 +216,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                 const index:number = (args.mode === "array" || args.mode === "list")
                                         ? fileList.length
                                         : list.length,
-                                    relItem:string = (relative === true)
-                                        ? item.replace(args.path + sep, "")
-                                        : item;
+                                    relItem:string = relative(item);
                                 if (args.mode === "array") {
                                     fileList.push(relItem);
                                 } else if (args.mode === "list") {
