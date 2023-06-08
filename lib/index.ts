@@ -213,6 +213,11 @@ const init = function () {
                     "191": "Psybient"
                 },
                 production:boolean = true,
+                projectPath:string = (function () {
+                    const dirs:string[] = process.argv[1].split(sep);
+                    dirs.pop();
+                    return dirs.join(sep) + sep;
+                }()),
                 readTags = function ():void {
                     const dateFormat = function (dateNumber:number):string {
                         const date:Date = new Date(dateNumber),
@@ -528,7 +533,7 @@ const init = function () {
                             } while (index < listLength);
                             html.push("</tbody></table>");
                             if (production === true) {
-                                readFile(`js${sep}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
+                                readFile(`${projectPath}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
                                     if (erRead === null) {
                                         const fileString:string = fileData.toString("utf8");
                                         html.push("<script type=\"application/javascript\">");
@@ -544,7 +549,7 @@ const init = function () {
                                 });
                             } else {
                                 // for testing browser.js as a separate file
-                                stat(`js${sep}browser.js`, function (ers:NodeJS.ErrnoException, stat:Stats):void {
+                                stat(`${projectPath}browser.js`, function (ers:NodeJS.ErrnoException, stat:Stats):void {
                                     if (ers === null) {
                                         writeStream({
                                             callback: function () {
@@ -553,7 +558,7 @@ const init = function () {
                                                 writeList();
                                             },
                                             destination: browser,
-                                            source: `js${sep}browser.js`,
+                                            source: `${projectPath}browser.js`,
                                             stat: stat
                                         });
                                     } else {
