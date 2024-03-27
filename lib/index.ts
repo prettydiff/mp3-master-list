@@ -101,6 +101,9 @@ const init = function () {
                             if (dirs.length > 1) {
                                 list[index][5].genre = dirs[dirs.length - 2].charAt(0).toUpperCase() + dirs[dirs.length - 2].slice(1);
                                 list[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
+                                list[index][5].track = list[index][5].title.slice(list[index][5].title.indexOf("(") + 1, list[index][5].title.length - 1);
+                                list[index][5].artist = dirs[dirs.length - 1].slice(dirs[dirs.length - 1].lastIndexOf(".") + 1);
+                                list[index][5].title = list[index][5].title.replace(/\s*\(\d+\)$/, "");
                                 list[index][5].modified = dateFormat(list[index][5].mtimeMs);
                                 list[index][5].sizeFormatted = common.commas(list[index][5].size);
                                 totalSize = totalSize + list[index][5].size;
@@ -128,6 +131,8 @@ const init = function () {
                                 : {
                                     "genre": "Genre",
                                     "title": "Title",
+                                    "track": "Year",
+                                    "artist": "Type",
                                     "path": "File Path",
                                     "sizeFormatted": "File Size",
                                     "modified": "Modified",

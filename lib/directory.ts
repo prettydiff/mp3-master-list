@@ -80,7 +80,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                     //     index = index + 1;
                     // } while (index < listLength);
                     // args.callback(title, [summary, String(longest)], mp3List);
-                    
+
                     let index:number = 0,
                         fileCount:number = 0;
                     const listLength:number = list.length,
