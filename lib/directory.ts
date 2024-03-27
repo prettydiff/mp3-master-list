@@ -67,6 +67,20 @@ const directory = function terminal_commands_library_directory(args:config_comma
                 : "",
             callback = function terminal_commands_library_directory_callback():void {
                 if (args.mode === "hash") {
+                    
+
+                    // bypass hashing for testing
+                    // const mp3List:directory_list = [],
+                    //     listLength:number = list.length;
+                    // let index:number = 0;
+                    // do {
+                    //     if (list[index][1] === "file") {
+                    //         mp3List.push(list[index]);
+                    //     }
+                    //     index = index + 1;
+                    // } while (index < listLength);
+                    // args.callback(title, [summary, String(longest)], mp3List);
+                    
                     let index:number = 0,
                         fileCount:number = 0;
                     const listLength:number = list.length,
@@ -108,20 +122,6 @@ const directory = function terminal_commands_library_directory(args:config_comma
                         };
                     log([`${humanTime(args.startTime, false)}File system mapped and starting hashing.`]);
                     loop();
-
-                    // bypass hashing for testing
-                    /*
-                    const mp3List:directory_list = [],
-                        listLength:number = list.length;
-                    let index:number = 0;
-                    do {
-                        if (list[index][1] === "file") {
-                            mp3List.push(list[index]);
-                        }
-                        index = index + 1;
-                    } while (index < listLength);
-                    args.callback(title, [summary, String(longest)], mp3List);
-                    */
                 } else if (args.mode === "search") {
                     args.callback(title, [summary, String(longest)], list);
                 } else {
@@ -312,7 +312,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                         }
                                         fileList.push(`${typePadding}  ${comma}  ${relPath}`);
                                     }
-                                } else if ((/\.(m|M)(p|P)3$/).test(relPath) === true) {
+                                } else if ((args.type === "music" && (/\.(m|M)(p|P)3$/).test(relPath) === true) || args.type !== "music") {
                                     files = files + 1;
                                     list.push([relPath, type, "", parent, 0, statData, ""]);
                                 }
