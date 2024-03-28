@@ -80,19 +80,40 @@
                 } while (index < recordLength);
             }
         },
+        toggle = function ():void {
+            const table:HTMLElement = document.getElementsByTagName("table")[1],
+                h2:HTMLElement = document.getElementsByTagName("h2")[0];
+            if (table === undefined) {
+                return;
+            }
+            if (inputs[2].checked === true) {
+                table.style.display = "table";
+                h2.style.display = "block";
+            } else {
+                table.style.display = "none";
+                h2.style.display = "none";
+            }
+        },
         buttons:HTMLCollectionOf<HTMLButtonElement> = document.getElementsByTagName("button"),
         records:HTMLElement[] = (function ():HTMLElement[] {
-            const tr:HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr"),
-                trLen:number = tr.length,
-                output:HTMLElement[] = [];
-            let index:number = 0;
-            do {
-                output.push(tr[index]);
-                index = index + 1;
-            } while (index < trLen);
+            const output:HTMLElement[] = [],
+                populate = function (tableIndex:number):void {
+                    const tr:HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("tbody")[tableIndex].getElementsByTagName("tr"),
+                        trLen:number = tr.length;
+                    let index:number = 0;
+                    do {
+                        output.push(tr[index]);
+                        index = index + 1;
+                    } while (index < trLen);
+                };
+            populate(0);
+            if (document.getElementsByTagName("table").length > 0) {
+                populate(1);
+            }
             return output;
         }()),
-        recordLength = records.length;
+        recordLength:number = records.length,
+        inputs:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     let index = buttons.length;
     do {
         index = index - 1;
@@ -100,7 +121,8 @@
             buttons[index].onclick = sort;
         }
     } while (index > 0);
-    document.getElementsByTagName("input")[0].onkeyup = filter;
-    document.getElementsByTagName("input")[1].onclick = filter;
+    inputs[0].onkeyup = filter;
+    inputs[1].onclick = filter;
+    inputs[2].onclick = toggle;
     document.getElementsByTagName("select")[0].onchange = filter;
 }());
