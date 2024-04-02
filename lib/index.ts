@@ -116,6 +116,7 @@ const init = function () {
                             "<td>Action</td><td>Equalizer 1</td><td>2014</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Equalizer 2</td><td>2018</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Equalizer 3</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
+                            "<td>Action</td><td>Elysium</td><td>2013</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Fast and Furious 1</td><td>2001</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Fast and Furious 2 - 2 Fast 2 Furious</td><td>2003</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Fast and Furious 3 - Tokyo Drift</td><td>2006</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
@@ -225,6 +226,7 @@ const init = function () {
                             "<td>Animation</td><td>Zootopia</td><td>2016</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Comedy</td><td>Airplane 2</td><td>1982</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Comedy</td><td>Being John Malkovich</td><td>1999</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
+                            "<td>Comedy</td><td>I'm A Cyborg, But That's Ok</td><td>2006</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Comedy</td><td>John Dies at the End</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Comedy</td><td>Who Framed Roger Rabbit</td><td>1988</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Comicbook</td><td>Captain Marvel 2</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
@@ -255,6 +257,7 @@ const init = function () {
                             "<td>Drama</td><td>The Natural</td><td>1984</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Drama</td><td>The Road</td><td>2009</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Drama</td><td>Seven Samurai</td><td>1954</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
+                            "<td>Drama</td><td>Snow Falling on Cedars</td><td>1999</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Science Fiction</td><td>Fifth Element</td><td>1997</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Science Fiction</td><td>Minority Report</td><td>2002</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Science Fiction</td><td>Star Wars 8 - Last Jedi</td><td>2017</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
@@ -420,9 +423,11 @@ const init = function () {
                                             html.push(`<td data-numeric="${fileList[index][5].mtimeMs}">${fileList[index][5].modified}`);
                                         } else if (headings[htmlIndex] === "sizeFormatted") {
                                             html.push(`<td class="number" data-numeric="${fileList[index][5].size}">${fileList[index][5].sizeFormatted}`);
+                                        } else if (headings[htmlIndex] === "title") {
+                                            html.push(`<td><a href="${fileList[index][0]}">${fileList[index][5].title}</a></td>`);
                                         } else {
                                             // @ts-ignore
-                                            html.push(`<td${(headings[htmlIndex] === "sizeFormatted" || headings[htmlIndex] === "track") ? " class=\"number\"" : ""}>${list[index][5][headings[htmlIndex]]}</td>`);
+                                            html.push(`<td${(headings[htmlIndex] === "sizeFormatted" || headings[htmlIndex] === "track") ? " class=\"number\"" : ""}>${fileList[index][5][headings[htmlIndex]]}</td>`);
                                         }
                                         htmlIndex = htmlIndex + 1;
                                     } while (htmlIndex < headings.length);
