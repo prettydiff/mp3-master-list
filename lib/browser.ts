@@ -107,7 +107,7 @@
                     } while (index < trLen);
                 };
             populate(0);
-            if (document.getElementsByTagName("table").length > 0) {
+            if (document.getElementsByTagName("table").length > 1) {
                 populate(1);
             }
             return output;
@@ -119,6 +119,7 @@
         index = index - 1;
         if (buttons[index].parentNode.nodeName.toLowerCase() === "th") {
             buttons[index].onclick = sort;
+            buttons[index].innerHTML = "⇅";
         }
     } while (index > 0);
     inputs[0].onkeyup = filter;

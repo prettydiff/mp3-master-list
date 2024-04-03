@@ -170,6 +170,7 @@ const init = function () {
                             "<td>Action</td><td>Taken 2</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Taken 3</td><td>2014</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Tears of the Sun</td><td>2003</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
+                            "<td>Action</td><td>Tenet</td><td>2020</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Terminator 1</td><td>1984</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Terminator 2 - Judgement Day</td><td>1991</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
                             "<td>Action</td><td>Terminator 3 - Rise of the Machines</td><td>2003</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
