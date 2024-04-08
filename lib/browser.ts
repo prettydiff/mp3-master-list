@@ -1,5 +1,7 @@
+
 (function () {
-    const sort = function (event:MouseEvent):void {
+    const audio = document.getElementsByTagName("audio")[0],
+        sort = function (event:MouseEvent):void {
             const target:HTMLElement = event.target as HTMLElement,
                 direction:string = target.getAttribute("data-direction"),
                 th:HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("thead")[0].getElementsByTagName("th"),
@@ -94,6 +96,49 @@
                 h2.style.display = "none";
             }
         },
+        setCurrentTrack = function (tr:HTMLElement, play:boolean):void {
+            let td:HTMLCollectionOf<HTMLElement> = null;
+            currentTrack.removeAttribute("id");
+            currentTrack = tr;
+            currentTrack.setAttribute("id", "currentTrack");
+            td = tr.getElementsByTagName("td");
+            currentTrackName.innerHTML = `Current selected track is <strong>${td[4].innerHTML}</strong> by <em>${td[2].innerHTML}</em>.`;
+            audio.src = tr.getAttribute("data-path");
+            audio.load();
+            if (play === true) {
+                audio.play();
+            }
+        },
+        play = function (event:MouseEvent):void {
+            const target:HTMLElement = event.target as HTMLElement;
+            setCurrentTrack(target.parentNode.parentNode as HTMLElement, true);
+        },
+        previous = function () {
+            let previousElement:HTMLElement = currentTrack;
+            do {
+                previousElement = previousElement.previousElementSibling as HTMLElement;
+                if (previousElement === null) {
+                    previousElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[recordLength - 1];
+                }
+                if (previousElement.getAttribute("id") === "currentTrack") {
+                    return;
+                }
+            } while (previousElement.style.display === "none");
+            setCurrentTrack(previousElement, true);
+        },
+        next = function ():void {
+            let nextElement:HTMLElement = currentTrack;
+            do {
+                nextElement = nextElement.nextElementSibling as HTMLElement;
+                if (nextElement === null) {
+                    nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
+                }
+                if (nextElement.getAttribute("id") === "currentTrack") {
+                    return;
+                }
+            } while (nextElement.style.display === "none");
+            setCurrentTrack(nextElement, true);
+        },
         buttons:HTMLCollectionOf<HTMLButtonElement> = document.getElementsByTagName("button"),
         records:HTMLElement[] = (function ():HTMLElement[] {
             const output:HTMLElement[] = [],
@@ -112,18 +157,39 @@
             }
             return output;
         }()),
+        currentTrackName:HTMLElement = document.getElementById("currentTrackName"),
         recordLength:number = records.length,
-        inputs:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-    let index = buttons.length;
+        inputs:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input"),
+        cellButtons:HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("tbody")[0].getElementsByTagName("button");
+    window.onerror = function (event) {
+        alert(JSON.stringify(event));
+    };
+    let index = buttons.length,
+        currentTrack:HTMLElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
     do {
         index = index - 1;
         if (buttons[index].parentNode.nodeName.toLowerCase() === "th") {
             buttons[index].onclick = sort;
-            buttons[index].innerHTML = "⇅";
         }
     } while (index > 0);
-    inputs[0].onkeyup = filter;
+    inputs[0].onblur = filter;
     inputs[1].onclick = filter;
-    inputs[2].onclick = toggle;
+    if (audio !== null) {
+        index = cellButtons.length;
+        do {
+            index = index - 1;
+            cellButtons[index].onclick = play;
+        } while (index > 0);
+        audio.onended = next;
+        audio.onerror = function (event) {
+            alert(JSON.stringify(event));
+        };
+        setCurrentTrack(currentTrack, false);
+    } else {
+        if (inputs[2] !== undefined) {
+            // toggle movie wishlist
+            inputs[2].onclick = toggle;
+        }
+    }
     document.getElementsByTagName("select")[0].onchange = filter;
 }());

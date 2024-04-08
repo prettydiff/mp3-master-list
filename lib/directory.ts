@@ -70,58 +70,60 @@ const directory = function terminal_commands_library_directory(args:config_comma
                     
 
                     // bypass hashing for testing
-                    // const mp3List:directory_list = [],
-                    //     listLength:number = list.length;
-                    // let index:number = 0;
-                    // do {
-                    //     if (list[index][1] === "file") {
-                    //         mp3List.push(list[index]);
-                    //     }
-                    //     index = index + 1;
-                    // } while (index < listLength);
-                    // args.callback(title, [summary, String(longest)], mp3List);
-
-                    let index:number = 0,
-                        fileCount:number = 0;
-                    const listLength:number = list.length,
-                        mp3List:directory_list = [],
-                        loop = function terminal_commands_library_directory_loop():void {
-                            do {
-                                index = index + 1;
-                            } while (index < listLength && list[index][1] !== "file");
-                            if (index === listLength) {
-                                args.callback(title, [summary, String(longest)], mp3List);
-                            } else {
-                                hashInput.parent = list[index][3];
-                                hashInput.source = args.path + sep + list[index][0].replace(/\//g, sep);
-                                hashInput.stat = list[index][5];
-                                hash(hashInput);
-                            }
-                        },
-                        hashInput:config_command_hash = {
-                            algorithm: "sha3-512",
-                            callback: function terminal_commands_library_directory_statWrapper_stat_populate_hashCallback(title:string, output:hash_output):void {
-                                list[index][2] = output.hash;
+                    if (args.testing === true) {
+                        const mp3List:directory_list = [],
+                            listLength:number = list.length;
+                        let index:number = 0;
+                        do {
+                            if (list[index][1] === "file") {
                                 mp3List.push(list[index]);
-                                fileCount = fileCount + 1;
-                                moveCursor(process.stdout, -10000, 0);
-                                process.stdout.write(`${humanTime(args.startTime, false)}Hashed file ${fileCount} of ${files} (${((fileCount / files) * 100).toFixed(2)}%).`);
-                                if (index > 0) {
-                                    loop();
-                                } else {
+                            }
+                            index = index + 1;
+                        } while (index < listLength);
+                        args.callback(title, [summary, String(longest)], mp3List);
+                    } else {
+                        let index:number = 0,
+                            fileCount:number = 0;
+                        const listLength:number = list.length,
+                            mp3List:directory_list = [],
+                            loop = function terminal_commands_library_directory_loop():void {
+                                do {
+                                    index = index + 1;
+                                } while (index < listLength && list[index][1] !== "file");
+                                if (index === listLength) {
                                     args.callback(title, [summary, String(longest)], mp3List);
+                                } else {
+                                    hashInput.parent = list[index][3];
+                                    hashInput.source = args.path + sep + list[index][0].replace(/\//g, sep);
+                                    hashInput.stat = list[index][5];
+                                    hash(hashInput);
                                 }
                             },
-                            digest: "hex",
-                            directInput: false,
-                            id: null,
-                            list: false,
-                            parent: null,
-                            source: null,
-                            stat: null
-                        };
-                    log([`${humanTime(args.startTime, false)}File system mapped and starting hashing.`]);
-                    loop();
+                            hashInput:config_command_hash = {
+                                algorithm: "sha3-512",
+                                callback: function terminal_commands_library_directory_statWrapper_stat_populate_hashCallback(title:string, output:hash_output):void {
+                                    list[index][2] = output.hash;
+                                    mp3List.push(list[index]);
+                                    fileCount = fileCount + 1;
+                                    moveCursor(process.stdout, -10000, 0);
+                                    process.stdout.write(`${humanTime(args.startTime, false)}Hashed file ${fileCount} of ${files} (${((fileCount / files) * 100).toFixed(2)}%).`);
+                                    if (index > 0) {
+                                        loop();
+                                    } else {
+                                        args.callback(title, [summary, String(longest)], mp3List);
+                                    }
+                                },
+                                digest: "hex",
+                                directInput: false,
+                                id: null,
+                                list: false,
+                                parent: null,
+                                source: null,
+                                stat: null
+                            };
+                        log([`${humanTime(args.startTime, false)}File system mapped and starting hashing.`]);
+                        loop();
+                    }
                 } else if (args.mode === "search") {
                     args.callback(title, [summary, String(longest)], list);
                 } else {

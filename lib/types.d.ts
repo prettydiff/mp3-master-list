@@ -20,6 +20,8 @@ declare global {
      *     search: string;
      *     startTime: bigint;
      *     symbolic: boolean;
+     *     testing: boolean;
+     *     type: "movie" | "music";
      * }
      * type searchType = "fragment" | "negation" | "regex";
      * ``` */
@@ -31,7 +33,8 @@ declare global {
         search: string;
         startTime: bigint;
         symbolic: boolean;
-        type:"movie"|"music";
+        testing: boolean;
+        type: "movie" | "music";
     }
 
     /**
