@@ -150,6 +150,23 @@ declare global {
         [index:number]: directory_item;
     }
 
+    interface dom {
+        buttons: HTMLCollectionOf<HTMLElement>;
+        cellButtons: HTMLCollectionOf<HTMLElement>;
+        currentTime: HTMLElement;
+        currentTrack: HTMLElement;
+        currentTrackName: HTMLElement;
+        duration: HTMLElement;
+        inputs: HTMLCollectionOf<HTMLInputElement>;
+        player: HTMLMediaElement;
+        random: HTMLInputElement;
+        records: HTMLElement[];
+        seekSlider: HTMLElement;
+        sortSelect: HTMLSelectElement;
+        svgControls: HTMLCollectionOf<SVGSVGElement>;
+        wishlist: HTMLInputElement;
+    }
+
     /**
      * The output structure of the *hash* command.
      * ```typescript
