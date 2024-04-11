@@ -596,7 +596,7 @@ const init = function () {
             search: "",
             startTime: startTime,
             symbolic: false,
-            testing: true,
+            testing: false,
             type: type
         });
     }
