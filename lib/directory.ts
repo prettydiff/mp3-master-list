@@ -67,7 +67,6 @@ const directory = function terminal_commands_library_directory(args:config_comma
                 : "",
             callback = function terminal_commands_library_directory_callback():void {
                 if (args.mode === "hash") {
-                    
 
                     // bypass hashing for testing
                     if (args.testing === true) {
@@ -314,7 +313,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                         }
                                         fileList.push(`${typePadding}  ${comma}  ${relPath}`);
                                     }
-                                } else if ((args.type === "music" && (/\.(m|M)(p|P)3$/).test(relPath) === true) || args.type !== "music") {
+                                } else if ((args.type === "music" && (/\.mp3$/i).test(relPath) === true) || (args.type !== "music" && (/\.((avi)|(flv)|(mkv)|(mp4)|(ogg)|(webm)|(wmv))$/i).test(relPath) === true)) {
                                     files = files + 1;
                                     list.push([relPath, type, "", parent, 0, statData, ""]);
                                 }

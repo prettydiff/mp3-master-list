@@ -87,7 +87,7 @@ const init = function () {
                     "<meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0\">",
                     "<style type=\"text/css\">",
                     "body{font-family:sans-serif;font-size:10px;text-size-adjust:100%}",
-                    "h1{font-size:2em;margin:7em 0 0}",
+                    "h1{font-size:2em;margin:0}",
                     "legend,p,td,th{font-size:1.6em}",
                     "th{background:#ddd;padding:0.5em}",
                     "td{padding:0.2em 0.4em}",
@@ -104,11 +104,11 @@ const init = function () {
                     ".odd{background:#eee}",
                     "label span{display:inline-block;width:10em}",
                     "#currentTrack td{background:#fdd;border-color:#900;box-shadow:0.1em 0.1em 0.5em;color:#900}",
-                    "#currentTrackName{clear:both;margin:0.5em 0 0;text-align:center}",
+                    "#currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}",
                     "#minimize{float:left}",
                     "#mute{float:right}",
                     "#mute input{display:none}",
-                    "#player{background:#eee;border-color:#999;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ddd;height:12em;margin:-13em 0 0;position:fixed;width:60em}",
+                    "#player{background:#eee;border-color:#999;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ddd;height:auto;margin:0;position:fixed;top:1em;width:60em}",
                     "#player button{background:transparent;border-style:none;cursor:pointer;font-size:1em}",
                     "tbody td button.active,",
                     "tbody td button.active svg,",
@@ -140,12 +140,14 @@ const init = function () {
                     "#player #seekSlider{background:#fff;border-radius:50%;cursor:ew-resize;height:1em;left:0;margin:0;position:relative;top:0.85em;width:1em}",
                     "#player #volumeSlider{border-style:none;box-shadow:none;top:0.1em}",
                     "#player .volumeMinus{display:inline-block;margin:0 0 0 1em}",
+                    "#player video{width:inherit}",
                     "#currentTime{float:left;margin:-1.5em 0 0.25em 1em}",
                     "#duration{float:right;margin:-1.5em 1em 0.25em 0}",
-                    "@media only screen and (max-width: 600px) {#player{width:36em}#player .controls button{margin:0 0.75em;width:1.5em}}",
+                    "@media only screen and (max-width: 800px) {#player video{max-height:0em}#player .controls button{margin:0 0.75em;width:1.5em}}",
+                    "@media only screen and (max-width: 400px) {#player .pipe,#player .volumeMinus,#player .trackVolume,#player .volumePlus{display:none}#player #currentTrackName span{font-size:0.7em}}",
                     "</style>",
-                    `</head><body data-type="${type}">`,
-                    `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button>|<span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span>+</p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox" checked="checked"/></button></p></div>`,
+                    `</head><body class="${type}">`,
+                    `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox" checked="checked"/></button></p></div>`,
                     `<h1>${typeCaps} Master List</h1>`,
                     `<p>Dated: ${dateFormat(Date.now())}</p>`,
                     `<p>Location: ${resolve(process.argv[2])}</p>`,
@@ -415,6 +417,7 @@ const init = function () {
                                     "hash": "Hash"
                                 }
                                 : {
+                                    "play": "Play",
                                     "genre": "Genre",
                                     "title": "Title",
                                     "track": "Year",
@@ -481,11 +484,7 @@ const init = function () {
                                 } while (index < listLength);
                             } else {
                                 do {
-                                    if (type === "music") {
-                                        html.push(`<tr class="${(index % 2 === 0) ? "even" : "odd"}" data-path="${list[index][0]}">`);
-                                    } else {
-                                        html.push(`<tr class="${(index % 2 === 0) ? "even" : "odd"}">`);
-                                    }
+                                    html.push(`<tr class="${(index % 2 === 0) ? "even" : "odd"}" data-path="${list[index][0]}">`);
                                     do {
                                         if (headings[htmlIndex] === "play") {
                                             html.push(`<td><button>${svg.play}</button></td>`);
@@ -526,6 +525,7 @@ const init = function () {
                                     `<p>Total size: ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>`
                                 );
                             }
+                            // after the tables are complete
                             if (type === "music" || (type === "movie" && wish === true)) {
                                 if (production === true) {
                                     readFile(`${projectPath}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {

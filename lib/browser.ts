@@ -1,6 +1,6 @@
 
 (function () {
-    const type:"movie"|"music" = document.getElementsByTagName("body")[0].getAttribute("data-type") as "movie"|"music",
+    const type:"movie"|"music" = document.getElementsByTagName("body")[0].getAttribute("class") as "movie"|"music",
         dom:dom = {
             buttons: document.getElementsByTagName("button"),
             caseSensitive: document.getElementById("caseSensitive") as HTMLInputElement,
@@ -12,10 +12,12 @@
             filter: document.getElementById("filter") as HTMLInputElement,
             minimize: document.getElementById("minimize"),
             mute: document.getElementById("mute"),
-            player: (type === "music")
+            player: document.getElementById("player"),
+            media: (type === "music")
                 ? document.createElement("audio")
                 : document.createElement("video"),
             playerControls: document.getElementById("player").getElementsByClassName("controls")[0].getElementsByTagName("button"),
+            playerSource: document.createElement("source"),
             random: document.getElementById("player").getElementsByClassName("random")[0].getElementsByTagName("input")[0] as HTMLInputElement,
             randomButton: document.getElementById("player").getElementsByClassName("random")[0] as HTMLElement,
             records: (function ():HTMLElement[] {
@@ -38,6 +40,7 @@
             seekSlider: document.getElementById("seekSlider"),
             seekTrack: document.getElementById("seekSlider").parentNode as HTMLElement,
             sortSelect: document.getElementsByTagName("select")[0],
+            title: document.getElementsByTagName("h1")[0],
             volumeSlider: document.getElementById("volumeSlider"),
             volumeTrack: document.getElementById("volumeSlider").parentNode as HTMLElement,
             wishlist: document.getElementById("wishlist") as HTMLInputElement
@@ -151,7 +154,8 @@
                 button.setAttribute("class", "active");
             },
             durationChange: function () {
-                dom.duration.innerHTML = tools.humanTime(dom.player.duration);
+                dom.duration.innerHTML = tools.humanTime(dom.media.duration);
+                tools.titleTop();
             },
             minimize: function (event:MouseEvent) {
                 const target:HTMLElement = event.target as HTMLElement,
@@ -171,7 +175,6 @@
                             child.style.display = "none";
                         }
                     } while (index > 0);
-                    player.style.height = "3.5em";
                 } else {
                     target.removeChild(target.firstChild);
                     target.appendChild(document.createTextNode("-"));
@@ -192,11 +195,11 @@
                 if (input.checked === true) {
                     input.checked = false;
                     target.removeAttribute("class");
-                    dom.player.volume = 0;
+                    dom.media.volume = 0;
                 } else {
                     input.checked = true;
                     target.setAttribute("class", "active");
-                    dom.player.volume = playEvents.volume;
+                    dom.media.volume = playEvents.volume;
                 }
             },
             next: function ():void {
@@ -216,13 +219,13 @@
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
             pause: function (event:MouseEvent):void {
-                dom.player.pause();
+                dom.media.pause();
                 playEvents.playing = false;
                 playEvents.buttonPlayerActive(event.target as HTMLElement);
                 dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
             },
             play: function ():void {
-                dom.player.play();
+                dom.media.play();
                 playEvents.playing = true;
                 setTimeout(tools.currentTime, 50);
             },
@@ -233,7 +236,7 @@
             },
             playPlayer: function (event:MouseEvent) {
                 if (playEvents.playing === true) {
-                    dom.player.currentTime = 0;
+                    dom.media.currentTime = 0;
                 }
                 playEvents.play();
                 playEvents.buttonPlayerActive(event.target as HTMLElement);
@@ -272,12 +275,14 @@
                     touch:boolean = (event !== null && eventType === "touchstart"),
                     target:HTMLElement = event.target as HTMLElement,
                     button:HTMLElement = (eventType === "click")
-                        ? target.getElementsByTagName("button")[0]
-                        : tools.ancestor(target, "button"),
-                    type:"seek"|"volume" = (button === dom.seekSlider)
+                        ? (target.nodeName.toLowerCase() === "p")
+                            ? target.getElementsByTagName("button")[0]
+                            : target
+                        : tools.ancestor(target, "button");
+                const sliderType:"seek"|"volume" = (button === dom.seekSlider)
                         ? "seek"
                         : "volume",
-                    parentName:"p"|"span" = (type === "seek")
+                    parentName:"p"|"span" = (sliderType === "seek")
                         ? "p"
                         : "span",
                     parent:HTMLElement = (eventType === "click")
@@ -310,16 +315,18 @@
                             x:number = clientX - buttonWidth - parentOffset;
                         if (x - 1 > min && x + 1 < max) {
                             button.style.left = `${(x / 16).toFixed(2)}em`;
-                            if (type === "seek") {
-                                dom.player.currentTime = (x / (max - min)) * dom.player.duration;
+                            if (sliderType === "seek") {
+                                dom.media.currentTime = (x / (max - min)) * dom.media.duration;
                             } else {
                                 playEvents.volume = x / (max - min);
-                                dom.player.volume = playEvents.volume;
+                                dom.media.volume = playEvents.volume;
                             }
                         }
                     };
                 if (eventType === "click") {
-                    move(event);
+                    if (target.nodeName.toLowerCase() === "p") {
+                        move(event);
+                    }
                 } else {
                     event.preventDefault();
                     if (touch === true) {
@@ -335,7 +342,7 @@
             },
             stop: function (event:MouseEvent) {
                 playEvents.pause(event);
-                dom.player.currentTime = 0;
+                dom.media.currentTime = 0;
                 dom.currentTime.innerHTML = "00:00:00";
                 dom.seekSlider.style.left = "0";
             },
@@ -356,8 +363,8 @@
                 return parent;
             },
             currentTime: function ():void {
-                dom.currentTime.innerHTML = tools.humanTime(dom.player.currentTime);
-                dom.seekSlider.style.left = `${((dom.player.currentTime / dom.player.duration) * 100).toFixed(2)}%`;
+                dom.currentTime.innerHTML = tools.humanTime(dom.media.currentTime);
+                dom.seekSlider.style.left = `${((dom.media.currentTime / dom.media.duration) * 100).toFixed(2)}%`;
                 if (playEvents.playing === true) {
                     setTimeout(tools.currentTime, 50);
                 }
@@ -383,21 +390,37 @@
                 dom.currentTrack.removeAttribute("id");
                 dom.currentTrack = tr;
                 dom.currentTrack.setAttribute("id", "currentTrack");
-                dom.currentTrackName.innerHTML = `<strong>${td[4].innerHTML}</strong> by <em>${td[2].innerHTML}</em>`;
-                dom.player.src = tr.getAttribute("data-path");
-                dom.player.load();
+                if (type === "music") {
+                    dom.currentTrackName.innerHTML = `<strong>${td[4].innerHTML}</strong> by <em>${td[2].innerHTML}</em>`;
+                } else {
+                    dom.currentTrackName.innerHTML = `<strong>${td[2].innerHTML}</strong>`;
+                }
+                dom.playerSource.src = tr.getAttribute("data-path");
+                dom.media.load();
                 if (play === true) {
                     playEvents.play();
                     dom.currentTrack.getElementsByTagName("button")[0].setAttribute("class", "active");
                 }
+            },
+            titleTop: function ():void {
+                dom.title.style.marginTop = `${(dom.player.clientHeight / 20) + 1.5}em`;
             }
         },
         recordLength:number = dom.records.length;
     let index = dom.buttons.length;
+    dom.media.controls = false;
+    if (type === "movie") {
+        dom.playerSource.type = "video/mp4";
+        dom.player.insertBefore(dom.media, dom.player.firstChild);
+    } else {
+        dom.playerSource.type = "audio/mp3";
+    }
+    dom.media.appendChild(dom.playerSource);
+    tools.titleTop();
     if (dom.filter.value !== "") {
         list.filter();
     }
-    dom.player.setAttribute("preload", "metadata");
+    dom.media.setAttribute("preload", "metadata");
     do {
         index = index - 1;
         if (dom.buttons[index].parentNode.nodeName.toLowerCase() === "th") {
@@ -408,43 +431,40 @@
     dom.caseSensitive.onclick = list.filter;
     dom.sortSelect.onchange = list.filter;
     dom.minimize.onclick = playEvents.minimize;
-    dom.player.volume = playEvents.volume;
-    if (type === "music") {
-        tools.setCurrentTrack(dom.currentTrack, false);
-        index = dom.cellButtons.length;
-        do {
-            index = index - 1;
-            dom.cellButtons[index].onclick = playEvents.playList;
-        } while (index > 0);
-        dom.mute.onclick = playEvents.mute;
-        dom.seekTrack.onclick = playEvents.slider;
-        dom.volumeTrack.onclick = playEvents.slider;
-        dom.seekSlider.onmousedown = playEvents.slider;
-        dom.volumeSlider.onmousedown = playEvents.slider;
-        dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
-        // previous
-        dom.playerControls[0].onclick = playEvents.previous;
-        // play
-        dom.playerControls[1].onclick = playEvents.playPlayer;
-        // pause
-        dom.playerControls[2].onclick = playEvents.pause;
-        // stop
-        dom.playerControls[3].onclick = playEvents.stop;
-        // next
-        dom.playerControls[4].onclick = playEvents.next;
-        //svgControls[5].onclick = previous;
-        //svgControls[6].onclick = previous;
-        dom.player.onended = playEvents.next;
-        dom.player.ondurationchange = playEvents.durationChange;
-        dom.randomButton.onclick = playEvents.random;
-        if (window.innerWidth < 800) {
-            let player:HTMLElement = dom.currentTime.parentNode as HTMLElement;
-            player.style.width = "100%";
-        }
-    } else {
-        if (dom.wishlist !== null) {
-            // toggle movie wishlist
-            dom.wishlist.onclick = list.toggle;
-        }
+    dom.media.volume = playEvents.volume;
+    tools.setCurrentTrack(dom.currentTrack, false);
+    index = dom.cellButtons.length;
+    do {
+        index = index - 1;
+        dom.cellButtons[index].onclick = playEvents.playList;
+    } while (index > 0);
+    dom.mute.onclick = playEvents.mute;
+    dom.seekTrack.onclick = playEvents.slider;
+    dom.volumeTrack.onclick = playEvents.slider;
+    dom.seekSlider.onmousedown = playEvents.slider;
+    dom.volumeSlider.onmousedown = playEvents.slider;
+    dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
+    // previous
+    dom.playerControls[0].onclick = playEvents.previous;
+    // play
+    dom.playerControls[1].onclick = playEvents.playPlayer;
+    // pause
+    dom.playerControls[2].onclick = playEvents.pause;
+    // stop
+    dom.playerControls[3].onclick = playEvents.stop;
+    // next
+    dom.playerControls[4].onclick = playEvents.next;
+    //svgControls[5].onclick = previous;
+    //svgControls[6].onclick = previous;
+    dom.media.onended = playEvents.next;
+    dom.media.ondurationchange = playEvents.durationChange;
+    dom.randomButton.onclick = playEvents.random;
+    if (window.innerWidth < 800) {
+        let player:HTMLElement = dom.currentTime.parentNode as HTMLElement;
+        player.style.width = "100%";
+    }
+    if (dom.wishlist !== null) {
+        // toggle movie wishlist
+        dom.wishlist.onclick = list.toggle;
     }
 }());
