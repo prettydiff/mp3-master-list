@@ -3,16 +3,21 @@
     const type:"movie"|"music" = document.getElementsByTagName("body")[0].getAttribute("data-type") as "movie"|"music",
         dom:dom = {
             buttons: document.getElementsByTagName("button"),
+            caseSensitive: document.getElementById("caseSensitive") as HTMLInputElement,
             cellButtons: document.getElementsByTagName("tbody")[0].getElementsByTagName("button"),
             currentTime: document.getElementById("currentTime"),
             currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
-            currentTrackName: document.getElementById("currentTrackName"),
+            currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
             duration: document.getElementById("duration"),
-            inputs: document.getElementsByTagName("input"),
+            filter: document.getElementById("filter") as HTMLInputElement,
+            minimize: document.getElementById("minimize"),
+            mute: document.getElementById("mute"),
             player: (type === "music")
                 ? document.createElement("audio")
                 : document.createElement("video"),
-            random: document.getElementById("random") as HTMLInputElement,
+            playerControls: document.getElementById("player").getElementsByClassName("controls")[0].getElementsByTagName("button"),
+            random: document.getElementById("player").getElementsByClassName("random")[0].getElementsByTagName("input")[0] as HTMLInputElement,
+            randomButton: document.getElementById("player").getElementsByClassName("random")[0] as HTMLElement,
             records: (function ():HTMLElement[] {
                 const output:HTMLElement[] = [],
                     populate = function (tableIndex:number):void {
@@ -31,17 +36,18 @@
                 return output;
             }()),
             seekSlider: document.getElementById("seekSlider"),
+            seekTrack: document.getElementById("seekSlider").parentNode as HTMLElement,
             sortSelect: document.getElementsByTagName("select")[0],
-            svgControls: document.getElementById("player").getElementsByClassName("controls")[0].getElementsByTagName("svg"),
+            volumeSlider: document.getElementById("volumeSlider"),
+            volumeTrack: document.getElementById("volumeSlider").parentNode as HTMLElement,
             wishlist: document.getElementById("wishlist") as HTMLInputElement
         },
         list = {
             filter: function ():void {
-                const textInput:HTMLInputElement = dom.inputs[0],
-                    caseSensitive:boolean = dom.inputs[1].checked,
+                const caseSensitive:boolean = dom.caseSensitive.checked,
                     value:string = (caseSensitive === true)
-                        ? textInput.value
-                        : textInput.value.toLowerCase(),
+                        ? dom.filter.value
+                        : dom.filter.value.toLowerCase(),
                     select:HTMLSelectElement = dom.sortSelect;
                 let index:number = 0,
                     displayIndex:number = 0;
@@ -133,13 +139,70 @@
             }
         },
         playEvents = {
+            buttonPlayerActive: function (button:HTMLElement):void {
+                let index:number = dom.playerControls.length;
+                do {
+                    index = index - 1;
+                    if (dom.playerControls[index].getAttribute("class") !== "random" && dom.playerControls[index].getAttribute("class") !== "random active") {
+                        dom.playerControls[index].removeAttribute("class");
+                    }
+                } while (index > 0);
+                button = tools.ancestor(button, "button");
+                button.setAttribute("class", "active");
+            },
             durationChange: function () {
                 dom.duration.innerHTML = tools.humanTime(dom.player.duration);
             },
+            minimize: function (event:MouseEvent) {
+                const target:HTMLElement = event.target as HTMLElement,
+                    parent:HTMLElement = dom.currentTrackName.parentNode as HTMLElement,
+                    player:HTMLElement = parent.parentNode as HTMLElement,
+                    children:NodeListOf<ChildNode> = player.childNodes;
+                let index = children.length,
+                    child:HTMLElement = null;
+                if (target.firstChild.textContent === "-") {
+                    target.removeChild(target.firstChild);
+                    target.appendChild(document.createTextNode("+"));
+                    target.setAttribute("class", "active");
+                    do {
+                        index = index - 1;
+                        child = children[index] as HTMLElement;
+                        if (child !== parent) {
+                            child.style.display = "none";
+                        }
+                    } while (index > 0);
+                    player.style.height = "3.5em";
+                } else {
+                    target.removeChild(target.firstChild);
+                    target.appendChild(document.createTextNode("-"));
+                    target.removeAttribute("class");
+                    do {
+                        index = index - 1;
+                        child = children[index] as HTMLElement;
+                        if (child !== parent) {
+                            child.style.display = "block";
+                        }
+                    } while (index > 0);
+                    player.style.removeProperty("height");
+                }
+            },
+            mute: function (event:MouseEvent):void {
+                const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button"),
+                    input:HTMLInputElement = target.getElementsByTagName("input")[0];
+                if (input.checked === true) {
+                    input.checked = false;
+                    target.removeAttribute("class");
+                    dom.player.volume = 0;
+                } else {
+                    input.checked = true;
+                    target.setAttribute("class", "active");
+                    dom.player.volume = playEvents.volume;
+                }
+            },
             next: function ():void {
                 let nextElement:HTMLElement = (dom.random.checked === true)
-                        ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLength * Math.random())]
-                        : dom.currentTrack;
+                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLength * Math.random())]
+                    : dom.currentTrack;
                 do {
                     nextElement = nextElement.nextElementSibling as HTMLElement;
                     if (nextElement === null) {
@@ -150,10 +213,13 @@
                     }
                 } while (nextElement.style.display === "none");
                 tools.setCurrentTrack(nextElement, true);
+                playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            pause: function ():void {
+            pause: function (event:MouseEvent):void {
                 dom.player.pause();
                 playEvents.playing = false;
+                playEvents.buttonPlayerActive(event.target as HTMLElement);
+                dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
             },
             play: function ():void {
                 dom.player.play();
@@ -163,18 +229,22 @@
             playList: function (event:MouseEvent):void {
                 const target:HTMLElement = event.target as HTMLElement;
                 tools.setCurrentTrack(tools.ancestor(target, "tr"), true);
+                playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            playPlayer: function () {
+            playPlayer: function (event:MouseEvent) {
                 if (playEvents.playing === true) {
                     dom.player.currentTime = 0;
                 }
                 playEvents.play();
+                playEvents.buttonPlayerActive(event.target as HTMLElement);
+                dom.currentTrack.getElementsByTagName("button")[0].setAttribute("class", "active");
             },
             playing: false,
             previous: function () {
                 let previousElement:HTMLElement = (dom.random.checked === true)
                     ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLength * Math.random())]
                     : dom.currentTrack;
+                dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
                 do {
                     previousElement = previousElement.previousElementSibling as HTMLElement;
                     if (previousElement === null) {
@@ -185,13 +255,37 @@
                     }
                 } while (previousElement.style.display === "none");
                 tools.setCurrentTrack(previousElement, true);
+                playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            seekDown: function (event:MouseEvent|TouchEvent) {
-                const touch:boolean = (event !== null && event.type === "touchstart"),
-                    target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button"),
-                    parent:HTMLElement = tools.ancestor(target as HTMLElement, "p"),
-                    targetWidth:number = target.clientWidth,
-                    max:number = (parent.clientWidth + 2) - targetWidth,
+            random: function (event:MouseEvent) {
+                const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button");
+                if (dom.random.checked === true) {
+                    dom.random.checked = false;
+                    target.setAttribute("class", "random");
+                } else {
+                    dom.random.checked = true;
+                    target.setAttribute("class", "random active");
+                }
+            },
+            slider: function (event:MouseEvent|TouchEvent) {
+                const eventType:string = event.type,
+                    touch:boolean = (event !== null && eventType === "touchstart"),
+                    target:HTMLElement = event.target as HTMLElement,
+                    button:HTMLElement = (eventType === "click")
+                        ? target.getElementsByTagName("button")[0]
+                        : tools.ancestor(target, "button"),
+                    type:"seek"|"volume" = (button === dom.seekSlider)
+                        ? "seek"
+                        : "volume",
+                    parentName:"p"|"span" = (type === "seek")
+                        ? "p"
+                        : "span",
+                    parent:HTMLElement = (eventType === "click")
+                        ? tools.ancestor(target, parentName)
+                        : tools.ancestor(button, parentName),
+                    parentOffset:number = parent.offsetLeft,
+                    buttonWidth:number = button.clientWidth,
+                    max:number = (parent.clientWidth + 2) - buttonWidth,
                     min:number = -2,
                     drop = function (dropEvent:Event):void {
                         dropEvent.preventDefault();
@@ -213,29 +307,39 @@
                             clientX:number = (touch === true)
                                 ? touchMove.touches[0].clientX
                                 : mouseMove.clientX,
-                            x:number = clientX - (targetWidth * 2);
+                            x:number = clientX - buttonWidth - parentOffset;
                         if (x - 1 > min && x + 1 < max) {
-                            target.style.left = `${(x / 16).toFixed(2)}em`;
-                            dom.player.currentTime = (x / (max - min)) * dom.player.duration;
+                            button.style.left = `${(x / 16).toFixed(2)}em`;
+                            if (type === "seek") {
+                                dom.player.currentTime = (x / (max - min)) * dom.player.duration;
+                            } else {
+                                playEvents.volume = x / (max - min);
+                                dom.player.volume = playEvents.volume;
+                            }
                         }
                     };
-                event.preventDefault();
-                if (touch === true) {
-                    document.ontouchmove  = move;
-                    document.ontouchstart = null;
-                    document.ontouchend   = drop;
+                if (eventType === "click") {
+                    move(event);
                 } else {
-                    document.onmousemove = move;
-                    document.onmousedown = null;
-                    document.onmouseup   = drop;
+                    event.preventDefault();
+                    if (touch === true) {
+                        document.ontouchmove  = move;
+                        document.ontouchstart = null;
+                        document.ontouchend   = drop;
+                    } else {
+                        document.onmousemove = move;
+                        document.onmousedown = null;
+                        document.onmouseup   = drop;
+                    }
                 }
             },
-            stop: function () {
-                playEvents.pause();
+            stop: function (event:MouseEvent) {
+                playEvents.pause(event);
                 dom.player.currentTime = 0;
                 dom.currentTime.innerHTML = "00:00:00";
                 dom.seekSlider.style.left = "0";
-            }
+            },
+            volume: 0.5
         },
         tools = {
             ancestor: function (node:HTMLElement, name:string):HTMLElement {
@@ -275,6 +379,7 @@
             },
             setCurrentTrack: function (tr:HTMLElement, play:boolean):void {
                 const td:HTMLCollectionOf<HTMLElement> = tr.getElementsByTagName("td");
+                dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
                 dom.currentTrack.removeAttribute("id");
                 dom.currentTrack = tr;
                 dom.currentTrack.setAttribute("id", "currentTrack");
@@ -283,12 +388,13 @@
                 dom.player.load();
                 if (play === true) {
                     playEvents.play();
+                    dom.currentTrack.getElementsByTagName("button")[0].setAttribute("class", "active");
                 }
             }
         },
         recordLength:number = dom.records.length;
     let index = dom.buttons.length;
-    if (dom.inputs[0].value !== "") {
+    if (dom.filter.value !== "") {
         list.filter();
     }
     dom.player.setAttribute("preload", "metadata");
@@ -298,9 +404,11 @@
             dom.buttons[index].onclick = list.sort;
         }
     } while (index > 0);
-    dom.inputs[0].onblur = list.filter;
-    dom.inputs[1].onclick = list.filter;
+    dom.filter.onblur = list.filter;
+    dom.caseSensitive.onclick = list.filter;
     dom.sortSelect.onchange = list.filter;
+    dom.minimize.onclick = playEvents.minimize;
+    dom.player.volume = playEvents.volume;
     if (type === "music") {
         tools.setCurrentTrack(dom.currentTrack, false);
         index = dom.cellButtons.length;
@@ -308,21 +416,27 @@
             index = index - 1;
             dom.cellButtons[index].onclick = playEvents.playList;
         } while (index > 0);
-        dom.seekSlider.onmousedown = playEvents.seekDown;
+        dom.mute.onclick = playEvents.mute;
+        dom.seekTrack.onclick = playEvents.slider;
+        dom.volumeTrack.onclick = playEvents.slider;
+        dom.seekSlider.onmousedown = playEvents.slider;
+        dom.volumeSlider.onmousedown = playEvents.slider;
+        dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
         // previous
-        dom.svgControls[0].onclick = playEvents.previous;
+        dom.playerControls[0].onclick = playEvents.previous;
         // play
-        dom.svgControls[1].onclick = playEvents.playPlayer;
+        dom.playerControls[1].onclick = playEvents.playPlayer;
         // pause
-        dom.svgControls[2].onclick = playEvents.pause;
+        dom.playerControls[2].onclick = playEvents.pause;
         // stop
-        dom.svgControls[3].onclick = playEvents.stop;
+        dom.playerControls[3].onclick = playEvents.stop;
         // next
-        dom.svgControls[4].onclick = playEvents.next;
+        dom.playerControls[4].onclick = playEvents.next;
         //svgControls[5].onclick = previous;
         //svgControls[6].onclick = previous;
         dom.player.onended = playEvents.next;
         dom.player.ondurationchange = playEvents.durationChange;
+        dom.randomButton.onclick = playEvents.random;
         if (window.innerWidth < 800) {
             let player:HTMLElement = dom.currentTime.parentNode as HTMLElement;
             player.style.width = "100%";

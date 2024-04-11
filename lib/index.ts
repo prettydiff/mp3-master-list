@@ -68,15 +68,16 @@ const init = function () {
                     return `${pad(date.getDate(), false)} ${months[date.getMonth()]} ${date.getFullYear()} ${pad(date.getHours(), false)}:${pad(date.getMinutes(), false)}:${pad(date.getSeconds(), false)}.${pad(date.getMilliseconds(), true)}`;
                 },
                 svg:storeString = {
-                    circle: '<svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg>',
-                    play: '<svg data-type="play" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg>',
-                    pause: '<svg data-type="pause" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg>',
-                    sort: '<svg data-type="sort" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>',
-                    stop: '<svg data-type="stop" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg>',
-                    trackNext: '<svg data-type="trackNext" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg>',
-                    trackPrevious: '<svg data-type="trackPrevious" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg>',
-                    volumeDown: '<svg data-type="volumeDown" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M66.9,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C65.2,20.4,66.9,21.4,66.9,22.9z"/><path d="M72.3,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S76.7,57.9,72.3,57.9z"/><path d="M72.3,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8s-5.7-12.8-12.8-12.8c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S80.5,64.8,72.3,64.8z"/></svg>',
-                    volumeUp: '<svg data-type="volumeUp" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg>'
+                    circle:        '<svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg>',
+                    play:          '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg>',
+                    pause:         '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg>',
+                    random:        '<svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg>',
+                    sort:          '<svg version="1.1" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg>',
+                    stop:          '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg>',
+                    trackNext:     '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg>',
+                    trackPrevious: '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg>',
+                    volumeDown:    '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M66.9,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C65.2,20.4,66.9,21.4,66.9,22.9z"/><path d="M72.3,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S76.7,57.9,72.3,57.9z"/><path d="M72.3,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8s-5.7-12.8-12.8-12.8c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S80.5,64.8,72.3,64.8z"/></svg>',
+                    volumeUp:      '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg>'
                 },
                 html:string[] = [
                     "<!doctype html>",
@@ -86,7 +87,7 @@ const init = function () {
                     "<meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0\">",
                     "<style type=\"text/css\">",
                     "body{font-family:sans-serif;font-size:10px;text-size-adjust:100%}",
-                    "h1{font-size:2em;margin:8em 0 0}",
+                    "h1{font-size:2em;margin:7em 0 0}",
                     "legend,p,td,th{font-size:1.6em}",
                     "th{background:#ddd;padding:0.5em}",
                     "td{padding:0.2em 0.4em}",
@@ -103,21 +104,48 @@ const init = function () {
                     ".odd{background:#eee}",
                     "label span{display:inline-block;width:10em}",
                     "#currentTrack td{background:#fdd;border-color:#900;box-shadow:0.1em 0.1em 0.5em;color:#900}",
-                    "#currentTrackName{margin:0.5em 0 0;text-align:center}",
-                    "#player{background:#eee;border-color:#999;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ddd;height:11em;margin:-15em 0 0;position:fixed;width:60em}",
+                    "#currentTrackName{clear:both;margin:0.5em 0 0;text-align:center}",
+                    "#minimize{float:left}",
+                    "#mute{float:right}",
+                    "#mute input{display:none}",
+                    "#player{background:#eee;border-color:#999;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ddd;height:12em;margin:-13em 0 0;position:fixed;width:60em}",
                     "#player button{background:transparent;border-style:none;cursor:pointer;font-size:1em}",
-                    "#player .controls{clear:both;float:none;margin:0;text-align:center}",
-                    "#player .controls button{background:#ddd;border-color:#000;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ccc;display:inline-block;height:1em;margin:0 1em;width:2em}",
+                    "tbody td button.active,",
+                    "tbody td button.active svg,",
+                    "#player #minimize.active,",
+                    "#player #minimize.active svg,",
+                    "#player #mute.active,",
+                    "#player #mute.active svg,",
+                    "#player .controls button.active,",
+                    "#player .controls button.active svg{border-color:#00f;color:#00f;fill:#00f}",
+                    "#player .controls input{display:none}",
+                    "tbody td button.active,",
+                    "#player #minimize.active,",
+                    "#player #mute.active,",
+                    "#player .controls button.active{background:#eef;box-shadow:inset 0.1em 0.1em 0.2em #aaa}",
+                    "#player .controls{clear:both;float:none;height:1.6em;margin:0 0 0.5em;text-align:center}",
+                    "#player .controls button,",
+                    "#player #mute,",
+                    "#player #minimize{background:#ddd;border-color:#000;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ccc;display:inline-block;height:1.2em;line-height:0.5em;margin:0 1em;width:2em}",
+                    "#player #mute svg{height:1em}",
+                    "#player #mute{margin:0 1em 0 -3.2em}",
+                    "#player #minimize{margin:0 -3.2em 0 1em}",
                     "#player .controls svg{width:1em}",
-                    "#player .track{border-color:#000;border-style:none none solid;border-width:0.25em;margin:0 1em 2em;position:relative}",
+                    "#player .trackVolume,",
+                    "#player .track{border-color:#000;border-style:none none solid;border-width:0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}",
+                    "#player .trackVolume{display:inline-block;height:0.5em;margin:0 0.25em;width:8em}",
                     "#player button{padding:0}",
+                    "#player .controls .slider{width:10em}",
+                    "#player .controls .trackVolume button,",
                     "#player #seekSlider{background:#fff;border-radius:50%;cursor:ew-resize;height:1em;left:0;margin:0;position:relative;top:0.85em;width:1em}",
+                    "#player #volumeSlider{border-style:none;box-shadow:none;top:0.1em}",
+                    "#player .volumeMinus{display:inline-block;margin:0 0 0 1em}",
                     "#currentTime{float:left;margin:-1.5em 0 0.25em 1em}",
                     "#duration{float:right;margin:-1.5em 1em 0.25em 0}",
                     "@media only screen and (max-width: 600px) {#player{width:36em}#player .controls button{margin:0 0.75em;width:1.5em}}",
                     "</style>",
                     `</head><body data-type="${type}">`,
-                    `<div id="player"><p class="track"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button>${svg.stop}</button><button>${svg.trackNext}</button>|<button>${svg.volumeDown}</button><button>${svg.volumeUp}</button></p><p id="currentTrackName"></p></div>`,
+                    `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button>|<span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span>+</p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox" checked="checked"/></button></p></div>`,
                     `<h1>${typeCaps} Master List</h1>`,
                     `<p>Dated: ${dateFormat(Date.now())}</p>`,
                     `<p>Location: ${resolve(process.argv[2])}</p>`,
@@ -425,13 +453,14 @@ const init = function () {
                                 html.push("<table style=\"display:none\"><thead><tr>");
                             } else {
                                 html.push("<fieldset><legend>List Options</legend>");
-                                html.push("<p><label><span>Filter</span><input type=\"text\"/></label></p><p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>");
+                                html.push("<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>");
+                                html.push("<p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>");
                                 do {
                                     html.push(`<option>${headingMap[headings[htmlIndex]]}</option>`);
                                     htmlIndex = htmlIndex + 1;
                                 } while (htmlIndex < headings.length);
-                                html.push("</select></label></p><p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\"/></label></p>");
-                                html.push("<p><label><span>Random Media Play</span><input type=\"checkbox\" id=\"random\"/></label></p>");
+                                html.push("</select></label></p>");
+                                html.push("<p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\" id=\"caseSensitive\"/></label></p>");
                                 if (type === "movie") {
                                     html.push("<p><label><span>Show Wishlist</span><input type=\"checkbox\" id=\"wishlist\"/></label></p>");
                                 }
@@ -489,7 +518,7 @@ const init = function () {
                                         break;
                                     }
                                     x = x + 1;
-                                } while (x < 50);
+                                } while (x < 100);
                                 html.splice(
                                     x + 1,
                                     0,
@@ -567,7 +596,7 @@ const init = function () {
             search: "",
             startTime: startTime,
             symbolic: false,
-            testing: false,
+            testing: true,
             type: type
         });
     }

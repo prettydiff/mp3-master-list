@@ -152,18 +152,25 @@ declare global {
 
     interface dom {
         buttons: HTMLCollectionOf<HTMLElement>;
+        caseSensitive: HTMLInputElement;
         cellButtons: HTMLCollectionOf<HTMLElement>;
         currentTime: HTMLElement;
         currentTrack: HTMLElement;
         currentTrackName: HTMLElement;
         duration: HTMLElement;
-        inputs: HTMLCollectionOf<HTMLInputElement>;
+        filter: HTMLInputElement;
         player: HTMLMediaElement;
+        playerControls: HTMLCollectionOf<HTMLElement>;
+        minimize: HTMLElement;
+        mute: HTMLElement;
         random: HTMLInputElement;
+        randomButton: HTMLElement;
         records: HTMLElement[];
         seekSlider: HTMLElement;
+        seekTrack: HTMLElement;
         sortSelect: HTMLSelectElement;
-        svgControls: HTMLCollectionOf<SVGSVGElement>;
+        volumeSlider: HTMLElement;
+        volumeTrack: HTMLElement;
         wishlist: HTMLInputElement;
     }
 
