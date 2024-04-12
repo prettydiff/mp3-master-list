@@ -16,11 +16,13 @@ import writeStream from "./writeStream.js";
 const init = function () {
     const mp3dir:string = process.argv[2],
         startTime:bigint = process.hrtime.bigint(),
-        type:"movie"|"music" = (mp3dir.indexOf("movies") > -1)
-            ? "movie"
-            : "music",
+        type:"movie"|"music" = (mp3dir.indexOf("music") > -1)
+            ? "music"
+            : "movie",
         typeCaps:string = (type === "movie")
-            ? "Movie"
+            ? (mp3dir.indexOf("movie") > -1)
+                ? "Movie"
+                : "Television"
             : "Music",
         nextAction:string = (type === "movie")
             ? " Writing output"
@@ -141,6 +143,8 @@ const init = function () {
                     "#player #volumeSlider{border-style:none;box-shadow:none;top:0.1em}",
                     "#player .volumeMinus{display:inline-block;margin:0 0 0 1em}",
                     "#player video{width:inherit}",
+                    ".iphone #player .pipe,.iphone #player .volumeMinus,.iphone #player .trackVolume,.iphone #player .volumePlus,.iphone #player #mute{display:none}",
+                    ".iphone #player #minimize{margin:0 0 0 1em}",
                     "#currentTime{float:left;margin:-1.5em 0 0.25em 1em}",
                     "#duration{float:right;margin:-1.5em 1em 0.25em 0}",
                     "@media only screen and (max-width: 800px) {#player video{max-height:0em}#player .controls button{margin:0 0.75em;width:1.5em}}",

@@ -409,6 +409,9 @@
         recordLength:number = dom.records.length;
     let index = dom.buttons.length;
     dom.media.controls = false;
+    if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+        document.getElementsByTagName("body")[0].setAttribute("class", `${type} iphone`);
+    }
     if (type === "movie") {
         dom.playerSource.type = "video/mp4";
         dom.player.insertBefore(dom.media, dom.player.firstChild);
