@@ -167,7 +167,9 @@ declare global {
         playerSource: HTMLSourceElement;
         random: HTMLInputElement;
         randomButton: HTMLElement;
-        records: HTMLElement[];
+        recordsAll: HTMLElement[];
+        recordsMedia: HTMLElement[];
+        recordsWish: HTMLElement[];
         seekSlider: HTMLElement;
         seekTrack: HTMLElement;
         sortSelect: HTMLSelectElement;

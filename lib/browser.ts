@@ -1,50 +1,6 @@
 
 (function () {
     const type:"movie"|"music" = document.getElementsByTagName("body")[0].getAttribute("class") as "movie"|"music",
-        dom:dom = {
-            buttons: document.getElementsByTagName("button"),
-            caseSensitive: document.getElementById("caseSensitive") as HTMLInputElement,
-            cellButtons: document.getElementsByTagName("tbody")[0].getElementsByTagName("button"),
-            currentTime: document.getElementById("currentTime"),
-            currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
-            currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
-            duration: document.getElementById("duration"),
-            filter: document.getElementById("filter") as HTMLInputElement,
-            minimize: document.getElementById("minimize"),
-            mute: document.getElementById("mute"),
-            player: document.getElementById("player"),
-            media: (type === "music")
-                ? document.createElement("audio")
-                : document.createElement("video"),
-            playerControls: document.getElementById("player").getElementsByClassName("controls")[0].getElementsByTagName("button"),
-            playerSource: document.createElement("source"),
-            random: document.getElementById("player").getElementsByClassName("random")[0].getElementsByTagName("input")[0] as HTMLInputElement,
-            randomButton: document.getElementById("player").getElementsByClassName("random")[0] as HTMLElement,
-            records: (function ():HTMLElement[] {
-                const output:HTMLElement[] = [],
-                    populate = function (tableIndex:number):void {
-                        const tr:HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("tbody")[tableIndex].getElementsByTagName("tr"),
-                            trLen:number = tr.length;
-                        let index:number = 0;
-                        do {
-                            output.push(tr[index]);
-                            index = index + 1;
-                        } while (index < trLen);
-                    };
-                populate(0);
-                if (document.getElementsByTagName("table").length > 1) {
-                    populate(1);
-                }
-                return output;
-            }()),
-            seekSlider: document.getElementById("seekSlider"),
-            seekTrack: document.getElementById("seekSlider").parentNode as HTMLElement,
-            sortSelect: document.getElementsByTagName("select")[0],
-            title: document.getElementsByTagName("h1")[0],
-            volumeSlider: document.getElementById("volumeSlider"),
-            volumeTrack: document.getElementById("volumeSlider").parentNode as HTMLElement,
-            wishlist: document.getElementById("wishlist") as HTMLInputElement
-        },
         list = {
             filter: function ():void {
                 const caseSensitive:boolean = dom.caseSensitive.checked,
@@ -56,42 +12,49 @@
                     displayIndex:number = 0;
                 if (select.selectedIndex === 0) {
                     do {
-                        if ((caseSensitive === true && dom.records[index].innerHTML.includes(value) === true) || (caseSensitive === false && dom.records[index].innerHTML.toLowerCase().includes(value) === true)) {
-                            dom.records[index].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
-                            dom.records[index].style.display = "table-row";
+                        if ((caseSensitive === true && dom.recordsAll[index].innerHTML.includes(value) === true) || (caseSensitive === false && dom.recordsAll[index].innerHTML.toLowerCase().includes(value) === true)) {
+                            dom.recordsAll[index].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
+                            dom.recordsAll[index].style.display = "table-row";
                             displayIndex = displayIndex + 1;
                         } else {
-                            dom.records[index].style.display = "none";
+                            dom.recordsAll[index].style.display = "none";
                         }
                         index = index + 1;
-                    } while (index < recordLength);
+                    } while (index < recordLengthAll);
                 } else {
                     const headingIndex:number = select.selectedIndex - 1;
                     do {
-                        if ((caseSensitive === true && dom.records[index].getElementsByTagName("td")[headingIndex].firstChild.textContent.includes(value) === true) || (caseSensitive === false && dom.records[index].getElementsByTagName("td")[headingIndex].firstChild.textContent.toLowerCase().includes(value) === true)) {
-                            dom.records[index].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
-                            dom.records[index].style.display = "table-row";
+                        if ((caseSensitive === true && dom.recordsAll[index].getElementsByTagName("td")[headingIndex].firstChild.textContent.includes(value) === true) || (caseSensitive === false && dom.recordsAll[index].getElementsByTagName("td")[headingIndex].firstChild.textContent.toLowerCase().includes(value) === true)) {
+                            dom.recordsAll[index].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
+                            dom.recordsAll[index].style.display = "table-row";
                             displayIndex = displayIndex + 1;
                         } else {
-                            dom.records[index].style.display = "none";
+                            dom.recordsAll[index].style.display = "none";
                         }
                         index = index + 1;
-                    } while (index < recordLength);
+                    } while (index < recordLengthAll);
                 }
             },
             sort: function (event:MouseEvent):void {
-                const target:HTMLElement = event.target as HTMLElement,
+                const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button") as HTMLElement,
                     direction:string = target.getAttribute("data-direction"),
-                    th:HTMLCollectionOf<HTMLElement> = document.getElementsByTagName("thead")[0].getElementsByTagName("th"),
-                    tbody:HTMLElement = document.getElementsByTagName("tbody")[0];
-                let thIndex:number = th.length,
-                    displayIndex:number = 0,
-                    label:string = "";
+                    th:HTMLElement = tools.ancestor(target, "th"),
+                    thList:HTMLCollectionOf<HTMLElement> = tools.ancestor(th, "thead").getElementsByTagName("th"),
+                    table:HTMLElement = tools.ancestor(th, "table"),
+                    records:HTMLElement[] = (table === document.getElementsByTagName("table")[0])
+                        ? dom.recordsMedia
+                        : dom.recordsWish,
+                    recordsLength:number = (records === dom.recordsMedia)
+                        ? recordLengthMedia
+                        : recordLengthWish,
+                    tbody:HTMLElement = table.getElementsByTagName("tbody")[0] as HTMLElement,
+                    label:string = th.lastChild.textContent.trim();
+                let displayIndex:number = 0,
+                    thIndex = thList.length;
                 do {
                     thIndex = thIndex - 1;
-                } while (thIndex > 0 && th[thIndex] !== target.parentNode);
-                label = th[thIndex].firstChild.textContent.trim();
-                dom.records.sort(function (a, b) {
+                } while (thIndex > 0 && thList[thIndex] !== th);
+                records.sort(function (a, b) {
                     const numeric:boolean = (label === "File Size" || label === "Modified"),
                         tda = (numeric === true)
                             ? a.getElementsByTagName("td")[thIndex].getAttribute("data-numeric")
@@ -113,13 +76,13 @@
                 tbody.innerHTML = "";
                 thIndex = 0;
                 do {
-                    if (dom.records[thIndex].style.display !== "none") {
-                        dom.records[thIndex].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
+                    if (records[thIndex].style.display !== "none") {
+                        records[thIndex].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
                         displayIndex = displayIndex + 1;
                     }
-                    tbody.appendChild(dom.records[thIndex]);
+                    tbody.appendChild(records[thIndex]);
                     thIndex = thIndex + 1;
-                } while (thIndex < recordLength);
+                } while (thIndex < recordsLength);
                 if (direction === "descend") {
                     target.setAttribute("data-direction", "ascend");
                 } else {
@@ -153,11 +116,11 @@
                 button = tools.ancestor(button, "button");
                 button.setAttribute("class", "active");
             },
-            durationChange: function () {
+            durationChange: function ():void {
                 dom.duration.innerHTML = tools.humanTime(dom.media.duration);
                 tools.titleTop();
             },
-            minimize: function (event:MouseEvent) {
+            minimize: function (event:MouseEvent):void {
                 const target:HTMLElement = event.target as HTMLElement,
                     parent:HTMLElement = dom.currentTrackName.parentNode as HTMLElement,
                     player:HTMLElement = parent.parentNode as HTMLElement,
@@ -204,7 +167,7 @@
             },
             next: function ():void {
                 let nextElement:HTMLElement = (dom.random.checked === true)
-                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLength * Math.random())]
+                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLengthMedia * Math.random())]
                     : dom.currentTrack;
                 do {
                     nextElement = nextElement.nextElementSibling as HTMLElement;
@@ -234,7 +197,7 @@
                 tools.setCurrentTrack(tools.ancestor(target, "tr"), true);
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            playPlayer: function (event:MouseEvent) {
+            playPlayer: function (event:MouseEvent):void {
                 if (playEvents.playing === true) {
                     dom.media.currentTime = 0;
                 }
@@ -243,15 +206,15 @@
                 dom.currentTrack.getElementsByTagName("button")[0].setAttribute("class", "active");
             },
             playing: false,
-            previous: function () {
+            previous: function ():void {
                 let previousElement:HTMLElement = (dom.random.checked === true)
-                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLength * Math.random())]
+                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLengthMedia * Math.random())]
                     : dom.currentTrack;
                 dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
                 do {
                     previousElement = previousElement.previousElementSibling as HTMLElement;
                     if (previousElement === null) {
-                        previousElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[recordLength - 1];
+                        previousElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[recordLengthMedia - 1];
                     }
                     if (previousElement.getAttribute("id") === "currentTrack") {
                         return;
@@ -260,7 +223,7 @@
                 tools.setCurrentTrack(previousElement, true);
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            random: function (event:MouseEvent) {
+            random: function (event:MouseEvent):void {
                 const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button");
                 if (dom.random.checked === true) {
                     dom.random.checked = false;
@@ -270,7 +233,7 @@
                     target.setAttribute("class", "random active");
                 }
             },
-            slider: function (event:MouseEvent|TouchEvent) {
+            slider: function (event:MouseEvent|TouchEvent):void {
                 const eventType:string = event.type,
                     touch:boolean = (event !== null && eventType === "touchstart"),
                     target:HTMLElement = event.target as HTMLElement,
@@ -340,11 +303,22 @@
                     }
                 }
             },
-            stop: function (event:MouseEvent) {
+            stop: function (event:MouseEvent):void {
                 playEvents.pause(event);
                 dom.media.currentTime = 0;
                 dom.currentTime.innerHTML = "00:00:00";
                 dom.seekSlider.style.left = "0";
+            },
+            timeJump: function (event:KeyboardEvent):void {
+                const active:HTMLElement = document.activeElement as HTMLElement,
+                    key:string = event.key;
+                if (key === "ArrowLeft") {
+                    event.preventDefault();
+                    dom.media.currentTime = dom.media.currentTime - 5;
+                } else if (key === "ArrowRight") {
+                    event.preventDefault();
+                    dom.media.currentTime = dom.media.currentTime + 5;
+                }
             },
             volume: 0.5
         },
@@ -368,6 +342,33 @@
                 if (playEvents.playing === true) {
                     setTimeout(tools.currentTime, 50);
                 }
+            },
+            getRecords: function (tableIndex:number):HTMLElement[] {
+                const output:HTMLElement[] = [],
+                    populate = function (indexValue:number):void {
+                        const tbody:HTMLElement = document.getElementsByTagName("tbody")[indexValue],
+                            tr:HTMLCollectionOf<HTMLElement> = (tbody === undefined)
+                                ? null
+                                : tbody.getElementsByTagName("tr"),
+                            trLen:number = (tbody === undefined)
+                                ? 0
+                                : tr.length;
+                        let index:number = 0;
+                        if (tbody === undefined) {
+                            return;
+                        }
+                        do {
+                            output.push(tr[index]);
+                            index = index + 1;
+                        } while (index < trLen);
+                    };
+                if (tableIndex === -1) {
+                    populate(0);
+                    populate(1);
+                } else {
+                    populate(tableIndex);
+                }
+                return output;
             },
             humanTime: function (input:number) {
                 const hour:number = Math.floor(input / 3600),
@@ -406,47 +407,101 @@
                 dom.title.style.marginTop = `${(dom.player.clientHeight / 20) + 1.5}em`;
             }
         },
-        recordLength:number = dom.records.length;
+        dom:dom = {
+            buttons: document.getElementsByTagName("button"),
+            caseSensitive: document.getElementById("caseSensitive") as HTMLInputElement,
+            cellButtons: document.getElementsByTagName("tbody")[0].getElementsByTagName("button"),
+            currentTime: document.getElementById("currentTime"),
+            currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
+            currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
+            duration: document.getElementById("duration"),
+            filter: document.getElementById("filter") as HTMLInputElement,
+            minimize: document.getElementById("minimize"),
+            mute: document.getElementById("mute"),
+            player: document.getElementById("player"),
+            media: (type === "music")
+                ? document.createElement("audio")
+                : document.createElement("video"),
+            playerControls: document.getElementById("player").getElementsByClassName("controls")[0].getElementsByTagName("button"),
+            playerSource: document.createElement("source"),
+            random: document.getElementById("player").getElementsByClassName("random")[0].getElementsByTagName("input")[0] as HTMLInputElement,
+            randomButton: document.getElementById("player").getElementsByClassName("random")[0] as HTMLElement,
+            recordsAll: tools.getRecords(-1),
+            recordsMedia: tools.getRecords(0),
+            recordsWish: tools.getRecords(1),
+            seekSlider: document.getElementById("seekSlider"),
+            seekTrack: document.getElementById("seekSlider").parentNode as HTMLElement,
+            sortSelect: document.getElementsByTagName("select")[0],
+            title: document.getElementsByTagName("h1")[0],
+            volumeSlider: document.getElementById("volumeSlider"),
+            volumeTrack: document.getElementById("volumeSlider").parentNode as HTMLElement,
+            wishlist: document.getElementById("wishlist") as HTMLInputElement
+        },
+        recordLengthAll:number = dom.recordsAll.length,
+        recordLengthMedia:number = dom.recordsMedia.length,
+        recordLengthWish:number = dom.recordsWish.length;
     let index = dom.buttons.length;
-    dom.media.controls = false;
+
+    // iphone styles
     if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
         document.getElementsByTagName("body")[0].setAttribute("class", `${type} iphone`);
+    } else {
+        // iphone doesn't get volume controls as they make you use the physical volume buttons
+        dom.media.volume = playEvents.volume;
     }
+
+    // set media type
     if (type === "movie") {
         dom.playerSource.type = "video/mp4";
         dom.player.insertBefore(dom.media, dom.player.firstChild);
     } else {
         dom.playerSource.type = "audio/mp3";
     }
+
+    // disable browser media controls
+    dom.media.controls = false;
+
+    // do this to ensure track time data populates
+    dom.media.setAttribute("preload", "metadata");
+
+    // put the media element into the DOM
     dom.media.appendChild(dom.playerSource);
+
+    // apply a dynamic marge above the title
     tools.titleTop();
+
+    // apply any filter on page load if there is text in the filter field
     if (dom.filter.value !== "") {
         list.filter();
     }
-    dom.media.setAttribute("preload", "metadata");
+
+    // table header sort buttons
     do {
         index = index - 1;
         if (dom.buttons[index].parentNode.nodeName.toLowerCase() === "th") {
             dom.buttons[index].onclick = list.sort;
         }
     } while (index > 0);
+
+    // apply a bunch of event handlers
     dom.filter.onblur = list.filter;
     dom.caseSensitive.onclick = list.filter;
     dom.sortSelect.onchange = list.filter;
     dom.minimize.onclick = playEvents.minimize;
-    dom.media.volume = playEvents.volume;
-    tools.setCurrentTrack(dom.currentTrack, false);
     index = dom.cellButtons.length;
     do {
         index = index - 1;
         dom.cellButtons[index].onclick = playEvents.playList;
     } while (index > 0);
-    dom.mute.onclick = playEvents.mute;
+    // seek
     dom.seekTrack.onclick = playEvents.slider;
-    dom.volumeTrack.onclick = playEvents.slider;
     dom.seekSlider.onmousedown = playEvents.slider;
+    // volume
+    dom.volumeTrack.onclick = playEvents.slider;
     dom.volumeSlider.onmousedown = playEvents.slider;
     dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
+    // mute
+    dom.mute.onclick = playEvents.mute;
     // previous
     dom.playerControls[0].onclick = playEvents.previous;
     // play
@@ -457,17 +512,19 @@
     dom.playerControls[3].onclick = playEvents.stop;
     // next
     dom.playerControls[4].onclick = playEvents.next;
-    //svgControls[5].onclick = previous;
-    //svgControls[6].onclick = previous;
+    // random button
+    dom.randomButton.onclick = playEvents.random;
+
+    document.onkeydown = playEvents.timeJump;
+
     dom.media.onended = playEvents.next;
     dom.media.ondurationchange = playEvents.durationChange;
-    dom.randomButton.onclick = playEvents.random;
-    if (window.innerWidth < 800) {
-        let player:HTMLElement = dom.currentTime.parentNode as HTMLElement;
-        player.style.width = "100%";
-    }
+
     if (dom.wishlist !== null) {
         // toggle movie wishlist
         dom.wishlist.onclick = list.toggle;
     }
+
+    // set the active track
+    tools.setCurrentTrack(dom.currentTrack, false);
 }());
