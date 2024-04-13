@@ -58,10 +58,14 @@
                     const numeric:boolean = (label === "File Size" || label === "Modified"),
                         tda = (numeric === true)
                             ? a.getElementsByTagName("td")[thIndex].getAttribute("data-numeric")
-                            : a.getElementsByTagName("td")[thIndex].firstChild.textContent,
+                            : (a.getElementsByTagName("td")[thIndex].firstChild === null)
+                                ? null
+                                : a.getElementsByTagName("td")[thIndex].firstChild.textContent,
                         tdb = (numeric === true)
                             ? b.getElementsByTagName("td")[thIndex].getAttribute("data-numeric")
-                            : b.getElementsByTagName("td")[thIndex].firstChild.textContent;
+                            : (b.getElementsByTagName("td")[thIndex].firstChild === null)
+                                ? null
+                                : b.getElementsByTagName("td")[thIndex].firstChild.textContent;
                     if (direction === "descend") {
                         if (((numeric === true || label === "Track") && Number(tda) < Number(tdb)) || (numeric === false && label !== "Track" && tda < tdb)) {
                             return 1;
