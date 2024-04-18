@@ -1,6 +1,7 @@
 
 (function () {
     const type:"movie"|"music" = document.getElementsByTagName("body")[0].getAttribute("class") as "movie"|"music",
+        trackList:HTMLElement[] = [],
         list = {
             filter: function ():void {
                 const caseSensitive:boolean = dom.caseSensitive.checked,
@@ -124,6 +125,9 @@
                 dom.duration.innerHTML = tools.humanTime(dom.media.duration);
                 tools.titleTop();
             },
+            error: function ():void {
+                dom.duration.innerHTML = "Error";
+            },
             minimize: function (event:MouseEvent):void {
                 const target:HTMLElement = event.target as HTMLElement,
                     parent:HTMLElement = dom.currentTrackName.parentNode as HTMLElement,
@@ -171,8 +175,10 @@
             },
             next: function ():void {
                 let nextElement:HTMLElement = (dom.random.checked === true)
-                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLengthMedia * Math.random())]
+                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[tools.randomIndex()]
                     : dom.currentTrack;
+
+                // cycle through hidden next tracks
                 do {
                     nextElement = nextElement.nextElementSibling as HTMLElement;
                     if (nextElement === null) {
@@ -182,7 +188,10 @@
                         return;
                     }
                 } while (nextElement.style.display === "none");
+
+                // assign the selected track for playing
                 tools.setCurrentTrack(nextElement, true);
+                trackList.push(nextElement);
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
             pause: function (event:MouseEvent):void {
@@ -197,8 +206,10 @@
                 setTimeout(tools.currentTime, 50);
             },
             playList: function (event:MouseEvent):void {
-                const target:HTMLElement = event.target as HTMLElement;
-                tools.setCurrentTrack(tools.ancestor(target, "tr"), true);
+                const target:HTMLElement = event.target as HTMLElement,
+                    next:HTMLElement = tools.ancestor(target, "tr");
+                tools.setCurrentTrack(next, true);
+                trackList.push(next);
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
             playPlayer: function (event:MouseEvent):void {
@@ -211,23 +222,33 @@
             },
             playing: false,
             previous: function ():void {
-                let previousElement:HTMLElement = (dom.random.checked === true)
-                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[Math.floor(recordLengthMedia * Math.random())]
-                    : dom.currentTrack;
+                trackList.pop();
+                let trackListTest:boolean = (trackList.length > 0),
+                    previousElement:HTMLElement = (trackListTest === true)
+                        ? trackList.pop()
+                        : dom.currentTrack;
+
+                // remove the class attribute from the currentTrack, because its no longer the actively playing track
                 dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
-                do {
-                    previousElement = previousElement.previousElementSibling as HTMLElement;
-                    if (previousElement === null) {
-                        previousElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[recordLengthMedia - 1];
-                    }
-                    if (previousElement.getAttribute("id") === "currentTrack") {
-                        return;
-                    }
-                } while (previousElement.style.display === "none");
+
+                // cycle through hidden previous tracks
+                if (trackListTest === false || (trackListTest === true && previousElement.style.display === "none")) {
+                    do {
+                        previousElement = previousElement.previousElementSibling as HTMLElement;
+                        if (previousElement === null) {
+                            previousElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[recordLengthMedia - 1];
+                        }
+                        if (previousElement.getAttribute("id") === "currentTrack") {
+                            return;
+                        }
+                    } while (previousElement.style.display === "none");
+                }
+
+                // assign the selected track for playing
                 tools.setCurrentTrack(previousElement, true);
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            random: function (event:MouseEvent):void {
+            randomToggle: function (event:MouseEvent):void {
                 const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button");
                 if (dom.random.checked === true) {
                     dom.random.checked = false;
@@ -314,8 +335,7 @@
                 dom.seekSlider.style.left = "0";
             },
             timeJump: function (event:KeyboardEvent):void {
-                const active:HTMLElement = document.activeElement as HTMLElement,
-                    key:string = event.key;
+                const key:string = event.key;
                 if (key === "ArrowLeft") {
                     event.preventDefault();
                     dom.media.currentTime = dom.media.currentTime - 5;
@@ -374,7 +394,7 @@
                 }
                 return output;
             },
-            humanTime: function (input:number) {
+            humanTime: function (input:number):string {
                 const hour:number = Math.floor(input / 3600),
                     min:number = Math.floor((input % 3600) / 60),
                     second:number = Math.floor((input % 3600) % 60),
@@ -388,6 +408,9 @@
                         ? `0${second}`
                         : String(second);
                 return `${hStr}:${mStr}:${sStr}`;
+            },
+            randomIndex: function ():number {
+                return Math.floor((window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10) * recordLengthMedia);
             },
             setCurrentTrack: function (tr:HTMLElement, play:boolean):void {
                 const td:HTMLCollectionOf<HTMLElement> = tr.getElementsByTagName("td");
@@ -517,12 +540,15 @@
     // next
     dom.playerControls[4].onclick = playEvents.next;
     // random button
-    dom.randomButton.onclick = playEvents.random;
+    dom.randomButton.onclick = playEvents.randomToggle;
 
+    // seek skipping
     document.onkeydown = playEvents.timeJump;
 
+    // general media player events
     dom.media.onended = playEvents.next;
     dom.media.ondurationchange = playEvents.durationChange;
+    dom.media.onerror = playEvents.error;
 
     if (dom.wishlist !== null) {
         // toggle movie wishlist
