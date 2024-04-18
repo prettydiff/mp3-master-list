@@ -1,6 +1,6 @@
 
 (function () {
-    const type:"movie"|"music" = document.getElementsByTagName("body")[0].getAttribute("class") as "movie"|"music",
+    const type:"movie"|"music"|"television" = document.getElementsByTagName("body")[0].getAttribute("class") as "movie"|"music"|"television",
         trackList:HTMLElement[] = [],
         list = {
             filter: function ():void {
@@ -478,11 +478,11 @@
     }
 
     // set media type
-    if (type === "movie") {
+    if (type === "music") {
+        dom.playerSource.type = "audio/mp3";
+    } else {
         dom.playerSource.type = "video/mp4";
         dom.player.insertBefore(dom.media, dom.player.firstChild);
-    } else {
-        dom.playerSource.type = "audio/mp3";
     }
 
     // disable browser media controls

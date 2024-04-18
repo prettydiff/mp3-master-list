@@ -16,15 +16,17 @@ import writeStream from "./writeStream.js";
 const init = function () {
     const mp3dir:string = process.argv[2],
         startTime:bigint = process.hrtime.bigint(),
-        type:"movie"|"music" = (mp3dir.indexOf("music") > -1)
+        type:"movie"|"music"|"television" = (mp3dir.indexOf("music") > -1)
             ? "music"
-            : "movie",
+            : (mp3dir.indexOf("movie") > -1)
+                ? "movie"
+                : "television",
         typeCaps:string = (type === "movie")
-            ? (mp3dir.indexOf("movie") > -1)
-                ? "Movie"
-                : "Television"
-            : "Music",
-        nextAction:string = (type === "movie")
+            ? "Movie"
+                : (type === "television")
+                    ? "Television"
+                    : "Music",
+        nextAction:string = (type === "movie" || type === "television")
             ? " Writing output"
             : "Reading ID3 tags",
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
@@ -392,7 +394,7 @@ const init = function () {
                         } else {
                             dirs = list[index][0].split("/");
                             if (dirs.length > 1) {
-                                fileList[index][5].genre = dirs[dirs.length - 2].charAt(0).toUpperCase() + dirs[dirs.length - 2].slice(1);
+                                fileList[index][5].genre = dirs.slice(0, dirs.length - 2).join(", ");
                                 fileList[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
                                 fileList[index][5].track = fileList[index][5].title.slice(fileList[index][5].title.indexOf("(") + 1, fileList[index][5].title.length - 1);
                                 fileList[index][5].artist = dirs[dirs.length - 1].slice(dirs[dirs.length - 1].lastIndexOf(".") + 1);
@@ -424,7 +426,9 @@ const init = function () {
                                 }
                                 : {
                                     "play": "Play",
-                                    "genre": "Genre",
+                                    "genre": (type === "movie")
+                                        ? "Genre"
+                                        : "Show",
                                     "title": "Title",
                                     "track": "Year",
                                     "artist": "Type",
@@ -470,7 +474,7 @@ const init = function () {
                                 } while (htmlIndex < headings.length);
                                 html.push("</select></label></p>");
                                 html.push("<p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\" id=\"caseSensitive\"/></label></p>");
-                                if (type === "movie") {
+                                if (type === "movie" || type === "television") {
                                     html.push("<p><label><span>Show Wishlist</span><input type=\"checkbox\" id=\"wishlist\"/></label></p>");
                                 }
                                 html.push("</fieldset><table><thead><tr>");
@@ -532,7 +536,7 @@ const init = function () {
                                 );
                             }
                             // after the tables are complete
-                            if (type === "music" || (type === "movie" && wish === true)) {
+                            if (type === "music" || ((type === "movie" || type === "television") && wish === true)) {
                                 if (production === true) {
                                     readFile(`${projectPath}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
                                         if (erRead === null) {
@@ -581,7 +585,7 @@ const init = function () {
                 return 1;
             });
             readTags(false);
-            if (type === "movie") {
+            if (type === "movie" || type === "television") {
                 readTags(true);
             }
             log([

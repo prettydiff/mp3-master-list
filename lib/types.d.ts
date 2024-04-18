@@ -21,7 +21,7 @@ declare global {
      *     startTime: bigint;
      *     symbolic: boolean;
      *     testing: boolean;
-     *     type: "movie" | "music";
+     *     type: "movie" | "music" | "television";
      * }
      * type searchType = "fragment" | "negation" | "regex";
      * ``` */
@@ -34,7 +34,7 @@ declare global {
         startTime: bigint;
         symbolic: boolean;
         testing: boolean;
-        type: "movie" | "music";
+        type: "movie" | "music" | "television";
     }
 
     /**
