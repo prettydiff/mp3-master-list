@@ -36,6 +36,12 @@
                     } while (index < recordLengthAll);
                 }
             },
+            filterKey: function (event:KeyboardEvent):void {
+                const key:string = event.key.toLowerCase();
+                if (key === "enter") {
+                    list.filter();
+                }
+            },
             sort: function (event:MouseEvent):void {
                 const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button") as HTMLElement,
                     direction:string = target.getAttribute("data-direction"),
@@ -410,7 +416,28 @@
                 return `${hStr}:${mStr}:${sStr}`;
             },
             randomIndex: function ():number {
-                return Math.floor((window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10) * recordLengthMedia);
+                let index:number = 0,
+                    first:number = 0,
+                    last:number = recordLengthMedia - 1,
+                    seed:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10),
+                    random:number = Math.round(seed * recordLengthMedia);
+                if (dom.recordsMedia[0].style.display === "none") {
+                    do {
+                        index = index + 1;
+                    } while (dom.recordsMedia[index].style.display === "none" && index < last);
+                    first = index;
+                }
+                if (first < last && dom.recordsMedia[index].style.display === "none") {
+                    index = last;
+                    do {
+                        index = index - 1;
+                    } while (dom.recordsMedia[index].style.display === "none" && index > 0);
+                    last = index;
+                }
+                if (last - first > 1 && (random < first - 1 || random > last + 1)) {
+                    random = Math.round(seed * (last - first) * 2) + first;
+                }
+                return random;
             },
             setCurrentTrack: function (tr:HTMLElement, play:boolean):void {
                 const td:HTMLCollectionOf<HTMLElement> = tr.getElementsByTagName("td");
@@ -512,6 +539,7 @@
 
     // apply a bunch of event handlers
     dom.filter.onblur = list.filter;
+    dom.filter.onkeydown = list.filterKey;
     dom.caseSensitive.onclick = list.filter;
     dom.sortSelect.onchange = list.filter;
     dom.minimize.onclick = playEvents.minimize;
