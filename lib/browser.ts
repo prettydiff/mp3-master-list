@@ -1,6 +1,7 @@
 
 (function () {
-    const type:"movie"|"music"|"television" = document.getElementsByTagName("body")[0].getAttribute("class") as "movie"|"music"|"television",
+    const body:HTMLElement = document.getElementsByTagName("body")[0],
+        documentType:"movie"|"music"|"television" = body.getAttribute("class") as "movie"|"music"|"television",
         trackList:HTMLElement[] = [],
         list = {
             filter: function ():void {
@@ -439,13 +440,20 @@
                 }
                 return random;
             },
+            scrollTo: function ():void {
+                window.scroll({
+                    behavior: "smooth",
+                    left: 0,
+                    top: dom.currentTrack.offsetTop + 200
+                });
+            },
             setCurrentTrack: function (tr:HTMLElement, play:boolean):void {
                 const td:HTMLCollectionOf<HTMLElement> = tr.getElementsByTagName("td");
                 dom.currentTrack.getElementsByTagName("button")[0].removeAttribute("class");
                 dom.currentTrack.removeAttribute("id");
                 dom.currentTrack = tr;
                 dom.currentTrack.setAttribute("id", "currentTrack");
-                if (type === "music") {
+                if (documentType === "music") {
                     dom.currentTrackName.innerHTML = `<strong>${td[4].innerHTML}</strong> by <em>${td[2].innerHTML}</em>`;
                 } else {
                     dom.currentTrackName.innerHTML = `<strong>${td[2].innerHTML}</strong>`;
@@ -456,6 +464,13 @@
                     playEvents.play();
                     dom.currentTrack.getElementsByTagName("button")[0].setAttribute("class", "active");
                 }
+            },
+            slider: function(name:string):void {
+                const track:"seekTrack"|"volumeTrack" = `${name}Track` as "seekTrack"|"volumeTrack",
+                    slider:"seekSlider"|"volumeSlider" = `${name}Slider` as "seekSlider"|"volumeSlider";
+                dom[track].onclick = playEvents.slider;
+                dom[slider].onmousedown = playEvents.slider;
+                dom[slider].ontouchstart = playEvents.slider;
             },
             titleTop: function ():void {
                 dom.title.style.marginTop = `${(dom.player.clientHeight / 20) + 1.5}em`;
@@ -473,7 +488,7 @@
             minimize: document.getElementById("minimize"),
             mute: document.getElementById("mute"),
             player: document.getElementById("player"),
-            media: (type === "music")
+            media: (documentType === "music")
                 ? document.createElement("audio")
                 : document.createElement("video"),
             playerControls: document.getElementById("player").getElementsByClassName("controls")[0].getElementsByTagName("button"),
@@ -498,14 +513,14 @@
 
     // iphone styles
     if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
-        document.getElementsByTagName("body")[0].setAttribute("class", `${type} iphone`);
+        body.setAttribute("class", `${documentType} iphone`);
     } else {
         // iphone doesn't get volume controls as they make you use the physical volume buttons
         dom.media.volume = playEvents.volume;
     }
 
     // set media type
-    if (type === "music") {
+    if (documentType === "music") {
         dom.playerSource.type = "audio/mp3";
     } else {
         dom.playerSource.type = "video/mp4";
@@ -538,6 +553,7 @@
     } while (index > 0);
 
     // apply a bunch of event handlers
+    body.ondblclick = tools.scrollTo;
     dom.filter.onblur = list.filter;
     dom.filter.onkeydown = list.filterKey;
     dom.caseSensitive.onclick = list.filter;
@@ -548,12 +564,9 @@
         index = index - 1;
         dom.cellButtons[index].onclick = playEvents.playList;
     } while (index > 0);
-    // seek
-    dom.seekTrack.onclick = playEvents.slider;
-    dom.seekSlider.onmousedown = playEvents.slider;
-    // volume
-    dom.volumeTrack.onclick = playEvents.slider;
-    dom.volumeSlider.onmousedown = playEvents.slider;
+    // sliders
+    tools.slider("seek");
+    tools.slider("volume");
     dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
     // mute
     dom.mute.onclick = playEvents.mute;
