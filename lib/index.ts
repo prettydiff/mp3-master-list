@@ -11,7 +11,6 @@ import log from "./log.js";
 import writeStream from "./writeStream.js";
 
 // cspell:words Audiobook, Bhangra, Breakbeat, Breakz, Chillout, Darkwave, Dubstep, Electroclash, Eurodance, Illbient, Industro, Jpop, jsmediatags, Krautrock, Leftfield, Negerpunk, Neue, Polsk, Psybient, Psytrance, Shoegaze, Showtunes, Synthpop, TALB, TLEN, TRCK, Welle, xlink
-// cspell:words Comicbook, Genisys, Interstella, Kingsman, Metalacolypse, Mononoke, Nimh, Rango, Skywalker, Supercop, Zootopia
 
 const init = function () {
     const mp3dir:string = process.argv[2],
@@ -31,8 +30,8 @@ const init = function () {
             : "Reading ID3 tags",
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
             let index:number = 0,
-                listLength:number = fileList.length,
-                totalSize:number = 0;
+                totalSize:number = 0,
+                wishlist:string[] = null;
             const production:boolean = true,
                 projectPath:string = (function () {
                     const dirs:string[] = process.argv[1].split(sep);
@@ -160,148 +159,16 @@ const init = function () {
                     `<p>Dated: ${dateFormat(Date.now())}</p>`,
                     `<p>Location: ${resolve(process.argv[2])}</p>`,
                 ],
-                readTags = function (wish:boolean):void {
-                    let dirs:string[] = [];
+                readTags = function (wish:string[]):void {
                     const absolute = function (dir:string):string {
                             return mp3dir + sep + dir.replace(/\//g, sep);
                         },
-                        wishlist:string[] = [
-                            "<td>Action</td><td>300</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Air Force One</td><td>1997</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Big Trouble in Little China</td><td>1986</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Bourne 1 - Identity</td><td>2002</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Bourne 2 - Supremacy</td><td>2004</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Bourne 3 - Ultimatum</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Bourne 4 - Bourne Legacy</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Bourne 5 - Jason Bourne</td><td>2016</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Cliffhanger</td><td>1993</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Die Hard 1</td><td>1988</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Die Hard 2</td><td>1990</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Die Hard 3</td><td>1995</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Die Hard 4</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Die Hard 5</td><td>2013</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Dirty Dozen</td><td>1967</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Equalizer 1</td><td>2014</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Equalizer 2</td><td>2018</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Equalizer 3</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 1</td><td>2001</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 2 - 2 Fast 2 Furious</td><td>2003</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 3 - Tokyo Drift</td><td>2006</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 4 - Fast & Furious</td><td>2009</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 5 - Fast Five</td><td>2011</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 6</td><td>2013</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 7 - Furious 7</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 8 - Fate of the Furious</td><td>2017</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 9 - F9</td><td>2021</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious 10 - Fast X</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Fast and Furious - Hobbs and Shaw</td><td>2019</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Gladiator</td><td>2000</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hardcore Henry</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hero</td><td>2002</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hunger Games 1</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hunger Games 3 - Mocking Jay Part 1</td><td>2014</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hunger Games 4 - Mocking Jay Part 2</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hunger Games 5 - Ballad of Songbirds and Snakes</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Hurt Locker</td><td>2009</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Kingsman 1</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Kingsman 2</td><td>2017</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 1</td><td>1996</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 2</td><td>2000</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 3</td><td>2006</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 4 - Ghost Protocol</td><td>2011</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 5 - Rogue Nation</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 6 - Fallout</td><td>2018</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Mission Impossible 7 - Dead Reckoning</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>National Treasure 1</td><td>2004</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>National Treasure 2</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 1</td><td>1985</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 2</td><td>1988</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 3 - Supercop 1</td><td>1992</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 4 - Supercop 2</td><td>1993</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 5 - First Strike</td><td>1996</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 6 - New Police Story</td><td>2004</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Police Story 7 - Police Story 2013</td><td>2013</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Predator 1</td><td>1987</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Predator 2</td><td>1990</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Predator 3 - Predators</td><td>2010</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Predator 4 - Predator</td><td>2018</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Predator 5 - Prey</td><td>2022</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>The Professional</td><td>1994</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Strange Days</td><td>1995</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Taken 1</td><td>2008</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Taken 2</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Taken 3</td><td>2014</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Terminator 1</td><td>1984</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Terminator 2 - Judgement Day</td><td>1991</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Terminator 3 - Rise of the Machines</td><td>2003</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Terminator 4 - Terminator Salvation</td><td>2005</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Terminator 5 - Genisys</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Terminator 6 - Dark Fate</td><td>2019</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Total Recall</td><td>1990</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Total Recall</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Transporter 1</td><td>2002</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Transporter 2</td><td>2005</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Transporter 3</td><td>2008</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Action</td><td>Transporter 4 - Refueled</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Beowulf</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Despicable Me 1</td><td>2010</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Despicable Me 2</td><td>2013</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Despicable Me 3</td><td>2017</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Despicable Me 4</td><td>2024</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Hugo</td><td>2011</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Interstella 5555</td><td>2003</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Kung Fu Panda 1</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Kung Fu Panda 2</td><td>2011</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Kung Fu Panda 3</td><td>2016</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Kung Fu Panda 4</td><td>2024</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Lego Movie</td><td>2014</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Minions 1</td><td>2015</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Minions 2 - Rise of Gru</td><td>2022</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Nightmare Before Christmas</td><td>1993</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Oliver and Company</td><td>1988</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Princess Mononoke</td><td>1997</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Rango</td><td>2011</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Ratatouille</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Secret of Nimh</td><td>1982</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Shrek 1</td><td>2001</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Shrek 2</td><td>2004</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Shrek 3</td><td>2007</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Sleeping Beauty</td><td>1959</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Snow White and the Seven Dwarfs</td><td>1937</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Spirited Away</td><td>2001</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Animation</td><td>Zootopia</td><td>2016</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Comedy</td><td>Airplane 2</td><td>1982</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Comicbook</td><td>Captain Marvel 2</td><td>2023</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Docudrama</td><td>Argo</td><td>2012</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Docudrama</td><td>Ben-Hur</td><td>1959</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Docudrama</td><td>The Mule</td><td>2018</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Docudrama</td><td>Spartacus</td><td>1960</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Drama</td><td>Color Purple</td><td>1985</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Drama</td><td>Crouching Tiger, Hidden Dragon</td><td>2000</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Drama</td><td>Eternal Sunshine of the Spotless Mind</td><td>2004</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Drama</td><td>The Road</td><td>2009</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Drama</td><td>Seven Samurai</td><td>1954</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Science Fiction</td><td>Fifth Element</td><td>1997</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Science Fiction</td><td>Minority Report</td><td>2002</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Science Fiction</td><td>Star Wars 8 - Last Jedi</td><td>2017</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Science Fiction</td><td>Star Wars 9 - Rise of Skywalker</td><td>2019</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Thriller</td><td>X-Files</td><td>1998</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Western</td><td>A Fistful of Dollars</td><td>1964</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Western</td><td>For A Few Dollars More</td><td>1965</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>Western</td><td>Good, Bad, and The Ugly</td><td>1966</td><td>Movie</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-
-                            "<td>none</td><td>Black Mirror</td><td>2011</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>none</td><td>Goliath</td><td>2016</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>none</td><td>Metalacolypse</td><td>2021</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-                            "<td>none</td><td>Squid Game</td><td>2021</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>"
-                        ],
-                        list:string[]|directory_list = (wish === true)
-                            ? wishlist
-                            : fileList;
-                    if (wish === true) {
-                        listLength = wishlist.length;
-                    }
-                    if (index < listLength && wish === false) {
+                        list:string[]|directory_list = (wish === null)
+                            ? fileList
+                            : wish;
+                    let dirs:string[] = [],
+                        listLength:number = list.length;
+                    if (index < listLength && wish === null) {
                         if (type === "music") {
                             tags.read(absolute(list[index][0]), {
                                 onSuccess: function(tag) {
@@ -316,7 +183,7 @@ const init = function () {
                                     fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
                                     totalSize = totalSize + fileList[index][5].size;
                                     index = index + 1;
-                                    readTags(false);
+                                    readTags(null);
                                 },
                                 onError: function(error) {
                                     log([
@@ -331,7 +198,11 @@ const init = function () {
                             if (dirs.length > 1) {
                                 fileList[index][5].genre = dirs.slice(0, dirs.length - 2).join(", ");
                                 fileList[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
-                                fileList[index][5].track = fileList[index][5].title.slice(fileList[index][5].title.indexOf("(") + 1, fileList[index][5].title.length - 1);
+                                fileList[index][5].track = (type === "movie")
+                                    ? fileList[index][5].title.slice(fileList[index][5].title.indexOf("(") + 1, fileList[index][5].title.length - 1)
+                                    : (dirs.length > 2)
+                                        ? dirs[1]
+                                        : "Season 1";
                                 fileList[index][5].artist = dirs[dirs.length - 1].slice(dirs[dirs.length - 1].lastIndexOf(".") + 1);
                                 fileList[index][5].title = fileList[index][5].title.replace(/\s*\(\d+\)$/, "");
                                 fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
@@ -342,7 +213,7 @@ const init = function () {
                                 list.splice(index, 1);
                                 listLength = listLength - 1;
                             }
-                            readTags(false);
+                            readTags(null);
                         }
                     } else {
                         const headingMap:storeString = (type === "music")
@@ -365,7 +236,9 @@ const init = function () {
                                         ? "Genre"
                                         : "Show",
                                     "title": "Title",
-                                    "track": "Year",
+                                    "track": (type === "movie")
+                                        ? "Year"
+                                        : "Season",
                                     "artist": "Type",
                                     "path": "File Path",
                                     "sizeFormatted": "File Size",
@@ -396,10 +269,7 @@ const init = function () {
                             ]);
                         }
                         if (listLength > 0) {
-                            if (wish === true) {
-                                html.push("<h2 style=\"display:none\">Movie and Television Wishlist</h2>");
-                                html.push("<table style=\"display:none\"><thead><tr>");
-                            } else {
+                            if (wish === null) {
                                 html.push("<fieldset><legend>List Options</legend>");
                                 html.push("<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>");
                                 html.push("<p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>");
@@ -413,6 +283,9 @@ const init = function () {
                                     html.push("<p><label><span>Show Wishlist</span><input type=\"checkbox\" id=\"wishlist\"/></label></p>");
                                 }
                                 html.push("</fieldset><table><thead><tr>");
+                            } else {
+                                html.push("<h2 style=\"display:none\">Movie and Television Wishlist</h2>");
+                                html.push("<table style=\"display:none\"><thead><tr>");
                             }
                             htmlIndex = 0;
                             do {
@@ -422,12 +295,7 @@ const init = function () {
                             htmlIndex = 0;
                             index = 0;
                             html.push("</tr></thead><tbody>");
-                            if (wish === true) {
-                                do {
-                                    html.push(`<tr>${wishlist[index]}</tr>`);
-                                    index = index + 1;
-                                } while (index < listLength);
-                            } else {
+                            if (wish === null) {
                                 do {
                                     html.push(`<tr class="${(index % 2 === 0) ? "even" : "odd"}" data-path="${list[index][0]}">`);
                                     do {
@@ -444,8 +312,13 @@ const init = function () {
                                         } else if (headings[htmlIndex] === "title") {
                                             html.push(`<td>${fileList[index][5].title}</td>`);
                                         } else {
-                                            // @ts-ignore
-                                            html.push(`<td${(headings[htmlIndex] === "sizeFormatted" || headings[htmlIndex] === "track") ? " class=\"number\"" : ""}>${fileList[index][5][headings[htmlIndex]]}</td>`);
+                                            if (headings[htmlIndex] === "sizeFormatted" || (type === "music" && headings[htmlIndex] === "track")) {
+                                                // @ts-ignore
+                                                html.push(`<td${(headings[htmlIndex] === "sizeFormatted" || headings[htmlIndex] === "track") ? " class=\"number\"" : ""}>${fileList[index][5][headings[htmlIndex]]}</td>`);
+                                            } else {
+                                                // @ts-ignore
+                                                html.push(`<td>${fileList[index][5][headings[htmlIndex]]}</td>`);
+                                            }
                                         }
                                         htmlIndex = htmlIndex + 1;
                                     } while (htmlIndex < headings.length);
@@ -453,9 +326,14 @@ const init = function () {
                                     html.push("</tr>");
                                     index = index + 1;
                                 } while (index < listLength);
+                            } else {
+                                do {
+                                    html.push(`<tr>${wishlist[index]}</tr>`);
+                                    index = index + 1;
+                                } while (index < listLength);
                             }
                             html.push("</tbody></table>");
-                            if (wish === false) {
+                            if (wish === null) {
                                 let x:number = 0;
                                 do {
                                     if (html[x].indexOf("<h1>") === 0) {
@@ -471,7 +349,7 @@ const init = function () {
                                 );
                             }
                             // after the tables are complete
-                            if (type === "music" || ((type === "movie" || type === "television") && wish === true)) {
+                            if (type === "music" || ((type === "movie" || type === "television") && wish !== null)) {
                                 if (production === true) {
                                     readFile(`${projectPath}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
                                         if (erRead === null) {
@@ -519,9 +397,12 @@ const init = function () {
                 }
                 return 1;
             });
-            readTags(false);
+            readTags(null);
             if (type === "movie" || type === "television") {
-                readTags(true);
+                const libPath:string = projectPath.replace(`${sep}js${sep}`, `${sep}lib${sep}`);
+                readFile(`${libPath}wishlist_${type}.json`, function (erJSON:NodeJS.ErrnoException, wishlist:Buffer):void {
+                    readTags(JSON.parse(wishlist.toString()));
+                });
             }
             log([
                 "",
