@@ -30,8 +30,7 @@ const init = function () {
             : "Reading ID3 tags",
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
             let index:number = 0,
-                totalSize:number = 0,
-                wishlist:string[] = null;
+                totalSize:number = 0;
             const production:boolean = true,
                 projectPath:string = (function () {
                     const dirs:string[] = process.argv[1].split(sep);
@@ -196,7 +195,7 @@ const init = function () {
                         } else {
                             dirs = list[index][0].split("/");
                             if (dirs.length > 1) {
-                                fileList[index][5].genre = dirs.slice(0, dirs.length - 2).join(", ");
+                                fileList[index][5].genre = dirs[0];
                                 fileList[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
                                 fileList[index][5].track = (type === "movie")
                                     ? fileList[index][5].title.slice(fileList[index][5].title.indexOf("(") + 1, fileList[index][5].title.length - 1)
@@ -312,7 +311,7 @@ const init = function () {
                                         } else if (headings[htmlIndex] === "title") {
                                             html.push(`<td>${fileList[index][5].title}</td>`);
                                         } else {
-                                            if (headings[htmlIndex] === "sizeFormatted" || (type === "music" && headings[htmlIndex] === "track")) {
+                                            if (headings[htmlIndex] === "sizeFormatted" || (type === "movie" && headings[htmlIndex] === "track")) {
                                                 // @ts-ignore
                                                 html.push(`<td${(headings[htmlIndex] === "sizeFormatted" || headings[htmlIndex] === "track") ? " class=\"number\"" : ""}>${fileList[index][5][headings[htmlIndex]]}</td>`);
                                             } else {
@@ -328,7 +327,7 @@ const init = function () {
                                 } while (index < listLength);
                             } else {
                                 do {
-                                    html.push(`<tr>${wishlist[index]}</tr>`);
+                                    html.push(`<tr>${wish[index]}</tr>`);
                                     index = index + 1;
                                 } while (index < listLength);
                             }
