@@ -1,5 +1,6 @@
 [
-    "<td>none</td><td>Black Mirror</td><td>2011</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-    "<td>none</td><td>Metalacolypse</td><td>2021</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>",
-    "<td>none</td><td>Squid Game</td><td>2021</td><td>Television</td><td>wish list</td><td>0</td><td>none</td><td>none</td>"
+    ["Black Mirror","2011"],
+    ["Ken Burns Vietnam War","2017"],
+    ["Metalacolypse","2021"],
+    ["Squid Game","2021"]
 ]

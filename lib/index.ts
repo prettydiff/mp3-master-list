@@ -326,10 +326,17 @@ const init = function () {
                                     index = index + 1;
                                 } while (index < listLength);
                             } else {
-                                do {
-                                    html.push(`<tr>${wish[index]}</tr>`);
-                                    index = index + 1;
-                                } while (index < listLength);
+                                if (type === "movie") {
+                                    do {
+                                        html.push(`<tr><td>none</td><td>${wish[index][0]}</td><td>${wish[index][1]}</td><td>${wish[index][2]}</td><td>Movie</td><td>wishlist</td><td>0</td><td>none</td><td>none</td></tr>`);
+                                        index = index + 1;
+                                    } while (index < listLength);
+                                } else if (type === "television") {
+                                    do {
+                                        html.push(`<tr><td>none</td><td>${wish[index][0]}</td><td>${wish[index][1]}</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>`);
+                                        index = index + 1;
+                                    } while (index < listLength);
+                                }
                             }
                             html.push("</tbody></table>");
                             if (wish === null) {
