@@ -9,33 +9,65 @@
                     value:string = (caseSensitive === true)
                         ? dom.filter.value
                         : dom.filter.value.toLowerCase(),
-                    select:HTMLSelectElement = dom.sortSelect;
+                    field:HTMLSelectElement = dom.filterField,
+                    searchType:searchType = dom.filterType.value as searchType,
+                    headingIndex:number = field.selectedIndex,
+                    searchTest = function (text:string):boolean {
+                        if ((searchType === "fragment" || searchType === "negation") && ((caseSensitive === true && text.includes(value) === true) || (caseSensitive === false && text.toLowerCase().includes(value) === true))) {
+                            return true;
+                        }
+                        if (searchType === "regex") {
+                            let regValue:string = value,
+                                flags:string = "";
+                            if ((/^\//).test(value) === true && (/\/[dgimsuvi]*$/).test(value) === true) {
+                                regValue = regValue.replace("/", "");
+                                flags = regValue.slice(regValue.lastIndexOf("/") + 1);
+                                regValue = regValue.replace(/\/[dgimsuvi]*$/, "");
+                            }
+                            const reg:RegExp = new RegExp(regValue, flags);
+                            if (reg.test(text) === true) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    },
+                    mediaTable:HTMLElement = document.getElementsByTagName("table")[0];
                 let index:number = 0,
-                    displayIndex:number = 0;
-                if (select.selectedIndex === 0) {
-                    do {
-                        if ((caseSensitive === true && dom.recordsAll[index].innerHTML.includes(value) === true) || (caseSensitive === false && dom.recordsAll[index].innerHTML.toLowerCase().includes(value) === true)) {
-                            dom.recordsAll[index].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
-                            dom.recordsAll[index].style.display = "table-row";
-                            displayIndex = displayIndex + 1;
-                        } else {
-                            dom.recordsAll[index].style.display = "none";
+                    displayCount:number = 0,
+                    plural:string = "s",
+                    recordTest:boolean = false,
+                    cellIndex:number = 0,
+                    cells:HTMLCollectionOf<HTMLTableCellElement> = null;
+                do {
+                    cells = dom.recordsAll[index].getElementsByTagName("td");
+                    if (field.selectedIndex === 0) {
+                        cellIndex = cells.length;
+                        recordTest = false;
+                        do {
+                            cellIndex = cellIndex - 1;
+                            recordTest = searchTest(cells[cellIndex].textContent);
+                            if (recordTest === true) {
+                                break;
+                            }
+                        } while (cellIndex > 1);
+                    } else {
+                        recordTest =  searchTest(cells[headingIndex].textContent);
+                    }
+                    if ((searchType === "negation" && recordTest === false) || (searchType !== "negation" && recordTest === true)) {
+                        dom.recordsAll[index].setAttribute("class", (displayCount % 2 === 0) ? "even" : "odd");
+                        dom.recordsAll[index].style.display = "table-row";
+                        if (dom.recordsAll[index].parentElement.parentElement === mediaTable) {
+                            displayCount = displayCount + 1;
                         }
-                        index = index + 1;
-                    } while (index < recordLengthAll);
-                } else {
-                    const headingIndex:number = select.selectedIndex - 1;
-                    do {
-                        if ((caseSensitive === true && dom.recordsAll[index].getElementsByTagName("td")[headingIndex].firstChild.textContent.includes(value) === true) || (caseSensitive === false && dom.recordsAll[index].getElementsByTagName("td")[headingIndex].firstChild.textContent.toLowerCase().includes(value) === true)) {
-                            dom.recordsAll[index].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
-                            dom.recordsAll[index].style.display = "table-row";
-                            displayIndex = displayIndex + 1;
-                        } else {
-                            dom.recordsAll[index].style.display = "none";
-                        }
-                        index = index + 1;
-                    } while (index < recordLengthAll);
+                    } else {
+                        dom.recordsAll[index].style.display = "none";
+                    }
+                    index = index + 1;
+                } while (index < recordLengthAll);
+                if (displayCount === 1) {
+                    plural = "";
                 }
+                dom.displayCount.textContent = `${displayCount} result${plural} (${(((displayCount / recordLengthMedia) * 100)).toFixed(2)}%)`;
             },
             filterKey: function (event:KeyboardEvent):void {
                 const key:string = event.key.toLowerCase();
@@ -57,7 +89,7 @@
                         : recordLengthWish,
                     tbody:HTMLElement = table.getElementsByTagName("tbody")[0] as HTMLElement,
                     label:string = th.lastChild.textContent.trim();
-                let displayIndex:number = 0,
+                let displayCount:number = 0,
                     thIndex = thList.length;
                 do {
                     thIndex = thIndex - 1;
@@ -89,8 +121,8 @@
                 thIndex = 0;
                 do {
                     if (records[thIndex].style.display !== "none") {
-                        records[thIndex].setAttribute("class", (displayIndex % 2 === 0) ? "even" : "odd");
-                        displayIndex = displayIndex + 1;
+                        records[thIndex].setAttribute("class", (displayCount % 2 === 0) ? "even" : "odd");
+                        displayCount = displayCount + 1;
                     }
                     tbody.appendChild(records[thIndex]);
                     thIndex = thIndex + 1;
@@ -483,8 +515,11 @@
             currentTime: document.getElementById("currentTime"),
             currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
             currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
+            displayCount: document.getElementsByTagName("fieldset")[0].getElementsByTagName("input")[0].parentElement.parentElement.getElementsByTagName("span")[1],
             duration: document.getElementById("duration"),
             filter: document.getElementById("filter") as HTMLInputElement,
+            filterField: document.getElementsByTagName("select")[0],
+            filterType: document.getElementsByTagName("select")[1],
             minimize: document.getElementById("minimize"),
             mute: document.getElementById("mute"),
             player: document.getElementById("player"),
@@ -500,7 +535,6 @@
             recordsWish: tools.getRecords(1),
             seekSlider: document.getElementById("seekSlider"),
             seekTrack: document.getElementById("seekSlider").parentNode as HTMLElement,
-            sortSelect: document.getElementsByTagName("select")[0],
             title: document.getElementsByTagName("h1")[0],
             volumeSlider: document.getElementById("volumeSlider"),
             volumeTrack: document.getElementById("volumeSlider").parentNode as HTMLElement,
@@ -509,7 +543,7 @@
         recordLengthAll:number = dom.recordsAll.length,
         recordLengthMedia:number = dom.recordsMedia.length,
         recordLengthWish:number = dom.recordsWish.length;
-    let index = dom.buttons.length;
+    let buttonIndex = dom.buttons.length;
 
     // iphone styles
     if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
@@ -546,28 +580,33 @@
 
     // table header sort buttons
     do {
-        index = index - 1;
-        if (dom.buttons[index].parentNode.nodeName.toLowerCase() === "th") {
-            dom.buttons[index].onclick = list.sort;
+        buttonIndex = buttonIndex - 1;
+        if (dom.buttons[buttonIndex].parentNode.nodeName.toLowerCase() === "th") {
+            dom.buttons[buttonIndex].onclick = list.sort;
         }
-    } while (index > 0);
+    } while (buttonIndex > 0);
 
     // apply a bunch of event handlers
     body.ondblclick = tools.scrollTo;
     dom.filter.onblur = list.filter;
     dom.filter.onkeydown = list.filterKey;
     dom.caseSensitive.onclick = list.filter;
-    dom.sortSelect.onchange = list.filter;
+    dom.filterField.onchange = list.filter;
+    dom.filterType.onchange = list.filter;
     dom.minimize.onclick = playEvents.minimize;
-    index = dom.cellButtons.length;
+
+    // play buttons in the records
+    buttonIndex = dom.cellButtons.length;
     do {
-        index = index - 1;
-        dom.cellButtons[index].onclick = playEvents.playList;
-    } while (index > 0);
+        buttonIndex = buttonIndex - 1;
+        dom.cellButtons[buttonIndex].onclick = playEvents.playList;
+    } while (buttonIndex > 0);
+
     // sliders
     tools.slider("seek");
     tools.slider("volume");
     dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
+
     // mute
     dom.mute.onclick = playEvents.mute;
     // previous

@@ -157,8 +157,11 @@ declare global {
         currentTime: HTMLElement;
         currentTrack: HTMLElement;
         currentTrackName: HTMLElement;
+        displayCount: HTMLElement;
         duration: HTMLElement;
         filter: HTMLInputElement;
+        filterField: HTMLSelectElement;
+        filterType: HTMLSelectElement;
         media: HTMLMediaElement;
         minimize: HTMLElement;
         mute: HTMLElement;
@@ -172,7 +175,6 @@ declare global {
         recordsWish: HTMLElement[];
         seekSlider: HTMLElement;
         seekTrack: HTMLElement;
-        sortSelect: HTMLSelectElement;
         title: HTMLElement;
         volumeSlider: HTMLElement;
         volumeTrack: HTMLElement;

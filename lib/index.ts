@@ -261,7 +261,7 @@ const init = function () {
                                     }
                                 });
                             };
-                        let htmlIndex:number = 0;
+                        let htmlIndex:number = 1;
                         if (type === "music") {
                             log([
                                 `${humanTime(startTime, false)}All files read for ID3 tags. Writing report.`
@@ -270,13 +270,14 @@ const init = function () {
                         if (listLength > 0) {
                             if (wish === null) {
                                 html.push("<fieldset><legend>List Options</legend>");
-                                html.push("<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>");
+                                html.push(`<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label> <span>${listLength} results (100.00%)</span></p>`);
                                 html.push("<p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>");
                                 do {
                                     html.push(`<option>${headingMap[headings[htmlIndex]]}</option>`);
                                     htmlIndex = htmlIndex + 1;
                                 } while (htmlIndex < headings.length);
                                 html.push("</select></label></p>");
+                                html.push("<p><label><span>Filter Search Type?</span><select><option selected=\"selected\" value=\"fragment\">Text Search</option><option value=\"negation\">Negative Text</option><option value=\"regex\">Regular Expression</option></select></label></p>");
                                 html.push("<p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\" id=\"caseSensitive\"/></label></p>");
                                 if (type === "movie" || type === "television") {
                                     html.push("<p><label><span>Show Wishlist</span><input type=\"checkbox\" id=\"wishlist\"/></label></p>");
