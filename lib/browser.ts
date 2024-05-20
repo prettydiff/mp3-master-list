@@ -85,7 +85,7 @@
                 if (displayCount === 1) {
                     plural = "";
                 }
-                dom.displayCount.textContent = `${displayCount} result${plural} (${(((displayCount / recordLengthMedia) * 100)).toFixed(2)}%)`;
+                dom.displayCount.lastChild.textContent = ` ${displayCount} result${plural} (${(((displayCount / recordLengthMedia) * 100)).toFixed(2)}%)`;
             },
             filterKey: function (event:KeyboardEvent):void {
                 const key:string = event.key.toLowerCase();
@@ -533,7 +533,7 @@
             currentTime: document.getElementById("currentTime"),
             currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
             currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
-            displayCount: document.getElementsByTagName("fieldset")[1].getElementsByTagName("input")[0].parentElement.parentElement.getElementsByTagName("span")[1],
+            displayCount: document.getElementById("filtered-results"),
             duration: document.getElementById("duration"),
             filter: document.getElementById("filter") as HTMLInputElement,
             filterField: document.getElementsByTagName("select")[0],
