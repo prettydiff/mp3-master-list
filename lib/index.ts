@@ -108,6 +108,7 @@ const init = function () {
                     "label span{display:inline-block;width:10em}",
                     "#currentTrack td{background:#fdd;border-color:#900;box-shadow:0.1em 0.1em 0.5em;color:#900}",
                     "#currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}",
+                    "#currentTrackName span{display:block;height:1em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
                     "#minimize{float:left}",
                     "#mute{float:right}",
                     "#mute input{display:none}",
@@ -131,7 +132,7 @@ const init = function () {
                     "#player #mute,",
                     "#player #minimize{background:#ddd;border-color:#000;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ccc;display:inline-block;height:1.2em;line-height:0.5em;margin:0 1em;width:2em}",
                     "#player #mute svg{height:1em}",
-                    "#player #mute{margin:0 1em 0 -3.2em}",
+                    "#player #mute{margin:-1.2em 1em 0 0}",
                     "#player #minimize{margin:0 -3.2em 0 1em}",
                     "#player .controls svg{width:1em}",
                     "#player .trackVolume,",
@@ -144,6 +145,8 @@ const init = function () {
                     "#player #volumeSlider{border-style:none;box-shadow:none;top:0.1em}",
                     "#player .volumeMinus{display:inline-block;margin:0 0 0 1em}",
                     "#player video{width:inherit}",
+                    "fieldset select,",
+                    "fieldset input[type=\"text\"]{display:inline-block;padding:0.1em;width:12em}",
                     ".iphone #player .pipe,.iphone #player .volumeMinus,.iphone #player .trackVolume,.iphone #player .volumePlus,.iphone #player #mute{display:none}",
                     ".iphone #player #minimize{margin:0 0 0 1em}",
                     ".iphone #player video{max-height:0em}",
@@ -155,8 +158,10 @@ const init = function () {
                     `</head><body class="${type}">`,
                     `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox"/></button></p></div>`,
                     `<h1>${typeCaps} Master List</h1>`,
+                    "<fieldset><legend>Summary</legend>",
                     `<p>Dated: ${dateFormat(Date.now())}</p>`,
                     `<p>Location: ${resolve(process.argv[2])}</p>`,
+                    "</fieldset>",
                 ],
                 readTags = function (wish:string[]):void {
                     const absolute = function (dir:string):string {
@@ -277,7 +282,13 @@ const init = function () {
                                     htmlIndex = htmlIndex + 1;
                                 } while (htmlIndex < headings.length);
                                 html.push("</select></label></p>");
-                                html.push("<p><label><span>Filter Search Type?</span><select><option selected=\"selected\" value=\"fragment\">Text Search</option><option value=\"negation\">Negative Text</option><option value=\"regex\">Regular Expression</option></select></label></p>");
+                                html.push("<p><label><span>Filter Search Type?</span><select>");
+                                html.push("<option selected=\"selected\" value=\"fragment\">Text Search</option>");
+                                html.push("<option value=\"negation\">Negative Text</option>");
+                                html.push("<option value=\"regex\">Regular Expression</option>");
+                                html.push("<option value=\"list\">Comma Separated List</option>");
+                                html.push("<option value=\"negation-list\">Negative Comma Separated List</option>");
+                                html.push("</select></label></p>");
                                 html.push("<p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\" id=\"caseSensitive\"/></label></p>");
                                 if (type === "movie" || type === "television") {
                                     html.push("<p><label><span>Show Wishlist</span><input type=\"checkbox\" id=\"wishlist\"/></label></p>");
@@ -343,7 +354,7 @@ const init = function () {
                             if (wish === null) {
                                 let x:number = 0;
                                 do {
-                                    if (html[x].indexOf("<h1>") === 0) {
+                                    if (html[x] === "<fieldset><legend>Summary</legend>") {
                                         break;
                                     }
                                     x = x + 1;

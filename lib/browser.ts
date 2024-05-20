@@ -1,4 +1,6 @@
 
+// cspell: words dgimsuvi
+
 (function () {
     const body:HTMLElement = document.getElementsByTagName("body")[0],
         documentType:"movie"|"music"|"television" = body.getAttribute("class") as "movie"|"music"|"television",
@@ -12,9 +14,25 @@
                     field:HTMLSelectElement = dom.filterField,
                     searchType:searchType = dom.filterType.value as searchType,
                     headingIndex:number = field.selectedIndex,
+                    commaValues:string[] = (function ():string[] {
+                        const values:string[] = value.split(",");
+                        values.forEach(function (item:string, itemIndex:number, itemArray:string[]):void {
+                            itemArray[itemIndex] = item.trim();
+                        });
+                        return values;
+                    }()),
                     searchTest = function (text:string):boolean {
                         if ((searchType === "fragment" || searchType === "negation") && ((caseSensitive === true && text.includes(value) === true) || (caseSensitive === false && text.toLowerCase().includes(value) === true))) {
                             return true;
+                        }
+                        if (searchType === "list" || searchType === "negation-list") {
+                            let count:number = commaValues.length;
+                            do {
+                                count = count - 1;
+                                if ((caseSensitive === true && text.includes(commaValues[count]) === true) || (caseSensitive === false && text.toLowerCase().includes(commaValues[count]) === true)) {
+                                    return true;
+                                }
+                            } while (count > 0);
                         }
                         if (searchType === "regex") {
                             let regValue:string = value,
@@ -53,7 +71,7 @@
                     } else {
                         recordTest =  searchTest(cells[headingIndex].textContent);
                     }
-                    if ((searchType === "negation" && recordTest === false) || (searchType !== "negation" && recordTest === true)) {
+                    if (((searchType === "negation" || searchType === "negation-list") && recordTest === false) || (searchType !== "negation" && searchType !== "negation-list" && recordTest === true)) {
                         dom.recordsAll[index].setAttribute("class", (displayCount % 2 === 0) ? "even" : "odd");
                         dom.recordsAll[index].style.display = "table-row";
                         if (dom.recordsAll[index].parentElement.parentElement === mediaTable) {
@@ -515,7 +533,7 @@
             currentTime: document.getElementById("currentTime"),
             currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
             currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
-            displayCount: document.getElementsByTagName("fieldset")[0].getElementsByTagName("input")[0].parentElement.parentElement.getElementsByTagName("span")[1],
+            displayCount: document.getElementsByTagName("fieldset")[1].getElementsByTagName("input")[0].parentElement.parentElement.getElementsByTagName("span")[1],
             duration: document.getElementById("duration"),
             filter: document.getElementById("filter") as HTMLInputElement,
             filterField: document.getElementsByTagName("select")[0],
@@ -545,6 +563,9 @@
         recordLengthWish:number = dom.recordsWish.length;
     let buttonIndex = dom.buttons.length;
 
+    // apply a dynamic marge above the title
+    tools.titleTop();
+
     // iphone styles
     if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
         body.setAttribute("class", `${documentType} iphone`);
@@ -569,9 +590,6 @@
 
     // put the media element into the DOM
     dom.media.appendChild(dom.playerSource);
-
-    // apply a dynamic marge above the title
-    tools.titleTop();
 
     // apply any filter on page load if there is text in the filter field
     if (dom.filter.value !== "") {

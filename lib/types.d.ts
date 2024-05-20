@@ -7,7 +7,7 @@ declare global {
     type directory_mode = "array" | "hash" | "list" | "read" | "search" | "type";
     type fileType = "directory" | "error" | "file" | "link";
     type hash = "blake2d512" | "blake2s256" | "sha1" | "sha3-224" | "sha3-256" | "sha3-384" | "sha3-512" | "sha384" | "sha512-224" | "sha512-256" | "sha512" | "shake128" | "shake256";
-    type searchType = "fragment" | "negation" | "regex";
+    type searchType = "fragment" | "list" | "negation" | "negation-list" | "regex";
 
     /**
      * For directory of terminal/commands/library/directory.
