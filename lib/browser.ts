@@ -14,6 +14,7 @@
                     field:HTMLSelectElement = dom.filterField,
                     searchType:searchType = dom.filterType.value as searchType,
                     headingIndex:number = field.selectedIndex,
+                    // a trimmed array
                     commaValues:string[] = (function ():string[] {
                         const values:string[] = value.split(",");
                         values.forEach(function (item:string, itemIndex:number, itemArray:string[]):void {
@@ -21,6 +22,7 @@
                         });
                         return values;
                     }()),
+                    // search function
                     searchTest = function (text:string):boolean {
                         if ((searchType === "fragment" || searchType === "negation") && ((caseSensitive === true && text.includes(value) === true) || (caseSensitive === false && text.toLowerCase().includes(value) === true))) {
                             return true;
@@ -52,12 +54,14 @@
                     mediaTable:HTMLElement = document.getElementsByTagName("table")[0];
                 let index:number = 0,
                     displayCount:number = 0,
+                    mediaCount:number = 0,
                     plural:string = "s",
                     recordTest:boolean = false,
                     cellIndex:number = 0,
                     cells:HTMLCollectionOf<HTMLTableCellElement> = null;
                 do {
                     cells = dom.recordsAll[index].getElementsByTagName("td");
+                    // execute the search function on cell contents
                     if (field.selectedIndex === 0) {
                         cellIndex = cells.length;
                         recordTest = false;
@@ -71,21 +75,23 @@
                     } else {
                         recordTest =  searchTest(cells[headingIndex].textContent);
                     }
+                    // visually apply the filter
                     if (((searchType === "negation" || searchType === "negation-list") && recordTest === false) || (searchType !== "negation" && searchType !== "negation-list" && recordTest === true)) {
                         dom.recordsAll[index].setAttribute("class", (displayCount % 2 === 0) ? "even" : "odd");
                         dom.recordsAll[index].style.display = "table-row";
+                        displayCount = displayCount + 1;
                         if (dom.recordsAll[index].parentElement.parentElement === mediaTable) {
-                            displayCount = displayCount + 1;
+                            mediaCount = mediaCount + 1;
                         }
                     } else {
                         dom.recordsAll[index].style.display = "none";
                     }
                     index = index + 1;
                 } while (index < recordLengthAll);
-                if (displayCount === 1) {
+                if (mediaCount === 1) {
                     plural = "";
                 }
-                dom.displayCount.lastChild.textContent = ` ${displayCount} result${plural} (${(((displayCount / recordLengthMedia) * 100)).toFixed(2)}%)`;
+                dom.displayCount.lastChild.textContent = ` ${mediaCount} result${plural} (${(((mediaCount / recordLengthMedia) * 100)).toFixed(2)}%)`;
             },
             filterKey: function (event:KeyboardEvent):void {
                 const key:string = event.key.toLowerCase();
@@ -145,6 +151,7 @@
                     tbody.appendChild(records[thIndex]);
                     thIndex = thIndex + 1;
                 } while (thIndex < recordsLength);
+                dom.recordsAll = dom.recordsMedia.concat(dom.recordsWish);
                 if (direction === "descend") {
                     target.setAttribute("data-direction", "ascend");
                 } else {
@@ -435,7 +442,7 @@
                                 ? 0
                                 : tr.length;
                         let index:number = 0;
-                        if (tbody === undefined) {
+                        if (trLen === 0) {
                             return;
                         }
                         do {
@@ -443,7 +450,7 @@
                             index = index + 1;
                         } while (index < trLen);
                     };
-                if (tableIndex === -1) {
+                if (tableIndex < 0) {
                     populate(0);
                     populate(1);
                 } else {

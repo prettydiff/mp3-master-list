@@ -1,5 +1,5 @@
 
-import { readFile, stat, Stats, writeFile } from "fs";
+import { readFile, writeFile } from "fs";
 import { resolve, sep } from "path";
 
 import * as tags from "jsmediatags";
@@ -8,7 +8,6 @@ import common from "./common.js";
 import directory from "./directory.js";
 import humanTime from "./humanTime.js";
 import log from "./log.js";
-import writeStream from "./writeStream.js";
 
 // cspell:words Audiobook, Bhangra, Breakbeat, Breakz, Chillout, Darkwave, Dubstep, Electroclash, Eurodance, Illbient, Industro, Jpop, jsmediatags, Krautrock, Leftfield, Negerpunk, Neue, Polsk, Psybient, Psytrance, Shoegaze, Showtunes, Synthpop, TALB, TLEN, TRCK, Welle, xlink
 
@@ -126,6 +125,13 @@ const init = function () {
             const mediaTypeCaps:string = mediaType.charAt(0).toUpperCase() + mediaType.slice(1),
                 headingList:storeString = headingMap(mediaType),
                 headingItems:string[] = Object.keys(headingList),
+                location:string = (update === true)
+                    ? (mediaType === "movie")
+                        ? defaultFiles[0]
+                        : (mediaType === "music")
+                            ? defaultFiles[1]
+                            : defaultFiles[2]
+                    : mp3dir,
                 html1:string[] = [
                     "<!doctype html>",
                     "<html>",
@@ -210,7 +216,7 @@ const init = function () {
                 totals:string[] = [totalData],
                 html2:string[] = [
                     `<p><span>Dated</span> ${dateFormat(Date.now())}</p>`,
-                    `<p><span>Location</span> ${resolve(process.argv[2])}</p>`,
+                    `<p><span>Location</span> ${location}</p>`,
                     "</fieldset>",
                     "<fieldset><legend>List Options</legend>",
                     "<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>",
@@ -408,7 +414,7 @@ const init = function () {
                                 dataList.push("</tr>");
                                 index = index + 1;
                             } while (index < listLength);
-                            writeList(buildHTML(dataList, `<p><span>Total files</span> ${listLength}</p><p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p><p id="filtered-results"><span>Filtered Results</span> ${listLength} (100.00%)</p>`, type));
+                            writeList(buildHTML(dataList, `<p><span>Total files</span> ${listLength}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${listLength} results (100.00%)</p>`, type));
                         }
                     }
                 };
@@ -436,7 +442,7 @@ const init = function () {
                 const extraction = function ():void {
                         let writeCount:number = 0;
                         const getFragment = function (index:number, start:string, end:string):string {
-                                return fileStore[index].slice(fileStore[index].indexOf(start), fileStore[index].indexOf(end) + end.length);
+                                return fileStore[index].slice(fileStore[index].indexOf(start), fileStore[index].indexOf(end));
                             },
                             writeCallback = function (writeError:NodeJS.ErrnoException):void {
                                 if (writeError === null) {
@@ -448,9 +454,9 @@ const init = function () {
                                     log(["Error writing list output", JSON.stringify(writeError)]);
                                 }
                             },
-                            totalMovie:string = getFragment(0, "<p><span>Total files</span>", " (100.00%)</p>"),
-                            totalMusic:string = getFragment(1, "<p><span>Total files</span>", " (100.00%)</p>"),
-                            totalTelevision:string = getFragment(2, "<p><span>Total files</span>", " (100.00%)</p>"),
+                            totalMovie:string = getFragment(0, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
+                            totalMusic:string = getFragment(1, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
+                            totalTelevision:string = getFragment(2, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
                             recordsMovie:string = getFragment(0, "<tr class=\"even\" data-path=", "</tbody></table>"),
                             recordsMusic:string = getFragment(1, "<tr class=\"even\" data-path=", "</tbody></table>"),
                             recordsTelevision:string = getFragment(2, "<tr class=\"even\" data-path=", "</tbody></table>"),

@@ -79,9 +79,9 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 <fieldset class="data-points"><legend>Summary</legend>
 <p><span>Total files</span> 418</p>
 <p><span>Total size</span> 1,060,378,256,388 bytes (1.0TiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 418 (100.00%)</p>
-<p><span>Dated</span> 20 MAY 2024 20:50:05.390</p>
-<p><span>Location</span> C:\users\austincheney\mp3-master-list\update</p>
+<p id="filtered-results"><span>Filtered Results</span> 418 results (100.00%)</p>
+<p><span>Dated</span> 21 MAY 2024 11:54:45.260</p>
+<p><span>Location</span> D:\movies</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p><label><span>Filter</span><input type="text" id="filter"/></label></p>
@@ -4713,7 +4713,11 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 <td data-numeric="1714867355940">04 MAY 2024 19:02:35.940</td>
 <td>4799a0ac57b7939947fb97c1f04550570a77bd13d927bd7a08a9f44d13fcf3ff949ad45b6b47d1eb291c8e64b9f6e879044c72ba77d4781b4c12c3b41d8887d0</td>
 </tr>
-</tbody></table>
+
+
+
+
+
 </tbody></table>
 <h2 style="display:none">Movie Wishlist</h2>
 <table style="display:none"><thead><tr>
@@ -4842,13 +4846,15 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 (function() {
     const body = document.getElementsByTagName("body")[0], documentType = body.getAttribute("class"), trackList = [], list = {
         filter: function() {
-            const caseSensitive = dom.caseSensitive.checked, value = caseSensitive === true ? dom.filter.value : dom.filter.value.toLowerCase(), field = dom.filterField, searchType = dom.filterType.value, headingIndex = field.selectedIndex, commaValues = function() {
+            const caseSensitive = dom.caseSensitive.checked, value = caseSensitive === true ? dom.filter.value : dom.filter.value.toLowerCase(), field = dom.filterField, searchType = dom.filterType.value, headingIndex = field.selectedIndex, // a trimmed array
+            commaValues = function() {
                 const values = value.split(",");
                 values.forEach(function(item, itemIndex, itemArray) {
                     itemArray[itemIndex] = item.trim();
                 });
                 return values;
-            }(), searchTest = function(text) {
+            }(), // search function
+            searchTest = function(text) {
                 if ((searchType === "fragment" || searchType === "negation") && (caseSensitive === true && text.includes(value) === true || caseSensitive === false && text.toLowerCase().includes(value) === true)) {
                     return true;
                 }
@@ -4875,9 +4881,10 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
                 }
                 return false;
             }, mediaTable = document.getElementsByTagName("table")[0];
-            let index = 0, displayCount = 0, plural = "s", recordTest = false, cellIndex = 0, cells = null;
+            let index = 0, displayCount = 0, mediaCount = 0, plural = "s", recordTest = false, cellIndex = 0, cells = null;
             do {
                 cells = dom.recordsAll[index].getElementsByTagName("td");
+                // execute the search function on cell contents
                 if (field.selectedIndex === 0) {
                     cellIndex = cells.length;
                     recordTest = false;
@@ -4891,21 +4898,23 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
                 } else {
                     recordTest = searchTest(cells[headingIndex].textContent);
                 }
+                // visually apply the filter
                 if ((searchType === "negation" || searchType === "negation-list") && recordTest === false || searchType !== "negation" && searchType !== "negation-list" && recordTest === true) {
                     dom.recordsAll[index].setAttribute("class", displayCount % 2 === 0 ? "even" : "odd");
                     dom.recordsAll[index].style.display = "table-row";
+                    displayCount = displayCount + 1;
                     if (dom.recordsAll[index].parentElement.parentElement === mediaTable) {
-                        displayCount = displayCount + 1;
+                        mediaCount = mediaCount + 1;
                     }
                 } else {
                     dom.recordsAll[index].style.display = "none";
                 }
                 index = index + 1;
             }while (index < recordLengthAll)
-            if (displayCount === 1) {
+            if (mediaCount === 1) {
                 plural = "";
             }
-            dom.displayCount.lastChild.textContent = ` ${displayCount} result${plural} (${(displayCount / recordLengthMedia * 100).toFixed(2)}%)`;
+            dom.displayCount.lastChild.textContent = ` ${mediaCount} result${plural} (${(mediaCount / recordLengthMedia * 100).toFixed(2)}%)`;
         },
         filterKey: function(event) {
             const key = event.key.toLowerCase();
@@ -4942,6 +4951,7 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
                 tbody.appendChild(records[thIndex]);
                 thIndex = thIndex + 1;
             }while (thIndex < recordsLength)
+            dom.recordsAll = dom.recordsMedia.concat(dom.recordsWish);
             if (direction === "descend") {
                 target.setAttribute("data-direction", "ascend");
             } else {
@@ -5176,7 +5186,7 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
             const output = [], populate = function(indexValue) {
                 const tbody = document.getElementsByTagName("tbody")[indexValue], tr = tbody === undefined ? null : tbody.getElementsByTagName("tr"), trLen = tbody === undefined ? 0 : tr.length;
                 let index = 0;
-                if (tbody === undefined) {
+                if (trLen === 0) {
                     return;
                 }
                 do {
@@ -5184,7 +5194,7 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
                     index = index + 1;
                 }while (index < trLen)
             };
-            if (tableIndex === -1) {
+            if (tableIndex < 0) {
                 populate(0);
                 populate(1);
             } else {
