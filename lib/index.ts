@@ -77,27 +77,29 @@ const init = function () {
                 };
             return `${pad(date.getDate(), false)} ${months[date.getMonth()]} ${date.getFullYear()} ${pad(date.getHours(), false)}:${pad(date.getMinutes(), false)}:${pad(date.getSeconds(), false)}.${pad(date.getMilliseconds(), true)}`;
         },
-        headingMap:storeString = (type === "music")
-            ? {
-                "play": "Play",
-                "genre": "Genre",
-                "artist": "Artist",
-                "album": "Album",
-                "title": "Title",
-                "track": "Track",
-                "path": "File Path",
-                "sizeFormatted": "File Size",
-                "id3": "ID3 Version",
-                "modified": "Modified",
-                "hash": "Hash"
+        headingMap = function (mediaType:mediaType):storeString {
+            if (mediaType === "music") {
+                return {
+                    "play": "Play",
+                    "genre": "Genre",
+                    "artist": "Artist",
+                    "album": "Album",
+                    "title": "Title",
+                    "track": "Track",
+                    "path": "File Path",
+                    "sizeFormatted": "File Size",
+                    "id3": "ID3 Version",
+                    "modified": "Modified",
+                    "hash": "Hash"
+                };
             }
-            : {
+            return {
                 "play": "Play",
-                "genre": (type === "movie")
+                "genre": (mediaType === "movie")
                     ? "Genre"
                     : "Show",
                 "title": "Title",
-                "track": (type === "movie")
+                "track": (mediaType === "movie")
                     ? "Year"
                     : "Season",
                 "artist": "Type",
@@ -105,8 +107,9 @@ const init = function () {
                 "sizeFormatted": "File Size",
                 "modified": "Modified",
                 "hash": "Hash"
-            },
-        headings:string[] = Object.keys(headingMap),
+            };
+        },
+        headings:string[] = Object.keys(headingMap(type)),
         svg:storeString = {
             circle:        '<svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg>',
             play:          '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg>',
@@ -121,6 +124,8 @@ const init = function () {
         },
         buildHTML = function (mediaData:string[], totalData:string, mediaType:mediaType):string {
             const mediaTypeCaps:string = mediaType.charAt(0).toUpperCase() + mediaType.slice(1),
+                headingList:storeString = headingMap(mediaType),
+                headingItems:string[] = Object.keys(headingList),
                 html1:string[] = [
                     "<!doctype html>",
                     "<html>",
@@ -216,9 +221,9 @@ const init = function () {
                     let count:number = 1;
                     const output:string[] = [];
                     do {
-                        output.push(`<option>${headingMap[headings[count]]}</option>`);
+                        output.push(`<option>${headingList[headingItems[count]]}</option>`);
                         count = count + 1;
-                    } while (count < headings.length);
+                    } while (count < headingItems.length);
                     return output;
                 }()),
                 html4:string[] = [
@@ -241,9 +246,9 @@ const init = function () {
                     let count:number = 0;
                     const output:string[] = [];
                     do {
-                        output.push(`<th><button data-direction="descend">${svg.sort}</button> ${headingMap[headings[count]]}</th>`);
+                        output.push(`<th><button data-direction="descend">${svg.sort}</button> ${headingList[headingItems[count]]}</th>`);
                         count = count + 1;
-                    } while (count < headings.length);
+                    } while (count < headingItems.length);
                     output.push("</tr></thead><tbody>");
                     return output;
                 }()),
@@ -258,9 +263,9 @@ const init = function () {
                     let count:number = 0;
                     const output:string[] = [];
                     do {
-                        output.push(`<th><button data-direction="descend">${svg.sort}</button> ${headingMap[headings[count]]}</th>`);
+                        output.push(`<th><button data-direction="descend">${svg.sort}</button> ${headingList[headingItems[count]]}</th>`);
                         count = count + 1;
-                    } while (count < headings.length);
+                    } while (count < headingItems.length);
                     output.push("</tr></thead><tbody>");
                     return output;
                 }()),
