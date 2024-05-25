@@ -9,9 +9,8 @@
     "devDependencies": {
         "@swc/cli": "^0.1.62",
         "@swc/core": "^1.3.46",
-        "@types/jsmediatags": "^3.9.3",
         "@types/node": "^18.15.11",
-        "jsmediatags": "^3.9.7",
+        "node-id3": "^0.2.6",
         "typescript": "^5.0.4"
     },
     "directories": {},

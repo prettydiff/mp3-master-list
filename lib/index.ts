@@ -2,7 +2,8 @@
 import { readFile, writeFile } from "fs";
 import { resolve, sep } from "path";
 
-import * as tags from "jsmediatags";
+// import * as tags from "jsmediatags";
+import * as id3 from "node-id3";
 
 import common from "./common.js";
 import directory from "./directory.js";
@@ -87,7 +88,6 @@ const init = function () {
                     "track": "Track",
                     "path": "File Path",
                     "sizeFormatted": "File Size",
-                    "id3": "ID3 Version",
                     "modified": "Modified",
                     "hash": "Hash"
                 };
@@ -313,27 +313,21 @@ const init = function () {
                         listLength:number = list.length;
                     if (index < listLength && wish === null) {
                         if (type === "music") {
-                            tags.read(absolute(list[index][0]), {
-                                onSuccess: function(tag) {
-                                    fileList[index][5].album = tag.tags.album;
-                                    fileList[index][5].artist = tag.tags.artist;
-                                    fileList[index][5].genre = (tag.tags.genre === "36") ? "Game" : tag.tags.genre;
-                                    // @ts-ignore
-                                    fileList[index][5].id3 = tag.version;
-                                    fileList[index][5].title = tag.tags.title;
-                                    fileList[index][5].track = (tag.tags.track === undefined) ? "" : tag.tags.track;
+                            // @ts-ignore
+                            id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
+                                if (id3Err === null) {
+                                    fileList[index][5].album = tags.album;
+                                    fileList[index][5].artist = tags.artist;
+                                    fileList[index][5].genre = tags.genre;
+                                    fileList[index][5].title = tags.title;
+                                    fileList[index][5].track = (tags.raw.TRCK === undefined) ? "" : tags.raw.TRCK;
                                     fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
                                     fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
                                     totalSize = totalSize + fileList[index][5].size;
                                     index = index + 1;
                                     readTags(null);
-                                },
-                                onError: function(error) {
-                                    log([
-                                        `Error reading ID3 tag of file ${mp3dir + sep + list[index][0]}`,
-                                        error.type,
-                                        error.info
-                                    ]);
+                                } else {
+                                    log([`Error reading id3 tag of file: ${absolute(list[index][0])}`, JSON.stringify(id3Err)]);
                                 }
                             });
                         } else {
@@ -525,7 +519,7 @@ const init = function () {
                             search: "",
                             startTime: startTime,
                             symbolic: false,
-                            testing: true,
+                            testing: false,
                             type: type
                         });
                     });
