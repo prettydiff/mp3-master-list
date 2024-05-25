@@ -316,9 +316,21 @@ const init = function () {
                             // @ts-ignore
                             id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
                                 if (id3Err === null) {
+                                    if (tags.genre !== undefined) {
+                                        if (tags.genre === "20" || tags.genre === "(20)") {
+                                            fileList[index][5].genre = "Alternative";
+                                        } else if (tags.genre === "36" || tags.genre === "(36)") {
+                                            fileList[index][5].genre = "Game";
+                                        } else if (tags.genre === "52" || tags.genre === "(52)") {
+                                            fileList[index][5].genre = "Electronic";
+                                        } else if ((/^\w/).test(tags.genre) === true) {
+                                            fileList[index][5].genre = tags.genre;
+                                        } else {
+                                            fileList[index][5].genre = tags.genre.replace(/^\(?\d+\)?/, "");
+                                        }
+                                    }
                                     fileList[index][5].album = tags.album;
                                     fileList[index][5].artist = tags.artist;
-                                    fileList[index][5].genre = tags.genre;
                                     fileList[index][5].title = tags.title;
                                     fileList[index][5].track = (tags.raw.TRCK === undefined) ? "" : tags.raw.TRCK;
                                     fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
