@@ -348,7 +348,7 @@ const init = function () {
                                 fileList[index][5].genre = dirs[0];
                                 fileList[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
                                 fileList[index][5].track = (type === "movie")
-                                    ? fileList[index][5].title.slice(fileList[index][5].title.indexOf("(") + 1, fileList[index][5].title.length - 1)
+                                    ? fileList[index][5].title.slice(fileList[index][5].title.lastIndexOf("(") + 1, fileList[index][5].title.length - 1)
                                     : (dirs.length > 2)
                                         ? dirs[1]
                                         : "Season 1";
