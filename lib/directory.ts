@@ -37,6 +37,8 @@ const directory = function terminal_commands_library_directory(args:config_comma
             longest:number = 0,
             startItem:string = null,
             files:number = 0,
+            sizeTotal:number = 0,
+            sizeProgress:number = 0,
             summary:string;
         const dirCount:number[] = [],
             dirNames:string[] = [],
@@ -104,8 +106,9 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                     list[index][2] = output.hash;
                                     mp3List.push(list[index]);
                                     fileCount = fileCount + 1;
+                                    sizeProgress = sizeProgress + list[index][5].size;
                                     moveCursor(process.stdout, -10000, 0);
-                                    process.stdout.write(`${humanTime(args.startTime, false)}Hashed file ${fileCount} of ${files} (${((fileCount / files) * 100).toFixed(2)}%).`);
+                                    process.stdout.write(`${humanTime(args.startTime, false)}Hashed file ${fileCount} of ${files} (${((fileCount / files) * 100).toFixed(2)}%) or ${common.commas(sizeProgress)} bytes of ${common.commas(sizeTotal)} (${((sizeProgress / sizeTotal) * 100).toFixed(2)}%).`);
                                     if (index > 0) {
                                         loop();
                                     } else {
@@ -315,6 +318,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                     }
                                 } else if ((args.type === "music" && (/\.mp3$/i).test(relPath) === true) || (args.type !== "music" && (/\.((avi)|(flv)|(mkv)|(mp4)|(ogg)|(webm)|(wmv))$/i).test(relPath) === true)) {
                                     files = files + 1;
+                                    sizeTotal = sizeTotal + stats.size;
                                     list.push([relPath, type, "", parent, 0, statData, ""]);
                                 }
                             }

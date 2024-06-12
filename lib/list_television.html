@@ -77,11 +77,11 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Television Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 1703</p>
-<p><span>Total size</span> 1,409,267,552,118 bytes (1.3TiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 1703 results (100.00%)</p>
-<p><span>Dated</span> 21 MAY 2024 11:54:45.266</p>
-<p><span>Location</span> D:\television</p>
+<p><span>Total files</span> 1729</p>
+<p><span>Total size</span> 1,428,246,887,177 bytes (1.3TiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 1729 results (100.00%)</p>
+<p><span>Dated</span> 11 JUN 2024 12:21:12.751</p>
+<p><span>Location</span> d:\television</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p><label><span>Filter</span><input type="text" id="filter"/></label></p>
@@ -12017,6 +12017,292 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 <td data-numeric="1715853410000">16 MAY 2024 04:56:50.000</td>
 <td>18dff5360ee647fc908ab18b38896fe358ed85be0d7c80f80038343cd63669152025a2935f230a8c060c3a0713ea5fbbf5f139f71de1021cdc14e277d4096e10</td>
 </tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E01 Pilot (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E01 Pilot (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E01 Pilot (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="784012003">784,012,003</td>
+<td data-numeric="1718101476000">11 JUN 2024 05:24:36.000</td>
+<td>ee847744bce99bf850160cc31f0c3f0c42555bfdaf5e37efd3ec45652dd96dc94697d6bafe4b22faa6cb625b0657fd16993b4daefd7ba08651b6dfb372185f08</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 1/Helix S01E02 Vector (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E02 Vector (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E02 Vector (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="660990777">660,990,777</td>
+<td data-numeric="1718101476000">11 JUN 2024 05:24:36.000</td>
+<td>5d44bb37fb9968efd72ccd3df803e0dab62eaad167e06a8162381835788f7698feb9004a6513e1c982166c5043201ff7839c5df7cef7d4041d9c68afa3502776</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E03 274 (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E03 274 (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E03 274 (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="762658362">762,658,362</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>b78148b81d7a58a54ab3dbc81ca7e7fa106b655da1ff5dca417785ae6c459d937edbe68f672c661d5107a4f875dbb30d957f361826e48ff231bba4897a09f45c</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 1/Helix S01E04 Single Strand (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E04 Single Strand (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E04 Single Strand (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="749934541">749,934,541</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>42d9d2372f318d368d3b66b16e187d55bc70e70fda97fac86caceffa1b41ab35818c8014e01a7491ca0bf88c3f95a6b917dfc466c40165461d26d91f8ff2a73a</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E05 The White Room (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E05 The White Room (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E05 The White Room (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="756923149">756,923,149</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>e20a9816585c925b3c50b761d762d137d8b87d220165a337e408934742db5e48ff2fd32c88cf2aba2dd82a42e01973fbe646931291c12dc22afab7055b6ba5f6</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 1/Helix S01E06 Aniqatiga (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E06 Aniqatiga (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E06 Aniqatiga (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="747562341">747,562,341</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>005f50a6cb8b44e4be2f1f9a36e865f6e07dec443b7c7b07367b9d577b969ed2faa63d678f4f333a6cbee9737d36f19d55913b7e4721f97ec3d66925cdf433a8</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E07 Survivor Zero (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E07 Survivor Zero (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E07 Survivor Zero (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="755261348">755,261,348</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>c4416f63d4263fa261b400a4c8d800774e316c02d8c23b0f648774bbc06ef1a76342e04bd3b2ff32f4618c78cf2a6c92a53774618c4c776a47472ebe6f4b8d96</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 1/Helix S01E08 Bloodline (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E08 Bloodline (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E08 Bloodline (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="759565408">759,565,408</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>66534187d5a2cca47485ef8625524630a87a3b88bc97149969a949fcf0b222ee188f4983e185d25847f0f46a32c0c9f2c07cd26b8658121c15054e8b31b535f8</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E09 Level X (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E09 Level X (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E09 Level X (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="686539476">686,539,476</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>99c9e026dba549856dfc8557e12daa4c5194bf40b740efbb04dae52742009730f3423184f5da08acc64833aca3781bafc58f3c1e3b2351774786c0a19c0c4c55</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 1/Helix S01E10 Fushigi (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E10 Fushigi (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E10 Fushigi (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="726776423">726,776,423</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>e8a2cb3759b5e056ba16b32ed229ae34f25eb6e72365070c212cdd75deea129c1d3626474618958943a5547116918b41b8d4ca7efd9c6e657fa9e7e304f72f12</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E11 Black Rain (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E11 Black Rain (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E11 Black Rain (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="661703615">661,703,615</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>896d1cd24d3c3b7a8620868e39d6db20b169115be14045145085a8ca29a30c68620774fb495ddb924c59b1eb443fa8adfa35db39da4c9f623f20031c1e306ad1</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 1/Helix S01E12 The Reaping (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E12 The Reaping (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E12 The Reaping (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="676480275">676,480,275</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>9dedf373e5dbfb8409e0f6b10bb534ea213b6a143066566b6bb5733190e0e06d6f39717494a5204d7ba8f889e72ee01082d86daf77495693526c448e835913a1</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 1/Helix S01E13 Dans L'Ombre (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S01E13 Dans L'Ombre (1080p x265 10bit Tigole)</td>
+<td>Season 1</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 1/Helix S01E13 Dans L'Ombre (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="702193543">702,193,543</td>
+<td data-numeric="1718101478000">11 JUN 2024 05:24:38.000</td>
+<td>0efa08211b64cbea1c45573625fd5b8410a2f2c6d8d1b81f4b59e20df7e005137dd844f5d5846ed6c3836c8ddc10b1e1a3232c10b62fe7b3aaa481b6a38829f9</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E01 San Jose (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E01 San Jose (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E01 San Jose (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="709444250">709,444,250</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>10f32ae6493c3d3fde907595b23ea0081b9d62efcaebddb89a19733f368158dbb17ffd930833c340f23e7b7717156d0bde969372d47aa2e8e97e917b52838c3c</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 2/Helix S02E02 Reunion (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E02 Reunion (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E02 Reunion (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="746899601">746,899,601</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>2fdd308df464310bc7a0bd9d53e3fbc380bd0f9713896d1b47311158433907599f77402cbe685e8ddac31a2d150140d70b5879e9ce8edf3c7996056af071a234</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E03 Scion (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E03 Scion (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E03 Scion (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="688578137">688,578,137</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>45303333915515d30cd9c5c59fcb37f37dbe2db7b4a65940e4689e6c073d0ce324af293bf6bde8140ec059662303daac12ec4ed465b105ffaef97a6eb734e4ba</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 2/Helix S02E04 Densho (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E04 Densho (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E04 Densho (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="730633365">730,633,365</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>acb26ebb0a2391aefd2f6365ece22532f4dbb4ac5e9cb17b029ad7415cdaa9a43ae77e793be38f8d6e738b4dbbea52c89307c9ba9155b974a1af0864adab07fd</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E05 Oubliette (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E05 Oubliette (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E05 Oubliette (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="754494926">754,494,926</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>09e8d77492697100217ae5bb39d4d92866f4f52f694a1346b3e2a8453e97980d6bb76b9369273b64ef4b4efb664486fef4eb461dc1416e2fb2b6d0b9c5652713</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 2/Helix S02E06 M. Domestica (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E06 M. Domestica (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E06 M. Domestica (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="747188075">747,188,075</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>8cf29cf8d32958986ada8b4145b2674863f0d12d42f840b75686c1149b34830b282e331a55efdc3f63910955d6b30916e172ccba974ff8b3c4523291e0948541</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E07 Cross-Pollination (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E07 Cross-Pollination (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E07 Cross-Pollination (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="744066891">744,066,891</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>c4da48bcf46f44d70b08c62fe41461121c0794006d2fe6093611e7017db84f020882b48a741d846aa98f79a8fb2c71f2823bd64232cd8d0563cfd0e2d5756f8c</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 2/Helix S02E08 Vade In Pace (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E08 Vade In Pace (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E08 Vade In Pace (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="736077819">736,077,819</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>4203963927d41e7173c92c020cb9d8fff1c5fd0ce11b86488a2eddbfe44dd2a3057ddd8302cecbdddce2c76c908a4bb0ea22a4f8b25764dc672dc556cc1145c7</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E09 Ectogenesis (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E09 Ectogenesis (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E09 Ectogenesis (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="730536788">730,536,788</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>7a4b5e8638adb675fc6be8f2f323370b97fcd2f1053e3567a53cb9d8f40e34bb2f2eae69772c59952723ea835eec190280004f979315933405f95b4a51526825</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 2/Helix S02E10 Mother (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E10 Mother (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E10 Mother (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="730622714">730,622,714</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>e7bb140b91fda8fb9b55821c68f00551d2c20ce92e7d618548b21df22bdf16d0e259b5e7264733ce6eac13529823eb15e015cdf79891793c1a009a1bd2130224</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E11 Plan B (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E11 Plan B (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E11 Plan B (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="742903957">742,903,957</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>2e194fe57a33ad5890031d37e860d8672ee93bdeaf6756cf4c4229db1014c59154a40e698e094f60402de204f9121d678413b9fe8667f816b1c81a61932f8254</td>
+</tr>
+<tr class="even" data-path="Helix (2014)/Season 2/Helix S02E12 The Ascendant (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E12 The Ascendant (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E12 The Ascendant (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="740063688">740,063,688</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>2776b9045d1ecf0768bc5ec4f3b1d941165a4bc8dd9a53fa871de19e11fbbb00d08dfb9d4f31999e322fe2b7cdd249861ba1260b7d111b4a04316fcd8a66a405</td>
+</tr>
+<tr class="odd" data-path="Helix (2014)/Season 2/Helix S02E13 O Brave New World (1080p x265 10bit Tigole).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Helix (2014)</td>
+<td>Helix S02E13 O Brave New World (1080p x265 10bit Tigole)</td>
+<td>Season 2</td>
+<td>mkv</td>
+<td>Helix (2014)/Season 2/Helix S02E13 O Brave New World (1080p x265 10bit Tigole).mkv</td>
+<td class="number" data-numeric="747223587">747,223,587</td>
+<td data-numeric="1718077160000">10 JUN 2024 22:39:20.000</td>
+<td>2fc48d5c000e994741e35d2967389c2dfcba629b991c00579b6ddb0bb6e9f56da6c05658b42592564482053f0ac24372c87dfcd564553ce67903ee8ac5371911</td>
+</tr>
 <tr class="even" data-path="Jean Claude Van Johnson (2016)/Jean.Claude.Van.Johnson.S01E01.Pilot.1080p.WEBRip.6CH.x265.HEVC-PSA.mkv">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Jean Claude Van Johnson (2016)</td>
@@ -18848,11 +19134,6 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 <td data-numeric="1715551408000">12 MAY 2024 17:03:28.000</td>
 <td>48153d241d2186d2d3e2e8c32bcb3977f6c694cee79077c794e62265d44cb718e6258a842d41536578c16dad9d78fc417f3460914f312dcaac06afe76023800a</td>
 </tr>
-
-
-
-
-
 </tbody></table>
 <h2 style="display:none">Television Wishlist</h2>
 <table style="display:none"><thead><tr>
@@ -18867,9 +19148,14 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
 <th><button data-direction="descend"><svg version="1.1" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></button> Hash</th>
 </tr></thead><tbody>
 <tr><td>none</td><td>Black Mirror</td><td>2011</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
+<tr><td>none</td><td>Chef</td><td>1993</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
+<tr><td>none</td><td>Dead Like Me</td><td>2003</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
+<tr><td>none</td><td>Grimm</td><td>2011</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
 <tr><td>none</td><td>Ken Burns Vietnam War</td><td>2017</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
 <tr><td>none</td><td>Metalacolypse</td><td>2021</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
+<tr><td>none</td><td>Seeker</td><td>2008</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
 <tr><td>none</td><td>Squid Game</td><td>2021</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
+<tr><td>none</td><td>Waco</td><td>2018</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>
 </tbody></table>
 <script type="application/javascript">
 // cspell: words dgimsuvi
