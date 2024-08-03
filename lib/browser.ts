@@ -474,28 +474,16 @@
                 return `${hStr}:${mStr}:${sStr}`;
             },
             randomIndex: function ():number {
-                let index:number = 0,
-                    first:number = 0,
-                    last:number = recordLengthMedia - 1,
-                    seed:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10),
-                    random:number = Math.round(seed * recordLengthMedia);
-                if (dom.recordsMedia[0].style.display === "none") {
-                    do {
-                        index = index + 1;
-                    } while (dom.recordsMedia[index].style.display === "none" && index < last);
-                    first = index;
-                }
-                if (first < last && dom.recordsMedia[index].style.display === "none") {
-                    index = last;
-                    do {
-                        index = index - 1;
-                    } while (dom.recordsMedia[index].style.display === "none" && index > 0);
-                    last = index;
-                }
-                if (last - first > 1 && (random < first - 1 || random > last + 1)) {
-                    random = Math.round(seed * (last - first) * 2) + first;
-                }
-                return random;
+                let index:number = recordLengthMedia;
+                const shown:number[] = [],
+                    seed:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10);
+                do {
+                    index = index - 1;
+                    if (dom.recordsMedia[0].style.display === "table-row") {
+                        shown.push(index);
+                    }
+                } while (index > 0);
+                return shown[Math.round(seed * shown.length)];
             },
             scrollTo: function ():void {
                 window.scroll({
@@ -574,7 +562,7 @@
     tools.titleTop();
 
     // iphone styles
-    if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+    if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
         body.setAttribute("class", `${documentType} iphone`);
     } else {
         // iphone doesn't get volume controls as they make you use the physical volume buttons
@@ -658,6 +646,10 @@
     if (dom.wishlist !== null) {
         // toggle movie wishlist
         dom.wishlist.onclick = list.toggle;
+    }
+
+    if (dom.random.checked === true) {
+        dom.randomButton.setAttribute("class", "random active");
     }
 
     // set the active track
