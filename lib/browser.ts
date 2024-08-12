@@ -479,14 +479,18 @@
             randomIndex: function ():number {
                 let index:number = recordLengthMedia;
                 const shown:number[] = [],
-                    seed:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10);
+                    seed1:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10),
+                    seed2:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10);
                 do {
                     index = index - 1;
                     if (dom.recordsMedia[index].style.display === "table-row") {
                         shown.push(index);
                     }
                 } while (index > 0);
-                return shown[Math.round(seed * shown.length)];
+                if (shown[Math.round(seed1 * seed2 * 10 * shown.length)] === undefined) {
+                    return shown[Math.round(seed1 * seed2 * shown.length)];
+                }
+                return shown[Math.round(seed1 * seed2 * 10 * shown.length)];
             },
             scrollTo: function ():void {
                 window.scroll({
@@ -652,7 +656,17 @@
     }
 
     if (dom.random.checked === true) {
+        dom.currentTrack = dom.recordsMedia[tools.randomIndex()];
         dom.randomButton.setAttribute("class", "random active");
+    } else if (dom.filter.value !== "") {
+        let index:number = 0;
+        do {
+            if (dom.recordsMedia[index].style.display === "table-row") {
+                dom.currentTrack = dom.recordsMedia[index];
+                break;
+            }
+            index = index + 1;
+        } while (index < recordLengthMedia);
     }
 
     // set the active track
