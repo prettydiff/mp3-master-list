@@ -27,7 +27,7 @@ label span{display:inline-block;width:10em}
 #filtered-results{color:#00f}
 #currentTrack td{background:#fdd;border-color:#900;box-shadow:0.1em 0.1em 0.5em;color:#900}
 #currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}
-#currentTrackName span{display:block;height:1em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#currentTrackName span{display:block;height:1.25em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #minimize{float:left}
 #mute{float:right}
 #mute input{display:none}
@@ -51647,21 +51647,28 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
             }
         },
         next: function() {
-            let nextElement = dom.random.checked === true ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[tools.randomIndex()] : dom.currentTrack;
-            // cycle through hidden next tracks
-            do {
-                nextElement = nextElement.nextElementSibling;
-                if (nextElement === null) {
-                    nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
+                let nextElement = null;
+                if (dom.random.checked === true) {
+                    nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[tools.randomIndex()];
+                } else {
+                    nextElement = dom.currentTrack;
+
+                    // cycle through hidden next tracks
+                    do {
+                        nextElement = nextElement.nextElementSibling;
+                        if (nextElement === null) {
+                            nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
+                        }
+                        if (nextElement.getAttribute("id") === "currentTrack") {
+                            return;
+                        }
+                    } while (nextElement.style.display === "none");
                 }
-                if (nextElement.getAttribute("id") === "currentTrack") {
-                    return;
-                }
-            }while (nextElement.style.display === "none")
-            // assign the selected track for playing
-            tools.setCurrentTrack(nextElement, true);
-            trackList.push(nextElement);
-            playEvents.buttonPlayerActive(dom.playerControls[1]);
+
+                // assign the selected track for playing
+                tools.setCurrentTrack(nextElement, true);
+                trackList.push(nextElement);
+                playEvents.buttonPlayerActive(dom.playerControls[1]);
         },
         pause: function(event) {
             dom.media.pause();
@@ -51823,35 +51830,14 @@ fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
             return `${hStr}:${mStr}:${sStr}`;
         },
         randomIndex: function() {
-            // let index:number = 0,
-            //     first:number = 0,
-            //     last:number = recordLengthMedia - 1,
-            //     seed:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10),
-            //     random:number = Math.round(seed * recordLengthMedia);
-            // if (dom.recordsMedia[0].style.display === "none") {
-            //     do {
-            //         index = index + 1;
-            //     } while (dom.recordsMedia[index].style.display === "none" && index < last);
-            //     first = index;
-            // }
-            // if (first < last && dom.recordsMedia[index].style.display === "none") {
-            //     index = last;
-            //     do {
-            //         index = index - 1;
-            //     } while (dom.recordsMedia[index].style.display === "none" && index > 0);
-            //     last = index;
-            // }
-            // if (last - first > 1 && (random < first - 1 || random > last + 1)) {
-            //     random = Math.round(seed * (last - first) * 2) + first;
-            // }
             let index = recordLengthMedia;
             const shown = [], seed = window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10;
             do {
                 index = index - 1;
-                if (dom.recordsMedia[0].style.display === "table-row") {
+                if (dom.recordsMedia[index].style.display === "table-row") {
                     shown.push(index);
                 }
-            }while (index > 0)
+            }while (index > 0);
             return shown[Math.round(seed * shown.length)];
         },
         scrollTo: function() {

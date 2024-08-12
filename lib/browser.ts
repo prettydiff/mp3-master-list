@@ -238,20 +238,23 @@
                 }
             },
             next: function ():void {
-                let nextElement:HTMLElement = (dom.random.checked === true)
-                    ? document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[tools.randomIndex()]
-                    : dom.currentTrack;
+                let nextElement:HTMLElement = null;
+                if (dom.random.checked === true) {
+                    nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[tools.randomIndex()];
+                } else {
+                    nextElement = dom.currentTrack;
 
-                // cycle through hidden next tracks
-                do {
-                    nextElement = nextElement.nextElementSibling as HTMLElement;
-                    if (nextElement === null) {
-                        nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
-                    }
-                    if (nextElement.getAttribute("id") === "currentTrack") {
-                        return;
-                    }
-                } while (nextElement.style.display === "none");
+                    // cycle through hidden next tracks
+                    do {
+                        nextElement = nextElement.nextElementSibling as HTMLElement;
+                        if (nextElement === null) {
+                            nextElement = document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0];
+                        }
+                        if (nextElement.getAttribute("id") === "currentTrack") {
+                            return;
+                        }
+                    } while (nextElement.style.display === "none");
+                }
 
                 // assign the selected track for playing
                 tools.setCurrentTrack(nextElement, true);
@@ -479,7 +482,7 @@
                     seed:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10);
                 do {
                     index = index - 1;
-                    if (dom.recordsMedia[0].style.display === "table-row") {
+                    if (dom.recordsMedia[index].style.display === "table-row") {
                         shown.push(index);
                     }
                 } while (index > 0);

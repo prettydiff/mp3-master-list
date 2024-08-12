@@ -162,7 +162,7 @@ const init = function () {
                     "#filtered-results{color:#00f}",
                     "#currentTrack td{background:#fdd;border-color:#900;box-shadow:0.1em 0.1em 0.5em;color:#900}",
                     "#currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}",
-                    "#currentTrackName span{display:block;height:1em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
+                    "#currentTrackName span{display:block;height:1.25em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
                     "#minimize{float:left}",
                     "#mute{float:right}",
                     "#mute input{display:none}",
