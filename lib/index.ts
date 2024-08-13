@@ -16,7 +16,9 @@ const init = function () {
     let wishlist0:string[][] = null,
         wishlist1:string[][] = null,
         wishlist2:string[][] = null,
-        browser:string = "";
+        browser:string = "",
+        styles:string = "",
+        readFiles:number = 0;
     const mp3dir:string = process.argv[2],
         startTime:bigint = process.hrtime.bigint(),
         type:mediaType = (mp3dir.indexOf("music") > -1)
@@ -140,76 +142,10 @@ const init = function () {
                     "<meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, user-scalable=0, minimum-scale=1, maximum-scale=1\"/>",
                     "<meta http-equiv=\"content-type\" content=\"text/html; charset=utf8\"/>",
                     "<style type=\"text/css\">",
-                    "body{font-family:sans-serif;font-size:10px;text-size-adjust:100%;-webkit-text-size-adjust:100%}",
-                    "h1{font-size:2em;margin:0}",
-                    "legend,p,td,th{font-size:1.6em}",
-                    "th{background:#ddd;padding:0.5em}",
-                    "td{padding:0.2em 0.4em}",
-                    "fieldset{margin:1em 0}",
-                    "th,td{font-family:monospace}",
-                    "td,th,table{border:0.1em solid #666;border-collapse:collapse}",
-                    "th{min-width:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
-                    "table button{border-color:#000;border-style:solid;border-width:0.1em}",
-                    "thead svg{height:1em;width:1em}",
-                    "tbody svg{height:20%;width:20%}",
-                    "th button{float:left;margin:0 1em 0 0}",
-                    "tbody td button{display:block;cursor:pointer;font-size:1em;margin:0.2em;text-align:center;width:5em}",
-                    "tbody tr:hover{background:#def}",
-                    ".number{text-align:right}",
-                    ".odd{background:#eee}",
-                    ".data-points span,",
-                    "label span{display:inline-block;width:10em}",
-                    "#filtered-results{color:#00f}",
-                    "#currentTrack td{background:#fdd;border-color:#900;box-shadow:0.1em 0.1em 0.5em;color:#900}",
-                    "#currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}",
-                    "#currentTrackName span{display:block;height:1.25em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
-                    "#minimize{float:left}",
-                    "#mute{float:right}",
-                    "#mute input{display:none}",
-                    "#player{background:#eee;border-color:#999;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ddd;height:auto;margin:0;position:fixed;top:1em;width:60em}",
-                    "#player button{background:transparent;border-style:none;cursor:pointer;font-size:1em}",
-                    "tbody td button.active,",
-                    "tbody td button.active svg,",
-                    "#player #minimize.active,",
-                    "#player #minimize.active svg,",
-                    "#player #mute.active,",
-                    "#player #mute.active svg,",
-                    "#player .controls button.active,",
-                    "#player .controls button.active svg{border-color:#00f;color:#00f;fill:#00f}",
-                    "#player .controls input{display:none}",
-                    "tbody td button.active,",
-                    "#player #minimize.active,",
-                    "#player #mute.active,",
-                    "#player .controls button.active{background:#eef;box-shadow:inset 0.1em 0.1em 0.2em #aaa}",
-                    "#player .controls{clear:both;float:none;height:1.6em;margin:0 0 0.5em;text-align:center}",
-                    "#player .controls button,",
-                    "#player #mute,",
-                    "#player #minimize{background:#ddd;border-color:#000;border-style:solid;border-width:0.1em;box-shadow:0.1em 0.1em 0.2em #ccc;display:inline-block;height:1.2em;line-height:0.5em;margin:0 1em;width:2em}",
-                    "#player #mute svg{height:1em}",
-                    "#player #mute{margin:-1.2em 1em 0 0}",
-                    "#player #minimize{margin:0 -3.2em 0 1em}",
-                    "#player .controls svg{width:1em}",
-                    "#player .trackVolume,",
-                    "#player .track{border-color:#000;border-style:none none solid;border-width:0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}",
-                    "#player .trackVolume{display:inline-block;height:0.5em;margin:0 0.25em;width:8em}",
-                    "#player button{padding:0}",
-                    "#player .controls .slider{width:10em}",
-                    "#player .controls .trackVolume button,",
-                    "#player #seekSlider{background:#fff;border-radius:50%;cursor:ew-resize;height:1em;left:0;margin:0;position:relative;top:0.85em;width:1em}",
-                    "#player #volumeSlider{border-style:none;box-shadow:none;top:0.1em}",
-                    "#player .volumeMinus{display:inline-block;margin:0 0 0 1em}",
-                    "#player video{width:inherit}",
-                    "fieldset select,",
-                    "fieldset input[type=\"text\"]{display:inline-block;padding:0.1em;width:12em}",
-                    ".iphone #player .pipe,.iphone #player .volumeMinus,.iphone #player .trackVolume,.iphone #player .volumePlus,.iphone #player #mute{display:none}",
-                    ".iphone #player #minimize{margin:0 0 0 1em}",
-                    ".iphone #player video{max-height:0em}",
-                    "#currentTime{float:left;margin:-1.5em 0 0.25em 1em}",
-                    "#duration{float:right;margin:-1.5em 1em 0.25em 0}",
-                    "@media only screen and (max-width: 800px) {#player{margin:-1em;max-width:100%}#player .controls button{margin:0 0.75em;width:1.5em}}",
-                    "@media only screen and (max-width: 400px) {#player .pipe,#player .volumeMinus,#player .trackVolume,#player .volumePlus{display:none}#player #currentTrackName span{font-size:0.7em}}",
+                    styles,
                     "</style>",
-                    `</head><body class="${mediaType}">`,
+                    `</head><body class="${mediaType} white">`,
+                    "<div class=\"body\">",
                     `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox"/></button></p></div>`,
                     `<h1>${mediaTypeCaps} Master List</h1>`,
                     "<fieldset class=\"data-points\"><legend>Summary</legend>"
@@ -220,6 +156,7 @@ const init = function () {
                     `<p><span>Location</span> ${location}</p>`,
                     "</fieldset>",
                     "<fieldset><legend>List Options</legend>",
+                    "<p class\"radio\"><span>Color Scheme</span><label>Default <input checked=\"checked\" name=\"colorScheme\" type=\"radio\" value=\"default\"/></label><label>White <input name=\"colorScheme\" type=\"radio\" value=\"white\"/></label></p>",
                     "<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>",
                     "<p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>"
                 ],
@@ -297,7 +234,7 @@ const init = function () {
                 html9:string[] = [
                     "<script type=\"application/javascript\">",
                     browser,
-                    "</script></body></html>"
+                    "</script></div></body></html>"
                 ];
             return html1.concat(totals, html2, html3, html4, html5, mediaData, html6, html7, html8, html9).join("\n");
         },
@@ -438,106 +375,120 @@ const init = function () {
                     `${humanTime(startTime, false)}Hashing complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
                 ]);
             }
+        },
+        readComplete = function ():void {
+            readFiles = readFiles + 1;
+            if (readFiles === 2) {
+                if (update === true) {
+                    let fileCount = 0;
+                    const extraction = function ():void {
+                            let writeCount:number = 0;
+                            const getFragment = function (index:number, start:string, end:string):string {
+                                    return fileStore[index].slice(fileStore[index].indexOf(start), fileStore[index].indexOf(end));
+                                },
+                                writeCallback = function (writeError:NodeJS.ErrnoException):void {
+                                    if (writeError === null) {
+                                        writeCount = writeCount + 1;
+                                        if (writeCount === 6) {
+                                            log([`${humanTime(startTime, false)}All updates written. Commit changes in the project directory.`]);
+                                        }
+                                    } else {
+                                        log(["Error writing list output", JSON.stringify(writeError)]);
+                                    }
+                                },
+                                totalMovie:string = getFragment(0, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
+                                totalMusic:string = getFragment(1, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
+                                totalTelevision:string = getFragment(2, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
+                                recordsMovie:string = getFragment(0, "<tr class=\"even\" data-path=", "</tbody></table>"),
+                                recordsMusic:string = getFragment(1, "<tr class=\"even\" data-path=", "</tbody></table>"),
+                                recordsTelevision:string = getFragment(2, "<tr class=\"even\" data-path=", "</tbody></table>"),
+                                htmlMovie:string = buildHTML([recordsMovie], totalMovie, "movie"),
+                                htmlMusic:string = buildHTML([recordsMusic], totalMusic, "music"),
+                                htmlTelevision:string = buildHTML([recordsTelevision], totalTelevision, "television");
+                            writeFile(`${libPath}list_movie.html`, htmlMovie, writeCallback);
+                            writeFile(`${libPath}list_music.html`, htmlMusic, writeCallback);
+                            writeFile(`${libPath}list_television.html`, htmlTelevision, writeCallback);
+                            writeFile(`${defaultFiles[0] + sep}list.html`, htmlMovie, writeCallback);
+                            writeFile(`${defaultFiles[1] + sep}list.html`, htmlMusic, writeCallback);
+                            writeFile(`${defaultFiles[2] + sep}list.html`, htmlTelevision, writeCallback);
+                        },
+                        fileCallback = function (erFile:NodeJS.ErrnoException, fileData:Buffer):void {
+                            if (erFile === null) {
+                                fileStore.push(fileData.toString());
+                                fileCount = fileCount + 1;
+                                if (fileCount < defaultFiles.length) {
+                                    readFile(`${defaultFiles[fileCount] + sep}list.html`, fileCallback);
+                                } else {
+                                    const libPath:string = projectPath.replace(`${sep}js${sep}`, `${sep}lib${sep}`);
+                                    readFile(`${libPath}wishlist_movie.json`, function (erJSON0:NodeJS.ErrnoException, wishlist:Buffer):void {
+                                        if (erJSON0 === null) {
+                                            wishlist0 = JSON.parse(wishlist.toString());
+                                            readFile(`${libPath}wishlist_music.json`, function (erJSON1:NodeJS.ErrnoException, wishlist:Buffer):void {
+                                                if (erJSON1 === null) {
+                                                    wishlist1 = JSON.parse(wishlist.toString());
+                                                    readFile(`${libPath}wishlist_television.json`, function (erJSON2:NodeJS.ErrnoException, wishlist:Buffer):void {
+                                                        if (erJSON2 === null) {
+                                                            wishlist2 = JSON.parse(wishlist.toString());
+                                                            extraction();
+                                                        } else {
+                                                            log(["Error reading JSON", JSON.stringify(erJSON2)]);
+                                                        }
+                                                    });
+                                                } else {
+                                                    log(["Error reading JSON", JSON.stringify(erJSON1)]);
+                                                }
+                                            });
+                                        } else {
+                                            log(["Error reading JSON", JSON.stringify(erJSON0)]);
+                                        }
+                                    });
+                                }
+                            }
+                        };
+                    log(["Reading prior created lists."]);
+                    readFile(`${defaultFiles[fileCount] + sep}list.html`, fileCallback);
+                } else {
+                    if (process.argv.length < 3) {
+                        log(["Please specify a file system location."]);
+                    } else {
+                        readFile(`${libPath}wishlist_${type}.json`, function (erJSON:NodeJS.ErrnoException, wishlist:Buffer):void {
+                            if (type === "movie") {
+                                wishlist0 = JSON.parse(wishlist.toString());
+                            } else if (type === "music") {
+                                wishlist1 = JSON.parse(wishlist.toString());
+                            } else if (type === "television") {
+                                wishlist2 = JSON.parse(wishlist.toString());
+                            }
+                            directory({
+                                callback: dirCallback,
+                                depth: 0,
+                                mode: "hash",
+                                path: process.argv[2],
+                                search: "",
+                                startTime: startTime,
+                                symbolic: false,
+                                testing: false,
+                                type: type
+                            });
+                        });
+                    }
+                }
+            }
         };
     log.title(`${typeCaps} Master List`);
     log([`${humanTime(startTime, false)}Hashing files`]);
+    readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
+        if (erRead === null) {
+            styles = fileData.toString();
+            readComplete();
+        } else {
+            log(["Error reading style.css", JSON.stringify(erRead)]);
+        }
+    });
     readFile(`${projectPath}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
         if (erRead === null) {
             browser = fileData.toString();
-            if (update === true) {
-                let fileCount = 0;
-                const extraction = function ():void {
-                        let writeCount:number = 0;
-                        const getFragment = function (index:number, start:string, end:string):string {
-                                return fileStore[index].slice(fileStore[index].indexOf(start), fileStore[index].indexOf(end));
-                            },
-                            writeCallback = function (writeError:NodeJS.ErrnoException):void {
-                                if (writeError === null) {
-                                    writeCount = writeCount + 1;
-                                    if (writeCount === 6) {
-                                        log([`${humanTime(startTime, false)}All updates written. Commit changes in the project directory.`]);
-                                    }
-                                } else {
-                                    log(["Error writing list output", JSON.stringify(writeError)]);
-                                }
-                            },
-                            totalMovie:string = getFragment(0, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
-                            totalMusic:string = getFragment(1, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
-                            totalTelevision:string = getFragment(2, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
-                            recordsMovie:string = getFragment(0, "<tr class=\"even\" data-path=", "</tbody></table>"),
-                            recordsMusic:string = getFragment(1, "<tr class=\"even\" data-path=", "</tbody></table>"),
-                            recordsTelevision:string = getFragment(2, "<tr class=\"even\" data-path=", "</tbody></table>"),
-                            htmlMovie:string = buildHTML([recordsMovie], totalMovie, "movie"),
-                            htmlMusic:string = buildHTML([recordsMusic], totalMusic, "music"),
-                            htmlTelevision:string = buildHTML([recordsTelevision], totalTelevision, "television");
-                        writeFile(`${libPath}list_movie.html`, htmlMovie, writeCallback);
-                        writeFile(`${libPath}list_music.html`, htmlMusic, writeCallback);
-                        writeFile(`${libPath}list_television.html`, htmlTelevision, writeCallback);
-                        writeFile(`${defaultFiles[0] + sep}list.html`, htmlMovie, writeCallback);
-                        writeFile(`${defaultFiles[1] + sep}list.html`, htmlMusic, writeCallback);
-                        writeFile(`${defaultFiles[2] + sep}list.html`, htmlTelevision, writeCallback);
-                    },
-                    fileCallback = function (erFile:NodeJS.ErrnoException, fileData:Buffer):void {
-                        if (erFile === null) {
-                            fileStore.push(fileData.toString());
-                            fileCount = fileCount + 1;
-                            if (fileCount < defaultFiles.length) {
-                                readFile(`${defaultFiles[fileCount] + sep}list.html`, fileCallback);
-                            } else {
-                                const libPath:string = projectPath.replace(`${sep}js${sep}`, `${sep}lib${sep}`);
-                                readFile(`${libPath}wishlist_movie.json`, function (erJSON0:NodeJS.ErrnoException, wishlist:Buffer):void {
-                                    if (erJSON0 === null) {
-                                        wishlist0 = JSON.parse(wishlist.toString());
-                                        readFile(`${libPath}wishlist_music.json`, function (erJSON1:NodeJS.ErrnoException, wishlist:Buffer):void {
-                                            if (erJSON1 === null) {
-                                                wishlist1 = JSON.parse(wishlist.toString());
-                                                readFile(`${libPath}wishlist_television.json`, function (erJSON2:NodeJS.ErrnoException, wishlist:Buffer):void {
-                                                    if (erJSON2 === null) {
-                                                        wishlist2 = JSON.parse(wishlist.toString());
-                                                        extraction();
-                                                    } else {
-                                                        log(["Error reading JSON", JSON.stringify(erJSON2)]);
-                                                    }
-                                                });
-                                            } else {
-                                                log(["Error reading JSON", JSON.stringify(erJSON1)]);
-                                            }
-                                        });
-                                    } else {
-                                        log(["Error reading JSON", JSON.stringify(erJSON0)]);
-                                    }
-                                });
-                            }
-                        }
-                    };
-                log(["Reading prior created lists."]);
-                readFile(`${defaultFiles[fileCount] + sep}list.html`, fileCallback);
-            } else {
-                if (process.argv.length < 3) {
-                    log(["Please specify a file system location."]);
-                } else {
-                    readFile(`${libPath}wishlist_${type}.json`, function (erJSON:NodeJS.ErrnoException, wishlist:Buffer):void {
-                        if (type === "movie") {
-                            wishlist0 = JSON.parse(wishlist.toString());
-                        } else if (type === "music") {
-                            wishlist1 = JSON.parse(wishlist.toString());
-                        } else if (type === "television") {
-                            wishlist2 = JSON.parse(wishlist.toString());
-                        }
-                        directory({
-                            callback: dirCallback,
-                            depth: 0,
-                            mode: "hash",
-                            path: process.argv[2],
-                            search: "",
-                            startTime: startTime,
-                            symbolic: false,
-                            testing: false,
-                            type: type
-                        });
-                    });
-                }
-            }
+            readComplete();
         } else {
             log(["Error reading browser.js", JSON.stringify(erRead)]);
         }

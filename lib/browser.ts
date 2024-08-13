@@ -3,9 +3,16 @@
 
 (function () {
     const body:HTMLElement = document.getElementsByTagName("body")[0],
-        documentType:"movie"|"music"|"television" = body.getAttribute("class") as "movie"|"music"|"television",
+        bodyClass:[string, string] = body.getAttribute("class").split(" ") as [string, string],
+        documentType:"movie"|"music"|"television" = bodyClass[0] as "movie"|"music"|"television",
         trackList:HTMLElement[] = [],
         list = {
+            colorToggle: function (event:MouseEvent):void {
+                const classy:string[] = body.getAttribute("class").split(" "),
+                    target:HTMLInputElement = event.target as HTMLInputElement;
+                classy[1] = target.value;
+                body.setAttribute("class", classy.join(" "));
+            },
             filter: function ():void {
                 const caseSensitive:boolean = dom.caseSensitive.checked,
                     value:string = (caseSensitive === true)
@@ -483,10 +490,13 @@
                     seed2:number = (window.crypto.getRandomValues(new Uint32Array(1))[0] / 1e10);
                 do {
                     index = index - 1;
-                    if (dom.recordsMedia[index].style.display === "table-row") {
+                    if (dom.recordsMedia[index].style.display !== "none") {
                         shown.push(index);
                     }
                 } while (index > 0);
+                if (shown.length < 1) {
+                    return 0;
+                }
                 if (shown[Math.round(seed1 * seed2 * 10 * shown.length)] === undefined) {
                     return shown[Math.round(seed1 * seed2 * shown.length)];
                 }
@@ -529,9 +539,11 @@
             }
         },
         dom:dom = {
+            bodyDiv: document.getElementsByClassName("body")[0] as HTMLElement,
             buttons: document.getElementsByTagName("button"),
             caseSensitive: document.getElementById("caseSensitive") as HTMLInputElement,
             cellButtons: document.getElementsByTagName("tbody")[0].getElementsByTagName("button"),
+            colors: document.getElementsByName("colorScheme") as NodeListOf<HTMLInputElement>,
             currentTime: document.getElementById("currentTime"),
             currentTrack: document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[0],
             currentTrackName: document.getElementById("currentTrackName").getElementsByTagName("span")[0],
@@ -669,6 +681,14 @@
         } while (index < recordLengthMedia);
     }
 
+    dom.colors.forEach(function (item:HTMLInputElement):void {
+        item.onclick = list.colorToggle;
+        if (item.checked === true) {
+            item.click();
+        }
+    });
+
     // set the active track
     tools.setCurrentTrack(dom.currentTrack, false);
+    dom.bodyDiv.style.display = "block";
 }());

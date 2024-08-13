@@ -1,0 +1,133 @@
+body{font-family:sans-serif;font-size:10px;text-size-adjust:100%;-webkit-text-size-adjust:100%}
+.body{display:none}
+h1{font-size:2em;margin:0}
+legend,p,td,th{font-size:1.6em}
+th{padding:0.5em}
+td{padding:0.2em 0.4em}
+fieldset{margin:1em 0}
+th,td{font-family:monospace}
+td,th,table{border-style:solid;border-width:0.1em;border-collapse:collapse}
+th{min-width:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+table{width:100%}
+table button{border-style:solid;border-width:0.1em}
+thead svg{height:1em;width:1em}
+tbody svg{height:20%;width:20%}
+th button{float:left;margin:0 1em 0 0}
+tbody td button{display:block;cursor:pointer;font-size:1em;margin:0.2em;text-align:center;width:5em}
+.number{text-align:right}
+input,
+select{border-style:solid;border-width:0.1em}
+.data-points span,
+.radio label,
+.radio span,
+label span{display:inline-block;width:10em}
+#currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}
+#currentTrackName span{display:block;height:1.25em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#minimize{float:left}
+#mute{float:right}
+#mute input{display:none}
+#player{border-style:solid;border-width:0.1em;height:auto;margin:0;position:fixed;top:1em;width:60em}
+#player button{background:transparent;border-style:none;cursor:pointer;font-size:1em}
+#player .controls input{display:none}
+#player .controls{clear:both;float:none;height:1.6em;margin:0 0 0.5em;text-align:center}
+#player .controls button,
+#player #mute,
+#player #minimize{border-style:solid;border-width:0.1em;display:inline-block;height:1.2em;line-height:0.5em;margin:0 1em;width:2em}
+#player #mute svg{height:1em}
+#player #mute{margin:-1.2em 1em 0 0}
+#player #minimize{margin:0 -3.2em 0 1em}
+#player .controls svg{width:1em}
+#player .trackVolume,
+#player .track{border-style:none none solid;border-width:0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}
+#player .trackVolume{display:inline-block;height:0.5em;margin:0 0.25em;width:8em}
+#player button{padding:0}
+#player .controls .slider{width:10em}
+#player .controls .trackVolume button,
+#player #seekSlider{border-radius:50%;cursor:ew-resize;height:1em;left:0;margin:0;position:relative;top:0.85em;width:1em}
+#player #volumeSlider{border-style:none;box-shadow:none;top:0.1em}
+#player .volumeMinus{display:inline-block;margin:0 0 0 1em}
+#player video{width:inherit}
+fieldset select,
+fieldset input[type="text"]{display:inline-block;padding:0.1em;width:12em}
+.iphone #player .pipe,.iphone #player .volumeMinus,.iphone #player .trackVolume,.iphone #player .volumePlus,.iphone #player #mute{display:none}
+.iphone #player #minimize{margin:0 0 0 1em}
+.iphone #player video{max-height:0em}
+#currentTime{float:left;margin:-1.5em 0 0.25em 1em}
+#duration{float:right;margin:-1.5em 1em 0.25em 0}
+@media only screen and (max-width: 800px) {#player{margin:-1em;max-width:100%}#player .controls button{margin:0 0.75em;width:1.5em}}
+@media only screen and (max-width: 400px) {#player .pipe,#player .volumeMinus,#player .trackVolume,#player .volumePlus{display:none}#player #currentTrackName span{font-size:0.7em}}
+
+body.white{background:#fff}
+.white svg path{fill:#000}
+.white input,
+.white select{background:#ddd;border-color:#666}
+.white tbody td button.active,
+.white tbody td button.active svg,
+.white #player #minimize.active,
+.white #player #minimize.active svg,
+.white #player #mute.active,
+.white #player #mute.active svg,
+.white #player .controls button.active,
+.white #player .controls button.active svg{border-color:#00f;color:#00f;fill:#00f}
+.white #player .controls button,
+.white #player #minimize{background:#ddd;border-color:#000;box-shadow:0.1em 0.1em 0.2em #ccc}
+.white tbody td button.active,
+.white #player #minimize.active,
+.white #player #mute.active,
+.white #player .controls button.active{background:#eef;box-shadow:inset 0.1em 0.1em 0.2em #aaa}
+.white #player #seekSlider{background:#fff}
+.white #player button,
+.white td,
+.white th,
+.white table{border-color:#666}
+.white #player .track,
+.white table button{background:#eee;border-color:#000}
+.white th{background:#ddd}
+.white #player,
+.white .odd,
+.white fieldset{background:#eee}
+.white tbody tr:hover{background:#def}
+.white #currentTrack td{background:#fdd;border-color:#900;color:#900}
+.white #filtered-results{color:#00f}
+.white #player{border-color:#999;box-shadow:0.1em 0.1em 0.2em #ddd}
+
+body.default{background:#333;color:#ccc}
+.default svg path{fill:#ccc}
+.default input,
+.default table button,
+.default select{background:#333;border-color:#000;color:#ccc}
+.default tbody td button.active,
+.default tbody td button.active svg,
+.default #player #minimize.active,
+.default #player #minimize.active svg,
+.default #player #mute.active,
+.default #player #mute.active svg,
+.default #player .controls button.active,
+.default #player .controls button.active svg{border-color:#000;color:#9cf;fill:#9cf}
+.default #player .controls button,
+.default #player #minimize{background:#444;border-color:#000;box-shadow:0.1em 0.1em 0.2em #111}
+.default tbody td button.active,
+.default #player #minimize.active,
+.default #player #mute.active,
+.default #player .controls button.active{background:#036;box-shadow:inset 0.1em 0.1em 0.2em #111}
+.default tbody td button.active svg path,
+.default #player #minimize.active svg path,
+.default #player #mute.active svg path,
+.default #player .controls button.active svg path{fill:#9cf}
+.default #player #seekSlider{background:#666}
+.default #player button,
+.default td,
+.default th,
+.default #player .track,
+.default span.trackVolume,
+.default table{border-color:#000}
+.default th{background:#282828}
+.default .odd,
+.default fieldset{background:#383838;border-color:#222}
+.default #player{background:#444;border-color:#000}
+.default tbody tr:hover{background:#444}
+.default #currentTrack td{background:#332828;border-color:#300;color:#f66}
+.default #currentTrack button{background:#622}
+.default #currentTrack button svg path{fill:#c99}
+.default #filtered-results{color:#9cf}
+.default #player{border-color:#000;box-shadow:0.1em 0.1em 0.2em #222}

@@ -152,9 +152,11 @@ declare global {
     }
 
     interface dom {
+        bodyDiv: HTMLElement;
         buttons: HTMLCollectionOf<HTMLElement>;
         caseSensitive: HTMLInputElement;
         cellButtons: HTMLCollectionOf<HTMLElement>;
+        colors: NodeListOf<HTMLInputElement>;
         currentTime: HTMLElement;
         currentTrack: HTMLElement;
         currentTrackName: HTMLElement;
