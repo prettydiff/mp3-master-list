@@ -637,7 +637,6 @@
     // sliders
     tools.slider("seek");
     tools.slider("volume");
-    dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
 
     // mute
     dom.mute.onclick = playEvents.mute;
@@ -691,4 +690,5 @@
     // set the active track
     tools.setCurrentTrack(dom.currentTrack, false);
     dom.bodyDiv.style.display = "block";
+    dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
 }());
