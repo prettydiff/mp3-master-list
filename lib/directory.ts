@@ -38,7 +38,6 @@ const directory = function terminal_commands_library_directory(args:config_comma
             startItem:string = null,
             files:number = 0,
             sizeTotal:number = 0,
-            sizeProgress:number = 0,
             summary:string;
         const dirCount:number[] = [],
             dirNames:string[] = [],
@@ -84,9 +83,13 @@ const directory = function terminal_commands_library_directory(args:config_comma
                         args.callback(title, [summary, String(longest)], mp3List);
                     } else {
                         let index:number = 0,
-                            fileCount:number = 0;
+                            fileCount:number = 0,
+                            sizeProgress:number = 0,
+                            time:[string, bigint] = null,
+                            estimationDate:string = "";
                         const listLength:number = list.length,
                             mp3List:directory_list = [],
+                            now:number = Date.now(),
                             loop = function terminal_commands_library_directory_loop():void {
                                 do {
                                     index = index + 1;
@@ -107,8 +110,19 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                     mp3List.push(list[index]);
                                     fileCount = fileCount + 1;
                                     sizeProgress = sizeProgress + list[index][5].size;
+                                    time = humanTime(args.startTime, false);
+                                    estimationDate = (sizeProgress > 0)
+                                        ? new Date(
+                                            now +
+                                            (
+                                                Number(time[1] / 1000000n) / (
+                                                    sizeProgress / sizeTotal
+                                                )
+                                            )
+                                        ).toLocaleString()
+                                        : "unknown";
                                     moveCursor(process.stdout, -10000, 0);
-                                    process.stdout.write(`${humanTime(args.startTime, false)}Hashed file ${fileCount} of ${files} (${((fileCount / files) * 100).toFixed(2)}%) or ${common.commas(sizeProgress)} bytes of ${common.commas(sizeTotal)} (${((sizeProgress / sizeTotal) * 100).toFixed(2)}%).`);
+                                    process.stdout.write(`${time[0]}Hashed file ${fileCount} of ${files} (${((fileCount / files) * 100).toFixed(2)}%) or ${common.commas(sizeProgress)} bytes of ${common.commas(sizeTotal)} (${((sizeProgress / sizeTotal) * 100).toFixed(2)}%). Estimated completion: ${estimationDate}`);
                                     if (index > 0) {
                                         loop();
                                     } else {
@@ -123,7 +137,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                 source: null,
                                 stat: null
                             };
-                        log([`${humanTime(args.startTime, false)}File system mapped and starting hashing.`]);
+                        log([`${humanTime(args.startTime, false)[0]}File system mapped and starting hashing.`]);
                         loop();
                     }
                 } else if (args.mode === "search") {

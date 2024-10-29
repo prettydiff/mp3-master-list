@@ -147,14 +147,14 @@ body.default{background:#333;color:#ccc}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Music Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 4278</p>
-<p><span>Total size</span> 37,759,679,818 bytes (35.2GiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 4278 results (100.00%)</p>
-<p><span>Dated</span> 23 AUG 2024 16:49:59.695</p>
-<p><span>Location</span> C:\music\</p>
+<p><span>Total files</span> 4306</p>
+<p><span>Total size</span> 38,107,224,266 bytes (35.5GiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 4306 results (100.00%)</p>
+<p><span>Dated</span> 03 OCT 2024 16:18:26.300</p>
+<p><span>Location</span> c:\music</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
-<p class="radio"><span>Color Scheme</span><label>Default <input checked="checked" name="colorScheme" type="radio" value="default"/></label><label>White <input name="colorScheme" type="radio" value="white"/></label></p>
+<p class"radio"><span>Color Scheme</span><label>Default <input checked="checked" name="colorScheme" type="radio" value="default"/></label><label>White <input name="colorScheme" type="radio" value="white"/></label></p>
 <p><label><span>Filter</span><input type="text" id="filter"/></label></p>
 <p><label><span>Filter Field</span><select><option selected="selected">Any</option>
 <option>Genre</option>
@@ -2077,12 +2077,12 @@ body.default{background:#333;color:#ccc}
 <td>Alternative</td>
 <td>Cranberries</td>
 <td>Cranberries</td>
-<td>Zomebie</td>
+<td>Zombie</td>
 <td></td>
 <td>Alternative/Cranberries-Zombie.mp3</td>
 <td class="number" data-numeric="12290176">12,290,176</td>
-<td data-numeric="1670332780940.5146">06 DEC 2022 07:19:40.940</td>
-<td>acca3e0fe3e3476e670082e6114771c531a9469ceab5cae10b6f6e89cefd60793cb9efaaee39b677737fcd9a598c75360c4a248a9436fa3e3888fc0d785f90ad</td>
+<td data-numeric="1725293244155.417">02 SEP 2024 11:07:24.155</td>
+<td>3d90b1436809fdc23ae91096c972e2fb55a4598eb8c0bdf5318221dca153735cb5fc96f0f65d8d295090e273e3a29e333c9d126c42e135ff274481f220bf8031</td>
 </tr>
 <tr class="even" data-path="Alternative/CrashTestDummies-MmmMmmMmmMmm.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -12109,12 +12109,12 @@ body.default{background:#333;color:#ccc}
 <td>Classic Rock</td>
 <td>Deep Purple</td>
 <td>Deep Purple</td>
-<td>Snoke on the Water</td>
+<td>Smoke on the Water</td>
 <td></td>
 <td>ClassicRock/DeepPurple-SmokeOnTheWater.mp3</td>
 <td class="number" data-numeric="13602598">13,602,598</td>
-<td data-numeric="1672500309821">31 DEC 2022 09:25:09.821</td>
-<td>b2780abe121ef5b86509e29a474ce669e08146cc668ac45101a5fa3cdaed17164104a230fb3864bddf16093ce43e23c340fd2cacc901707c6242a13de5042045</td>
+<td data-numeric="1727213306255.8013">24 SEP 2024 16:28:26.255</td>
+<td>d2ee04f48f281df797154f5b5a0aa5be8712895d6f1abe3ae474830ef948539cace8c4d1e5b8eaed05351f3cb976b20dfcc2a121ed2de2cbead57cfc6209f2c6</td>
 </tr>
 <tr class="even" data-path="ClassicRock/DerekAndTheDominos-Layla.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -15359,14 +15359,14 @@ body.default{background:#333;color:#ccc}
 <tr class="even" data-path="ClassicRock/SamTheShamAndThePharaohs-LilRedRidingHood.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Classic Rock</td>
-<td>Same the Sham & The Pharaohs</td>
-<td>Same the Sham & The Pharaohs</td>
+<td>Sam the Sham & The Pharaohs</td>
+<td>Sam the Sham & The Pharaohs</td>
 <td>Little Red Riding Hood</td>
 <td></td>
 <td>ClassicRock/SamTheShamAndThePharaohs-LilRedRidingHood.mp3</td>
 <td class="number" data-numeric="6522496">6,522,496</td>
-<td data-numeric="1670017559852.2273">02 DEC 2022 15:45:59.852</td>
-<td>e4d35ce315cb1d003faf8bbbd39b68944ec9af25fdb72e947f212e37527107a5dc0f385ae025a1e27557349f656b726c2e65f032856ddb65314b06974f6d75f7</td>
+<td data-numeric="1725277009592.117">02 SEP 2024 06:36:49.592</td>
+<td>dd70763f8964c72a1b78ce3d810023bb2069bcb17f5443f9fe515dbd542085710f0a4493ad686f11c99ee401c0ac1d409ffb904c5b14cff07960473e50021363</td>
 </tr>
 <tr class="odd" data-path="ClassicRock/SammyHagar-FastTimesAtRidgemontHigh.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -17300,6 +17300,54 @@ body.default{background:#333;color:#ccc}
 <td data-numeric="1686263023731">08 JUN 2023 17:23:43.731</td>
 <td>881f7b56c8aacb959b14865eb3952fe83941ac03586a2c93eee0dc863544fdafd92b45a0c80b7185ad2c9cbb4553b1c4bd10b8f49f89754a02f95e86fcc84fa6</td>
 </tr>
+<tr class="even" data-path="Classical/MarcinPatrzalek-Aerials.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classical</td>
+<td>Marcin Patrzalek</td>
+<td>Marcin Patrzalek</td>
+<td>Aerials</td>
+<td></td>
+<td>Classical/MarcinPatrzalek-Aerials.mp3</td>
+<td class="number" data-numeric="10851136">10,851,136</td>
+<td data-numeric="1727715825090.2341">30 SEP 2024 12:03:45.900</td>
+<td>1933ec724652b14dfb84d611b8a1e372edc39d80de3e2497a92c105a2b3e8170c2badd30cdf91aba262ab59ceb806c8e2c726afc56d4c0ef132f47f7f766e523</td>
+</tr>
+<tr class="odd" data-path="Classical/MarcinPatrzalek-AintNoSunshine.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classical</td>
+<td>Marcin Patrzalek</td>
+<td>Marcin Patrzalek</td>
+<td>Ain't No Sunshine</td>
+<td></td>
+<td>Classical/MarcinPatrzalek-AintNoSunshine.mp3</td>
+<td class="number" data-numeric="7446016">7,446,016</td>
+<td data-numeric="1727715630074.4753">30 SEP 2024 12:00:30.740</td>
+<td>04471555297128276bef4446a4b7c9a6ed00eeb1d057bc8af903424c69b788c03d026b0a340a3dde544d1c33fdc98050516adbba0c81ce2c18ef9961bfcb54e9</td>
+</tr>
+<tr class="even" data-path="Classical/MarcinPatrzalek-CarmenHabanera.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classical</td>
+<td>Marcin Patrzalek</td>
+<td>Marcin Patrzalek</td>
+<td>Carmen Habanera</td>
+<td></td>
+<td>Classical/MarcinPatrzalek-CarmenHabanera.mp3</td>
+<td class="number" data-numeric="8323456">8,323,456</td>
+<td data-numeric="1727715787302.0366">30 SEP 2024 12:03:07.302</td>
+<td>425024d6992b1b8eb6ca47ef48b5d941773ba90da1c12108dfb7c20863db07c59bf6c336331d323254c59ab64af964ccdbd0d50729547ec281b4317e9f100e48</td>
+</tr>
+<tr class="odd" data-path="Classical/MarcinPatrzalek-Kashmir.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classical</td>
+<td>Marcin Patrzalek</td>
+<td>Marcin Patrzalek</td>
+<td>Kashmir</td>
+<td></td>
+<td>Classical/MarcinPatrzalek-Kashmir.mp3</td>
+<td class="number" data-numeric="7121536">7,121,536</td>
+<td data-numeric="1727715801825.0334">30 SEP 2024 12:03:21.825</td>
+<td>7599150fd91ed889d687f4daf8102da0f4da9ddfa0812a59f9e608b2cbaefc4497b957b4f74ff73d4102ad7574fd5c61e3a7cf69051e52690e10c8250d7b4131</td>
+</tr>
 <tr class="even" data-path="Classical/MauriceRavel-Bolero.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Classical</td>
@@ -18044,7 +18092,19 @@ body.default{background:#333;color:#ccc}
 <td data-numeric="1712266584653">04 APR 2024 16:36:24.653</td>
 <td>b2a4afb52341f3a924b3b88fd245ac669ee3d4795722a031ded2084b3091a3798a697c02597cf08e87ea8d0321d3028d7b6b34a22411b0e812642795b1c16738</td>
 </tr>
-<tr class="even" data-path="Composite/HansZimmer-ManOfSteel-Flight.mp3">
+<tr class="even" data-path="Composite/HansZimmer-InterstellarMedley.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Composite</td>
+<td>Hans Zimmer</td>
+<td>Interstellar</td>
+<td>Interstellar Suite</td>
+<td></td>
+<td>Composite/HansZimmer-InterstellarMedley.mp3</td>
+<td class="number" data-numeric="62125696">62,125,696</td>
+<td data-numeric="1727715535259.9058">30 SEP 2024 11:58:55.259</td>
+<td>23bc0409033a57ff159148abf73b62e447916151bcb8c38c68350c936b875a15ce3b5eb98aa742c8799141bb2fb25d21d4d572df51546afc03af6ac31d98628b</td>
+</tr>
+<tr class="odd" data-path="Composite/HansZimmer-ManOfSteel-Flight.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Composite</td>
 <td>Hans Zimmer</td>
@@ -18056,7 +18116,7 @@ body.default{background:#333;color:#ccc}
 <td data-numeric="1712255407303">04 APR 2024 13:30:07.303</td>
 <td>b555f0487d20f17c8a6868e7164fee48dee02f9b8eddd845fc89cea3e67aed909fa99d61c1c98ae7f8f7ce06080023c69f768a2010a7687d6005107efcb33fa1</td>
 </tr>
-<tr class="odd" data-path="Composite/HansZimmer-ManOfSteel-ZodSuite.mp3">
+<tr class="even" data-path="Composite/HansZimmer-ManOfSteel-ZodSuite.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Composite</td>
 <td>Hans Zimmer</td>
@@ -18068,7 +18128,7 @@ body.default{background:#333;color:#ccc}
 <td data-numeric="1712255409261">04 APR 2024 13:30:09.261</td>
 <td>4a8a0d501c46cf7c5248a11d622c0369f9d67e371c34a8bd95881adad0934da8cf6ac98bc4d47e546fc125549da5d05efed199d04422afbfd920d2496528dd51</td>
 </tr>
-<tr class="even" data-path="Composite/MaxRichter-LordsRoughWays.mp3">
+<tr class="odd" data-path="Composite/MaxRichter-LordsRoughWays.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Composite</td>
 <td>Max Richter</td>
@@ -18079,6 +18139,18 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="47096984">47,096,984</td>
 <td data-numeric="1712255220917">04 APR 2024 13:27:00.917</td>
 <td>cc8fa10c2f1f277789ff2b7efee9d1ba563eddfcf71aa28e22b5ce13f09b63cc236d9bece12702500efd1c53449274f6987261d74da57fef5e6fef8565afd366</td>
+</tr>
+<tr class="even" data-path="Composite/MichaelNyman-GattacaSuite.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Composite</td>
+<td>Michael Nyman</td>
+<td>Gattaca</td>
+<td>Gattaca Suite</td>
+<td></td>
+<td>Composite/MichaelNyman-GattacaSuite.mp3</td>
+<td class="number" data-numeric="43019776">43,019,776</td>
+<td data-numeric="1727715564205.5269">30 SEP 2024 11:59:24.205</td>
+<td>0b0071f7a99a752dda2c402348d4dde594d315feda8b9603982d19e54f3b43463b8943c822d4ee7105411c0ef230ecc91d1dc7e10506e8d514e12861c7c457db</td>
 </tr>
 <tr class="odd" data-path="Composite/PhilipGlass-PruitIgoeAndProphecies.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -18103,6 +18175,30 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="53857308">53,857,308</td>
 <td data-numeric="1712255225713">04 APR 2024 13:27:05.713</td>
 <td>b625a2a066a8a7d4a3cdd1a7cb11dff484cd16fa176131408321c8f57aba331f9fea07f425c7df14f03038366f8d6ece5312e5bc26d43a9dc6f8bf4da2798231</td>
+</tr>
+<tr class="odd" data-path="Composite/ThomasNewman-GreenMileSuite.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Composite</td>
+<td>Thomas Newman</td>
+<td>Green Mile</td>
+<td>Green Mile Suite</td>
+<td></td>
+<td>Composite/ThomasNewman-GreenMileSuite.mp3</td>
+<td class="number" data-numeric="45339136">45,339,136</td>
+<td data-numeric="1727715507687.8774">30 SEP 2024 11:58:27.687</td>
+<td>ad50183fe01dc5c7e9f062b33268e3d0ce43349abeac7609c519e77ea07ae95eb96c8a1b55b89aba518ff9402924431ca9bcbe49145b6af043e8c0787a6775de</td>
+</tr>
+<tr class="even" data-path="Composite/ThomasNewman-HorseWhispererSuite.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Composite</td>
+<td>Thomas Newman</td>
+<td>Horse Whisperer</td>
+<td>Horse Whisperer Suite</td>
+<td></td>
+<td>Composite/ThomasNewman-HorseWhispererSuite.mp3</td>
+<td class="number" data-numeric="58966336">58,966,336</td>
+<td data-numeric="1727717360098.835">30 SEP 2024 12:29:20.980</td>
+<td>e9a5652ad97f549ceea00780e3326598c6dd7732a50493a5fc2cf08dbb0ebfd791213bc60774d2ad8ac1b6939248737da917906011fe07f83154b6c4e01046f9</td>
 </tr>
 <tr class="odd" data-path="Electronic/Air-AloneInKyoto.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -35564,17 +35660,89 @@ body.default{background:#333;color:#ccc}
 <td data-numeric="1660521762042.2402">14 AUG 2022 19:02:42.420</td>
 <td>ccc739cc6bee212b1bb4d8fca4daa73b023a91d842e3e7c72dac399ebc3dc3ff1beb71ef0e5ae8f0989a4aa47d92b873fe39f2c3f75d94bd4d64b20245a6c117</td>
 </tr>
-<tr class="even" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-PreludePianoEtude.mp3">
+<tr class="even" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-01PreludePianoEtude.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Game</td>
 <td>Nobuo Uematsu</td>
 <td>Final Fantasy IV</td>
 <td>Prelude</td>
-<td></td>
-<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-PreludePianoEtude.mp3</td>
+<td>1</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-01PreludePianoEtude.mp3</td>
 <td class="number" data-numeric="5785216">5,785,216</td>
-<td data-numeric="1660521762449.4097">14 AUG 2022 19:02:42.449</td>
-<td>68d37e711254a288cbf6eeca0e16f7dc9716afc209f5b985564d19a24e4e788b7d4d81382fca95e4265101c85a05a34609e4d0805a3e46daa72979f7fad4a696</td>
+<td data-numeric="1727720758804">30 SEP 2024 13:25:58.804</td>
+<td>920ff8dbfce53ccf87b5d482361444e4c7f088dcf680238b8e4d2aaba92c5c8b0f8bcf3da23737b5186b0d6748118318b9cb9f42608c6d5b193c97e3c2063a25</td>
+</tr>
+<tr class="odd" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-02RedWings.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Nobuo Uematsu</td>
+<td>Final Fantasy IV</td>
+<td>Red Wings</td>
+<td>2</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-02RedWings.mp3</td>
+<td class="number" data-numeric="5732416">5,732,416</td>
+<td data-numeric="1727720766891">30 SEP 2024 13:26:06.891</td>
+<td>18ebba427bf49dd0ab8a377b4c01fd116d5a1da57904453a84098432d7d56bde911fc858ccae05ba87b99f57c184e2b9037565118df74e39c54a2dd152495423</td>
+</tr>
+<tr class="even" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-03BaronCastle.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Nobuo Uematsu</td>
+<td>Final Fantasy IV</td>
+<td>Baron Castle</td>
+<td>3</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-03BaronCastle.mp3</td>
+<td class="number" data-numeric="3774016">3,774,016</td>
+<td data-numeric="1727720769126">30 SEP 2024 13:26:09.126</td>
+<td>bceaeaf2916fb481ec52d5718673da6b523f8d77b9ff6753da384459fce4b564636618499ad6944462ec2b498d2e161e5b0aa2d1c9156e90d2646f26b255fb57</td>
+</tr>
+<tr class="odd" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-05Prologue.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Nobuo Uematsu</td>
+<td>Final Fantasy IV</td>
+<td>Prologue</td>
+<td>5</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-05Prologue.mp3</td>
+<td class="number" data-numeric="3591616">3,591,616</td>
+<td data-numeric="1727720772015">30 SEP 2024 13:26:12.150</td>
+<td>5aa1ae31f3b4867b326db94ac1e8f7d619806cf21d8efab191c05767369fd472f5b4dd1b8db5cdbb4afe96af53fa07c582d0b6afecfd7b65652f6fd6bbb63095</td>
+</tr>
+<tr class="even" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-06WelcomeToOurTown.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Nobuo Uematsu</td>
+<td>Final Fantasy IV</td>
+<td>Welcome To Our Town</td>
+<td>6</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-06WelcomeToOurTown.mp3</td>
+<td class="number" data-numeric="3454336">3,454,336</td>
+<td data-numeric="1727720774940">30 SEP 2024 13:26:14.940</td>
+<td>1289080e1d2d086eb7652260b93308621741784f8f9db73f21de8c0a721f974ab2a9ca13f78058ab479878ac5009cbedccd0556bed6d33c3fa8f2995c854900d</td>
+</tr>
+<tr class="odd" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-07OverworldTheme.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Nobuo Uematsu</td>
+<td>Final Fantasy IV</td>
+<td>Overworld Theme</td>
+<td>7</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-07OverworldTheme.mp3</td>
+<td class="number" data-numeric="6778816">6,778,816</td>
+<td data-numeric="1727720777675">30 SEP 2024 13:26:17.675</td>
+<td>7a5a1684d078c0da642bd9820fb150dabe0070d725138756063714df83c225905e90bc330e7e0acdfc3adfcd5eb3d9115d8408a0a34fce0abf6228b9cfd1daa9</td>
+</tr>
+<tr class="even" data-path="Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-16DamcyanCastle.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Nobuo Uematsu</td>
+<td>Final Fantasy IV</td>
+<td>Damcyan Castle</td>
+<td>16</td>
+<td>Game/FinalFantasy4/NobuoUematsu-FinalFantasy4-16DamcyanCastle.mp3</td>
+<td class="number" data-numeric="4519936">4,519,936</td>
+<td data-numeric="1727720780127">30 SEP 2024 13:26:20.127</td>
+<td>2d154f35162d0bcb92747841cd1da88e471c84bb2e372c22f31f7d4e6275259eed3023a395e1cc7fe9acc261d099937c95c1f5a881d050a9efd464c9aa820c5e</td>
 </tr>
 <tr class="odd" data-path="Game/Firewatch/ChrisRemo-Firewatch-01Prologue.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -38144,7 +38312,19 @@ body.default{background:#333;color:#ccc}
 <td data-numeric="1660521762112.5427">14 AUG 2022 19:02:42.112</td>
 <td>365f8b66c583194a59ff85ee835f46bd50a2c5ba7318a812420d62515c7454f32041652416352041a36b3e62506fc65cb7c3c0ce5097d95804ac04680b65ded7</td>
 </tr>
-<tr class="odd" data-path="Game/Metroid/HirokazuTanaka-Metroid-01MainTheme.mp3">
+<tr class="odd" data-path="Game/Metroid/HirokazuTanaka-Metroid-01MainTheme(Piano).mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Hirokazu Tanaka</td>
+<td>Metroid</td>
+<td>Main Theme (Piano)</td>
+<td>1</td>
+<td>Game/Metroid/HirokazuTanaka-Metroid-01MainTheme(Piano).mp3</td>
+<td class="number" data-numeric="6067456">6,067,456</td>
+<td data-numeric="1727720980859">30 SEP 2024 13:29:40.859</td>
+<td>4cf203fbb98f69223cd8654562e18e2524ae05ad0373ddf4d32de1dea1ee7a8a1ed57731b9f4e18b965e6cdae182872f06be4274fb03863952f455849d34650f</td>
+</tr>
+<tr class="even" data-path="Game/Metroid/HirokazuTanaka-Metroid-01MainTheme.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Game</td>
 <td>Hirokazu Tanaka</td>
@@ -38152,9 +38332,21 @@ body.default{background:#333;color:#ccc}
 <td>Main Theme</td>
 <td>1</td>
 <td>Game/Metroid/HirokazuTanaka-Metroid-01MainTheme.mp3</td>
-<td class="number" data-numeric="6067456">6,067,456</td>
-<td data-numeric="1660521762016.853">14 AUG 2022 19:02:42.160</td>
-<td>33266db60deab983d562cf0fcf27f66ab171d935cb8e60bfd72cd7722b0b0b867b01542672c5170008eadae90e991565d52ca43c7d95de7ffc3140c75450bc4a</td>
+<td class="number" data-numeric="4691776">4,691,776</td>
+<td data-numeric="1727720982543">30 SEP 2024 13:29:42.543</td>
+<td>c81549422484b800b2e795a42ca743d1bda2287ceb117230f5cc0ff5e8111fd600b07984f4a9d0d5ea9855589e28e0ac419aa85d10769bfa13b1e7a0e696c53b</td>
+</tr>
+<tr class="odd" data-path="Game/Metroid/HirokazuTanaka-Metroid-03Brinstar(Piano).mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Hirokazu Tanaka</td>
+<td>Metroid</td>
+<td>Brinstar (Piano)</td>
+<td>3</td>
+<td>Game/Metroid/HirokazuTanaka-Metroid-03Brinstar(Piano).mp3</td>
+<td class="number" data-numeric="6263296">6,263,296</td>
+<td data-numeric="1727720992747">30 SEP 2024 13:29:52.747</td>
+<td>294dff92bcb522b5c6d07f248a735dcfdfc36ae1f7fbad5c99f2338d86b4f7147bca0840ccd3b3ee425d3b995e7df78fc594522ae45df5000607b1725d5c1aea</td>
 </tr>
 <tr class="even" data-path="Game/Metroid/HirokazuTanaka-Metroid-03Brinstar.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -38164,21 +38356,69 @@ body.default{background:#333;color:#ccc}
 <td>Brinstar</td>
 <td>3</td>
 <td>Game/Metroid/HirokazuTanaka-Metroid-03Brinstar.mp3</td>
-<td class="number" data-numeric="6263296">6,263,296</td>
-<td data-numeric="1660521762017.8296">14 AUG 2022 19:02:42.170</td>
-<td>15c50a0c3d640dece3d5b7c9f82754a922c7e1bc3ea8011a54adf1290416c5c7991d06f0a1f777cb988e9161803e84d2a59ad9e902a40058a334c9f209c98d47</td>
+<td class="number" data-numeric="5297536">5,297,536</td>
+<td data-numeric="1727720994175">30 SEP 2024 13:29:54.175</td>
+<td>cf07d67e913efda65c9146e6762fcbc55917c50a4d02518ceaa8954db3def0ad32a6d3b5b82d094f4e61727a30c94dcce4cb51679e759c0dab40471955a0104e</td>
+</tr>
+<tr class="odd" data-path="Game/Metroid/HirokazuTanaka-Metroid-04Norfair.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Hirokazu Tanaka</td>
+<td>Metroid</td>
+<td>Norfair</td>
+<td>4</td>
+<td>Game/Metroid/HirokazuTanaka-Metroid-04Norfair.mp3</td>
+<td class="number" data-numeric="3993856">3,993,856</td>
+<td data-numeric="1727717131845.1213">30 SEP 2024 12:25:31.845</td>
+<td>c70c5b07ff70f516d0f9fd6d0c8ae07b5f8ac703d40b86437fd5cc46cf330ae695f3f841c11c92498204614f752decf6f6984562b52b56401d7c1ebffd1658da</td>
+</tr>
+<tr class="even" data-path="Game/Metroid/HirokazuTanaka-Metroid-06RidleysHideout.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Hirokazu Tanaka</td>
+<td>Metroid</td>
+<td>Ridley's Hideout</td>
+<td>6</td>
+<td>Game/Metroid/HirokazuTanaka-Metroid-06RidleysHideout.mp3</td>
+<td class="number" data-numeric="2775616">2,775,616</td>
+<td data-numeric="1727717138953.721">30 SEP 2024 12:25:38.953</td>
+<td>502ad57411972e91e4921c27737826d3287f72c29a9e38e4a4e39229e3fc9290a2656257aa9da5b2e7c7304edd1d102e381a3852b7b78ce71262d395577c5c5a</td>
 </tr>
 <tr class="odd" data-path="Game/Metroid/HirokazuTanaka-Metroid-07KraidsLair.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Game</td>
 <td>Hirokazu Tanaka</td>
 <td>Metroid</td>
-<td>Kraid's Lair</td>
+<td>Kraid's Lair (Piano)</td>
 <td>7</td>
 <td>Game/Metroid/HirokazuTanaka-Metroid-07KraidsLair.mp3</td>
 <td class="number" data-numeric="8520256">8,520,256</td>
-<td data-numeric="1660521762017.8296">14 AUG 2022 19:02:42.170</td>
-<td>e312e438b7cb811d29d030098e22c9670d1d70904b171e6d9215de60b493babeef7c8e41654b0d7d82b856bc7e6652342d015e9142e74ce5224be9f8aa7a7ea7</td>
+<td data-numeric="1727721008413">30 SEP 2024 13:30:08.413</td>
+<td>9f07f4ac97596aa94afa5cb503ebb58d66db5da5a41a27248092762b2e16caac3dae031849749a8b9284f5fea0e8cb9535c091c0009ced750f1b8398336e0f42</td>
+</tr>
+<tr class="even" data-path="Game/Metroid/HirokazuTanaka-Metroid-09Tourian.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Hirokazu Tanaka</td>
+<td>Metroid</td>
+<td>Tourian</td>
+<td>9</td>
+<td>Game/Metroid/HirokazuTanaka-Metroid-09Tourian.mp3</td>
+<td class="number" data-numeric="3822016">3,822,016</td>
+<td data-numeric="1727721009911">30 SEP 2024 13:30:09.911</td>
+<td>c86d3f065bdb868dc2d39b3a40e5fb02a740749baf1adb1f9f2f393f4e9a315bc82a6c003bc41901df2fe8472e018a0c926580f53db0acc7ee8ae40ce8fa0036</td>
+</tr>
+<tr class="odd" data-path="Game/Metroid/HirokazuTanaka-Metroid-16Escape.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Hirokazu Tanaka</td>
+<td>Metroid</td>
+<td>Escape</td>
+<td>16</td>
+<td>Game/Metroid/HirokazuTanaka-Metroid-16Escape.mp3</td>
+<td class="number" data-numeric="5726656">5,726,656</td>
+<td data-numeric="1727717154754.1628">30 SEP 2024 12:25:54.754</td>
+<td>47cbead38c46eecf1576b93fa7591e76bb325f8105da37130f72f6e4666e0d0e06d49dfa5c078bfd7a1416f4ccea812c8d6605ab13505401d3b8249b86fdfdac</td>
 </tr>
 <tr class="even" data-path="Game/NinjaGaiden/KeijiYamagishiAndRyuichiNitta-NinjaGaiden-01MoonlightDuel.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -38935,6 +39175,102 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="2815876">2,815,876</td>
 <td data-numeric="1672678261807">02 JAN 2023 10:51:01.807</td>
 <td>48eef267504a49f9113ac8cc1d21a5eaffd912ca9a2315dfac7c38bba8821814ccc8fab515e6961aa12dfd0f73aaabfc03fc897699c1860132bf37c251c7ca2a</td>
+</tr>
+<tr class="odd" data-path="Game/Rygar/MichiharuHasuya-Rygar-02GranMountain.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Gran Mountain</td>
+<td>2</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-02GranMountain.mp3</td>
+<td class="number" data-numeric="6397696">6,397,696</td>
+<td data-numeric="1727716475657.3845">30 SEP 2024 12:14:35.657</td>
+<td>d27a8d9319505804365a36a2749398a74b857b1b4ac6b8cd0fd3560f6d95505040b9cfebf10e979e7dcd80742835d65c339f02d12b623e98c92f5957978d19ed</td>
+</tr>
+<tr class="even" data-path="Game/Rygar/MichiharuHasuya-Rygar-03Garloz.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Garloz</td>
+<td>3</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-03Garloz.mp3</td>
+<td class="number" data-numeric="5523136">5,523,136</td>
+<td data-numeric="1727716467333.9678">30 SEP 2024 12:14:27.333</td>
+<td>237f8b812261129f0de94701faef0e4d2a4da1847fab2337ead6395fba84c0d72f351f22cb98dddd574a8b4c6f1105c97494279b4041775d35f09064888d224b</td>
+</tr>
+<tr class="odd" data-path="Game/Rygar/MichiharuHasuya-Rygar-04ForestOfEruga.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Forest of Eruga</td>
+<td>4</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-04ForestOfEruga.mp3</td>
+<td class="number" data-numeric="5526976">5,526,976</td>
+<td data-numeric="1727716499566.2393">30 SEP 2024 12:14:59.566</td>
+<td>35beeb6abf550cfb2c7a6df08d9134866c6dc041d2e99112cdef76c7089ab5ac94ce391cf73ea31dff397c6a67aa952fe3e547e4cff42baf76434898c25e0741</td>
+</tr>
+<tr class="even" data-path="Game/Rygar/MichiharuHasuya-Rygar-05MountPrimeval.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Mount Primeval</td>
+<td>5</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-05MountPrimeval.mp3</td>
+<td class="number" data-numeric="3474496">3,474,496</td>
+<td data-numeric="1727716558004.4463">30 SEP 2024 12:15:58.400</td>
+<td>b45daf67d7bd7dd3b05e7ce57f52d7e5ffd704f8e010f75d1a280e1e6822c3b64de3ece682b125d4da7d01a6f941a053c5bea10e5a9a30838049b826f35db998</td>
+</tr>
+<tr class="odd" data-path="Game/Rygar/MichiharuHasuya-Rygar-06SagilasCave.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Sagila's Cave</td>
+<td>6</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-06SagilasCave.mp3</td>
+<td class="number" data-numeric="9654016">9,654,016</td>
+<td data-numeric="1727716594839.376">30 SEP 2024 12:16:34.839</td>
+<td>b86728c2fd3a20bce73702e7af1184bd59e6b1f9d4473cf8d07da1706c673ad8f9973dafc3bb5a7abba96940654021bf0e94cf267d8070d8aae758bbb244107e</td>
+</tr>
+<tr class="even" data-path="Game/Rygar/MichiharuHasuya-Rygar-09Lapis.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Lapis</td>
+<td>9</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-09Lapis.mp3</td>
+<td class="number" data-numeric="8332096">8,332,096</td>
+<td data-numeric="1727716615769.693">30 SEP 2024 12:16:55.769</td>
+<td>85cb59dd4f9d23db0f52383a9ed7ef048aa5d1734abee3166f558d5a3816add9444ef5a1c64ff45d003be6b53ada51026b83f95497e37f4ac8216d6a5ae972a0</td>
+</tr>
+<tr class="odd" data-path="Game/Rygar/MichiharuHasuya-Rygar-10WiseMansChamber.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Wise Man's Chamber</td>
+<td>10</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-10WiseMansChamber.mp3</td>
+<td class="number" data-numeric="3749056">3,749,056</td>
+<td data-numeric="1727716641038.7788">30 SEP 2024 12:17:21.380</td>
+<td>b6ce0227283d3d523355e23b0666ebeb9390e4447136caeae5b03015160ed769f9696b71c136f3945899466684ca8bd31b7ce52629dec903c18b10ec94b9aa98</td>
+</tr>
+<tr class="even" data-path="Game/Rygar/MichiharuHasuya-Rygar-12SkyCastle.mp3">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Game</td>
+<td>Michiharu Hasuya</td>
+<td>Rygar</td>
+<td>Sky Castle</td>
+<td>12</td>
+<td>Game/Rygar/MichiharuHasuya-Rygar-12SkyCastle.mp3</td>
+<td class="number" data-numeric="7535296">7,535,296</td>
+<td data-numeric="1727716658626.6174">30 SEP 2024 12:17:38.626</td>
+<td>062db78d1c0fae5248494b2929635f7fe9fd29daf330e535bb9b7608c0dee15839e75c9a67f17582a635f851737085d81083dd85f23a7b90eece01b40bed2451</td>
 </tr>
 <tr class="odd" data-path="Game/ShadowOfTheColossus/KowOtani-ShadowOfTheColossus-01PrologueToTheAncientLand.mp3">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -52048,7 +52384,6 @@ body.default{background:#333;color:#ccc}
     // sliders
     tools.slider("seek");
     tools.slider("volume");
-    dom.volumeSlider.style.left = `${(dom.volumeTrack.clientWidth / 2 - dom.volumeSlider.clientWidth / 2) / 16}em`;
     // mute
     dom.mute.onclick = playEvents.mute;
     // previous
@@ -52095,6 +52430,7 @@ body.default{background:#333;color:#ccc}
     // set the active track
     tools.setCurrentTrack(dom.currentTrack, false);
     dom.bodyDiv.style.display = "block";
+    dom.volumeSlider.style.left = `${(dom.volumeTrack.clientWidth / 2 - dom.volumeSlider.clientWidth / 2) / 16}em`;
 })();
 
 </script></div></body></html>

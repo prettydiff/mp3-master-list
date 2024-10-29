@@ -36,9 +36,9 @@ const init = function () {
             ? " Writing output"
             : "Reading ID3 tags",
         defaultFiles:string[] = [
-            "D:\\movies",
-            "D:\\music",
-            "D:\\television"
+            "\\\\x\\movies",
+            "\\\\x\\music",
+            "\\\\x\\television"
         ],
         fileStore:string[] = [],
         projectPath:string = (function () {
@@ -236,6 +236,17 @@ const init = function () {
                     browser,
                     "</script></div></body></html>"
                 ];
+            // html1 - top of html file: head, body, title
+            // totals - totalData - passed in HTML containing file size calculations
+            // html2 - date, location, color scheme option
+            // html3 - filter field options
+            // html4 - filter search type
+            // html5 - data table header
+            // mediaData - passed in dataList, the data table body
+            // html6 - wishlist heading text
+            // html7 - wishlist table header
+            // html8 - wishlist table body
+            // html9 - bottom of file and browser JavaScript
             return html1.concat(totals, html2, html3, html4, html5, mediaData, html6, html7, html8, html9).join("\n");
         },
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
@@ -283,7 +294,9 @@ const init = function () {
                         } else {
                             dirs = list[index][0].split("/");
                             if (dirs.length > 1) {
-                                fileList[index][5].genre = dirs[0];
+                                fileList[index][5].genre = (type === "movie")
+                                    ? dirs[0]
+                                    : dirs[1];
                                 fileList[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
                                 fileList[index][5].track = (type === "movie")
                                     ? fileList[index][5].title.slice(fileList[index][5].title.lastIndexOf("(") + 1, fileList[index][5].title.length - 1)
@@ -303,13 +316,12 @@ const init = function () {
                             readTags(null);
                         }
                     } else {
-                        const location:string = `${resolve(process.argv[2]) + sep}list.html`,
-                            browser:string = `${resolve(process.argv[2]) + sep}browser.js`,
+                        const location:string = `\\\\x\\write_here\\list_${type}.html`,
                             writeList = function (html:string):void {
                                 writeFile(location, html, function (erw:NodeJS.ErrnoException):void {
                                     if (erw === null) {
                                         log([
-                                            `${humanTime(startTime, false)}List written to location: ${location}`
+                                            `${humanTime(startTime, false)[0]}List written to location: ${location}`
                                         ]);
                                     } else {
                                         log([
@@ -322,7 +334,7 @@ const init = function () {
                         let htmlIndex:number = 1;
                         if (update === false && type === "music") {
                             log([
-                                `${humanTime(startTime, false)}All files read for ID3 tags. Writing report.`
+                                `${humanTime(startTime, false)[0]}All files read for ID3 tags. Writing report.`
                             ]);
                         }
                         if (listLength > 0) {
@@ -372,7 +384,7 @@ const init = function () {
             if (update === false) {
                 log([
                     "",
-                    `${humanTime(startTime, false)}Hashing complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
+                    `${humanTime(startTime, false)[0]}Hashing complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
                 ]);
             }
         },
@@ -390,7 +402,7 @@ const init = function () {
                                     if (writeError === null) {
                                         writeCount = writeCount + 1;
                                         if (writeCount === 6) {
-                                            log([`${humanTime(startTime, false)}All updates written. Commit changes in the project directory.`]);
+                                            log([`${humanTime(startTime, false)[0]}All updates written. Commit changes in the project directory.`]);
                                         }
                                     } else {
                                         log(["Error writing list output", JSON.stringify(writeError)]);
@@ -476,7 +488,7 @@ const init = function () {
             }
         };
     log.title(`${typeCaps} Master List`);
-    log([`${humanTime(startTime, false)}Hashing files`]);
+    log([`${humanTime(startTime, false)[0]}Hashing files`]);
     readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
         if (erRead === null) {
             styles = fileData.toString();

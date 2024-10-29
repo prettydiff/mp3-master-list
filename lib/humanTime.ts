@@ -5,7 +5,7 @@ import common from "./common.js";
 import text from "./text.js";
 
 // converting time durations into something people read
-const humanTime = function terminal_utilities_humanTime(startTime:bigint, finished:boolean):string {
+const humanTime = function terminal_utilities_humanTime(startTime:bigint, finished:boolean):[string, bigint] {
     const numberString = function terminal_utilities_humanTime_numberString(numb:bigint):string {
             const str:string = numb.toString();
             return (str.length < 2)
@@ -69,7 +69,7 @@ const humanTime = function terminal_utilities_humanTime(startTime:bigint, finish
         logger(`${finalTime}total time`);
         logger("");
     }
-    return `${text.cyan}[${hourString}:${minuteString}:${secondString}]${text.none} `;
+    return [`${text.cyan}[${hourString}:${minuteString}:${secondString}]${text.none} `, elapsed];
 };
 
 export default humanTime;
