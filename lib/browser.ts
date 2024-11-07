@@ -678,6 +678,29 @@
             }
             index = index + 1;
         } while (index < recordLengthMedia);
+
+        index = recordLengthMedia;
+        if (index > 0) {
+            do {
+                index = index - 1;
+                if (index % 2 === 1) {
+                    dom.recordsMedia[index].setAttribute("class", "odd");
+                } else {
+                    dom.recordsMedia[index].setAttribute("class", "even");
+                }
+            } while (index > 0);
+        }
+        index = recordLengthWish;
+        if (index > 0) {
+            do {
+                index = index - 1;
+                if (index % 2 === 1) {
+                    dom.recordsWish[index].setAttribute("class", "odd");
+                } else {
+                    dom.recordsWish[index].setAttribute("class", "even");
+                }
+            } while (index > 0);
+        }
     }
 
     dom.colors.forEach(function (item:HTMLInputElement):void {

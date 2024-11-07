@@ -90,8 +90,7 @@ const init = function () {
                     "track": "Track",
                     "path": "File Path",
                     "sizeFormatted": "File Size",
-                    "modified": "Modified",
-                    "hash": "Hash"
+                    "modified": "Modified"
                 };
             }
             return {
@@ -106,8 +105,7 @@ const init = function () {
                 "artist": "Type",
                 "path": "File Path",
                 "sizeFormatted": "File Size",
-                "modified": "Modified",
-                "hash": "Hash"
+                "modified": "Modified"
             };
         },
         headings:string[] = Object.keys(headingMap(type)),
@@ -341,14 +339,12 @@ const init = function () {
                             htmlIndex = 0;
                             index = 0;
                             do {
-                                dataList.push(`<tr class="${(index % 2 === 0) ? "even" : "odd"}" data-path="${list[index][0]}">`);
+                                dataList.push(`<tr data-path="${list[index][0]}" data-hash="${list[index][2]}">`);
                                 do {
                                     if (headings[htmlIndex] === "play") {
                                         dataList.push(`<td><button>${svg.play}</button></td>`);
                                     } else if (headings[htmlIndex] === "path") {
                                         dataList.push(`<td>${list[index][0]}</td>`);
-                                    } else if (headings[htmlIndex] === "hash") {
-                                        dataList.push(`<td>${list[index][2]}</td>`);
                                     } else if (headings[htmlIndex] === "modified") {
                                         dataList.push(`<td data-numeric="${fileList[index][5].mtimeMs}">${fileList[index][5].modified}</td>`);
                                     } else if (headings[htmlIndex] === "sizeFormatted") {
