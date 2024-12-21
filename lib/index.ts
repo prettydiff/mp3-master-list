@@ -475,7 +475,7 @@ const init = function () {
                                 search: "",
                                 startTime: startTime,
                                 symbolic: false,
-                                testing: false,
+                                testing: (type !== "music"),
                                 type: type
                             });
                         });
