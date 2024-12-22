@@ -147,11 +147,11 @@ body.default{background:#333;color:#ccc}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Movie Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 579</p>
-<p><span>Total size</span> 1,589,189,432,873 bytes (1.4TiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 579 results (100.00%)</p>
-<p><span>Dated</span> 20 DEC 2024 19:05:08.949</p>
-<p><span>Location</span> \\x\movies\</p>
+<p><span>Total files</span> 587</p>
+<p><span>Total size</span> 1,605,189,129,293 bytes (1.4TiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 587 results (100.00%)</p>
+<p><span>Dated</span> 21 DEC 2024 23:31:06.258</p>
+<p><span>Location</span> \\x\movies</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p class"radio"><span>Color Scheme</span><label>Default <input checked="checked" name="colorScheme" type="radio" value="default"/></label><label>White <input name="colorScheme" type="radio" value="white"/></label></p>
@@ -604,6 +604,16 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="2120398255">2,120,398,255</td>
 <td data-numeric="1727863828179.048">02 OCT 2024 05:10:28.179</td>
 </tr>
+<tr data-path="action/Sin City (2005).avi" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>action</td>
+<td>Sin City</td>
+<td class="number">2005</td>
+<td>avi</td>
+<td>action/Sin City (2005).avi</td>
+<td class="number" data-numeric="1074614272">1,074,614,272</td>
+<td data-numeric="1727856654413.9263">02 OCT 2024 03:10:54.413</td>
+</tr>
 <tr data-path="action/Spectral (2016).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>action</td>
@@ -794,6 +804,16 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="463497493">463,497,493</td>
 <td data-numeric="1727860621450.787">02 OCT 2024 04:17:01.450</td>
 </tr>
+<tr data-path="animated/Ghost In The Shell Stand Alone Complex - Laughing Man (2005).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>animated</td>
+<td>Ghost In The Shell Stand Alone Complex - Laughing Man</td>
+<td class="number">2005</td>
+<td>mp4</td>
+<td>animated/Ghost In The Shell Stand Alone Complex - Laughing Man (2005).mp4</td>
+<td class="number" data-numeric="3169936337">3,169,936,337</td>
+<td data-numeric="1734778658506.1057">21 DEC 2024 04:57:38.506</td>
+</tr>
 <tr data-path="animated/Ghost in the Shell (1995).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>animated</td>
@@ -823,6 +843,16 @@ body.default{background:#333;color:#ccc}
 <td>animated/Grave of the Fireflies (1988).mp4</td>
 <td class="number" data-numeric="2021150722">2,021,150,722</td>
 <td data-numeric="1727859628627.361">02 OCT 2024 04:00:28.627</td>
+</tr>
+<tr data-path="animated/Hand (1965).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>animated</td>
+<td>Hand</td>
+<td class="number">1965</td>
+<td>mp4</td>
+<td>animated/Hand (1965).mp4</td>
+<td class="number" data-numeric="332148788">332,148,788</td>
+<td data-numeric="1734812794802.931">21 DEC 2024 14:26:34.802</td>
 </tr>
 <tr data-path="animated/Heavy Metal (1981).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -943,6 +973,26 @@ body.default{background:#333;color:#ccc}
 <td>animated/Patlabor 3 (2002).mkv</td>
 <td class="number" data-numeric="1689375679">1,689,375,679</td>
 <td data-numeric="1727859313887.674">02 OCT 2024 03:55:13.887</td>
+</tr>
+<tr data-path="animated/Perfect Blue (1997).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>animated</td>
+<td>Perfect Blue</td>
+<td class="number">1997</td>
+<td>mp4</td>
+<td>animated/Perfect Blue (1997).mp4</td>
+<td class="number" data-numeric="1395305577">1,395,305,577</td>
+<td data-numeric="1734774293211.8765">21 DEC 2024 03:44:53.211</td>
+</tr>
+<tr data-path="animated/Persepolis (2007).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>animated</td>
+<td>Persepolis</td>
+<td class="number">2007</td>
+<td>mp4</td>
+<td>animated/Persepolis (2007).mp4</td>
+<td class="number" data-numeric="1640286772">1,640,286,772</td>
+<td data-numeric="1734778919748.0195">21 DEC 2024 05:01:59.748</td>
 </tr>
 <tr data-path="animated/Pom Poko (1994).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -1073,6 +1123,16 @@ body.default{background:#333;color:#ccc}
 <td>animated/Wall-E (2008).avi</td>
 <td class="number" data-numeric="735449088">735,449,088</td>
 <td data-numeric="1727858946092.077">02 OCT 2024 03:49:06.920</td>
+</tr>
+<tr data-path="animated/Waltz With Bashir (2008).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>animated</td>
+<td>Waltz With Bashir</td>
+<td class="number">2008</td>
+<td>mp4</td>
+<td>animated/Waltz With Bashir (2008).mp4</td>
+<td class="number" data-numeric="1786706212">1,786,706,212</td>
+<td data-numeric="1734780168046.49">21 DEC 2024 05:22:48.460</td>
 </tr>
 <tr data-path="animated/Your Name (2016).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -1754,575 +1814,565 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="737892578">737,892,578</td>
 <td data-numeric="1727854549683.3672">02 OCT 2024 02:35:49.683</td>
 </tr>
-<tr data-path="comicbook/DC/Batman The Dark Knight (2008).avi" data-hash="">
+<tr data-path="comicbook - DC/Batman The Dark Knight (2008).avi" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - DC</td>
 <td>Batman The Dark Knight</td>
 <td class="number">2008</td>
 <td>avi</td>
-<td>comicbook/DC/Batman The Dark Knight (2008).avi</td>
+<td>comicbook - DC/Batman The Dark Knight (2008).avi</td>
 <td class="number" data-numeric="734690354">734,690,354</td>
 <td data-numeric="1727856354993.8396">02 OCT 2024 03:05:54.993</td>
 </tr>
-<tr data-path="comicbook/DC/Batman Versus Superman (2016).mp4" data-hash="">
+<tr data-path="comicbook - DC/Batman Versus Superman (2016).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - DC</td>
 <td>Batman Versus Superman</td>
 <td class="number">2016</td>
 <td>mp4</td>
-<td>comicbook/DC/Batman Versus Superman (2016).mp4</td>
+<td>comicbook - DC/Batman Versus Superman (2016).mp4</td>
 <td class="number" data-numeric="4903074622">4,903,074,622</td>
 <td data-numeric="1727856400745.8652">02 OCT 2024 03:06:40.745</td>
 </tr>
-<tr data-path="comicbook/DC/Justice League (2017).mp4" data-hash="">
+<tr data-path="comicbook - DC/Justice League (2017).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - DC</td>
 <td>Justice League</td>
 <td class="number">2017</td>
 <td>mp4</td>
-<td>comicbook/DC/Justice League (2017).mp4</td>
+<td>comicbook - DC/Justice League (2017).mp4</td>
 <td class="number" data-numeric="1266825296">1,266,825,296</td>
 <td data-numeric="1727856455481.8894">02 OCT 2024 03:07:35.481</td>
 </tr>
-<tr data-path="comicbook/DC/Man of Steel (2013).mp4" data-hash="">
+<tr data-path="comicbook - DC/Man of Steel (2013).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - DC</td>
 <td>Man of Steel</td>
 <td class="number">2013</td>
 <td>mp4</td>
-<td>comicbook/DC/Man of Steel (2013).mp4</td>
+<td>comicbook - DC/Man of Steel (2013).mp4</td>
 <td class="number" data-numeric="2192051269">2,192,051,269</td>
 <td data-numeric="1727856476249.8965">02 OCT 2024 03:07:56.249</td>
 </tr>
-<tr data-path="comicbook/DC/Watchmen (2009).mp4" data-hash="">
+<tr data-path="comicbook - DC/Watchmen (2009).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - DC</td>
 <td>Watchmen</td>
 <td class="number">2009</td>
 <td>mp4</td>
-<td>comicbook/DC/Watchmen (2009).mp4</td>
+<td>comicbook - DC/Watchmen (2009).mp4</td>
 <td class="number" data-numeric="902332370">902,332,370</td>
 <td data-numeric="1727856663017.9265">02 OCT 2024 03:11:03.170</td>
 </tr>
-<tr data-path="comicbook/DC/Wonder Woman (2017).mp4" data-hash="">
+<tr data-path="comicbook - DC/Wonder Woman (2017).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - DC</td>
 <td>Wonder Woman</td>
 <td class="number">2017</td>
 <td>mp4</td>
-<td>comicbook/DC/Wonder Woman (2017).mp4</td>
+<td>comicbook - DC/Wonder Woman (2017).mp4</td>
 <td class="number" data-numeric="4571793193">4,571,793,193</td>
 <td data-numeric="1727856705581.9253">02 OCT 2024 03:11:45.581</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/01 - Iron Man 1 (2008).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/01 - Iron Man 1 (2008).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>01 - Iron Man 1</td>
 <td class="number">2008</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/01 - Iron Man 1 (2008).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/01 - Iron Man 1 (2008).mp4</td>
 <td class="number" data-numeric="1773975793">1,773,975,793</td>
 <td data-numeric="1727856493029.9019">02 OCT 2024 03:08:13.290</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/02 - Incredible Hulk (2008).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/02 - Incredible Hulk (2008).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>02 - Incredible Hulk</td>
 <td class="number">2008</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/02 - Incredible Hulk (2008).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/02 - Incredible Hulk (2008).mkv</td>
 <td class="number" data-numeric="3268305286">3,268,305,286</td>
 <td data-numeric="1729890444657.5627">25 OCT 2024 16:07:24.657</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/03 - Iron Man 2 (2010).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/03 - Iron Man 2 (2010).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>03 - Iron Man 2</td>
 <td class="number">2010</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/03 - Iron Man 2 (2010).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/03 - Iron Man 2 (2010).mkv</td>
 <td class="number" data-numeric="2345257253">2,345,257,253</td>
 <td data-numeric="1727856607801.9238">02 OCT 2024 03:10:07.801</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/04 - Thor 1 (2011).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/04 - Thor 1 (2011).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>04 - Thor 1</td>
 <td class="number">2011</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/04 - Thor 1 (2011).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/04 - Thor 1 (2011).mp4</td>
 <td class="number" data-numeric="737969465">737,969,465</td>
 <td data-numeric="1727857028437.8506">02 OCT 2024 03:17:08.437</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/05 - Captain America - First Avenger (2011).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/05 - Captain America - First Avenger (2011).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>05 - Captain America - First Avenger</td>
 <td class="number">2011</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/05 - Captain America - First Avenger (2011).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/05 - Captain America - First Avenger (2011).mp4</td>
 <td class="number" data-numeric="1713875628">1,713,875,628</td>
 <td data-numeric="1729891367411.2927">25 OCT 2024 16:22:47.411</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/06 - Avengers (2012).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/06 - Avengers (2012).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>06 - Avengers</td>
 <td class="number">2012</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/06 - Avengers (2012).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/06 - Avengers (2012).mp4</td>
 <td class="number" data-numeric="2358359343">2,358,359,343</td>
 <td data-numeric="1729891409794.671">25 OCT 2024 16:23:29.794</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/07 - Iron Man 3 (2013).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/07 - Iron Man 3 (2013).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>07 - Iron Man 3</td>
 <td class="number">2013</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/07 - Iron Man 3 (2013).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/07 - Iron Man 3 (2013).mp4</td>
 <td class="number" data-numeric="2095937578">2,095,937,578</td>
 <td data-numeric="1727856627673.9253">02 OCT 2024 03:10:27.673</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/08 - Thor 2 - The Dark World (2013).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/08 - Thor 2 - The Dark World (2013).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>08 - Thor 2 - The Dark World</td>
 <td class="number">2013</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/08 - Thor 2 - The Dark World (2013).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/08 - Thor 2 - The Dark World (2013).mp4</td>
 <td class="number" data-numeric="1760417074">1,760,417,074</td>
 <td data-numeric="1727856644245.926">02 OCT 2024 03:10:44.245</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/09 - Captain America 2 - Winter Soldier (2014).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/09 - Captain America 2 - Winter Soldier (2014).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>09 - Captain America 2 - Winter Soldier</td>
 <td class="number">2014</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/09 - Captain America 2 - Winter Soldier (2014).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/09 - Captain America 2 - Winter Soldier (2014).mp4</td>
 <td class="number" data-numeric="976128089">976,128,089</td>
 <td data-numeric="1727857012685.8564">02 OCT 2024 03:16:52.685</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/10 - Guardians of the Galaxy (2014).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/10 - Guardians of the Galaxy (2014).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>10 - Guardians of the Galaxy</td>
 <td class="number">2014</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/10 - Guardians of the Galaxy (2014).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/10 - Guardians of the Galaxy (2014).mp4</td>
 <td class="number" data-numeric="1593266146">1,593,266,146</td>
 <td data-numeric="1727856508177.9062">02 OCT 2024 03:08:28.177</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/11 - Avengers 2 - Age of Ultron (2015).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/11 - Avengers 2 - Age of Ultron (2015).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>11 - Avengers 2 - Age of Ultron</td>
 <td class="number">2015</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/11 - Avengers 2 - Age of Ultron (2015).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/11 - Avengers 2 - Age of Ultron (2015).mp4</td>
 <td class="number" data-numeric="3351519167">3,351,519,167</td>
 <td data-numeric="1727856539457.9138">02 OCT 2024 03:08:59.457</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/12 - Ant Man 1 (2015).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/12 - Ant Man 1 (2015).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>12 - Ant Man 1</td>
 <td class="number">2015</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/12 - Ant Man 1 (2015).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/12 - Ant Man 1 (2015).mp4</td>
 <td class="number" data-numeric="794620165">794,620,165</td>
 <td data-numeric="1727856988565.865">02 OCT 2024 03:16:28.565</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/13 - Captain America 3 - Civil War (2016).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/13 - Captain America 3 - Civil War (2016).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>13 - Captain America 3 - Civil War</td>
 <td class="number">2016</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/13 - Captain America 3 - Civil War (2016).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/13 - Captain America 3 - Civil War (2016).mp4</td>
 <td class="number" data-numeric="3490842955">3,490,842,955</td>
 <td data-numeric="1727856572097.9194">02 OCT 2024 03:09:32.970</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/14 - Doctor Strange 1 (2016).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/14 - Doctor Strange 1 (2016).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>14 - Doctor Strange 1</td>
 <td class="number">2016</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/14 - Doctor Strange 1 (2016).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/14 - Doctor Strange 1 (2016).mp4</td>
 <td class="number" data-numeric="885871154">885,871,154</td>
 <td data-numeric="1727857021297.8535">02 OCT 2024 03:17:01.297</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/15 - Guardians of the Galaxy 2 (2017).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/15 - Guardians of the Galaxy 2 (2017).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>15 - Guardians of the Galaxy 2</td>
 <td class="number">2017</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/15 - Guardians of the Galaxy 2 (2017).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/15 - Guardians of the Galaxy 2 (2017).mp4</td>
 <td class="number" data-numeric="2218551684">2,218,551,684</td>
 <td data-numeric="1727856952085.8772">02 OCT 2024 03:15:52.850</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/16 - Spiderman 1 - Homecoming (2017).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/16 - Spiderman 1 - Homecoming (2017).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>16 - Spiderman 1 - Homecoming</td>
 <td class="number">2017</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/16 - Spiderman 1 - Homecoming (2017).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/16 - Spiderman 1 - Homecoming (2017).mp4</td>
 <td class="number" data-numeric="1032986418">1,032,986,418</td>
 <td data-numeric="1727857059113.8389">02 OCT 2024 03:17:39.113</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/17 - Thor 3 - Ragnarok (2017).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/17 - Thor 3 - Ragnarok (2017).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>17 - Thor 3 - Ragnarok</td>
 <td class="number">2017</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/17 - Thor 3 - Ragnarok (2017).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/17 - Thor 3 - Ragnarok (2017).mp4</td>
 <td class="number" data-numeric="1123751809">1,123,751,809</td>
 <td data-numeric="1727856980861.8677">02 OCT 2024 03:16:20.861</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/18 - Black Panther (2018).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/18 - Black Panther (2018).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>18 - Black Panther</td>
 <td class="number">2018</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/18 - Black Panther (2018).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/18 - Black Panther (2018).mp4</td>
 <td class="number" data-numeric="2325275640">2,325,275,640</td>
 <td data-numeric="1729891038108.0542">25 OCT 2024 16:17:18.108</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/19 - Avengers 3 - Infinity War (2018).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/19 - Avengers 3 - Infinity War (2018).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>19 - Avengers 3 - Infinity War</td>
 <td class="number">2018</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/19 - Avengers 3 - Infinity War (2018).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/19 - Avengers 3 - Infinity War (2018).mp4</td>
 <td class="number" data-numeric="1404730070">1,404,730,070</td>
 <td data-numeric="1727856585433.9214">02 OCT 2024 03:09:45.433</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/20 - Ant-Man 2 - The Wasp (2018).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/20 - Ant-Man 2 - The Wasp (2018).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>20 - Ant-Man 2 - The Wasp</td>
 <td class="number">2018</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/20 - Ant-Man 2 - The Wasp (2018).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/20 - Ant-Man 2 - The Wasp (2018).mp4</td>
 <td class="number" data-numeric="2027705284">2,027,705,284</td>
 <td data-numeric="1729895654936.2856">25 OCT 2024 17:34:14.936</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/21 - Captain Marvel (2019).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/21 - Captain Marvel (2019).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>21 - Captain Marvel</td>
 <td class="number">2019</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/21 - Captain Marvel (2019).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/21 - Captain Marvel (2019).mp4</td>
 <td class="number" data-numeric="1110946849">1,110,946,849</td>
 <td data-numeric="1727856920825.8867">02 OCT 2024 03:15:20.825</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/22 - Avengers 4 - End Game (2019).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/22 - Avengers 4 - End Game (2019).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>22 - Avengers 4 - End Game</td>
 <td class="number">2019</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/22 - Avengers 4 - End Game (2019).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/22 - Avengers 4 - End Game (2019).mp4</td>
 <td class="number" data-numeric="1534429552">1,534,429,552</td>
 <td data-numeric="1727857003245.8599">02 OCT 2024 03:16:43.245</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/23 - Spider-Man 2 - Far From Home (2019).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/23 - Spider-Man 2 - Far From Home (2019).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>23 - Spider-Man 2 - Far From Home</td>
 <td class="number">2019</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/23 - Spider-Man 2 - Far From Home (2019).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/23 - Spider-Man 2 - Far From Home (2019).mp4</td>
 <td class="number" data-numeric="2169385488">2,169,385,488</td>
 <td data-numeric="1729892049665.8643">25 OCT 2024 16:34:09.665</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/24 - Black Widow (2021).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/24 - Black Widow (2021).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>24 - Black Widow</td>
 <td class="number">2021</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/24 - Black Widow (2021).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/24 - Black Widow (2021).mkv</td>
 <td class="number" data-numeric="8000691990">8,000,691,990</td>
 <td data-numeric="1729896423265.825">25 OCT 2024 17:47:03.265</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/25 - Shang-Chi And The Legend Of The Ten Rings (2021).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/25 - Shang-Chi And The Legend Of The Ten Rings (2021).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>25 - Shang-Chi And The Legend Of The Ten Rings</td>
 <td class="number">2021</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/25 - Shang-Chi And The Legend Of The Ten Rings (2021).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/25 - Shang-Chi And The Legend Of The Ten Rings (2021).mp4</td>
 <td class="number" data-numeric="2710330685">2,710,330,685</td>
 <td data-numeric="1729893161494.9626">25 OCT 2024 16:52:41.494</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/26 - Eternals (2021).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/26 - Eternals (2021).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>26 - Eternals</td>
 <td class="number">2021</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/26 - Eternals (2021).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/26 - Eternals (2021).mkv</td>
 <td class="number" data-numeric="6011680227">6,011,680,227</td>
 <td data-numeric="1729892124363.0105">25 OCT 2024 16:35:24.363</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/27 - Spider-Man 3 - No Way Home (2022).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/27 - Spider-Man 3 - No Way Home (2022).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>27 - Spider-Man 3 - No Way Home</td>
 <td class="number">2022</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/27 - Spider-Man 3 - No Way Home (2022).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/27 - Spider-Man 3 - No Way Home (2022).mkv</td>
 <td class="number" data-numeric="8776205857">8,776,205,857</td>
 <td data-numeric="1729916708774.9714">25 OCT 2024 23:25:08.774</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/28 - Doctor Strange 2 - In The Multiverse of Madness (2022).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/28 - Doctor Strange 2 - In The Multiverse of Madness (2022).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>28 - Doctor Strange 2 - In The Multiverse of Madness</td>
 <td class="number">2022</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/28 - Doctor Strange 2 - In The Multiverse of Madness (2022).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/28 - Doctor Strange 2 - In The Multiverse of Madness (2022).mp4</td>
 <td class="number" data-numeric="2589293897">2,589,293,897</td>
 <td data-numeric="1729893670661.808">25 OCT 2024 17:01:10.661</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/29 - Thor 4 - Love and Thunder (2022).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/29 - Thor 4 - Love and Thunder (2022).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>29 - Thor 4 - Love and Thunder</td>
 <td class="number">2022</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/29 - Thor 4 - Love and Thunder (2022).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/29 - Thor 4 - Love and Thunder (2022).mp4</td>
 <td class="number" data-numeric="2433456801">2,433,456,801</td>
 <td data-numeric="1729894053169.5696">25 OCT 2024 17:07:33.169</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/30 - Black Panther 2 - Wakanda Forever (2022).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/30 - Black Panther 2 - Wakanda Forever (2022).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>30 - Black Panther 2 - Wakanda Forever</td>
 <td class="number">2022</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/30 - Black Panther 2 - Wakanda Forever (2022).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/30 - Black Panther 2 - Wakanda Forever (2022).mkv</td>
 <td class="number" data-numeric="3663315207">3,663,315,207</td>
 <td data-numeric="1729947469962.8228">26 OCT 2024 07:57:49.962</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/31 - Ant.Man 3 - The Wasp Quantumania (2023).mp4" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/31 - Ant.Man 3 - The Wasp Quantumania (2023).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>31 - Ant.Man 3 - The Wasp Quantumania</td>
 <td class="number">2023</td>
 <td>mp4</td>
-<td>comicbook/Marvel Cinematic Universe/31 - Ant.Man 3 - The Wasp Quantumania (2023).mp4</td>
+<td>comicbook - Marvel Cinematic Universe/31 - Ant.Man 3 - The Wasp Quantumania (2023).mp4</td>
 <td class="number" data-numeric="4655874260">4,655,874,260</td>
 <td data-numeric="1729919947735.4746">26 OCT 2024 00:19:07.735</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/32 - Guardians of the Galaxy 3 (2023).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/32 - Guardians of the Galaxy 3 (2023).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>32 - Guardians of the Galaxy 3</td>
 <td class="number">2023</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/32 - Guardians of the Galaxy 3 (2023).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/32 - Guardians of the Galaxy 3 (2023).mkv</td>
 <td class="number" data-numeric="2673088005">2,673,088,005</td>
 <td data-numeric="1729894383397.7175">25 OCT 2024 17:13:03.397</td>
 </tr>
-<tr data-path="comicbook/Marvel Cinematic Universe/33 - Marvels (2023).mkv" data-hash="">
+<tr data-path="comicbook - Marvel Cinematic Universe/33 - Marvels (2023).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel Cinematic Universe</td>
 <td>33 - Marvels</td>
 <td class="number">2023</td>
 <td>mkv</td>
-<td>comicbook/Marvel Cinematic Universe/33 - Marvels (2023).mkv</td>
+<td>comicbook - Marvel Cinematic Universe/33 - Marvels (2023).mkv</td>
 <td class="number" data-numeric="28923847733">28,923,847,733</td>
 <td data-numeric="1728852872151.959">13 OCT 2024 15:54:32.151</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Blade II (2002).avi" data-hash="">
+<tr data-path="comicbook - Marvel/Blade II (2002).avi" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Blade II</td>
 <td class="number">2002</td>
 <td>avi</td>
-<td>comicbook/Other Marvel/Blade II (2002).avi</td>
+<td>comicbook - Marvel/Blade II (2002).avi</td>
 <td class="number" data-numeric="734470144">734,470,144</td>
 <td data-numeric="1727856407769.8687">02 OCT 2024 03:06:47.769</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Blade III (2004).avi" data-hash="">
+<tr data-path="comicbook - Marvel/Blade III (2004).avi" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Blade III</td>
 <td class="number">2004</td>
 <td>avi</td>
-<td>comicbook/Other Marvel/Blade III (2004).avi</td>
+<td>comicbook - Marvel/Blade III (2004).avi</td>
 <td class="number" data-numeric="734429184">734,429,184</td>
 <td data-numeric="1727856414901.872">02 OCT 2024 03:06:54.901</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Daredevil (2003).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/Daredevil (2003).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Daredevil</td>
 <td class="number">2003</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/Daredevil (2003).mp4</td>
+<td>comicbook - Marvel/Daredevil (2003).mp4</td>
 <td class="number" data-numeric="839386081">839,386,081</td>
 <td data-numeric="1727856422933.8757">02 OCT 2024 03:07:02.933</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Deadpool 1 (2016).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/Deadpool 1 (2016).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Deadpool 1</td>
 <td class="number">2016</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/Deadpool 1 (2016).mp4</td>
+<td>comicbook - Marvel/Deadpool 1 (2016).mp4</td>
 <td class="number" data-numeric="969503475">969,503,475</td>
 <td data-numeric="1727857049157.8428">02 OCT 2024 03:17:29.157</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Deadpool 2 (2018).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/Deadpool 2 (2018).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Deadpool 2</td>
 <td class="number">2018</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/Deadpool 2 (2018).mp4</td>
+<td>comicbook - Marvel/Deadpool 2 (2018).mp4</td>
 <td class="number" data-numeric="1180800925">1,180,800,925</td>
 <td data-numeric="1727857039821.8464">02 OCT 2024 03:17:19.821</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Dredd (2012).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/Dredd (2012).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Dredd</td>
 <td class="number">2012</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/Dredd (2012).mp4</td>
+<td>comicbook - Marvel/Dredd (2012).mp4</td>
 <td class="number" data-numeric="2181825708">2,181,825,708</td>
 <td data-numeric="1727856443489.8845">02 OCT 2024 03:07:23.489</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/Venom (2018).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/Venom (2018).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>Venom</td>
 <td class="number">2018</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/Venom (2018).mp4</td>
+<td>comicbook - Marvel/Venom (2018).mp4</td>
 <td class="number" data-numeric="1836233820">1,836,233,820</td>
 <td data-numeric="1727856970073.8713">02 OCT 2024 03:16:10.730</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 1 (2000).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 1 (2000).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 1</td>
 <td class="number">2000</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 1 (2000).mp4</td>
+<td>comicbook - Marvel/X-Men 1 (2000).mp4</td>
 <td class="number" data-numeric="1408981264">1,408,981,264</td>
 <td data-numeric="1729894060685.007">25 OCT 2024 17:07:40.685</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 10 - Dark Phoenix (2019).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 10 - Dark Phoenix (2019).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 10 - Dark Phoenix</td>
 <td class="number">2019</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 10 - Dark Phoenix (2019).mp4</td>
+<td>comicbook - Marvel/X-Men 10 - Dark Phoenix (2019).mp4</td>
 <td class="number" data-numeric="1073266064">1,073,266,064</td>
 <td data-numeric="1727856931153.8835">02 OCT 2024 03:15:31.153</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 2 - X2 (2003).mkv" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 2 - X2 (2003).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 2 - X2</td>
 <td class="number">2003</td>
 <td>mkv</td>
-<td>comicbook/Other Marvel/X-Men 2 - X2 (2003).mkv</td>
+<td>comicbook - Marvel/X-Men 2 - X2 (2003).mkv</td>
 <td class="number" data-numeric="3700114305">3,700,114,305</td>
 <td data-numeric="1729963931571.756">26 OCT 2024 12:32:11.571</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 3 - Last Stand (2006).mkv" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 3 - Last Stand (2006).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 3 - Last Stand</td>
 <td class="number">2006</td>
 <td>mkv</td>
-<td>comicbook/Other Marvel/X-Men 3 - Last Stand (2006).mkv</td>
+<td>comicbook - Marvel/X-Men 3 - Last Stand (2006).mkv</td>
 <td class="number" data-numeric="5006246801">5,006,246,801</td>
 <td data-numeric="1729900814201.8281">25 OCT 2024 19:00:14.201</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 4 - Origins Wolverine (2009).mkv" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 4 - Origins Wolverine (2009).mkv" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 4 - Origins Wolverine</td>
 <td class="number">2009</td>
 <td>mkv</td>
-<td>comicbook/Other Marvel/X-Men 4 - Origins Wolverine (2009).mkv</td>
+<td>comicbook - Marvel/X-Men 4 - Origins Wolverine (2009).mkv</td>
 <td class="number" data-numeric="4622302621">4,622,302,621</td>
 <td data-numeric="1729913311465.2876">25 OCT 2024 22:28:31.465</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 5 - First Class (2011).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 5 - First Class (2011).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 5 - First Class</td>
 <td class="number">2011</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 5 - First Class (2011).mp4</td>
+<td>comicbook - Marvel/X-Men 5 - First Class (2011).mp4</td>
 <td class="number" data-numeric="4261691105">4,261,691,105</td>
 <td data-numeric="1727856745269.922">02 OCT 2024 03:12:25.269</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 6 - Wolverine (2013).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 6 - Wolverine (2013).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 6 - Wolverine</td>
 <td class="number">2013</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 6 - Wolverine (2013).mp4</td>
+<td>comicbook - Marvel/X-Men 6 - Wolverine (2013).mp4</td>
 <td class="number" data-numeric="2191725898">2,191,725,898</td>
 <td data-numeric="1727856765901.9197">02 OCT 2024 03:12:45.901</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 7 - Days Of Future Past (2014).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 7 - Days Of Future Past (2014).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 7 - Days Of Future Past</td>
 <td class="number">2014</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 7 - Days Of Future Past (2014).mp4</td>
+<td>comicbook - Marvel/X-Men 7 - Days Of Future Past (2014).mp4</td>
 <td class="number" data-numeric="1735419456">1,735,419,456</td>
 <td data-numeric="1727856782313.9175">02 OCT 2024 03:13:02.313</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 8 - Apocolypse (2016).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 8 - Apocolypse (2016).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 8 - Apocolypse</td>
 <td class="number">2016</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 8 - Apocolypse (2016).mp4</td>
+<td>comicbook - Marvel/X-Men 8 - Apocolypse (2016).mp4</td>
 <td class="number" data-numeric="3407787380">3,407,787,380</td>
 <td data-numeric="1727856814545.912">02 OCT 2024 03:13:34.545</td>
 </tr>
-<tr data-path="comicbook/Other Marvel/X-Men 9 - Logan (2017).mp4" data-hash="">
+<tr data-path="comicbook - Marvel/X-Men 9 - Logan (2017).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
+<td>comicbook - Marvel</td>
 <td>X-Men 9 - Logan</td>
 <td class="number">2017</td>
 <td>mp4</td>
-<td>comicbook/Other Marvel/X-Men 9 - Logan (2017).mp4</td>
+<td>comicbook - Marvel/X-Men 9 - Logan (2017).mp4</td>
 <td class="number" data-numeric="10239312532">10,239,312,532</td>
 <td data-numeric="1727856910169.8896">02 OCT 2024 03:15:10.169</td>
-</tr>
-<tr data-path="comicbook/Sin City (2005).avi" data-hash="">
-<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
-<td>comicbook</td>
-<td>Sin City</td>
-<td class="number">2005</td>
-<td>avi</td>
-<td>comicbook/Sin City (2005).avi</td>
-<td class="number" data-numeric="1074614272">1,074,614,272</td>
-<td data-numeric="1727856654413.9263">02 OCT 2024 03:10:54.413</td>
 </tr>
 <tr data-path="crime/21 (2008).avi" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -4154,6 +4204,16 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="735500288">735,500,288</td>
 <td data-numeric="1727855504306.4695">02 OCT 2024 02:51:44.306</td>
 </tr>
+<tr data-path="drama/Seven Samurai (1954).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>drama</td>
+<td>Seven Samurai</td>
+<td class="number">1954</td>
+<td>mp4</td>
+<td>drama/Seven Samurai (1954).mp4</td>
+<td class="number" data-numeric="3485281748">3,485,281,748</td>
+<td data-numeric="1734779427490.9824">21 DEC 2024 05:10:27.490</td>
+</tr>
 <tr data-path="drama/Shawshank Redemption (1994).avi" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>drama</td>
@@ -4874,6 +4934,16 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="735725568">735,725,568</td>
 <td data-numeric="1727857161165.7952">02 OCT 2024 03:19:21.165</td>
 </tr>
+<tr data-path="science_fiction/Aniara (2018).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>science_fiction</td>
+<td>Aniara</td>
+<td class="number">2018</td>
+<td>mp4</td>
+<td>science_fiction/Aniara (2018).mp4</td>
+<td class="number" data-numeric="1785834897">1,785,834,897</td>
+<td data-numeric="1734780277091.584">21 DEC 2024 05:24:37.910</td>
+</tr>
 <tr data-path="science_fiction/Arrival (2012).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>science_fiction</td>
@@ -5354,13 +5424,13 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="734617600">734,617,600</td>
 <td data-numeric="1727857887725.367">02 OCT 2024 03:31:27.725</td>
 </tr>
-<tr data-path="science_fiction/Solaris (2012).avi" data-hash="">
+<tr data-path="science_fiction/Solaris (2002).avi" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>science_fiction</td>
 <td>Solaris</td>
-<td class="number">2012</td>
+<td class="number">2002</td>
 <td>avi</td>
-<td>science_fiction/Solaris (2012).avi</td>
+<td>science_fiction/Solaris (2002).avi</td>
 <td class="number" data-numeric="732063744">732,063,744</td>
 <td data-numeric="1727857894689.3623">02 OCT 2024 03:31:34.689</td>
 </tr>
@@ -5643,6 +5713,16 @@ body.default{background:#333;color:#ccc}
 <td>thriller/Breach (2007).avi</td>
 <td class="number" data-numeric="734906368">734,906,368</td>
 <td data-numeric="1727865013170.5105">02 OCT 2024 05:30:13.170</td>
+</tr>
+<tr data-path="thriller/Charlotte Gray (2001).mp4" data-hash="">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>thriller</td>
+<td>Charlotte Gray</td>
+<td class="number">2001</td>
+<td>mp4</td>
+<td>thriller/Charlotte Gray (2001).mp4</td>
+<td class="number" data-numeric="2404196089">2,404,196,089</td>
+<td data-numeric="1734784972673.334">21 DEC 2024 06:42:52.673</td>
 </tr>
 <tr data-path="thriller/Children Of Men (2006).mp4" data-hash="">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
