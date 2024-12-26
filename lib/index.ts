@@ -154,7 +154,7 @@ const init = function () {
                     `<p><span>Location</span> ${location}</p>`,
                     "</fieldset>",
                     "<fieldset><legend>List Options</legend>",
-                    "<p class\"radio\"><span>Color Scheme</span><label>Default <input checked=\"checked\" name=\"colorScheme\" type=\"radio\" value=\"default\"/></label><label>White <input name=\"colorScheme\" type=\"radio\" value=\"white\"/></label></p>",
+                    "<p class=\"radio\"><span>Color Scheme</span><label><input checked=\"checked\" name=\"colorScheme\" type=\"radio\" value=\"default\"/> Default</label><label><input name=\"colorScheme\" type=\"radio\" value=\"white\"/> White</label></p>",
                     "<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>",
                     "<p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>"
                 ],

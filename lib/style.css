@@ -20,10 +20,9 @@ select{border-style:solid;border-width:0.1em}
 .data-points span,
 label span{display:inline-block;width:10em}
 .radio label,
-.radio span{display:block;width:10em}
+.radio span{display:inline-block;width:10em}
 .radio label{margin:0 0 1em 10em}
 .radio span{margin:0 0 -1.2em}
-.radio input{float:right}
 #currentTrackName{clear:both;margin:0.5em 0 0.5em;text-align:center}
 #currentTrackName span{display:block;height:1.25em;margin:0 4em;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #minimize{float:left}
