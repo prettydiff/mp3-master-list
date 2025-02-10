@@ -575,7 +575,8 @@
         recordLengthAll:number = dom.recordsAll.length,
         recordLengthMedia:number = dom.recordsMedia.length,
         recordLengthWish:number = dom.recordsWish.length;
-    let buttonIndex = dom.buttons.length;
+    let buttonIndex = dom.buttons.length,
+        stripeIndex:number = 0;
 
     // apply a dynamic marge above the title
     tools.titleTop();
@@ -678,29 +679,29 @@
             }
             index = index + 1;
         } while (index < recordLengthMedia);
+    }
 
-        index = recordLengthMedia;
-        if (index > 0) {
-            do {
-                index = index - 1;
-                if (index % 2 === 1) {
-                    dom.recordsMedia[index].setAttribute("class", "odd");
-                } else {
-                    dom.recordsMedia[index].setAttribute("class", "even");
-                }
-            } while (index > 0);
-        }
-        index = recordLengthWish;
-        if (index > 0) {
-            do {
-                index = index - 1;
-                if (index % 2 === 1) {
-                    dom.recordsWish[index].setAttribute("class", "odd");
-                } else {
-                    dom.recordsWish[index].setAttribute("class", "even");
-                }
-            } while (index > 0);
-        }
+    stripeIndex = recordLengthMedia;
+    if (stripeIndex > 0) {
+        do {
+            stripeIndex = stripeIndex - 1;
+            if (stripeIndex % 2 === 1) {
+                dom.recordsMedia[stripeIndex].setAttribute("class", "odd");
+            } else {
+                dom.recordsMedia[stripeIndex].setAttribute("class", "even");
+            }
+        } while (stripeIndex > 0);
+    }
+    stripeIndex = recordLengthWish;
+    if (stripeIndex > 0) {
+        do {
+            stripeIndex = stripeIndex - 1;
+            if (stripeIndex % 2 === 1) {
+                dom.recordsWish[stripeIndex].setAttribute("class", "odd");
+            } else {
+                dom.recordsWish[stripeIndex].setAttribute("class", "even");
+            }
+        } while (stripeIndex > 0);
     }
 
     dom.colors.forEach(function (item:HTMLInputElement):void {

@@ -36,9 +36,9 @@ const init = function () {
             ? " Writing output"
             : "Reading ID3 tags",
         defaultFiles:string[] = [
-            "\\\\x\\movies",
-            "\\\\x\\music",
-            "\\\\x\\television"
+            "\\\\192.168.1.3\\movies",
+            "\\\\192.168.1.3\\music",
+            "\\\\192.168.1.3\\television"
         ],
         fileStore:string[] = [],
         projectPath:string = (function () {
@@ -258,7 +258,7 @@ const init = function () {
                         dataList:string[] = [];
                     let dirs:string[] = [],
                         listLength:number = list.length;
-                    if (index < listLength && wish === null) {
+                    if (index < listLength && (wish === null || wish === undefined)) {
                         if (type === "music") {
                             // @ts-ignore
                             id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
@@ -284,7 +284,7 @@ const init = function () {
                                     fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
                                     totalSize = totalSize + fileList[index][5].size;
                                     index = index + 1;
-                                    readTags(null);
+                                    setTimeout(readTags, 0);
                                 } else {
                                     log([`Error reading id3 tag of file: ${absolute(list[index][0])}`, JSON.stringify(id3Err)]);
                                 }
@@ -311,10 +311,10 @@ const init = function () {
                                 list.splice(index, 1);
                                 listLength = listLength - 1;
                             }
-                            readTags(null);
+                            setTimeout(readTags, 0);
                         }
                     } else {
-                        const location:string = `\\\\x\\write_here\\list_${type}.html`,
+                        const location:string = `\\\\192.168.1.3\\write_here\\list_${type}.html`,
                             writeList = function (html:string):void {
                                 writeFile(location, html, function (erw:NodeJS.ErrnoException):void {
                                     if (erw === null) {
@@ -339,7 +339,11 @@ const init = function () {
                             htmlIndex = 0;
                             index = 0;
                             do {
-                                dataList.push(`<tr data-path="${list[index][0]}" data-hash="${list[index][2]}">`);
+                                if (list[index][2] === "") {
+                                    dataList.push(`<tr data-path="${list[index][0]}">`);
+                                } else {
+                                    dataList.push(`<tr data-path="${list[index][0]}" data-hash="${list[index][2]}">`);
+                                }
                                 do {
                                     if (headings[htmlIndex] === "play") {
                                         dataList.push(`<td><button>${svg.play}</button></td>`);
@@ -376,7 +380,7 @@ const init = function () {
                 }
                 return 1;
             });
-            readTags(null);
+            setTimeout(readTags, 0);
             if (update === false) {
                 log([
                     "",
