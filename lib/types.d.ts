@@ -34,7 +34,6 @@ declare global {
         search: string;
         startTime: bigint;
         symbolic: boolean;
-        testing: boolean;
         type: "movie" | "music" | "television";
     }
 

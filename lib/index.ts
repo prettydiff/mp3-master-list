@@ -40,6 +40,9 @@ const init = function () {
             "\\\\192.168.1.3\\music",
             "\\\\192.168.1.3\\television"
         ],
+        dirMode:"hash"|"read" = (type === "music")
+            ? "hash"
+            : "read",
         fileStore:string[] = [],
         projectPath:string = (function () {
             const dirs:string[] = process.argv[1].split(sep);
@@ -250,7 +253,15 @@ const init = function () {
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
             let index:number = 0,
                 totalSize:number = 0;
-            const readTags = function (wish:string[]):void {
+            const recurse = function () {
+                    // recursion throttling to prevent a "maximum call stack exceeded error"
+                    if (index % 2000 === 0) {
+                        setTimeout(readTags, 0);
+                    } else {
+                        readTags(null);
+                    }
+                },
+                readTags = function (wish:string[]):void {
                     const absolute = function (dir:string):string {
                             return mp3dir + sep + dir.replace(/\//g, sep);
                         },
@@ -284,7 +295,7 @@ const init = function () {
                                     fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
                                     totalSize = totalSize + fileList[index][5].size;
                                     index = index + 1;
-                                    setTimeout(readTags, 0);
+                                    recurse();
                                 } else {
                                     log([`Error reading id3 tag of file: ${absolute(list[index][0])}`, JSON.stringify(id3Err)]);
                                 }
@@ -311,7 +322,7 @@ const init = function () {
                                 list.splice(index, 1);
                                 listLength = listLength - 1;
                             }
-                            setTimeout(readTags, 0);
+                            recurse();
                         }
                     } else {
                         const location:string = `\\\\192.168.1.3\\write_here\\list_${type}.html`,
@@ -380,7 +391,7 @@ const init = function () {
                 }
                 return 1;
             });
-            setTimeout(readTags, 0);
+            recurse();
             if (update === false) {
                 log([
                     "",
@@ -474,12 +485,11 @@ const init = function () {
                             directory({
                                 callback: dirCallback,
                                 depth: 0,
-                                mode: "hash",
+                                mode: dirMode,
                                 path: process.argv[2],
                                 search: "",
                                 startTime: startTime,
                                 symbolic: false,
-                                testing: (type !== "music"),
                                 type: type
                             });
                         });
@@ -488,7 +498,11 @@ const init = function () {
             }
         };
     log.title(`${typeCaps} Master List`);
-    log([`${humanTime(startTime, false)[0]}Hashing files`]);
+    if (dirMode === "hash") {
+        log([`${humanTime(startTime, false)[0]}Hashing files`]);
+    } else {
+        log([`${humanTime(startTime, false)[0]}Reading files`]);
+    }
     readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
         if (erRead === null) {
             styles = fileData.toString();
