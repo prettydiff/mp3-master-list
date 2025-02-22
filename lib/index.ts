@@ -43,6 +43,9 @@ const init = function () {
         dirMode:"hash"|"read" = (type === "music")
             ? "hash"
             : "read",
+        modeProper:string = (dirMode === "hash")
+            ? "Hashing"
+            : "Reading",
         fileStore:string[] = [],
         projectPath:string = (function () {
             const dirs:string[] = process.argv[1].split(sep);
@@ -302,7 +305,7 @@ const init = function () {
                             });
                         } else {
                             dirs = list[index][0].split("/");
-                            if (dirs.length > 1) {
+                            if (dirs.length > 1 && list[index][1] === "file") {
                                 fileList[index][5].genre = (type === "movie")
                                     ? dirs[0]
                                     : dirs[1];
@@ -395,7 +398,7 @@ const init = function () {
             if (update === false) {
                 log([
                     "",
-                    `${humanTime(startTime, false)[0]}Hashing complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
+                    `${humanTime(startTime, false)[0] + modeProper} complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
                 ]);
             }
         },
@@ -498,11 +501,7 @@ const init = function () {
             }
         };
     log.title(`${typeCaps} Master List`);
-    if (dirMode === "hash") {
-        log([`${humanTime(startTime, false)[0]}Hashing files`]);
-    } else {
-        log([`${humanTime(startTime, false)[0]}Reading files`]);
-    }
+    log([`${humanTime(startTime, false)[0] + modeProper} files`]);
     readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
         if (erRead === null) {
             styles = fileData.toString();
