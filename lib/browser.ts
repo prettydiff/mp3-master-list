@@ -534,7 +534,7 @@
                 dom[slider].onmousedown = playEvents.slider;
                 dom[slider].ontouchstart = playEvents.slider;
             },
-            titleTop: function ():void {
+            titleTop: function ():void {console.log(dom.player.clientHeight);
                 dom.title.style.marginTop = `${(dom.player.clientHeight / 20) + 1.5}em`;
             }
         },
@@ -574,12 +574,9 @@
         },
         recordLengthAll:number = dom.recordsAll.length,
         recordLengthMedia:number = dom.recordsMedia.length,
-        recordLengthWish:number = dom.recordsWish.length;
+        recordLengthWish:number = dom.recordsWish.length;console.log("start");
     let buttonIndex = dom.buttons.length,
         stripeIndex:number = 0;
-
-    // apply a dynamic marge above the title
-    tools.titleTop();
 
     // iphone styles
     if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
@@ -715,4 +712,7 @@
     tools.setCurrentTrack(dom.currentTrack, false);
     dom.bodyDiv.style.display = "block";
     dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
+
+    // apply a dynamic marge above the title
+    tools.titleTop();
 }());
