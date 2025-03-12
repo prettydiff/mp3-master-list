@@ -150,8 +150,8 @@ body.default{background:#333;color:#ccc}
 <p><span>Total files</span> 4432</p>
 <p><span>Total size</span> 38,665,394,626 bytes (36.0GiB)</p>
 <p id="filtered-results"><span>Filtered Results</span> 4432 results (100.00%)</p>
-<p><span>Dated</span> 09 FEB 2025 19:22:40.455</p>
-<p><span>Location</span> \\192.168.1.3\music</p>
+<p><span>Dated</span> 12 MAR 2025 13:16:50.601</p>
+<p><span>Location</span> \\192.168.1.3\music\</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p class="radio"><span>Color Scheme</span><label><input checked="checked" name="colorScheme" type="radio" value="default"/> Default</label><label><input name="colorScheme" type="radio" value="white"/> White</label></p>
@@ -49411,8 +49411,6 @@ body.default{background:#333;color:#ccc}
         wishlist: document.getElementById("wishlist")
     }, recordLengthAll = dom.recordsAll.length, recordLengthMedia = dom.recordsMedia.length, recordLengthWish = dom.recordsWish.length;
     let buttonIndex = dom.buttons.length, stripeIndex = 0;
-    // apply a dynamic marge above the title
-    tools.titleTop();
     // iphone styles
     if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1 || navigator.userAgent.toLowerCase().indexOf("ipad") > -1) {
         body.setAttribute("class", `${documentType} iphone`);
@@ -49530,6 +49528,8 @@ body.default{background:#333;color:#ccc}
     tools.setCurrentTrack(dom.currentTrack, false);
     dom.bodyDiv.style.display = "block";
     dom.volumeSlider.style.left = `${(dom.volumeTrack.clientWidth / 2 - dom.volumeSlider.clientWidth / 2) / 16}em`;
+    // apply a dynamic marge above the title
+    tools.titleTop();
 })();
 
 </script></div></body></html>

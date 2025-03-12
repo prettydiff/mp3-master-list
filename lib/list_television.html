@@ -147,10 +147,10 @@ body.default{background:#333;color:#ccc}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Television Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 5482</p>
-<p><span>Total size</span> 4,215,880,296,808 bytes (3.8TiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 5482 results (100.00%)</p>
-<p><span>Dated</span> 05 MAR 2025 15:23:51.887</p>
+<p><span>Total files</span> 5713</p>
+<p><span>Total size</span> 4,277,695,587,286 bytes (3.9TiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 5713 results (100.00%)</p>
+<p><span>Dated</span> 12 MAR 2025 12:14:02.458</p>
 <p><span>Location</span> \\192.168.1.3\television\</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
@@ -16953,6 +16953,2316 @@ body.default{background:#333;color:#ccc}
 <td>comedy/Red Dwarf (1988)/The Promised Land 2020/Red Dwarf The Promised Land 2020 1080p BluRay HEVC x265 5.1 BONE.mkv</td>
 <td class="number" data-numeric="1111880784">1,111,880,784</td>
 <td data-numeric="1740959168383.2786">02 MAR 2025 17:46:08.383</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E01 - Junk in the Trunk (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E01 - Junk in the Trunk (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E01 - Junk in the Trunk (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="222920802">222,920,802</td>
+<td data-numeric="1741658082752.285">10 MAR 2025 20:54:42.752</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E02 - Nutcracker Sweet (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E02 - Nutcracker Sweet (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E02 - Nutcracker Sweet (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="273494736">273,494,736</td>
+<td data-numeric="1741658086412.6497">10 MAR 2025 20:54:46.412</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E03 - Gold Dust Gasoline (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E03 - Gold Dust Gasoline (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E03 - Gold Dust Gasoline (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="221982399">221,982,399</td>
+<td data-numeric="1741657988465.0835">10 MAR 2025 20:53:08.465</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E04 - Plastic Buffet (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E04 - Plastic Buffet (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E04 - Plastic Buffet (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="205213246">205,213,246</td>
+<td data-numeric="1741657953407.9165">10 MAR 2025 20:52:33.407</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E05 - Toyz in the Hood (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E05 - Toyz in the Hood (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E05 - Toyz in the Hood (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="190015277">190,015,277</td>
+<td data-numeric="1741658045881.0166">10 MAR 2025 20:54:05.881</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E06 - Vegetable Fun Fest (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E06 - Vegetable Fun Fest (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E06 - Vegetable Fun Fest (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="190863963">190,863,963</td>
+<td data-numeric="1741658154025.762">10 MAR 2025 20:55:54.250</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E07 - A Piece of the Action (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E07 - A Piece of the Action (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E07 - A Piece of the Action (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="240480988">240,480,988</td>
+<td data-numeric="1741658106943.449">10 MAR 2025 20:55:06.943</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E08 - The Deep End (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E08 - The Deep End (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E08 - The Deep End (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="231196862">231,196,862</td>
+<td data-numeric="1741658157614.278">10 MAR 2025 20:55:57.614</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E09 - S&M Present (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E09 - S&M Present (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E09 - S&M Present (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="257861096">257,861,096</td>
+<td data-numeric="1741658009812.7734">10 MAR 2025 20:53:29.812</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E10 - Badunkadunk (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E10 - Badunkadunk (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E10 - Badunkadunk (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="269309224">269,309,224</td>
+<td data-numeric="1741658050284.3286">10 MAR 2025 20:54:10.284</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E11 - Toy Meets Girl (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E11 - Toy Meets Girl (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E11 - Toy Meets Girl (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="207178453">207,178,453</td>
+<td data-numeric="1741658163034.5215">10 MAR 2025 20:56:03.340</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E12 - Midnight Snack (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E12 - Midnight Snack (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E12 - Midnight Snack (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="193728778">193,728,778</td>
+<td data-numeric="1741658168322.703">10 MAR 2025 20:56:08.322</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E13 - Atta Toy (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E13 - Atta Toy (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E13 - Atta Toy (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="209539223">209,539,223</td>
+<td data-numeric="1741658075410.318">10 MAR 2025 20:54:35.410</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E14 - Joint Point (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E14 - Joint Point (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E14 - Joint Point (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="220463809">220,463,809</td>
+<td data-numeric="1741658145602.469">10 MAR 2025 20:55:45.602</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E15 - Kiddie Pool (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E15 - Kiddie Pool (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E15 - Kiddie Pool (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="203302577">203,302,577</td>
+<td data-numeric="1741658131929.217">10 MAR 2025 20:55:31.929</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E16 - Nightmare Generator (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E16 - Nightmare Generator (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E16 - Nightmare Generator (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="209531871">209,531,871</td>
+<td data-numeric="1741658156155.9863">10 MAR 2025 20:55:56.155</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E17 - Operation Rich in Spirit (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E17 - Operation Rich in Spirit (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E17 - Operation Rich in Spirit (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="233518619">233,518,619</td>
+<td data-numeric="1741658148119.4348">10 MAR 2025 20:55:48.119</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E18 - The Sack (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E18 - The Sack (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E18 - The Sack (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="191079356">191,079,356</td>
+<td data-numeric="1741658057159.955">10 MAR 2025 20:54:17.159</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E19 - That Hurts Me (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E19 - That Hurts Me (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E19 - That Hurts Me (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="204699152">204,699,152</td>
+<td data-numeric="1741658024123.4087">10 MAR 2025 20:53:44.123</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E20 - The Black Cherry (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S01E20 - The Black Cherry (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 1/Robot Chicken - S01E20 - The Black Cherry (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="202882005">202,882,005</td>
+<td data-numeric="1741658086395.9558">10 MAR 2025 20:54:46.395</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E01 - Ginger Hill in Bursting Pipes (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E01 - Ginger Hill in Bursting Pipes (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E01 - Ginger Hill in Bursting Pipes (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="261340346">261,340,346</td>
+<td data-numeric="1741658055045.7742">10 MAR 2025 20:54:15.450</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E02 - Bugs Keith in I Can't Call Heaven, Doug (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E02 - Bugs Keith in I Can't Call Heaven, Doug (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E02 - Bugs Keith in I Can't Call Heaven, Doug (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="327962049">327,962,049</td>
+<td data-numeric="1741657915196.7842">10 MAR 2025 20:51:55.196</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E03 - Fila Ogden in Maggie's Got a Full Load (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E03 - Fila Ogden in Maggie's Got a Full Load (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E03 - Fila Ogden in Maggie's Got a Full Load (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="279866535">279,866,535</td>
+<td data-numeric="1741658123913.1638">10 MAR 2025 20:55:23.913</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E04 - Hermie Nursery in Seafood Sensation (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E04 - Hermie Nursery in Seafood Sensation (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E04 - Hermie Nursery in Seafood Sensation (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="279177897">279,177,897</td>
+<td data-numeric="1741657925444.8572">10 MAR 2025 20:52:05.444</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E05 - Garfield Stockman in A Voice Like Wet Ham (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E05 - Garfield Stockman in A Voice Like Wet Ham (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E05 - Garfield Stockman in A Voice Like Wet Ham (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="313729875">313,729,875</td>
+<td data-numeric="1741657987393.036">10 MAR 2025 20:53:07.393</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E06 - Boogie Bardstown in No Need, I Have Coupons (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E06 - Boogie Bardstown in No Need, I Have Coupons (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E06 - Boogie Bardstown in No Need, I Have Coupons (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="285872389">285,872,389</td>
+<td data-numeric="1741658104127.7126">10 MAR 2025 20:55:04.127</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E07 - Snoopy Camino Lindo in Quick and Dirty Squirrel Shot (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E07 - Snoopy Camino Lindo in Quick and Dirty Squirrel Shot (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E07 - Snoopy Camino Lindo in Quick and Dirty Squirrel Shot (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="281353610">281,353,610</td>
+<td data-numeric="1741658104127.7126">10 MAR 2025 20:55:04.127</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E08 - Molly Lucero in Your Friend's Boob (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E08 - Molly Lucero in Your Friend's Boob (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E08 - Molly Lucero in Your Friend's Boob (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="298535502">298,535,502</td>
+<td data-numeric="1741658145631.438">10 MAR 2025 20:55:45.631</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E09 - Spike Fraser in Should I Happen to Back Into a Horse (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E09 - Spike Fraser in Should I Happen to Back Into a Horse (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E09 - Spike Fraser in Should I Happen to Back Into a Horse (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="265148019">265,148,019</td>
+<td data-numeric="1741658123271.5112">10 MAR 2025 20:55:23.271</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E10 - Musya Shakhtyorov in Honeyboogers (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E10 - Musya Shakhtyorov in Honeyboogers (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E10 - Musya Shakhtyorov in Honeyboogers (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="304528776">304,528,776</td>
+<td data-numeric="1741657914170.7415">10 MAR 2025 20:51:54.170</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E11 - Robot Chicken's Santa's Dead (Spoiler Alert) Holiday Murder Thing Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E11 - Robot Chicken's Santa's Dead (Spoiler Alert) Holiday Murder Thing Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E11 - Robot Chicken's Santa's Dead (Spoiler Alert) Holiday Murder Thing Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="245150082">245,150,082</td>
+<td data-numeric="1741658085046.3555">10 MAR 2025 20:54:45.460</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E12 - Callie Greenhouse in Fun. Sad. Epic. Tragic. (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E12 - Callie Greenhouse in Fun. Sad. Epic. Tragic. (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E12 - Callie Greenhouse in Fun. Sad. Epic. Tragic. (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="283466448">283,466,448</td>
+<td data-numeric="1741658131427.4663">10 MAR 2025 20:55:31.427</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E13 - Max Caenen in Why Would He Know If His Mother's a Size Queen (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E13 - Max Caenen in Why Would He Know If His Mother's a Size Queen (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E13 - Max Caenen in Why Would He Know If His Mother's a Size Queen (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="297927054">297,927,054</td>
+<td data-numeric="1741658134503.6934">10 MAR 2025 20:55:34.503</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E14 - Petless M in Cars Are Couches of the Road (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E14 - Petless M in Cars Are Couches of the Road (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E14 - Petless M in Cars Are Couches of the Road (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="288197777">288,197,777</td>
+<td data-numeric="1741658135608.3804">10 MAR 2025 20:55:35.608</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E15 - Buster Olive in The Monkey Got Closer Overnight (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E15 - Buster Olive in The Monkey Got Closer Overnight (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E15 - Buster Olive in The Monkey Got Closer Overnight (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="268575164">268,575,164</td>
+<td data-numeric="1741658147704.3357">10 MAR 2025 20:55:47.704</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E16 - Ghandi Mulholland in Plastic Doesn't Get Cancer (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E16 - Ghandi Mulholland in Plastic Doesn't Get Cancer (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E16 - Ghandi Mulholland in Plastic Doesn't Get Cancer (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="292477446">292,477,446</td>
+<td data-numeric="1741657961008.7947">10 MAR 2025 20:52:41.800</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E17 - Gracie Purgatory in That's How You Get Hemorrhoids (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E17 - Gracie Purgatory in That's How You Get Hemorrhoids (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E17 - Gracie Purgatory in That's How You Get Hemorrhoids (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="268165846">268,165,846</td>
+<td data-numeric="1741658009579.3887">10 MAR 2025 20:53:29.579</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E18 - Sundancer Craig in 30% of the Way to Crying (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E18 - Sundancer Craig in 30% of the Way to Crying (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E18 - Sundancer Craig in 30% of the Way to Crying (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="335839645">335,839,645</td>
+<td data-numeric="1741658104765.3208">10 MAR 2025 20:55:04.765</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E19 - Babe Hollytree in I Wish One Person Had Died (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E19 - Babe Hollytree in I Wish One Person Had Died (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E19 - Babe Hollytree in I Wish One Person Had Died (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="262754122">262,754,122</td>
+<td data-numeric="1741657736314.106">10 MAR 2025 20:48:56.314</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E20 - Endgame (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S10E20 - Endgame (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 10/Robot Chicken - S10E20 - Endgame (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="236618310">236,618,310</td>
+<td data-numeric="1741657964367.6438">10 MAR 2025 20:52:44.367</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E01 - The Bleepin' Robot Chicken Archie Comics Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E01 - The Bleepin' Robot Chicken Archie Comics Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E01 - The Bleepin' Robot Chicken Archie Comics Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="519580465">519,580,465</td>
+<td data-numeric="1741658111606.3704">10 MAR 2025 20:55:11.606</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E02 - May Cause a Whole Lotta Scabs (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E02 - May Cause a Whole Lotta Scabs (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E02 - May Cause a Whole Lotta Scabs (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="257350059">257,350,059</td>
+<td data-numeric="1741658133010.2014">10 MAR 2025 20:55:33.100</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E03 - May Cause Light Cannibalism (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E03 - May Cause Light Cannibalism (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E03 - May Cause Light Cannibalism (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="279600020">279,600,020</td>
+<td data-numeric="1741658145999.279">10 MAR 2025 20:55:45.999</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E04 - May Cause Immaculate Conception (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E04 - May Cause Immaculate Conception (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E04 - May Cause Immaculate Conception (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="245054564">245,054,564</td>
+<td data-numeric="1741658014889.5005">10 MAR 2025 20:53:34.889</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E05 - May Cause the Exact Thing You're Taking This to Avoid (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E05 - May Cause the Exact Thing You're Taking This to Avoid (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E05 - May Cause the Exact Thing You're Taking This to Avoid (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="259537200">259,537,200</td>
+<td data-numeric="1741658047832.7217">10 MAR 2025 20:54:07.832</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E06 - May Cause One Year of Orange Poop (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E06 - May Cause One Year of Orange Poop (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E06 - May Cause One Year of Orange Poop (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="260664887">260,664,887</td>
+<td data-numeric="1741657928148.6838">10 MAR 2025 20:52:08.148</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E07 - May Cause Random Wolf Attacks (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E07 - May Cause Random Wolf Attacks (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E07 - May Cause Random Wolf Attacks (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="291286162">291,286,162</td>
+<td data-numeric="1741657924481.4473">10 MAR 2025 20:52:04.481</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E08 - May Cause Lucid Murder Dreams (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E08 - May Cause Lucid Murder Dreams (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E08 - May Cause Lucid Murder Dreams (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="292681188">292,681,188</td>
+<td data-numeric="1741657962534.401">10 MAR 2025 20:52:42.534</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E09 - May Cause Numb Butthole (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E09 - May Cause Numb Butthole (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E09 - May Cause Numb Butthole (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="263511598">263,511,598</td>
+<td data-numeric="1741658100415.1213">10 MAR 2025 20:55:00.415</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E10 - May Cause the Need for Speed (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E10 - May Cause the Need for Speed (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E10 - May Cause the Need for Speed (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="255982607">255,982,607</td>
+<td data-numeric="1741657898281.159">10 MAR 2025 20:51:38.281</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E11 - May Cause Your Dad to Come Back With That Gallon of Milk He Went Out for 10 Years Ago (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E11 - May Cause Your Dad to Come Back With That Gallon of Milk He Went Out for 10 Years Ago (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E11 - May Cause Your Dad to Come Back With That Gallon of Milk He Went Out for 10 Years Ago (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="243533051">243,533,051</td>
+<td data-numeric="1741657956137.9644">10 MAR 2025 20:52:36.137</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E12 - May Cause Episode Title to Cut Off Due to Word Lim (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E12 - May Cause Episode Title to Cut Off Due to Word Lim (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E12 - May Cause Episode Title to Cut Off Due to Word Lim (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="261329300">261,329,300</td>
+<td data-numeric="1741658136065.8003">10 MAR 2025 20:55:36.650</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E13 - Happy Russian Deathdog Dolloween 2 U (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E13 - Happy Russian Deathdog Dolloween 2 U (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E13 - Happy Russian Deathdog Dolloween 2 U (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="254914901">254,914,901</td>
+<td data-numeric="1741657970133.4688">10 MAR 2025 20:52:50.133</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E14 - May Cause Indecision...Or Not (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E14 - May Cause Indecision...Or Not (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E14 - May Cause Indecision...Or Not (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="241998129">241,998,129</td>
+<td data-numeric="1741657980600.2676">10 MAR 2025 20:53:00.600</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E15 - May Cause Bubbles Where You Don't Want 'Em (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E15 - May Cause Bubbles Where You Don't Want 'Em (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E15 - May Cause Bubbles Where You Don't Want 'Em (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="255472496">255,472,496</td>
+<td data-numeric="1741657984536.6785">10 MAR 2025 20:53:04.536</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E16 - May Cause a Squeakquel (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E16 - May Cause a Squeakquel (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E16 - May Cause a Squeakquel (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="227961263">227,961,263</td>
+<td data-numeric="1741657955786.3315">10 MAR 2025 20:52:35.786</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E17 - May Cause Involuntary Political Discharge (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E17 - May Cause Involuntary Political Discharge (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E17 - May Cause Involuntary Political Discharge (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="296908830">296,908,830</td>
+<td data-numeric="1741658124032.448">10 MAR 2025 20:55:24.320</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E18 - May Cause an Excess of Ham (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E18 - May Cause an Excess of Ham (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E18 - May Cause an Excess of Ham (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="220203635">220,203,635</td>
+<td data-numeric="1741657983551.094">10 MAR 2025 20:53:03.551</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E19 - May Cause Internal Diarrhea (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E19 - May Cause Internal Diarrhea (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E19 - May Cause Internal Diarrhea (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="219749219">219,749,219</td>
+<td data-numeric="1741658158739.7246">10 MAR 2025 20:55:58.739</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E20 - May Cause Weebles to Fall Down (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E20 - May Cause Weebles to Fall Down (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E20 - May Cause Weebles to Fall Down (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="256669297">256,669,297</td>
+<td data-numeric="1741658078360.7393">10 MAR 2025 20:54:38.360</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E21 - May Cause Season 11 to End (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S11E21 - May Cause Season 11 to End (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 11/Robot Chicken - S11E21 - May Cause Season 11 to End (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="263830244">263,830,244</td>
+<td data-numeric="1741657916787.4326">10 MAR 2025 20:51:56.787</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E01 - Suck It (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E01 - Suck It (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E01 - Suck It (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="204768670">204,768,670</td>
+<td data-numeric="1741658096468.94">10 MAR 2025 20:54:56.468</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E02 - Federated Resources (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E02 - Federated Resources (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E02 - Federated Resources (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="222423451">222,423,451</td>
+<td data-numeric="1741657914667.479">10 MAR 2025 20:51:54.667</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E03 - Easter Basket (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E03 - Easter Basket (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E03 - Easter Basket (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="211171459">211,171,459</td>
+<td data-numeric="1741657729763.9595">10 MAR 2025 20:48:49.763</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E04 - Celebrity Rocket (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E04 - Celebrity Rocket (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E04 - Celebrity Rocket (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="239274520">239,274,520</td>
+<td data-numeric="1741657914028.7979">10 MAR 2025 20:51:54.280</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E05 - Dragon Nuts (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E05 - Dragon Nuts (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E05 - Dragon Nuts (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="242717046">242,717,046</td>
+<td data-numeric="1741657644936.1824">10 MAR 2025 20:47:24.936</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E06 - 1987 (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E06 - 1987 (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E06 - 1987 (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="210735597">210,735,597</td>
+<td data-numeric="1741658121832.936">10 MAR 2025 20:55:21.832</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E07 - Cracked China (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E07 - Cracked China (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E07 - Cracked China (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="234570657">234,570,657</td>
+<td data-numeric="1741657990415.992">10 MAR 2025 20:53:10.415</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E08 - Rodiggity (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E08 - Rodiggity (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E08 - Rodiggity (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="204239382">204,239,382</td>
+<td data-numeric="1741657911985.229">10 MAR 2025 20:51:51.985</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E09 - Massage Chair (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E09 - Massage Chair (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E09 - Massage Chair (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="222133913">222,133,913</td>
+<td data-numeric="1741658066446.3357">10 MAR 2025 20:54:26.446</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E10 - Password Swordfish (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E10 - Password Swordfish (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E10 - Password Swordfish (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="192274012">192,274,012</td>
+<td data-numeric="1741658108643.0815">10 MAR 2025 20:55:08.643</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E11 - Adoption's an Option (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E11 - Adoption's an Option (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E11 - Adoption's an Option (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="218366455">218,366,455</td>
+<td data-numeric="1741658141155.454">10 MAR 2025 20:55:41.155</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E12 - The Munnery (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E12 - The Munnery (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E12 - The Munnery (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="245756481">245,756,481</td>
+<td data-numeric="1741658133948.5486">10 MAR 2025 20:55:33.948</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E13 - Metal Militia (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E13 - Metal Militia (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E13 - Metal Militia (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="213913242">213,913,242</td>
+<td data-numeric="1741657917524.1147">10 MAR 2025 20:51:57.524</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E14 - Veggies for Sloth (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E14 - Veggies for Sloth (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E14 - Veggies for Sloth (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="210409126">210,409,126</td>
+<td data-numeric="1741657336954.4724">10 MAR 2025 20:42:16.954</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E15 - Sausage Fest (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E15 - Sausage Fest (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E15 - Sausage Fest (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="212771221">212,771,221</td>
+<td data-numeric="1741657895620.0027">10 MAR 2025 20:51:35.620</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E16 - Drippy Pony (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E16 - Drippy Pony (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E16 - Drippy Pony (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="218169786">218,169,786</td>
+<td data-numeric="1741657963609.0037">10 MAR 2025 20:52:43.609</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E17 - A Day at the Circus (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E17 - A Day at the Circus (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E17 - A Day at the Circus (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="212145866">212,145,866</td>
+<td data-numeric="1741658049896.5027">10 MAR 2025 20:54:09.896</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E18 - Lust for Puppets (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E18 - Lust for Puppets (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E18 - Lust for Puppets (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="225107672">225,107,672</td>
+<td data-numeric="1741657960165.2607">10 MAR 2025 20:52:40.165</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E19 - Anne Marie's Pride (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E19 - Anne Marie's Pride (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E19 - Anne Marie's Pride (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="214492469">214,492,469</td>
+<td data-numeric="1741657459756.8665">10 MAR 2025 20:44:19.756</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E20 - Book of Corrine (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S02E20 - Book of Corrine (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 2/Robot Chicken - S02E20 - Book of Corrine (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="219246973">219,246,973</td>
+<td data-numeric="1741657973927.73">10 MAR 2025 20:52:53.927</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E01 - Werewolf vs. Unicorn (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E01 - Werewolf vs. Unicorn (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E01 - Werewolf vs. Unicorn (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="227108276">227,108,276</td>
+<td data-numeric="1741657976410.5251">10 MAR 2025 20:52:56.410</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E02 - Squaw Bury Shortcake (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E02 - Squaw Bury Shortcake (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E02 - Squaw Bury Shortcake (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="237027745">237,027,745</td>
+<td data-numeric="1741657956322.3884">10 MAR 2025 20:52:36.322</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E03 - Rabbits on a Roller Coaster (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E03 - Rabbits on a Roller Coaster (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E03 - Rabbits on a Roller Coaster (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="211578773">211,578,773</td>
+<td data-numeric="1741658040335.7024">10 MAR 2025 20:54:00.335</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E04 - Tapping a Hero (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E04 - Tapping a Hero (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E04 - Tapping a Hero (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="186991251">186,991,251</td>
+<td data-numeric="1741657706706.0066">10 MAR 2025 20:48:26.706</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E05 - Shoe (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E05 - Shoe (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E05 - Shoe (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="227955865">227,955,865</td>
+<td data-numeric="1741657952827.7698">10 MAR 2025 20:52:32.827</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E06 - Endless Breadsticks (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E06 - Endless Breadsticks (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E06 - Endless Breadsticks (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="205978399">205,978,399</td>
+<td data-numeric="1741657978284.3489">10 MAR 2025 20:52:58.284</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E07 - Yancy the Yo-Yo Boy (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E07 - Yancy the Yo-Yo Boy (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E07 - Yancy the Yo-Yo Boy (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="240697864">240,697,864</td>
+<td data-numeric="1741658059248.773">10 MAR 2025 20:54:19.248</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E08 - More Blood, More Chocolate (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E08 - More Blood, More Chocolate (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E08 - More Blood, More Chocolate (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="226276071">226,276,071</td>
+<td data-numeric="1741658163979.4827">10 MAR 2025 20:56:03.979</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E09 - Celebutard Mountain (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E09 - Celebutard Mountain (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E09 - Celebutard Mountain (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="226916476">226,916,476</td>
+<td data-numeric="1741657515198.1436">10 MAR 2025 20:45:15.198</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E10 - Moesha Poppins (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E10 - Moesha Poppins (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E10 - Moesha Poppins (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="181458654">181,458,654</td>
+<td data-numeric="1741657964272.838">10 MAR 2025 20:52:44.272</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E11 - Ban on the Fun (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E11 - Ban on the Fun (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E11 - Ban on the Fun (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="224524128">224,524,128</td>
+<td data-numeric="1741658151490.169">10 MAR 2025 20:55:51.490</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E12 - Losin' the Wobble (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E12 - Losin' the Wobble (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E12 - Losin' the Wobble (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="217373907">217,373,907</td>
+<td data-numeric="1741657717491.0813">10 MAR 2025 20:48:37.491</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E13 - Slaughterhouse on the Prairie (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E13 - Slaughterhouse on the Prairie (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E13 - Slaughterhouse on the Prairie (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="261889203">261,889,203</td>
+<td data-numeric="1741658056889.039">10 MAR 2025 20:54:16.889</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E14 - Tubba-Bubba's Now Hubba-Hubba (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E14 - Tubba-Bubba's Now Hubba-Hubba (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E14 - Tubba-Bubba's Now Hubba-Hubba (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="194323404">194,323,404</td>
+<td data-numeric="1741658044243.3833">10 MAR 2025 20:54:04.243</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E15 - Boo Cocky (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E15 - Boo Cocky (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E15 - Boo Cocky (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="218058447">218,058,447</td>
+<td data-numeric="1741658036397.965">10 MAR 2025 20:53:56.397</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E16 - Bionic Cow (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E16 - Bionic Cow (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E16 - Bionic Cow (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="213374201">213,374,201</td>
+<td data-numeric="1741657934527.3896">10 MAR 2025 20:52:14.527</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E17 - Monstourage (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E17 - Monstourage (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E17 - Monstourage (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="223731408">223,731,408</td>
+<td data-numeric="1741658051341.2014">10 MAR 2025 20:54:11.341</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E18 - President Evil (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E18 - President Evil (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E18 - President Evil (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="209321460">209,321,460</td>
+<td data-numeric="1741657969209.0432">10 MAR 2025 20:52:49.209</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E19 - Chirlaxx (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S03E19 - Chirlaxx (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 3/Robot Chicken - S03E19 - Chirlaxx (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="227255669">227,255,669</td>
+<td data-numeric="1741658060941.1255">10 MAR 2025 20:54:20.941</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E01 - Help Me (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E01 - Help Me (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E01 - Help Me (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="188939413">188,939,413</td>
+<td data-numeric="1741657996643.033">10 MAR 2025 20:53:16.643</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E02 - They Took My Thumbs (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E02 - They Took My Thumbs (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E02 - They Took My Thumbs (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="192324109">192,324,109</td>
+<td data-numeric="1741657911825.4392">10 MAR 2025 20:51:51.825</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E03 - I'm Trapped (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E03 - I'm Trapped (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E03 - I'm Trapped (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="210785973">210,785,973</td>
+<td data-numeric="1741658061393.9192">10 MAR 2025 20:54:21.393</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E04 - In a DVD Factory (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E04 - In a DVD Factory (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E04 - In a DVD Factory (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="212196101">212,196,101</td>
+<td data-numeric="1741657995854.414">10 MAR 2025 20:53:15.854</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E05 - Tell My Mom (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E05 - Tell My Mom (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E05 - Tell My Mom (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="158809064">158,809,064</td>
+<td data-numeric="1741658147118.3154">10 MAR 2025 20:55:47.118</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E06 - P.S. Yes, in That Way (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E06 - P.S. Yes, in That Way (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E06 - P.S. Yes, in That Way (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="192294289">192,294,289</td>
+<td data-numeric="1741658101381.8728">10 MAR 2025 20:55:01.381</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E07 - Love, Maurice (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E07 - Love, Maurice (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E07 - Love, Maurice (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="221836519">221,836,519</td>
+<td data-numeric="1741658022678.7788">10 MAR 2025 20:53:42.678</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E08 - Two Weeks Without Food (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E08 - Two Weeks Without Food (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E08 - Two Weeks Without Food (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="225929781">225,929,781</td>
+<td data-numeric="1741657979455.521">10 MAR 2025 20:52:59.455</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E09 - But Not in That Way (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E09 - But Not in That Way (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E09 - But Not in That Way (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="178962528">178,962,528</td>
+<td data-numeric="1741657851377.5552">10 MAR 2025 20:50:51.377</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E10 - I Love Her (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E10 - I Love Her (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E10 - I Love Her (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="195503487">195,503,487</td>
+<td data-numeric="1741657983252.5757">10 MAR 2025 20:53:03.252</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E11 - We Are a Humble Factory (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E11 - We Are a Humble Factory (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E11 - We Are a Humble Factory (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="183066682">183,066,682</td>
+<td data-numeric="1741657983253.5747">10 MAR 2025 20:53:03.253</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E12 - Maurice Was Caught (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E12 - Maurice Was Caught (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E12 - Maurice Was Caught (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="208015114">208,015,114</td>
+<td data-numeric="1741657967465.1516">10 MAR 2025 20:52:47.465</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E13 - Unionizing Our Labor (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E13 - Unionizing Our Labor (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E13 - Unionizing Our Labor (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="196282327">196,282,327</td>
+<td data-numeric="1741658053740.8926">10 MAR 2025 20:54:13.740</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E14 - President Hu Forbids It (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E14 - President Hu Forbids It (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E14 - President Hu Forbids It (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="176005131">176,005,131</td>
+<td data-numeric="1741658029565.7776">10 MAR 2025 20:53:49.565</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E15 - Due to Constraints of Time and Budget (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E15 - Due to Constraints of Time and Budget (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E15 - Due to Constraints of Time and Budget (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="206365672">206,365,672</td>
+<td data-numeric="1741658078793.54">10 MAR 2025 20:54:38.793</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E16 - The Ramblings of Maurice (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E16 - The Ramblings of Maurice (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E16 - The Ramblings of Maurice (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="193464371">193,464,371</td>
+<td data-numeric="1741658074861.361">10 MAR 2025 20:54:34.861</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E17 - Cannot Be Erased, So Sorry (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E17 - Cannot Be Erased, So Sorry (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E17 - Cannot Be Erased, So Sorry (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="185130416">185,130,416</td>
+<td data-numeric="1741658057776.7166">10 MAR 2025 20:54:17.776</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E18 - Please Do Not Notify Our Contractors (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E18 - Please Do Not Notify Our Contractors (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E18 - Please Do Not Notify Our Contractors (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="162797282">162,797,282</td>
+<td data-numeric="1741658050349.5286">10 MAR 2025 20:54:10.349</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E19 - Especially the Animal Keith Crofford! (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S04E19 - Especially the Animal Keith Crofford! (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 4/Robot Chicken - S04E19 - Especially the Animal Keith Crofford! (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="208403144">208,403,144</td>
+<td data-numeric="1741658161128.3652">10 MAR 2025 20:56:01.128</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E01 - Saving Private Gigli (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E01 - Saving Private Gigli (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E01 - Saving Private Gigli (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="323831393">323,831,393</td>
+<td data-numeric="1741657964661.6814">10 MAR 2025 20:52:44.661</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E02 - Terms of Endaredevil (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E02 - Terms of Endaredevil (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E02 - Terms of Endaredevil (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="326685192">326,685,192</td>
+<td data-numeric="1741658061103.8755">10 MAR 2025 20:54:21.103</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E03 - Big Trouble in Little Clerks 2 (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E03 - Big Trouble in Little Clerks 2 (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E03 - Big Trouble in Little Clerks 2 (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="319343114">319,343,114</td>
+<td data-numeric="1741658170553.4724">10 MAR 2025 20:56:10.553</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E04 - Kramer vs. Showgirls (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E04 - Kramer vs. Showgirls (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E04 - Kramer vs. Showgirls (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="245988799">245,988,799</td>
+<td data-numeric="1741657950628.4517">10 MAR 2025 20:52:30.628</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E05 - Malcolm X Fully Loaded (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E05 - Malcolm X Fully Loaded (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E05 - Malcolm X Fully Loaded (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="289017192">289,017,192</td>
+<td data-numeric="1741657946937.3518">10 MAR 2025 20:52:26.937</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E06 - Major League of Extraordinary Gentlemen (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E06 - Major League of Extraordinary Gentlemen (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E06 - Major League of Extraordinary Gentlemen (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="323260896">323,260,896</td>
+<td data-numeric="1741657977236.2383">10 MAR 2025 20:52:57.236</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E07 - Schindler's Bucket List (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E07 - Schindler's Bucket List (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E07 - Schindler's Bucket List (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="283645628">283,645,628</td>
+<td data-numeric="1741657970054.6309">10 MAR 2025 20:52:50.540</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E08 - No Country for Old Dogs (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E08 - No Country for Old Dogs (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E08 - No Country for Old Dogs (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="285948452">285,948,452</td>
+<td data-numeric="1741657932255.683">10 MAR 2025 20:52:12.255</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E09 - Catch Me if You Kangaroo Jack (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E09 - Catch Me if You Kangaroo Jack (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E09 - Catch Me if You Kangaroo Jack (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="313424341">313,424,341</td>
+<td data-numeric="1741657950387.238">10 MAR 2025 20:52:30.387</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E10 - Beastmaster & Commander (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E10 - Beastmaster & Commander (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E10 - Beastmaster & Commander (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="300695366">300,695,366</td>
+<td data-numeric="1741657944729.5925">10 MAR 2025 20:52:24.729</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E11 - Casablankman (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E11 - Casablankman (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E11 - Casablankman (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="308595145">308,595,145</td>
+<td data-numeric="1741658135115.8572">10 MAR 2025 20:55:35.115</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E12 - The Departy Monster (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E12 - The Departy Monster (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E12 - The Departy Monster (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="300575365">300,575,365</td>
+<td data-numeric="1741657927985.3452">10 MAR 2025 20:52:07.985</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E13 - Some Like It Hitman (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E13 - Some Like It Hitman (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E13 - Some Like It Hitman (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="313296725">313,296,725</td>
+<td data-numeric="1741658122673.1018">10 MAR 2025 20:55:22.673</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E14 - The Core, The Thief, His Wife and Her Lover (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E14 - The Core, The Thief, His Wife and Her Lover (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E14 - The Core, The Thief, His Wife and Her Lover (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="298123988">298,123,988</td>
+<td data-numeric="1741658121944.6035">10 MAR 2025 20:55:21.944</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E15 - The Godfather of the Bride II (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E15 - The Godfather of the Bride II (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E15 - The Godfather of the Bride II (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="278249828">278,249,828</td>
+<td data-numeric="1741658058574.6965">10 MAR 2025 20:54:18.574</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E16 - The Curious Case of the Box (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E16 - The Curious Case of the Box (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E16 - The Curious Case of the Box (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="281038909">281,038,909</td>
+<td data-numeric="1741658168042.7634">10 MAR 2025 20:56:08.420</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E17 - Fool's Goldfinger (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E17 - Fool's Goldfinger (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E17 - Fool's Goldfinger (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="288836789">288,836,789</td>
+<td data-numeric="1741658119220.021">10 MAR 2025 20:55:19.220</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E18 - Casablankman II (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E18 - Casablankman II (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E18 - Casablankman II (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="369105509">369,105,509</td>
+<td data-numeric="1741657948539.12">10 MAR 2025 20:52:28.539</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E19 - Fight Club Paradise (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S05E19 - Fight Club Paradise (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 5/Robot Chicken - S05E19 - Fight Club Paradise (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="473215386">473,215,386</td>
+<td data-numeric="1741658125167.5554">10 MAR 2025 20:55:25.167</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E01 - Executed by the State (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E01 - Executed by the State (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E01 - Executed by the State (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="307648505">307,648,505</td>
+<td data-numeric="1741658165530.7341">10 MAR 2025 20:56:05.530</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E02 - Crushed by a Steamroller on My 53rd Birthday (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E02 - Crushed by a Steamroller on My 53rd Birthday (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E02 - Crushed by a Steamroller on My 53rd Birthday (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="324214870">324,214,870</td>
+<td data-numeric="1741658162971.286">10 MAR 2025 20:56:02.971</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E03 - Punctured Jugular (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E03 - Punctured Jugular (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E03 - Punctured Jugular (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="291753778">291,753,778</td>
+<td data-numeric="1741657910252.9875">10 MAR 2025 20:51:50.252</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E04 - Poisoned by Relatives (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E04 - Poisoned by Relatives (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E04 - Poisoned by Relatives (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="338880750">338,880,750</td>
+<td data-numeric="1741658028889.3574">10 MAR 2025 20:53:48.889</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E05 - Hurtled From a Helicopter Into a Speeding Train (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E05 - Hurtled From a Helicopter Into a Speeding Train (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E05 - Hurtled From a Helicopter Into a Speeding Train (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="380890414">380,890,414</td>
+<td data-numeric="1741658150488.3303">10 MAR 2025 20:55:50.488</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E06 - Disemboweled by an Orphan (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E06 - Disemboweled by an Orphan (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E06 - Disemboweled by an Orphan (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="325347020">325,347,020</td>
+<td data-numeric="1741658025975.3608">10 MAR 2025 20:53:45.975</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E07 - In Bed Surrounded by Loved Ones (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E07 - In Bed Surrounded by Loved Ones (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E07 - In Bed Surrounded by Loved Ones (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="354301710">354,301,710</td>
+<td data-numeric="1741658025985.8413">10 MAR 2025 20:53:45.985</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E08 - Choked on Multi-Colored Scarves (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E08 - Choked on Multi-Colored Scarves (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E08 - Choked on Multi-Colored Scarves (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="341540366">341,540,366</td>
+<td data-numeric="1741658000780.338">10 MAR 2025 20:53:20.780</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E09 - Hemlock, Gin and Juice (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E09 - Hemlock, Gin and Juice (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E09 - Hemlock, Gin and Juice (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="344097341">344,097,341</td>
+<td data-numeric="1741658126662.3838">10 MAR 2025 20:55:26.662</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E10 - Collateral Damage in Gang Turf War (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E10 - Collateral Damage in Gang Turf War (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E10 - Collateral Damage in Gang Turf War (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="332188816">332,188,816</td>
+<td data-numeric="1741658060455.4841">10 MAR 2025 20:54:20.455</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E11 - Eviscerated Post-Coital by a Six Foot Mantis (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E11 - Eviscerated Post-Coital by a Six Foot Mantis (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E11 - Eviscerated Post-Coital by a Six Foot Mantis (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="492700973">492,700,973</td>
+<td data-numeric="1741658067136.2732">10 MAR 2025 20:54:27.136</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E12 - Butchered in Burbank (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E12 - Butchered in Burbank (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E12 - Butchered in Burbank (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="363732899">363,732,899</td>
+<td data-numeric="1741658125790.4749">10 MAR 2025 20:55:25.790</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E13 - Robot Chicken's ATM Christmas Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E13 - Robot Chicken's ATM Christmas Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E13 - Robot Chicken's ATM Christmas Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="376462960">376,462,960</td>
+<td data-numeric="1741657908962.8284">10 MAR 2025 20:51:48.962</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E14 - Papercut to Aorta (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E14 - Papercut to Aorta (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E14 - Papercut to Aorta (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="337081327">337,081,327</td>
+<td data-numeric="1741658090735.2969">10 MAR 2025 20:54:50.735</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E15 - Caffeine-Induced Aneurysm (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E15 - Caffeine-Induced Aneurysm (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E15 - Caffeine-Induced Aneurysm (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="328554521">328,554,521</td>
+<td data-numeric="1741658074485.685">10 MAR 2025 20:54:34.485</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E16 - Eaten by Cats (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E16 - Eaten by Cats (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E16 - Eaten by Cats (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="330469450">330,469,450</td>
+<td data-numeric="1741658047619.3618">10 MAR 2025 20:54:07.619</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E17 - Botched Jewel Heist (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E17 - Botched Jewel Heist (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E17 - Botched Jewel Heist (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="381851070">381,851,070</td>
+<td data-numeric="1741658047627.1333">10 MAR 2025 20:54:07.627</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E18 - Robot Fight Accident (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E18 - Robot Fight Accident (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E18 - Robot Fight Accident (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="325004651">325,004,651</td>
+<td data-numeric="1741658169487.5068">10 MAR 2025 20:56:09.487</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E19 - Choked on a Bottle Cap (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E19 - Choked on a Bottle Cap (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E19 - Choked on a Bottle Cap (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="283264225">283,264,225</td>
+<td data-numeric="1741657911204.7915">10 MAR 2025 20:51:51.204</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E20 - Immortal (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S06E20 - Immortal (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 6/Robot Chicken - S06E20 - Immortal (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="318495191">318,495,191</td>
+<td data-numeric="1741658150788.139">10 MAR 2025 20:55:50.788</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E01 - G.I. Jogurt (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E01 - G.I. Jogurt (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E01 - G.I. Jogurt (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="261873780">261,873,780</td>
+<td data-numeric="1741658018665.059">10 MAR 2025 20:53:38.665</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E02 - Link's Sausages (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E02 - Link's Sausages (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E02 - Link's Sausages (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="264891015">264,891,015</td>
+<td data-numeric="1741657778402.4536">10 MAR 2025 20:49:38.402</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E03 - Secret of the Booze (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E03 - Secret of the Booze (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E03 - Secret of the Booze (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="237870473">237,870,473</td>
+<td data-numeric="1741657924242.6462">10 MAR 2025 20:52:04.242</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E04 - Rebel Appliance (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E04 - Rebel Appliance (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E04 - Rebel Appliance (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="234289246">234,289,246</td>
+<td data-numeric="1741658063814.7124">10 MAR 2025 20:54:23.814</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E05 - Legion of Super-Gyros (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E05 - Legion of Super-Gyros (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E05 - Legion of Super-Gyros (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="282339879">282,339,879</td>
+<td data-numeric="1741657939654.428">10 MAR 2025 20:52:19.654</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E06 - El Skeletorito (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E06 - El Skeletorito (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E06 - El Skeletorito (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="268615499">268,615,499</td>
+<td data-numeric="1741658012098.7388">10 MAR 2025 20:53:32.980</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E07 - Snarfer Image (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E07 - Snarfer Image (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E07 - Snarfer Image (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="253532213">253,532,213</td>
+<td data-numeric="1741658156229.8926">10 MAR 2025 20:55:56.229</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E08 - Up, Up, and Buffet (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E08 - Up, Up, and Buffet (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E08 - Up, Up, and Buffet (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="238557280">238,557,280</td>
+<td data-numeric="1741657909567.4424">10 MAR 2025 20:51:49.567</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E09 - Panthropologie (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E09 - Panthropologie (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E09 - Panthropologie (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="281023566">281,023,566</td>
+<td data-numeric="1741658114691.5264">10 MAR 2025 20:55:14.691</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E10 - Catdog on a Stick (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E10 - Catdog on a Stick (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E10 - Catdog on a Stick (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="267928429">267,928,429</td>
+<td data-numeric="1741658146418.1677">10 MAR 2025 20:55:46.418</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E11 - Super Guitario Center (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E11 - Super Guitario Center (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E11 - Super Guitario Center (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="284209173">284,209,173</td>
+<td data-numeric="1741658040272.9473">10 MAR 2025 20:54:00.272</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E12 - Noidstrom Rack (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E12 - Noidstrom Rack (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E12 - Noidstrom Rack (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="307514272">307,514,272</td>
+<td data-numeric="1741657910033.5493">10 MAR 2025 20:51:50.330</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E13 - Stone Cold Steve Cold Stone (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E13 - Stone Cold Steve Cold Stone (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E13 - Stone Cold Steve Cold Stone (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="301677556">301,677,556</td>
+<td data-numeric="1741658056256.642">10 MAR 2025 20:54:16.256</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E14 - Walking Dead Lobster (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E14 - Walking Dead Lobster (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E14 - Walking Dead Lobster (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="256292870">256,292,870</td>
+<td data-numeric="1741658090770.4368">10 MAR 2025 20:54:50.770</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E15 - Victoria's Secret of NIMH (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E15 - Victoria's Secret of NIMH (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E15 - Victoria's Secret of NIMH (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="308014308">308,014,308</td>
+<td data-numeric="1741658114518.8882">10 MAR 2025 20:55:14.518</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E16 - The Robot Chicken Bitch Pudding Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E16 - The Robot Chicken Bitch Pudding Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E16 - The Robot Chicken Bitch Pudding Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="306767296">306,767,296</td>
+<td data-numeric="1741658165382.5815">10 MAR 2025 20:56:05.382</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E17 - Batman Forever 21 (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E17 - Batman Forever 21 (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E17 - Batman Forever 21 (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="316437443">316,437,443</td>
+<td data-numeric="1741658124439.3743">10 MAR 2025 20:55:24.439</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E18 - The Hobbit There and Bennigan's (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E18 - The Hobbit There and Bennigan's (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E18 - The Hobbit There and Bennigan's (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="269998496">269,998,496</td>
+<td data-numeric="1741657923007.1572">10 MAR 2025 20:52:03.700</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E19 - Chipotle Miserables (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S07E19 - Chipotle Miserables (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 7/Robot Chicken - S07E19 - Chipotle Miserables (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="411311511">411,311,511</td>
+<td data-numeric="1741658159794.7969">10 MAR 2025 20:55:59.794</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E01 - Garbage Sushi (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E01 - Garbage Sushi (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E01 - Garbage Sushi (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="319466394">319,466,394</td>
+<td data-numeric="1741658042921.0994">10 MAR 2025 20:54:02.921</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E02 - Ants on a Hamburger (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E02 - Ants on a Hamburger (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E02 - Ants on a Hamburger (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="247530549">247,530,549</td>
+<td data-numeric="1741658051890.4841">10 MAR 2025 20:54:11.890</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E03 - Zeb and Kevin Erotic Hot Tub Canvas (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E03 - Zeb and Kevin Erotic Hot Tub Canvas (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E03 - Zeb and Kevin Erotic Hot Tub Canvas (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="260569646">260,569,646</td>
+<td data-numeric="1741657977116.0654">10 MAR 2025 20:52:57.116</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E04 - Cheese Puff Mountain (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E04 - Cheese Puff Mountain (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E04 - Cheese Puff Mountain (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="242758323">242,758,323</td>
+<td data-numeric="1741658096262.5352">10 MAR 2025 20:54:56.262</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E05 - Cake Pillow (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E05 - Cake Pillow (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E05 - Cake Pillow (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="229630487">229,630,487</td>
+<td data-numeric="1741657979505.0662">10 MAR 2025 20:52:59.505</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E06 - Zero Vegetables (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E06 - Zero Vegetables (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E06 - Zero Vegetables (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="253912806">253,912,806</td>
+<td data-numeric="1741657996262.9424">10 MAR 2025 20:53:16.262</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E07 - Joel Hurwitz (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E07 - Joel Hurwitz (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E07 - Joel Hurwitz (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="261619498">261,619,498</td>
+<td data-numeric="1741658118647.7986">10 MAR 2025 20:55:18.647</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E08 - Blackout Window Heat Stroke (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E08 - Blackout Window Heat Stroke (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E08 - Blackout Window Heat Stroke (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="250737873">250,737,873</td>
+<td data-numeric="1741657958267.1365">10 MAR 2025 20:52:38.267</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E09 - The Unnamed One (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E09 - The Unnamed One (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E09 - The Unnamed One (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="266044468">266,044,468</td>
+<td data-numeric="1741658035687.9072">10 MAR 2025 20:53:55.687</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E10 - Fridge Smell (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E10 - Fridge Smell (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E10 - Fridge Smell (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="269172853">269,172,853</td>
+<td data-numeric="1741657924271.045">10 MAR 2025 20:52:04.271</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E11 - Western Hay Batch (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E11 - Western Hay Batch (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E11 - Western Hay Batch (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="230535378">230,535,378</td>
+<td data-numeric="1741657782702.3293">10 MAR 2025 20:49:42.702</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E12 - Triple Hot Dog Sandwich on Wheat (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E12 - Triple Hot Dog Sandwich on Wheat (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E12 - Triple Hot Dog Sandwich on Wheat (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="223905538">223,905,538</td>
+<td data-numeric="1741658064131.1123">10 MAR 2025 20:54:24.131</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E13 - Joel Hurwitz Returns (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E13 - Joel Hurwitz Returns (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E13 - Joel Hurwitz Returns (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="248808689">248,808,689</td>
+<td data-numeric="1741657942774.093">10 MAR 2025 20:52:22.774</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E14 - Hopefully Salt (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E14 - Hopefully Salt (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E14 - Hopefully Salt (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="218822479">218,822,479</td>
+<td data-numeric="1741658132438.5872">10 MAR 2025 20:55:32.438</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E15 - Yogurt in a Bag (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E15 - Yogurt in a Bag (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E15 - Yogurt in a Bag (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="229818610">229,818,610</td>
+<td data-numeric="1741658061505.8848">10 MAR 2025 20:54:21.505</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E16 - Secret of the Flushed Footlong (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E16 - Secret of the Flushed Footlong (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E16 - Secret of the Flushed Footlong (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="234842376">234,842,376</td>
+<td data-numeric="1741658055641.0847">10 MAR 2025 20:54:15.641</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E17 - Food (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E17 - Food (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E17 - Food (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="259879254">259,879,254</td>
+<td data-numeric="1741658000812.1257">10 MAR 2025 20:53:20.812</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E18 - Not Enough Women (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E18 - Not Enough Women (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E18 - Not Enough Women (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="225827870">225,827,870</td>
+<td data-numeric="1741658046221.4192">10 MAR 2025 20:54:06.221</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E19 - The Angelic Sounds of Mike Giggling (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S08E19 - The Angelic Sounds of Mike Giggling (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 8/Robot Chicken - S08E19 - The Angelic Sounds of Mike Giggling (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="238486837">238,486,837</td>
+<td data-numeric="1741658109073.403">10 MAR 2025 20:55:09.730</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E01 - Hey I Found Another Sock (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E01 - Hey I Found Another Sock (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E01 - Hey I Found Another Sock (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="236430659">236,430,659</td>
+<td data-numeric="1741658005909.5078">10 MAR 2025 20:53:25.909</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E02 - Scoot to the Glute (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E02 - Scoot to the Glute (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E02 - Scoot to the Glute (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="206451839">206,451,839</td>
+<td data-numeric="1741657642438.0217">10 MAR 2025 20:47:22.438</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E03 - Things Look Bad for the Streepster (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E03 - Things Look Bad for the Streepster (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E03 - Things Look Bad for the Streepster (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="235623930">235,623,930</td>
+<td data-numeric="1741657818045.7058">10 MAR 2025 20:50:18.450</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E04 - Mr. Mozzarella's Hamburger Skateboard Depot (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E04 - Mr. Mozzarella's Hamburger Skateboard Depot (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E04 - Mr. Mozzarella's Hamburger Skateboard Depot (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="226572337">226,572,337</td>
+<td data-numeric="1741658015472.8599">10 MAR 2025 20:53:35.472</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E05 - Strummy Strummy Sad Sad (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E05 - Strummy Strummy Sad Sad (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E05 - Strummy Strummy Sad Sad (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="209882408">209,882,408</td>
+<td data-numeric="1741657973743.5122">10 MAR 2025 20:52:53.743</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E06 - 3 2 1 2 3 3 3, 2 2 2, 3...6 6 (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E06 - 3 2 1 2 3 3 3, 2 2 2, 3...6 6 (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E06 - 3 2 1 2 3 3 3, 2 2 2, 3...6 6 (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="215494993">215,494,993</td>
+<td data-numeric="1741658120885.3633">10 MAR 2025 20:55:20.885</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E07 - We Don't See Much of That in 1940s America (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E07 - We Don't See Much of That in 1940s America (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E07 - We Don't See Much of That in 1940s America (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="203876191">203,876,191</td>
+<td data-numeric="1741657963944.7249">10 MAR 2025 20:52:43.944</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E08 - Ext. Forest - Day (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E08 - Ext. Forest - Day (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E08 - Ext. Forest - Day (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="201534528">201,534,528</td>
+<td data-numeric="1741658048648.5676">10 MAR 2025 20:54:08.648</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E09 - Factory Where Nuts Are Handled (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E09 - Factory Where Nuts Are Handled (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E09 - Factory Where Nuts Are Handled (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="212259094">212,259,094</td>
+<td data-numeric="1741657755274.2363">10 MAR 2025 20:49:15.274</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E10 - Never Forget (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E10 - Never Forget (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E10 - Never Forget (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="223878141">223,878,141</td>
+<td data-numeric="1741657978838.1804">10 MAR 2025 20:52:58.838</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E11 - Shall I Visit the Dinosaurs (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E11 - Shall I Visit the Dinosaurs (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E11 - Shall I Visit the Dinosaurs (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="265296979">265,296,979</td>
+<td data-numeric="1741657945644.4998">10 MAR 2025 20:52:25.644</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E12 - What Can You Tell Me About Butt Rashes (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E12 - What Can You Tell Me About Butt Rashes (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E12 - What Can You Tell Me About Butt Rashes (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="245892249">245,892,249</td>
+<td data-numeric="1741657945644.4998">10 MAR 2025 20:52:25.644</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E13 - Gimme That Chocolate Milk (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E13 - Gimme That Chocolate Milk (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E13 - Gimme That Chocolate Milk (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="223717665">223,717,665</td>
+<td data-numeric="1741658011572.5051">10 MAR 2025 20:53:31.572</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E14 - Why Is It Wet (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E14 - Why Is It Wet (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E14 - Why Is It Wet (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="235684539">235,684,539</td>
+<td data-numeric="1741657792909.0098">10 MAR 2025 20:49:52.909</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E15 - Jew #1 Opens a Treasure Chest (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E15 - Jew #1 Opens a Treasure Chest (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E15 - Jew #1 Opens a Treasure Chest (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="244180655">244,180,655</td>
+<td data-numeric="1741657904924.255">10 MAR 2025 20:51:44.924</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E16 - He's Not Even Aiming at the Toilet (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E16 - He's Not Even Aiming at the Toilet (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E16 - He's Not Even Aiming at the Toilet (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="236324291">236,324,291</td>
+<td data-numeric="1741658005435.4592">10 MAR 2025 20:53:25.435</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E17 - Your Mouth Is Hanging Off Your Face (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E17 - Your Mouth Is Hanging Off Your Face (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E17 - Your Mouth Is Hanging Off Your Face (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="274705853">274,705,853</td>
+<td data-numeric="1741657721578.003">10 MAR 2025 20:48:41.578</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E18 - No Wait, He Has a Cane (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E18 - No Wait, He Has a Cane (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E18 - No Wait, He Has a Cane (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="264929847">264,929,847</td>
+<td data-numeric="1741657931424.5547">10 MAR 2025 20:52:11.424</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E19 - Hi. (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S09E19 - Hi. (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Season 9/Robot Chicken - S09E19 - Hi. (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="254464950">254,464,950</td>
+<td data-numeric="1741657944598.573">10 MAR 2025 20:52:24.598</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E02 - Robot Chicken Christmas Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E02 - Robot Chicken Christmas Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E02 - Robot Chicken Christmas Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="215717224">215,717,224</td>
+<td data-numeric="1741657931910.578">10 MAR 2025 20:52:11.910</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E04 - Robot Chicken Star Wars (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E04 - Robot Chicken Star Wars (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E04 - Robot Chicken Star Wars (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="349717312">349,717,312</td>
+<td data-numeric="1741657707598.5784">10 MAR 2025 20:48:27.598</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E06 - Robot Chicken's Half-Assed Christmas Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E06 - Robot Chicken's Half-Assed Christmas Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E06 - Robot Chicken's Half-Assed Christmas Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="233152223">233,152,223</td>
+<td data-numeric="1741657904868.5515">10 MAR 2025 20:51:44.868</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E07 - Adultizzle Swizzle (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E07 - Adultizzle Swizzle (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E07 - Adultizzle Swizzle (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="192747076">192,747,076</td>
+<td data-numeric="1741658096157.2554">10 MAR 2025 20:54:56.157</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E08 - Robot Chicken Star Wars Episode II (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E08 - Robot Chicken Star Wars Episode II (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E08 - Robot Chicken Star Wars Episode II (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="355285789">355,285,789</td>
+<td data-numeric="1741657949351.7583">10 MAR 2025 20:52:29.351</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E09 - Dear Consumer (The Robot Chicken Full-Assed Christmas Special) (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E09 - Dear Consumer (The Robot Chicken Full-Assed Christmas Special) (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E09 - Dear Consumer (The Robot Chicken Full-Assed Christmas Special) (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="183957033">183,957,033</td>
+<td data-numeric="1741657959185.2065">10 MAR 2025 20:52:39.185</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E10 - Robot Chicken's DP Christmas Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E10 - Robot Chicken's DP Christmas Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E10 - Robot Chicken's DP Christmas Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="328986700">328,986,700</td>
+<td data-numeric="1741658139366.6711">10 MAR 2025 20:55:39.366</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E11 - Robot Chicken Star Wars Episode III (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E11 - Robot Chicken Star Wars Episode III (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E11 - Robot Chicken Star Wars Episode III (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="1156867292">1,156,867,292</td>
+<td data-numeric="1741658045220.3257">10 MAR 2025 20:54:05.220</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E12 - Robot Chicken DC Comics Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E12 - Robot Chicken DC Comics Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E12 - Robot Chicken DC Comics Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="465480441">465,480,441</td>
+<td data-numeric="1741658125835.5652">10 MAR 2025 20:55:25.835</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E13 - Born Again Virgin Christmas Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E13 - Born Again Virgin Christmas Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E13 - Born Again Virgin Christmas Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="385373018">385,373,018</td>
+<td data-numeric="1741657998755.5588">10 MAR 2025 20:53:18.755</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E14 - Robot Chicken DC Comics Special II Villains in Paradise (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E14 - Robot Chicken DC Comics Special II Villains in Paradise (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E14 - Robot Chicken DC Comics Special II Villains in Paradise (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="530116020">530,116,020</td>
+<td data-numeric="1741658078697.1365">10 MAR 2025 20:54:38.697</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E15 - The Robot Chicken Lots of Holidays but Don’t Worry Christmas is Still in There Too so Pull the Stick out of Your Ass Fox News Special (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E15 - The Robot Chicken Lots of Holidays but Don’t Worry Christmas is Still in There Too so Pull the Stick out of Your Ass Fox News Special (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E15 - The Robot Chicken Lots of Holidays but Don’t Worry Christmas is Still in There Too so Pull the Stick out of Your Ass Fox News Special (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="268243750">268,243,750</td>
+<td data-numeric="1741658148776.2588">10 MAR 2025 20:55:48.776</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E16 - Robot Chicken DC Comics Special III Magical Friendship (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E16 - Robot Chicken DC Comics Special III Magical Friendship (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E16 - Robot Chicken DC Comics Special III Magical Friendship (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="544620438">544,620,438</td>
+<td data-numeric="1741657857133.2847">10 MAR 2025 20:50:57.133</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E17 - The Robot Chicken Christmas Special X-Mas United (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E17 - The Robot Chicken Christmas Special X-Mas United (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E17 - The Robot Chicken Christmas Special X-Mas United (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="239515172">239,515,172</td>
+<td data-numeric="1741657938898.5613">10 MAR 2025 20:52:18.898</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E19 - The Robot Chicken Walking Dead Special Look Who's Walking (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E19 - The Robot Chicken Walking Dead Special Look Who's Walking (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E19 - The Robot Chicken Walking Dead Special Look Who's Walking (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="876820922">876,820,922</td>
+<td data-numeric="1741658049757.3994">10 MAR 2025 20:54:09.757</td>
+</tr>
+<tr data-path="comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E20 - Freshly Baked The Robot Chicken Santa Claus Pot Cookie Freakout, Special Edition (1080p x265 EDGE2020).mkv">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Robot Chicken (2005)</td>
+<td>Robot Chicken - S00E20 - Freshly Baked The Robot Chicken Santa Claus Pot Cookie Freakout, Special Edition (1080p x265 EDGE2020)</td>
+<td>Robot Chicken (2005)</td>
+<td>mkv</td>
+<td>comedy/Robot Chicken (2005)/Specials/Robot Chicken - S00E20 - Freshly Baked The Robot Chicken Santa Claus Pot Cookie Freakout, Special Edition (1080p x265 EDGE2020).mkv</td>
+<td class="number" data-numeric="247206788">247,206,788</td>
+<td data-numeric="1741658070806.3213">10 MAR 2025 20:54:30.806</td>
 </tr>
 <tr data-path="crime/Awake (2012)/S1E01.mkv">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>

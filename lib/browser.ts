@@ -534,7 +534,7 @@
                 dom[slider].onmousedown = playEvents.slider;
                 dom[slider].ontouchstart = playEvents.slider;
             },
-            titleTop: function ():void {console.log(dom.player.clientHeight);
+            titleTop: function ():void {
                 dom.title.style.marginTop = `${(dom.player.clientHeight / 20) + 1.5}em`;
             }
         },
@@ -574,7 +574,7 @@
         },
         recordLengthAll:number = dom.recordsAll.length,
         recordLengthMedia:number = dom.recordsMedia.length,
-        recordLengthWish:number = dom.recordsWish.length;console.log("start");
+        recordLengthWish:number = dom.recordsWish.length;
     let buttonIndex = dom.buttons.length,
         stripeIndex:number = 0;
 
