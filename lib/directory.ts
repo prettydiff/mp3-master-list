@@ -315,7 +315,7 @@ const directory = function terminal_commands_library_directory(args:config_comma
                                         }
                                         fileList.push(`${typePadding}  ${comma}  ${relPath}`);
                                     }
-                                } else if ((args.type === "music" && (/\.mp3$/i).test(relPath) === true) || (args.type !== "music" && (/\.((avi)|(flv)|(mkv)|(mp4)|(ogg)|(webm)|(wmv))$/i).test(relPath) === true)) {
+                                } else if ((args.type === "music" && (/\.mp3$/i).test(relPath) === true) || (args.type !== "music" && (/\.((avi)|(flv)|(m4v)|(mkv)|(mp4)|(ogg)|(webm)|(wmv))$/i).test(relPath) === true)) {
                                     files = files + 1;
                                     sizeTotal = sizeTotal + stats.size;
                                     list.push([relPath, type, "", parent, 0, statData, ""]);

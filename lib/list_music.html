@@ -147,11 +147,11 @@ body.default{background:#333;color:#ccc}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Music Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 4432</p>
-<p><span>Total size</span> 38,665,394,626 bytes (36.0GiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 4432 results (100.00%)</p>
-<p><span>Dated</span> 12 MAR 2025 13:16:50.601</p>
-<p><span>Location</span> \\192.168.1.3\music\</p>
+<p><span>Total files</span> 4435</p>
+<p><span>Total size</span> 38,714,468,931 bytes (36.0GiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 4435 results (100.00%)</p>
+<p><span>Dated</span> 20 MAR 2025 23:56:15.149</p>
+<p><span>Location</span> \\192.168.1.3\music</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p class="radio"><span>Color Scheme</span><label><input checked="checked" name="colorScheme" type="radio" value="default"/> Default</label><label><input name="colorScheme" type="radio" value="white"/> White</label></p>
@@ -20459,7 +20459,7 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="11977216">11,977,216</td>
 <td data-numeric="1670420415393.1484">07 DEC 2022 07:40:15.393</td>
 </tr>
-<tr data-path="Electronic/Tycho-AWalk.mp3" data-hash="c388e3385522e622279aeb7e39b42aecc754eaf55d5fa644d30cbdffcef0f9b263fba0df2df3350d680ad7ed94fc6e8d8528a4bd951421761b12bed98f893a79">
+<tr data-path="Electronic/Tycho-AWalk.mp3" data-hash="dc587030ccbdb3514c457a5832760e48b9dd0bb0600bc35cb4ad0ed66b6fbde1472bfd19ac2bd2f6d649fe43783faf84773b4831a9ec09aa89fe5bd73ca90e8a">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Electronic</td>
 <td>Tycho</td>
@@ -20468,7 +20468,7 @@ body.default{background:#333;color:#ccc}
 <td></td>
 <td>Electronic/Tycho-AWalk.mp3</td>
 <td class="number" data-numeric="12680896">12,680,896</td>
-<td data-numeric="1696887434369.006">09 OCT 2023 16:37:14.369</td>
+<td data-numeric="1742528508000">20 MAR 2025 22:41:48.000</td>
 </tr>
 <tr data-path="Electronic/Tycho-Awake.mp3" data-hash="7ea4515f762050769785290bbcf7bedf46a4e119e11254b73884d4333bc4edfcfc877d45498b101250887e0cea4d7bb67ba7e4b17e5fa01ad4a7708a0094590e">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -20479,9 +20479,9 @@ body.default{background:#333;color:#ccc}
 <td></td>
 <td>Electronic/Tycho-Awake.mp3</td>
 <td class="number" data-numeric="11344576">11,344,576</td>
-<td data-numeric="1696887394139.3228">09 OCT 2023 16:36:34.139</td>
+<td data-numeric="1696887396000">09 OCT 2023 16:36:36.000</td>
 </tr>
-<tr data-path="Electronic/Tycho-Daydream.mp3" data-hash="850d7cde2b50bd612dc690769d5296475b186ba52c2b903e95364cb0c16fb91bd5e337bc190d3ec62f87d83098c9bda1a52e8ddb9740779743707a02f21c1d44">
+<tr data-path="Electronic/Tycho-Daydream.mp3" data-hash="cdb0a80174edfbb23a51891803bace109586a2b28701307eb2d074dcad9cce75f930502b073a581268aad09fbe31801c102b2c6e797fa222dfa9f7787e19646e">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Electronic</td>
 <td>Tycho</td>
@@ -20490,7 +20490,7 @@ body.default{background:#333;color:#ccc}
 <td></td>
 <td>Electronic/Tycho-Daydream.mp3</td>
 <td class="number" data-numeric="13382656">13,382,656</td>
-<td data-numeric="1696887451943.85">09 OCT 2023 16:37:31.943</td>
+<td data-numeric="1742528510000">20 MAR 2025 22:41:50.000</td>
 </tr>
 <tr data-path="Electronic/Vindu-Itomori.mp3" data-hash="d9570266a2ec5bca85b0bbc25863c71627fba8254b03730ebf3087a5ae464123fc5b2c64abbc3e9037672f42370836b35c670f652c8b3025f00179ce28e19984">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -28686,6 +28686,28 @@ body.default{background:#333;color:#ccc}
 <td>Film/Oblivion/M83-Oblivion-17Oblivion(FeaturingSusanneSundfør).mp3</td>
 <td class="number" data-numeric="14285130">14,285,130</td>
 <td data-numeric="1671323588934">17 DEC 2022 18:33:08.934</td>
+</tr>
+<tr data-path="Film/OlympusHasFallen/TrevorMorris-OlympusHasFallen-05WhiteHouseAirAttack.mp3" data-hash="0fd7cefa43b88b4351ab78cb6291f0f7809e6a1b5bf2ccd807d68ed71e20a95eeb316b65edd3bbcf4e3216f22af1ce3b52a4db6a6cd6fa8014747a3771f30185">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Film</td>
+<td>Trevor Morris</td>
+<td>Olympus Has Fallen</td>
+<td>White House: Air Attack</td>
+<td>5</td>
+<td>Film/OlympusHasFallen/TrevorMorris-OlympusHasFallen-05WhiteHouseAirAttack.mp3</td>
+<td class="number" data-numeric="17220785">17,220,785</td>
+<td data-numeric="1742528494000">20 MAR 2025 22:41:34.000</td>
+</tr>
+<tr data-path="Film/OlympusHasFallen/TrevorMorris-OlympusHasFallen-06WhiteHouseGroundAttack.mp3" data-hash="a019282e22abfd4c9aede486239d3e578e0b2a1dc3686d923f2be2e4a46ce0c5b200d8607464bb05eb1c819eec3de8631e43fe53ebf51c40d5f29065a0879d18">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Film</td>
+<td>Trevor Morris</td>
+<td>Olympus Has Fallen</td>
+<td>White House: Ground Attack</td>
+<td>6</td>
+<td>Film/OlympusHasFallen/TrevorMorris-OlympusHasFallen-06WhiteHouseGroundAttack.mp3</td>
+<td class="number" data-numeric="24110772">24,110,772</td>
+<td data-numeric="1742528496000">20 MAR 2025 22:41:36.000</td>
 </tr>
 <tr data-path="Film/PiratesOfTheCaribbean/KlausBadelt-PiratesOfTheCaribbean-01FogBound.mp3" data-hash="93b78fc4098818e45c215eb9d07f75220f1b19c8cb69a0a2a0a0f0f46920500e3c1bbe52dc1bbff613f8ab4268cb9cc4efa2dda4d19509303d466ff6d16afd68">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -45142,6 +45164,17 @@ body.default{background:#333;color:#ccc}
 <td>Rock/Sweet-BallroomBlitz.mp3</td>
 <td class="number" data-numeric="9549376">9,549,376</td>
 <td data-numeric="1672678356884">02 JAN 2023 10:52:36.884</td>
+</tr>
+<tr data-path="Rock/Sweet-FoxOnTheRun.mp3" data-hash="0ee9f8f87dfb385f8db4dea8d5c18271dc5ed13362d6f3a06d60cdfc7e72381454269714180cf7d885bcd2acdbfe84368e542b9b329c41b3ee117bcf1677aedc">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Rock</td>
+<td>Sweet</td>
+<td>Sweet</td>
+<td>Fox On The Run</td>
+<td></td>
+<td>Rock/Sweet-FoxOnTheRun.mp3</td>
+<td class="number" data-numeric="7742748">7,742,748</td>
+<td data-numeric="1742528314000">20 MAR 2025 22:38:34.000</td>
 </tr>
 <tr data-path="Rock/SystemOfADown-Aerials.mp3" data-hash="d670d288091da690c55ca3d1b1b2c29cd65ca095d51112c199b0a260898400dd0faf44d6432810484e997fd164b1dca590f1a32d0f7a408096efd0b726e6ecf9">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
