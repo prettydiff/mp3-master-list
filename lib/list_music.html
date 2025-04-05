@@ -147,10 +147,10 @@ body.default{background:#333;color:#ccc}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Music Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 4435</p>
-<p><span>Total size</span> 38,714,468,931 bytes (36.0GiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 4435 results (100.00%)</p>
-<p><span>Dated</span> 20 MAR 2025 23:56:15.149</p>
+<p><span>Total files</span> 4450</p>
+<p><span>Total size</span> 38,832,591,538 bytes (36.2GiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 4450 results (100.00%)</p>
+<p><span>Dated</span> 04 APR 2025 22:17:28.681</p>
 <p><span>Location</span> \\192.168.1.3\music</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
@@ -17928,6 +17928,17 @@ body.default{background:#333;color:#ccc}
 <td>Comedy/FlightOfTheConchords-TooManyDicks(OnTheDanceFloor).mp3</td>
 <td class="number" data-numeric="5946574">5,946,574</td>
 <td data-numeric="1672438062633">30 DEC 2022 16:07:42.633</td>
+</tr>
+<tr data-path="Comedy/MarkRivers-SadSadSong.mp3" data-hash="e2e784b0ce14edede561b264193266dca1529c2589ad9e5a7ef0ebf5154bd00e7f8e24ddfb6cd919b1fbd93e47a003e4e9070d8cf2838dab9a2acc2799413a04">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Comedy</td>
+<td>Mark Rivers</td>
+<td>Mark Rivers</td>
+<td>Sad Sad Song</td>
+<td></td>
+<td>Comedy/MarkRivers-SadSadSong.mp3</td>
+<td class="number" data-numeric="5605847">5,605,847</td>
+<td data-numeric="1743077386000">27 MAR 2025 07:09:46.000</td>
 </tr>
 <tr data-path="Comedy/WallyPleasant-CoolGuyWithACar.mp3" data-hash="7311f34526dd8a966f3c52f9e901534e2922e3adfc59444fe7dd176900ec945a7d6a0b4dd80c1f0b23193f144bd02c1b06b152c69aeee8cf8a77bdaf094debf0">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -48652,7 +48663,84 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="12193216">12,193,216</td>
 <td data-numeric="1669259684693.4177">23 NOV 2022 21:14:44.693</td>
 </tr>
-<tr data-path="Television/Westworld/RaminDjawadi-Westworld-HeartShapedBox.mp3" data-hash="7661769206d2bde0ea08327cd2666d1b6bfb46fc52c7fa2ad980f7687da3b52f4913760804c7d60a2bd509ee9c6fbaec8c28ae31c7ddac6b3d429f4696f487e9">
+<tr data-path="Television/Westworld/RaminDjawadi-WestWorld-SweetChildOMine.mp3" data-hash="08cb651063c5a6ebb9ce0dfdb20f05644bbe7e669318551e86164bc851c6b72a37d55e2baf20cb3d58573bfb797338a6bf2260896db82f0afab53a6780433e24">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Sweet Child O' Mine</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-WestWorld-SweetChildOMine.mp3</td>
+<td class="number" data-numeric="3435289">3,435,289</td>
+<td data-numeric="1743817812000">04 APR 2025 20:50:12.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-AForest.mp3" data-hash="dae53c634cb959c1f3721ece7a74b55ff0ecad938cc55816d1d51f4b35a5a291649febcecc9168aa63e1d93295d9862c78e6a8f4a8e61f649c895e3aed4581ed">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>A Forest</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-AForest.mp3</td>
+<td class="number" data-numeric="6731929">6,731,929</td>
+<td data-numeric="1743817734000">04 APR 2025 20:48:54.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-BacktoBlack.mp3" data-hash="422d80ffcd7cf206e9081ff62b63c6013606d0e8fd70a64d74536969be378824a0e7090e4e5d1ff2b05ea79f355022206e019625b1b642392ae640ccbfc449a2">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Back To Black</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-BacktoBlack.mp3</td>
+<td class="number" data-numeric="4731289">4,731,289</td>
+<td data-numeric="1743817738000">04 APR 2025 20:48:58.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-BlackHoleSun.mp3" data-hash="944ffb6521833b0cf5cf2b207e25b49c36b1e1ec2ecd89e829a78af491caeb8204ffe2ee90c39134ab857fd6d8ec39c96709716ef48eedd00ee609c823bc1141">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Black Hole Sun</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-BlackHoleSun.mp3</td>
+<td class="number" data-numeric="5971609">5,971,609</td>
+<td data-numeric="1743817744000">04 APR 2025 20:49:04.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-BrainDamage.mp3" data-hash="c488ee30715b5606bd17039141177694911f61294c84456e5ce658e68b06796b1647545a6ab373399a67291c3d7eebf75902d98cae94e8ce582c8b862fa29f9a">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Brain Damage</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-BrainDamage.mp3</td>
+<td class="number" data-numeric="9407449">9,407,449</td>
+<td data-numeric="1743817746000">04 APR 2025 20:49:06.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-ExitMusicForAFilm.mp3" data-hash="d1dd4318da99aead03c7299d89d08bb3ad2841d50e9f427e996ec27ac113d12bb95a77ce0afa9781a945050c149597b6e88efeacd62fcf17ba19790a795e6a3a">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Exit Music For A Film</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-ExitMusicForAFilm.mp3</td>
+<td class="number" data-numeric="10678489">10,678,489</td>
+<td data-numeric="1743817754000">04 APR 2025 20:49:14.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-FakePlasticTrees.mp3" data-hash="e9542bea5f1c9c87b22f2f3388fd5f6c2c58d82513ba4e826a9886460013a03603bd59d86346a7d518ffddc206deb7b487af843d3c16b24787e3085828c04e54">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Fake Plastic Trees</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-FakePlasticTrees.mp3</td>
+<td class="number" data-numeric="5369689">5,369,689</td>
+<td data-numeric="1743817762000">04 APR 2025 20:49:22.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-HeartShapedBox.mp3" data-hash="56e28bb05892029f44e46efe7844365767c84a95143aca7f3849aabc910772b54dcc9fbeef35b2dba8e2b03da6481d29cd02e1e89e4388ecbfba54c9c0811d4d">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Television</td>
 <td>Ramin Djawadi</td>
@@ -48661,9 +48749,75 @@ body.default{background:#333;color:#ccc}
 <td></td>
 <td>Television/Westworld/RaminDjawadi-Westworld-HeartShapedBox.mp3</td>
 <td class="number" data-numeric="8191040">8,191,040</td>
-<td data-numeric="1660522620166.3164">14 AUG 2022 19:17:00.166</td>
+<td data-numeric="1743817764000">04 APR 2025 20:49:24.000</td>
 </tr>
-<tr data-path="Television/Westworld/RaminDjawadi-Westworld-SpaceOddity.mp3" data-hash="ccdef070c1c1f4679c6918990cba8f543c0ae49d2ceb815d7b858c7ac3b5f7700df27a306f59451ac03125e8e3e5cf200b78e32e3518adf06084ee48cd27ad3d">
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-HouseOftheRisingSun.mp3" data-hash="ea5dd8122224fd7e2c1055b65ec4c17feef6fa5cd11f343ac791fc98a1a9ea0bf520b3446c217fc3ae6a81fb5dadd4beb5a2d8f20ef6c0e7fac2a0ed99c8ece8">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>House Of The Rising Sun</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-HouseOftheRisingSun.mp3</td>
+<td class="number" data-numeric="3388249">3,388,249</td>
+<td data-numeric="1743817770000">04 APR 2025 20:49:30.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-MotionPictureSoundtrack.mp3" data-hash="e75ed5424e5c3ae1fe54471c8fd99844e9e7435481eb469a6d5f1c029358850fee860a26dc7ab136cb282499cc9efcf32df676034789af3f87839f4628572105">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Motion Picture Soundtrack</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-MotionPictureSoundtrack.mp3</td>
+<td class="number" data-numeric="6490969">6,490,969</td>
+<td data-numeric="1743817778000">04 APR 2025 20:49:38.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-NoSurprises.mp3" data-hash="b907f0661f69e98766857aabe88d7c52883bbf72a47a20bcbf6dd873847536bc5150c3db061bc0f03c35c502a019af58e534031826c0c4ae734805298a59516a">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>No Surprises</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-NoSurprises.mp3</td>
+<td class="number" data-numeric="9734809">9,734,809</td>
+<td data-numeric="1743817784000">04 APR 2025 20:49:44.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-PaintItBlack.mp3" data-hash="109c210a5d57e5c0f8c1dc74ac6bdf50c3de18f8e72c5f0732d3664f7b3b36b62e4dbd86bd15c1321bbd3e99f9458dd296d03fa697f457631f0735f53b7680ed">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Paint It Black</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-PaintItBlack.mp3</td>
+<td class="number" data-numeric="13818649">13,818,649</td>
+<td data-numeric="1743817790000">04 APR 2025 20:49:50.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-SevenNationArmy.mp3" data-hash="2f3b741ab9665b51e671463d0935024ce91f521db957acad6a316f12633298c04253b51b8a65f9819c46e18b1c5b5c376be087f51ce4c293ab8e0078e5527235">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Seven Nation Army</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-SevenNationArmy.mp3</td>
+<td class="number" data-numeric="5241049">5,241,049</td>
+<td data-numeric="1743817794000">04 APR 2025 20:49:54.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-SomethingICanNeverHave.mp3" data-hash="357bbc8077f66a09f875d3095fa56221d00ac3e36e5b0db360428a41cae8701478c7cc3dab6a0833fa42d363a1228c1eb951b6249df8e21faf8d09b50147b48e">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Something I Can Never Have</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-SomethingICanNeverHave.mp3</td>
+<td class="number" data-numeric="14249689">14,249,689</td>
+<td data-numeric="1743817804000">04 APR 2025 20:50:04.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-SpaceOddity.mp3" data-hash="2d20979d08322f6b9af56a696139436708176f6d55a23a2303a0dc9aa33953e837a2c4b484786c731b1735f51dcb3d5dced5bd358123d91bda62a7bebba4e496">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Television</td>
 <td>Ramin Djawadi</td>
@@ -48672,7 +48826,18 @@ body.default{background:#333;color:#ccc}
 <td></td>
 <td>Television/Westworld/RaminDjawadi-Westworld-SpaceOddity.mp3</td>
 <td class="number" data-numeric="9174289">9,174,289</td>
-<td data-numeric="1660522620167.2937">14 AUG 2022 19:17:00.167</td>
+<td data-numeric="1743817804000">04 APR 2025 20:50:04.000</td>
+</tr>
+<tr data-path="Television/Westworld/RaminDjawadi-Westworld-WickedGames.mp3" data-hash="d410cb1b0f0de1739ca52f445ceb2c691fd8c75734097bfc28f4efaf0383282de406cf47121369fcd73ce2675b97c4043e883a3b5335aa1a3dbf9c1198681717">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Television</td>
+<td>Ramin Djawadi</td>
+<td>Westword</td>
+<td>Wicked Games</td>
+<td></td>
+<td>Television/Westworld/RaminDjawadi-Westworld-WickedGames.mp3</td>
+<td class="number" data-numeric="13267603">13,267,603</td>
+<td data-numeric="1743817818000">04 APR 2025 20:50:18.000</td>
 </tr>
 <tr data-path="Theatrical/AramZero-ImNotBuriedYet.mp3" data-hash="fb8490f01b59a824b89a7b91b8c2955b4458bf28064b1b253f5c171459063c1d59e9e9f942b09c67afae5b838b4ebbb12ccdc10df8628a755b76f08b7a31316b">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
