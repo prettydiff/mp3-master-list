@@ -40,7 +40,7 @@ label span{display:inline-block;width:10em}
 #player #minimize{margin:0 -3.2em 0 1em}
 #player .controls svg{width:1em}
 #player .trackVolume,
-#player .track{background:#666;border-style:solid;border-width:0.05em 0.05em 0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}
+#player .track{border-style:solid;border-width:0.05em 0.05em 0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}
 #player .trackVolume{display:inline-block;height:0.5em;margin:0 0.25em;width:8em}
 #player button{padding:0}
 #player .controls .slider{width:10em}
@@ -78,13 +78,15 @@ body.white{background:#fff}
 .white #player #minimize.active,
 .white #player #mute.active,
 .white #player .controls button.active{background:#eef;box-shadow:inset 0.1em 0.1em 0.2em #aaa}
+.white #player #volumeSlider,
 .white #player #seekSlider{background:#fff}
 .white #player button,
 .white td,
 .white th,
 .white table{border-color:#666}
 .white #player .track,
-.white table button{background:#eee;border-color:#000}
+.white span.trackVolume,
+.white table button{background:#ddd;border-color:#000 #000 #999}
 .white th{background:#ddd}
 .white #player,
 .white .odd,
@@ -117,13 +119,15 @@ body.default{background:#333;color:#ccc}
 .default #player #minimize.active svg path,
 .default #player #mute.active svg path,
 .default #player .controls button.active svg path{fill:#9cf}
+.default #player #volumeSlider,
 .default #player #seekSlider{background:#666}
 .default #player button,
 .default td,
 .default th,
+.default table{border-color:#000}
 .default #player .track,
 .default span.trackVolume,
-.default table{border-color:#000}
+.default table button{background:#666;border-color:#000}
 .default th{background:#282828}
 .default .odd,
 .default fieldset{background:#383838;border-color:#222}

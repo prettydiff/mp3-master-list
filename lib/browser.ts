@@ -262,6 +262,9 @@
                         }
                     } while (nextElement.style.display === "none");
                 }
+                if (nextElement === null) {
+                    nextElement = dom.currentTrack;
+                }
 
                 // assign the selected track for playing
                 tools.setCurrentTrack(nextElement, true);

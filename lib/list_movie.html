@@ -47,7 +47,7 @@ label span{display:inline-block;width:10em}
 #player #minimize{margin:0 -3.2em 0 1em}
 #player .controls svg{width:1em}
 #player .trackVolume,
-#player .track{background:#666;border-style:solid;border-width:0.05em 0.05em 0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}
+#player .track{border-style:solid;border-width:0.05em 0.05em 0.25em;cursor:pointer;margin:0 1em 2em;position:relative;text-align:left}
 #player .trackVolume{display:inline-block;height:0.5em;margin:0 0.25em;width:8em}
 #player button{padding:0}
 #player .controls .slider{width:10em}
@@ -85,13 +85,15 @@ body.white{background:#fff}
 .white #player #minimize.active,
 .white #player #mute.active,
 .white #player .controls button.active{background:#eef;box-shadow:inset 0.1em 0.1em 0.2em #aaa}
+.white #player #volumeSlider,
 .white #player #seekSlider{background:#fff}
 .white #player button,
 .white td,
 .white th,
 .white table{border-color:#666}
 .white #player .track,
-.white table button{background:#eee;border-color:#000}
+.white span.trackVolume,
+.white table button{background:#ddd;border-color:#000 #000 #999}
 .white th{background:#ddd}
 .white #player,
 .white .odd,
@@ -124,13 +126,15 @@ body.default{background:#333;color:#ccc}
 .default #player #minimize.active svg path,
 .default #player #mute.active svg path,
 .default #player .controls button.active svg path{fill:#9cf}
+.default #player #volumeSlider,
 .default #player #seekSlider{background:#666}
 .default #player button,
 .default td,
 .default th,
+.default table{border-color:#000}
 .default #player .track,
 .default span.trackVolume,
-.default table{border-color:#000}
+.default table button{background:#666;border-color:#000}
 .default th{background:#282828}
 .default .odd,
 .default fieldset{background:#383838;border-color:#222}
@@ -150,8 +154,8 @@ body.default{background:#333;color:#ccc}
 <p><span>Total files</span> 724</p>
 <p><span>Total size</span> 2,596,858,404,819 bytes (2.4TiB)</p>
 <p id="filtered-results"><span>Filtered Results</span> 724 results (100.00%)</p>
-<p><span>Dated</span> 11 MAY 2025 16:27:57.422</p>
-<p><span>Location</span> \\192.168.1.3\movies\</p>
+<p><span>Dated</span> 14 MAY 2025 09:10:14.310</p>
+<p><span>Location</span> \\192.168.1.3\movies</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p class="radio"><span>Color Scheme</span><label><input checked="checked" name="colorScheme" type="radio" value="default"/> Default</label><label><input name="colorScheme" type="radio" value="white"/> White</label></p>
@@ -7742,6 +7746,9 @@ body.default{background:#333;color:#ccc}
                         return;
                     }
                 }while (nextElement.style.display === "none")
+            }
+            if (nextElement === null) {
+                nextElement = dom.currentTrack;
             }
             // assign the selected track for playing
             tools.setCurrentTrack(nextElement, true);
