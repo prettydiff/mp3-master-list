@@ -325,14 +325,13 @@
                 tools.setCurrentTrack(previousElement, true);
                 playEvents.buttonPlayerActive(dom.playerControls[1]);
             },
-            randomToggle: function (event:MouseEvent):void {
-                const target:HTMLElement = tools.ancestor(event.target as HTMLElement, "button");
+            randomToggle: function ():void {
                 if (dom.random.checked === true) {
                     dom.random.checked = false;
-                    target.setAttribute("class", "random");
+                    dom.randomButton.setAttribute("class", "random");
                 } else {
                     dom.random.checked = true;
-                    target.setAttribute("class", "random active");
+                    dom.randomButton.setAttribute("class", "random active");
                 }
             },
             slider: function (event:MouseEvent|TouchEvent):void {
@@ -666,6 +665,8 @@
         // toggle movie wishlist
         dom.wishlist.onclick = list.toggle;
     }
+
+    playEvents.randomToggle();
 
     if (dom.random.checked === true) {
         dom.currentTrack = dom.recordsMedia[tools.randomIndex()];
