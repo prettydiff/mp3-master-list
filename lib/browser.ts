@@ -666,8 +666,6 @@
         dom.wishlist.onclick = list.toggle;
     }
 
-    playEvents.randomToggle();
-
     if (dom.random.checked === true) {
         dom.currentTrack = dom.recordsMedia[tools.randomIndex()];
         dom.randomButton.setAttribute("class", "random active");
