@@ -151,11 +151,11 @@ body.default{background:#333;color:#ccc}
 <div id="player"><p class="track" role="slider"><button id="seekSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M82,25.5v49.1c0,1.5-1.7,2.5-3,1.7L35,51v25c0,1.1-0.9,2-2,2H20c-1.1,0-2-0.9-2-2V24c0-1.1,0.9-2,2-2h13c1.1,0,2,0.9,2,2  v25.1l44-25.4C80.3,23,82,24,82,25.5z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M44.2,78.3H32.1c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C46.2,77.4,45.3,78.3,44.2,78.3z"/><path d="M67.9,78.3H55.8c-1.1,0-2-0.9-2-2V23.7c0-1.1,0.9-2,2-2h12.1c1.1,0,2,0.9,2,2v52.5C69.9,77.4,69,78.3,67.9,78.3z"/></svg></button><button class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M78,80H22c-1.1,0-2-0.9-2-2V22c0-1.1,0.9-2,2-2h56c1.1,0,2,0.9,2,2v56C80,79.1,79.1,80,78,80z"/></svg></button><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M18,25.5v49.1c0,1.5,1.7,2.5,3,1.7L65,51v25c0,1.1,0.9,2,2,2h13c1.1,0,2-0.9,2-2V24c0-1.1-0.9-2-2-2H67c-1.1,0-2,0.9-2,2  v25.1L21,23.8C19.7,23,18,24,18,25.5z"/></svg></button><button class="random"><svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M370.1,181.3H399v47.3l81-83.2L399,64v54h-28.9c-82.7,0-129.4,61.9-170.6,116.5c-37,49.1-69,95.4-120.6,95.4H32v63.3h46.9  c82.7,0,129.4-65.8,170.6-120.4C286.5,223.7,318.4,181.3,370.1,181.3z M153.2,217.5c3.5-4.6,7.1-9.3,10.7-14.1  c8.8-11.6,18-23.9,28-36.1c-29.6-27.9-65.3-48.5-113-48.5H32v63.3c0,0,13.3-0.6,46.9,0C111.4,182.8,131.8,196.2,153.2,217.5z   M399,330.4h-28.9c-31.5,0-55.7-15.8-78.2-39.3c-2.2,3-4.5,6-6.8,9c-9.9,13.1-20.5,27.2-32.2,41.1c30.4,29.9,67.2,52.5,117.2,52.5  H399V448l81-81.4l-81-83.2V330.4z"/></svg><input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider"><svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg></button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active"><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg><input type="checkbox"/></button></p></div>
 <h1>Music Master List</h1>
 <fieldset class="data-points"><legend>Summary</legend>
-<p><span>Total files</span> 4396</p>
-<p><span>Total size</span> 38,534,089,769 bytes (35.9GiB)</p>
-<p id="filtered-results"><span>Filtered Results</span> 4396 results (100.00%)</p>
-<p><span>Dated</span> 19 JUN 2025 10:58:34.590</p>
-<p><span>Location</span> \\192.168.1.3\music</p>
+<p><span>Total files</span> 4399</p>
+<p><span>Total size</span> 38,566,391,192 bytes (35.9GiB)</p>
+<p id="filtered-results"><span>Filtered Results</span> 4399 results (100.00%)</p>
+<p><span>Dated</span> 04 AUG 2025 19:45:29.853</p>
+<p><span>Location</span> c:\music</p>
 </fieldset>
 <fieldset><legend>List Options</legend>
 <p class="radio"><span>Color Scheme</span><label><input checked="checked" name="colorScheme" type="radio" value="default"/> Default</label><label><input name="colorScheme" type="radio" value="white"/> White</label></p>
@@ -14006,6 +14006,17 @@ body.default{background:#333;color:#ccc}
 <td class="number" data-numeric="14840896">14,840,896</td>
 <td data-numeric="1671900718000">24 DEC 2022 10:51:58.000</td>
 </tr>
+<tr data-path="ClassicRock/LedZeppelin-GoingToCalifornia.mp3" data-hash="df0c6fa2eb3a0c3427edf8852f55d33f8d2abcb9732b4d445bcaf1a9b73c62523f14d5c3d1b8c761b47386d17f24d2d3359aa0ee3b8db3c50016edb5c7b9e9db">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classic Rock</td>
+<td>Led Zeppelin</td>
+<td>Led Zeppelin</td>
+<td>Going To California</td>
+<td></td>
+<td>ClassicRock/LedZeppelin-GoingToCalifornia.mp3</td>
+<td class="number" data-numeric="8490661">8,490,661</td>
+<td data-numeric="1754354168162">04 AUG 2025 19:36:08.162</td>
+</tr>
 <tr data-path="ClassicRock/LedZeppelin-Heartbreaker.mp3" data-hash="b62fd3ada6b301d555f70c0e335319b9e30e8a9af3389dc6f2adcb71f86ecf94f0d359dcf36b2f28a894bb2180c19c6201904411062e86f299edb0b3b9bc23da">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
 <td>Classic Rock</td>
@@ -14049,6 +14060,17 @@ body.default{background:#333;color:#ccc}
 <td>ClassicRock/LedZeppelin-Kashmir.mp3</td>
 <td class="number" data-numeric="20691154">20,691,154</td>
 <td data-numeric="1641307286000">04 JAN 2022 08:41:26.000</td>
+</tr>
+<tr data-path="ClassicRock/LedZeppelin-OverTheHillsAndFarAway.mp3" data-hash="4cc8688300179784673214460c80ae02b1d096684af5d5127b809135b5c1b0369c53407868f65f955c0521f7783cfc36b8506b82bbd07ddf277f023354bbdc0f">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classic Rock</td>
+<td>Led Zeppelin</td>
+<td>Led Zeppelin</td>
+<td>Over the Hill and Far Away</td>
+<td></td>
+<td>ClassicRock/LedZeppelin-OverTheHillsAndFarAway.mp3</td>
+<td class="number" data-numeric="11641395">11,641,395</td>
+<td data-numeric="1754354168930">04 AUG 2025 19:36:08.930</td>
 </tr>
 <tr data-path="ClassicRock/LedZeppelin-StairwayToHeaven.mp3" data-hash="c52e74a46aad5148def54137f448701a8ece555ae55843ec876dd1f177994335b6608d502891e86f9243ea9a3efe936ab6ceb53ad48e90934a8f5b3bceb68f5f">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
@@ -14489,6 +14511,17 @@ body.default{background:#333;color:#ccc}
 <td>ClassicRock/NeilDiamond-SweetCaroline.mp3</td>
 <td class="number" data-numeric="8016350">8,016,350</td>
 <td data-numeric="1684076894000">14 MAY 2023 10:08:14.000</td>
+</tr>
+<tr data-path="ClassicRock/NeilYoung-HarvestMoon.mp3" data-hash="817ffd2f741a28028c604334d463fbaf3b0ec1604964d03379915a7c0bd140d991825f3407351abb5f14bda3fbe54acd0c9c1eab02764eaf71be96754b69f097">
+<td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
+<td>Classic Rock</td>
+<td>Neil Young</td>
+<td>Neil Young</td>
+<td>Harvest Moon</td>
+<td></td>
+<td>ClassicRock/NeilYoung-HarvestMoon.mp3</td>
+<td class="number" data-numeric="12169367">12,169,367</td>
+<td data-numeric="1754354170697">04 AUG 2025 19:36:10.697</td>
 </tr>
 <tr data-path="ClassicRock/NeilYoung-HeartOfGold.mp3" data-hash="52ee76a163cad4c59cea62108e8e0b33a050d50a9b03aa65186174aa0c339e5d9da547f4eeaf0569c00ffa23fc8da75d63ad67073b90e19b27189dbbbcf83868">
 <td><button><svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg></button></td>
