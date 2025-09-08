@@ -1,6 +1,6 @@
 
 import { readFile, writeFile } from "fs";
-import { resolve, sep } from "path";
+import { sep } from "path";
 
 // import * as tags from "jsmediatags";
 import * as id3 from "node-id3";
@@ -13,20 +13,16 @@ import log from "./log.js";
 // cspell:words Audiobook, Bhangra, Breakbeat, Breakz, Chillout, Darkwave, Dubstep, Electroclash, Eurodance, Illbient, Industro, Jpop, jsmediatags, Krautrock, Leftfield, Negerpunk, Neue, Polsk, Psybient, Psytrance, Shoegaze, Showtunes, Synthpop, TALB, TLEN, TRCK, Welle, xlink
 
 const init = function () {
-    let wishlist0:string[][] = null,
-        wishlist1:string[][] = null,
-        wishlist2:string[][] = null,
-        browser:string = "",
+    let browser:string = "",
         styles:string = "",
         readFiles:number = 0;
-    const mp3dir:string = process.argv[2],
+    const location:string = process.argv[2],
         startTime:bigint = process.hrtime.bigint(),
-        type:mediaType = (mp3dir.indexOf("music") > -1)
+        type:mediaType = (location.indexOf("music") > -1)
             ? "music"
-            : (mp3dir.indexOf("movie") > -1)
+            : (location.indexOf("movie") > -1)
                 ? "movie"
                 : "television",
-        update:boolean = (process.argv.indexOf("update") > -1),
         typeCaps:string = (type === "movie")
             ? "Movie"
                 : (type === "television")
@@ -35,18 +31,12 @@ const init = function () {
         nextAction:string = (type === "movie" || type === "television")
             ? " Writing output"
             : "Reading ID3 tags",
-        defaultFiles:string[] = [
-            "\\\\192.168.1.3\\movies",
-            "\\\\192.168.1.3\\music",
-            "\\\\192.168.1.3\\television"
-        ],
         dirMode:"hash"|"read" = (type === "music")
             ? "hash"
             : "read",
         modeProper:string = (dirMode === "hash")
             ? "Hashing"
             : "Reading",
-        fileStore:string[] = [],
         projectPath:string = (function () {
             const dirs:string[] = process.argv[1].split(sep);
             dirs.pop();
@@ -114,7 +104,6 @@ const init = function () {
                 "modified": "Modified"
             };
         },
-        headings:string[] = Object.keys(headingMap(type)),
         svg:storeString = {
             circle:        '<svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg>',
             play:          '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg>',
@@ -127,17 +116,10 @@ const init = function () {
             volumeDown:    '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M66.9,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C65.2,20.4,66.9,21.4,66.9,22.9z"/><path d="M72.3,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S76.7,57.9,72.3,57.9z"/><path d="M72.3,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8s-5.7-12.8-12.8-12.8c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S80.5,64.8,72.3,64.8z"/></svg>',
             volumeUp:      '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg>'
         },
-        buildHTML = function (mediaData:string[], totalData:string, mediaType:mediaType):string {
+        buildHTML = function (totalData:string, mediaType:mediaType):string {
             const mediaTypeCaps:string = mediaType.charAt(0).toUpperCase() + mediaType.slice(1),
                 headingList:storeString = headingMap(mediaType),
                 headingItems:string[] = Object.keys(headingList),
-                location:string = (update === true)
-                    ? (mediaType === "movie")
-                        ? defaultFiles[0]
-                        : (mediaType === "music")
-                            ? defaultFiles[1]
-                            : defaultFiles[2]
-                    : mp3dir,
                 html1:string[] = [
                     "<!doctype html>",
                     "<html>",
@@ -184,9 +166,6 @@ const init = function () {
                     "<option value=\"negation-list\">Negative Comma Separated List</option>",
                     "</select></label></p>",
                     "<p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\" id=\"caseSensitive\"/></label></p>",
-                    (mediaType === "movie" || mediaType === "television")
-                        ? "<p><label><span>Show Wishlist</span><input type=\"checkbox\" id=\"wishlist\"/></label></p>"
-                        : "",
                     "</fieldset><table><thead><tr>"
                 ],
                 html5:string[] = (function ():string[] {
@@ -197,45 +176,10 @@ const init = function () {
                         output.push(`<th><button data-direction="descend">${svg.sort}</button> ${headingList[headingItems[count]]}</th>`);
                         count = count + 1;
                     } while (count < headingItems.length);
-                    output.push("</tr></thead><tbody>");
+                    output.push("</tr></thead><tbody></tbody></table>");
                     return output;
                 }()),
-                // mediaData here
                 html6:string[] = [
-                    "</tbody></table>",
-                    `<h2 style=\"display:none\">${mediaTypeCaps} Wishlist</h2>`,
-                    "<table style=\"display:none\"><thead><tr>"
-                ],
-                html7:string[] = (function ():string[] {
-                    // table headers
-                    let count:number = 0;
-                    const output:string[] = [];
-                    do {
-                        output.push(`<th><button data-direction="descend">${svg.sort}</button> ${headingList[headingItems[count]]}</th>`);
-                        count = count + 1;
-                    } while (count < headingItems.length);
-                    output.push("</tr></thead><tbody>");
-                    return output;
-                }()),
-                html8:string[] = (function ():string[] {
-                    // table wishlist body
-                    let count:number = 0;
-                    const output:string[] = [];
-                    if (mediaType === "movie" && wishlist0.length > 0) {
-                        do {
-                            output.push(`<tr><td>none</td><td>${wishlist0[count][0]}</td><td>${wishlist0[count][1]}</td><td>${wishlist0[count][2]}</td><td>Movie</td><td>wishlist</td><td>0</td><td>none</td><td>none</td></tr>`);
-                            count = count + 1;
-                        } while (count < wishlist0.length);
-                    } else if (mediaType === "television" && wishlist2.length > 0) {
-                        do {
-                            output.push(`<tr><td>none</td><td>${wishlist2[count][0]}</td><td>${wishlist2[count][1]}</td><td>Television</td><td>wishlist</td><td>none</td><td>none</td><td>none</td><td>none</td></tr>`);
-                            count = count + 1;
-                        } while (count < wishlist2.length);
-                    }
-                    output.push("</tbody></table>");
-                    return output;
-                }()),
-                html9:string[] = [
                     "<script type=\"application/javascript\">",
                     browser,
                     "</script></div></body></html>"
@@ -247,11 +191,8 @@ const init = function () {
             // html4 - filter search type
             // html5 - data table header
             // mediaData - passed in dataList, the data table body
-            // html6 - wishlist heading text
-            // html7 - wishlist table header
-            // html8 - wishlist table body
             // html9 - bottom of file and browser JavaScript
-            return html1.concat(totals, html2, html3, html4, html5, mediaData, html6, html7, html8, html9).join("\n");
+            return html1.concat(totals, html2, html3, html4, html5, html6).join("\n");
         },
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
             let index:number = 0,
@@ -261,18 +202,17 @@ const init = function () {
                     if (index % 2000 === 0) {
                         setTimeout(readTags, 0);
                     } else {
-                        readTags(null);
+                        readTags();
                     }
                 },
-                readTags = function (wish:string[]):void {
+                readTags = function ():void {
                     const absolute = function (dir:string):string {
-                            return mp3dir + sep + dir.replace(/\//g, sep);
+                            return location + sep + dir.replace(/\//g, sep);
                         },
-                        list:string[]|directory_list = fileList,
-                        dataList:string[] = [];
+                        list:string[]|directory_list = fileList;
                     let dirs:string[] = [],
                         listLength:number = list.length;
-                    if (index < listLength && (wish === null || wish === undefined)) {
+                    if (index < listLength) {
                         if (type === "music") {
                             // @ts-ignore
                             id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
@@ -328,64 +268,31 @@ const init = function () {
                             recurse();
                         }
                     } else {
-                        const location:string = `\\\\192.168.1.3\\write_here\\list_${type}.html`,
-                            writeList = function (html:string):void {
-                                writeFile(location, html, function (erw:NodeJS.ErrnoException):void {
+                        const write = function (content:string, write_location:string) {
+                            writeFile(
+                                write_location,
+                                content,
+                                function (erw:NodeJS.ErrnoException):void {
                                     if (erw === null) {
                                         log([
-                                            `${humanTime(startTime, false)[0]}List written to location: ${location}`
+                                            `${humanTime(startTime, false)[0]}List written to location: ${write_location}`
                                         ]);
                                     } else {
                                         log([
-                                            `Error writing list to location: ${location}`,
+                                            `Error writing list to location: ${write_location}`,
                                             JSON.stringify(erw)
                                         ]);
                                     }
-                                });
-                            };
-                        let htmlIndex:number = 1;
-                        if (update === false && type === "music") {
+                                }
+                            );
+                        };
+                        if (type === "music") {
                             log([
                                 `${humanTime(startTime, false)[0]}All files read for ID3 tags. Writing report.`
                             ]);
                         }
-                        if (listLength > 0) {
-                            htmlIndex = 0;
-                            index = 0;
-                            do {
-                                if (list[index][2] === "") {
-                                    dataList.push(`<tr data-path="${list[index][0]}">`);
-                                } else {
-                                    dataList.push(`<tr data-path="${list[index][0]}" data-hash="${list[index][2]}">`);
-                                }
-                                do {
-                                    if (headings[htmlIndex] === "play") {
-                                        dataList.push(`<td><button>${svg.play}</button></td>`);
-                                    } else if (headings[htmlIndex] === "path") {
-                                        dataList.push(`<td>${list[index][0]}</td>`);
-                                    } else if (headings[htmlIndex] === "modified") {
-                                        dataList.push(`<td data-numeric="${fileList[index][5].mtimeMs}">${fileList[index][5].modified}</td>`);
-                                    } else if (headings[htmlIndex] === "sizeFormatted") {
-                                        dataList.push(`<td class="number" data-numeric="${fileList[index][5].size}">${fileList[index][5].sizeFormatted}</td>`);
-                                    } else if (headings[htmlIndex] === "title") {
-                                        dataList.push(`<td>${fileList[index][5].title}</td>`);
-                                    } else {
-                                        if (headings[htmlIndex] === "sizeFormatted" || (type === "movie" && headings[htmlIndex] === "track")) {
-                                            // @ts-ignore
-                                            dataList.push(`<td${(headings[htmlIndex] === "sizeFormatted" || headings[htmlIndex] === "track") ? " class=\"number\"" : ""}>${fileList[index][5][headings[htmlIndex]]}</td>`);
-                                        } else {
-                                            // @ts-ignore
-                                            dataList.push(`<td>${fileList[index][5][headings[htmlIndex]]}</td>`);
-                                        }
-                                    }
-                                    htmlIndex = htmlIndex + 1;
-                                } while (htmlIndex < headings.length);
-                                htmlIndex = 0;
-                                dataList.push("</tr>");
-                                index = index + 1;
-                            } while (index < listLength);
-                            writeList(buildHTML(dataList, `<p><span>Total files</span> ${listLength}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${listLength} results (100.00%)</p>`, type));
-                        }
+                        write(buildHTML(`<p><span>Total files</span> ${listLength}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${listLength} results (100.00%)</p>`, type), `\\\\192.168.1.3\\write_here\\list_${type}.html`);
+                        write(JSON.stringify(fileList), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
                     }
                 };
             fileList.sort(function (a, b):1|-1 {
@@ -395,108 +302,27 @@ const init = function () {
                 return 1;
             });
             recurse();
-            if (update === false) {
-                log([
-                    "",
-                    `${humanTime(startTime, false)[0] + modeProper} complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
-                ]);
-            }
+            log([
+                "",
+                `${humanTime(startTime, false)[0] + modeProper} complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
+            ]);
         },
         readComplete = function ():void {
             readFiles = readFiles + 1;
             if (readFiles === 2) {
-                if (update === true) {
-                    let fileCount = 0;
-                    const extraction = function ():void {
-                            let writeCount:number = 0;
-                            const getFragment = function (index:number, start:string, end:string):string {
-                                    return fileStore[index].slice(fileStore[index].indexOf(start), fileStore[index].indexOf(end));
-                                },
-                                writeCallback = function (writeError:NodeJS.ErrnoException):void {
-                                    if (writeError === null) {
-                                        writeCount = writeCount + 1;
-                                        if (writeCount === 6) {
-                                            log([`${humanTime(startTime, false)[0]}All updates written. Commit changes in the project directory.`]);
-                                        }
-                                    } else {
-                                        log(["Error writing list output", JSON.stringify(writeError)]);
-                                    }
-                                },
-                                totalMovie:string = getFragment(0, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
-                                totalMusic:string = getFragment(1, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
-                                totalTelevision:string = getFragment(2, "<p><span>Total files</span>", "\n<p><span>Dated</span> "),
-                                recordsMovie:string = getFragment(0, "<tr class=\"even\" data-path=", "</tbody></table>"),
-                                recordsMusic:string = getFragment(1, "<tr class=\"even\" data-path=", "</tbody></table>"),
-                                recordsTelevision:string = getFragment(2, "<tr class=\"even\" data-path=", "</tbody></table>"),
-                                htmlMovie:string = buildHTML([recordsMovie], totalMovie, "movie"),
-                                htmlMusic:string = buildHTML([recordsMusic], totalMusic, "music"),
-                                htmlTelevision:string = buildHTML([recordsTelevision], totalTelevision, "television");
-                            writeFile(`${libPath}list_movie.html`, htmlMovie, writeCallback);
-                            writeFile(`${libPath}list_music.html`, htmlMusic, writeCallback);
-                            writeFile(`${libPath}list_television.html`, htmlTelevision, writeCallback);
-                            writeFile(`${defaultFiles[0] + sep}list.html`, htmlMovie, writeCallback);
-                            writeFile(`${defaultFiles[1] + sep}list.html`, htmlMusic, writeCallback);
-                            writeFile(`${defaultFiles[2] + sep}list.html`, htmlTelevision, writeCallback);
-                        },
-                        fileCallback = function (erFile:NodeJS.ErrnoException, fileData:Buffer):void {
-                            if (erFile === null) {
-                                fileStore.push(fileData.toString());
-                                fileCount = fileCount + 1;
-                                if (fileCount < defaultFiles.length) {
-                                    readFile(`${defaultFiles[fileCount] + sep}list.html`, fileCallback);
-                                } else {
-                                    const libPath:string = projectPath.replace(`${sep}js${sep}`, `${sep}lib${sep}`);
-                                    readFile(`${libPath}wishlist_movie.json`, function (erJSON0:NodeJS.ErrnoException, wishlist:Buffer):void {
-                                        if (erJSON0 === null) {
-                                            wishlist0 = JSON.parse(wishlist.toString());
-                                            readFile(`${libPath}wishlist_music.json`, function (erJSON1:NodeJS.ErrnoException, wishlist:Buffer):void {
-                                                if (erJSON1 === null) {
-                                                    wishlist1 = JSON.parse(wishlist.toString());
-                                                    readFile(`${libPath}wishlist_television.json`, function (erJSON2:NodeJS.ErrnoException, wishlist:Buffer):void {
-                                                        if (erJSON2 === null) {
-                                                            wishlist2 = JSON.parse(wishlist.toString());
-                                                            extraction();
-                                                        } else {
-                                                            log(["Error reading JSON", JSON.stringify(erJSON2)]);
-                                                        }
-                                                    });
-                                                } else {
-                                                    log(["Error reading JSON", JSON.stringify(erJSON1)]);
-                                                }
-                                            });
-                                        } else {
-                                            log(["Error reading JSON", JSON.stringify(erJSON0)]);
-                                        }
-                                    });
-                                }
-                            }
-                        };
-                    log(["Reading prior created lists."]);
-                    readFile(`${defaultFiles[fileCount] + sep}list.html`, fileCallback);
+                if (process.argv.length < 3) {
+                    log(["Please specify a file system location."]);
                 } else {
-                    if (process.argv.length < 3) {
-                        log(["Please specify a file system location."]);
-                    } else {
-                        readFile(`${libPath}wishlist_${type}.json`, function (erJSON:NodeJS.ErrnoException, wishlist:Buffer):void {
-                            if (type === "movie") {
-                                wishlist0 = JSON.parse(wishlist.toString());
-                            } else if (type === "music") {
-                                wishlist1 = JSON.parse(wishlist.toString());
-                            } else if (type === "television") {
-                                wishlist2 = JSON.parse(wishlist.toString());
-                            }
-                            directory({
-                                callback: dirCallback,
-                                depth: 0,
-                                mode: dirMode,
-                                path: process.argv[2],
-                                search: "",
-                                startTime: startTime,
-                                symbolic: false,
-                                type: type
-                            });
-                        });
-                    }
+                    directory({
+                        callback: dirCallback,
+                        depth: 0,
+                        mode: dirMode,
+                        path: process.argv[2],
+                        search: "",
+                        startTime: startTime,
+                        symbolic: false,
+                        type: type
+                    });
                 }
             }
         };
