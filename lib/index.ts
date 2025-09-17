@@ -292,7 +292,7 @@ const init = function () {
                             ]);
                         }
                         write(buildHTML(`<p><span>Total files</span> ${listLength}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${listLength} results (100.00%)</p>`, type), `\\\\192.168.1.3\\write_here\\list_${type}.html`);
-                        write(JSON.stringify(fileList), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
+                        write(JSON.stringify(fileList).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
                     }
                 };
             fileList.sort(function (a, b):1|-1 {
