@@ -5,16 +5,16 @@ import { sep } from "path";
 // import * as tags from "jsmediatags";
 import * as id3 from "node-id3";
 
-import common from "./common.js";
-import directory from "./directory.js";
-import humanTime from "./humanTime.js";
-import log from "./log.js";
+import browser from "./browser.ts";
+import common from "./common.ts";
+import directory from "./directory.ts";
+import humanTime from "./humanTime.ts";
+import log from "./log.ts";
 
 // cspell:words Audiobook, Bhangra, Breakbeat, Breakz, Chillout, Darkwave, Dubstep, Electroclash, Eurodance, Illbient, Industro, Jpop, jsmediatags, Krautrock, Leftfield, Negerpunk, Neue, Polsk, Psybient, Psytrance, Shoegaze, Showtunes, Synthpop, TALB, TLEN, TRCK, Welle, xlink
 
 const init = function () {
-    let browser:string = "",
-        styles:string = "",
+    let styles:string = "",
         readFiles:number = 0;
     const location:string = process.argv[2],
         startTime:bigint = process.hrtime.bigint(),
@@ -31,18 +31,11 @@ const init = function () {
         nextAction:string = (type === "movie" || type === "television")
             ? " Writing output"
             : "Reading ID3 tags",
-        dirMode:"hash"|"read" = (type === "music")
-            ? "hash"
-            : "read",
-        modeProper:string = (dirMode === "hash")
-            ? "Hashing"
-            : "Reading",
         projectPath:string = (function () {
             const dirs:string[] = process.argv[1].split(sep);
             dirs.pop();
             return dirs.join(sep) + sep;
         }()),
-        libPath:string = projectPath.replace(`${sep}js${sep}`, `${sep}lib${sep}`),
         dateFormat = function (dateNumber:number):string {
             const date:Date = new Date(dateNumber),
                 pad = function (input:number, milliseconds:boolean):string {
@@ -179,10 +172,11 @@ const init = function () {
                     output.push("</tr></thead><tbody></tbody></table>");
                     return output;
                 }()),
+                script:string = browser.toString(),
                 html6:string[] = [
-                    "<script type=\"application/javascript\">",
-                    browser,
-                    "</script></div></body></html>"
+                    "<script type=\"application/javascript\">(",
+                    script.slice(script.indexOf("function")).replace(/;\s+export default browser;/, ""),
+                    "());</script></div></body></html>"
                 ];
             // html1 - top of html file: head, body, title
             // totals - totalData - passed in HTML containing file size calculations
@@ -214,35 +208,40 @@ const init = function () {
                         listLength:number = list.length;
                     if (index < listLength) {
                         if (type === "music") {
-                            // @ts-ignore
-                            id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
-                                if (id3Err === null) {
-                                    if (tags.genre !== undefined) {
-                                        if (tags.genre === "20" || tags.genre === "(20)") {
-                                            fileList[index][5].genre = "Alternative";
-                                        } else if (tags.genre === "36" || tags.genre === "(36)") {
-                                            fileList[index][5].genre = "Game";
-                                        } else if (tags.genre === "52" || tags.genre === "(52)") {
-                                            fileList[index][5].genre = "Electronic";
-                                        } else if ((/^\w/).test(tags.genre) === true) {
-                                            fileList[index][5].genre = tags.genre;
-                                        } else {
-                                            fileList[index][5].genre = tags.genre.replace(/^\(?\d+\)?/, "");
+                            if (list[index][1] === "file") {
+                                // @ts-ignore
+                                id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
+                                    if (id3Err === null) {
+                                        if (tags.genre !== undefined) {
+                                            if (tags.genre === "20" || tags.genre === "(20)") {
+                                                fileList[index][5].genre = "Alternative";
+                                            } else if (tags.genre === "36" || tags.genre === "(36)") {
+                                                fileList[index][5].genre = "Game";
+                                            } else if (tags.genre === "52" || tags.genre === "(52)") {
+                                                fileList[index][5].genre = "Electronic";
+                                            } else if ((/^\w/).test(tags.genre) === true) {
+                                                fileList[index][5].genre = tags.genre;
+                                            } else {
+                                                fileList[index][5].genre = tags.genre.replace(/^\(?\d+\)?/, "");
+                                            }
                                         }
+                                        fileList[index][5].album = tags.album;
+                                        fileList[index][5].artist = tags.artist;
+                                        fileList[index][5].title = tags.title;
+                                        fileList[index][5].track = (tags.raw.TRCK === undefined) ? "" : tags.raw.TRCK;
+                                        fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
+                                        fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
+                                        totalSize = totalSize + fileList[index][5].size;
+                                        index = index + 1;
+                                        recurse();
+                                    } else {
+                                        log([`Error reading id3 tag of file: ${absolute(list[index][0])}`, JSON.stringify(id3Err)]);
                                     }
-                                    fileList[index][5].album = tags.album;
-                                    fileList[index][5].artist = tags.artist;
-                                    fileList[index][5].title = tags.title;
-                                    fileList[index][5].track = (tags.raw.TRCK === undefined) ? "" : tags.raw.TRCK;
-                                    fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
-                                    fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
-                                    totalSize = totalSize + fileList[index][5].size;
-                                    index = index + 1;
-                                    recurse();
-                                } else {
-                                    log([`Error reading id3 tag of file: ${absolute(list[index][0])}`, JSON.stringify(id3Err)]);
-                                }
-                            });
+                                });
+                            } else {
+                                index = index + 1;
+                                recurse();
+                            }
                         } else {
                             dirs = list[index][0].split("/");
                             if (dirs.length > 1 && list[index][1] === "file") {
@@ -304,7 +303,7 @@ const init = function () {
             recurse();
             log([
                 "",
-                `${humanTime(startTime, false)[0] + modeProper} complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
+                `${humanTime(startTime, false)[0]}Reading complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
             ]);
         },
         readComplete = function ():void {
@@ -316,7 +315,7 @@ const init = function () {
                     directory({
                         callback: dirCallback,
                         depth: 0,
-                        mode: dirMode,
+                        mode: "read",
                         path: process.argv[2],
                         search: "",
                         startTime: startTime,
@@ -327,7 +326,7 @@ const init = function () {
             }
         };
     log.title(`${typeCaps} Master List`);
-    log([`${humanTime(startTime, false)[0] + modeProper} files`]);
+    log([`${humanTime(startTime, false)[0]}Reading files`]);
     readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
         if (erRead === null) {
             styles = fileData.toString();
@@ -336,14 +335,7 @@ const init = function () {
             log(["Error reading style.css", JSON.stringify(erRead)]);
         }
     });
-    readFile(`${projectPath}browser.js`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
-        if (erRead === null) {
-            browser = fileData.toString();
-            readComplete();
-        } else {
-            log(["Error reading browser.js", JSON.stringify(erRead)]);
-        }
-    });
+    readComplete();
 };
 
 init();

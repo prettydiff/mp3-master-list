@@ -1,8 +1,8 @@
 
 /* lib/terminal/utilities/humanTime - A utility to generate human readable time sequences. */
 /*eslint no-console: 0*/
-import common from "./common.js";
-import text from "./text.js";
+import common from "./common.ts";
+import text from "./text.ts";
 
 // converting time durations into something people read
 const humanTime = function terminal_utilities_humanTime(startTime:bigint, finished:boolean):[string, bigint] {

@@ -6,11 +6,11 @@ import { lstat, readdir, realpath, stat, Stats } from "fs";
 import { sep } from "path";
 import { moveCursor } from "readline";
 
-import common from "./common.js";
-import hash from "./hash.js";
-import humanTime from "./humanTime.js";
-import log from "./log.js";
-import text from "./text.js";
+import common from "./common.ts";
+import hash from "./hash.ts";
+import humanTime from "./humanTime.ts";
+import log from "./log.ts";
+import text from "./text.ts";
 
 // similar to node's fs.readdir, but recursive
 const directory = function terminal_commands_library_directory(args:config_command_directory):void {

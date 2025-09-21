@@ -1,5 +1,5 @@
 
-import text from "./text.js";
+import text from "./text.ts";
 
 // verbose metadata printed to the shell about the application
 const log = function terminal_utilities_log(output:string[], end?:boolean):void {

@@ -23,8 +23,7 @@
         "url": "git+https://github.com/prettydiff/mp3-master-list.git"
     },
     "scripts": {
-        "build": "npx swc ./lib -d ./js",
-        "start": "node js/index.js"
+        "start": "node lib/index.ts"
     },
     "types": "./types.d.ts",
     "type": "module",

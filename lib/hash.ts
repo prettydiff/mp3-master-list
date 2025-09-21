@@ -5,9 +5,9 @@ import { exec } from "child_process";
 import { createHash, Hash } from "crypto";
 import { createReadStream, ReadStream, stat, Stats } from "fs";
 
-import directory from "./directory.js";
-import log from "./log.js";
-import text from "./text.js";
+import directory from "./directory.ts";
+import log from "./log.ts";
+import text from "./text.ts";
 
 // hash utility for strings or files
 const hash = function terminal_commands_library_hash(input:config_command_hash):hash_output {
@@ -136,7 +136,7 @@ const hash = function terminal_commands_library_hash(input:config_command_hash):
                 parent: input.parent,
                 stat: input.stat
             };
-        hash.update(input.source);
+        hash.update(input.source as string);
         hashOutput.hash = hash.digest(input.digest);
         input.callback(title, hashOutput);
         return;
@@ -160,7 +160,8 @@ const hash = function terminal_commands_library_hash(input:config_command_hash):
                         path: input.source as string,
                         search: "",
                         startTime: null,
-                        symbolic: true
+                        symbolic: true,
+                        type: "music"
                     };
                     hashList = true;
                     directory(dirConfig);
