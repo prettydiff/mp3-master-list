@@ -25,47 +25,45 @@ const browser = function () {
                         td:HTMLElement = null,
                         button:HTMLElement = null;
                     do {
-                        if (list[index_list][1] === "file") {
-                            tr = document.createElement("tr");
-                            tr.setAttribute("data-path", list[index_list][0]);
-                            if (list[index_list][2] !== "") {
-                                tr.setAttribute("data-hash", list[index_list][2]);
-                            }
-                            do {
-                                td = document.createElement("td");
-                                if (heading(index_cell) === "play") {
-                                    button = document.createElement("button");
-                                    button.appendChild(play.cloneNode(true));
-                                    td.appendChild(button);
-                                } else if (heading(index_cell) === "file path") {
-                                    td.textContent = list[index_list][0];
-                                } else if (heading(index_cell) === "modified") {
-                                    td.textContent = list[index_list][5].modified;
-                                    td.setAttribute("data-numeric", String(list[index_list][5].mtimeMs));
-                                } else if (heading(index_cell) === "file size") {
-                                    td.textContent = list[index_list][5].sizeFormatted;
-                                    td.setAttribute("data-numeric", String(list[index_list][5].size));
-                                } else if (heading(index_cell) === "title") {
-                                    td.textContent = list[index_list][5].title;
-                                } else if (heading(index_cell) === "year") {
-                                    td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf("(") + 1, list[index_list][0].lastIndexOf(")"));
-                                } else if (heading(index_cell) === "type") {
-                                    td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf(".") + 1).toLowerCase();
-                                } else {
-                                    if (documentType === "movie" && heading(index_cell) === "track") {
-                                        td.setAttribute("class", "number");
-                                        td.textContent = list[index_list][5].track;
-                                    } else {
-                                        // @ts-ignore
-                                        td.textContent = String(list[index_list][5][heading(index_cell)]);
-                                    }
-                                }
-                                tr.appendChild(td);
-                                index_cell = index_cell + 1;
-                            } while (index_cell < headings.length);
-                            index_cell = 0;
-                            tbody.appendChild(tr);
+                        tr = document.createElement("tr");
+                        tr.setAttribute("data-path", list[index_list][0]);
+                        if (list[index_list][2] !== "") {
+                            tr.setAttribute("data-hash", list[index_list][2]);
                         }
+                        do {
+                            td = document.createElement("td");
+                            if (heading(index_cell) === "play") {
+                                button = document.createElement("button");
+                                button.appendChild(play.cloneNode(true));
+                                td.appendChild(button);
+                            } else if (heading(index_cell) === "file path") {
+                                td.textContent = list[index_list][0];
+                            } else if (heading(index_cell) === "modified") {
+                                td.textContent = list[index_list][5].modified;
+                                td.setAttribute("data-numeric", String(list[index_list][5].mtimeMs));
+                            } else if (heading(index_cell) === "file size") {
+                                td.textContent = list[index_list][5].sizeFormatted;
+                                td.setAttribute("data-numeric", String(list[index_list][5].size));
+                            } else if (heading(index_cell) === "title") {
+                                td.textContent = list[index_list][5].title;
+                            } else if (heading(index_cell) === "year") {
+                                td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf("(") + 1, list[index_list][0].lastIndexOf(")"));
+                            } else if (heading(index_cell) === "type") {
+                                td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf(".") + 1).toLowerCase();
+                            } else {
+                                if (documentType === "movie" && heading(index_cell) === "track") {
+                                    td.setAttribute("class", "number");
+                                    td.textContent = list[index_list][5].track;
+                                } else {
+                                    // @ts-ignore
+                                    td.textContent = String(list[index_list][5][heading(index_cell)]);
+                                }
+                            }
+                            tr.appendChild(td);
+                            index_cell = index_cell + 1;
+                        } while (index_cell < headings.length);
+                        index_cell = 0;
+                        tbody.appendChild(tr);
                         index_list = index_list + 1;
                     } while (index_list < len);
                 }

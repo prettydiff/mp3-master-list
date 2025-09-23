@@ -190,7 +190,8 @@ const init = function () {
         },
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
             let index:number = 0,
-                totalSize:number = 0;
+                totalSize:number = 0,
+                list:directory_list = [];
             const recurse = function () {
                     // recursion throttling to prevent a "maximum call stack exceeded error"
                     if (index % 2000 === 0) {
@@ -202,15 +203,14 @@ const init = function () {
                 readTags = function ():void {
                     const absolute = function (dir:string):string {
                             return location + sep + dir.replace(/\//g, sep);
-                        },
-                        list:string[]|directory_list = fileList;
+                        };
                     let dirs:string[] = [],
-                        listLength:number = list.length;
+                        listLength:number = fileList.length;
                     if (index < listLength) {
                         if (type === "music") {
-                            if (list[index][1] === "file") {
+                            if (fileList[index][1] === "file") {
                                 // @ts-ignore
-                                id3.default.read(absolute(list[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
+                                id3.default.read(absolute(fileList[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
                                     if (id3Err === null) {
                                         if (tags.genre !== undefined) {
                                             if (tags.genre === "20" || tags.genre === "(20)") {
@@ -232,6 +232,7 @@ const init = function () {
                                         fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
                                         fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
                                         totalSize = totalSize + fileList[index][5].size;
+                                        list.push(fileList[index]);
                                         index = index + 1;
                                         recurse();
                                     } else {
@@ -243,7 +244,7 @@ const init = function () {
                                 recurse();
                             }
                         } else {
-                            dirs = list[index][0].split("/");
+                            dirs = fileList[index][0].split("/");
                             if (dirs.length > 1 && list[index][1] === "file") {
                                 fileList[index][5].genre = (type === "movie")
                                     ? dirs[0]
@@ -259,11 +260,9 @@ const init = function () {
                                 fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
                                 fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
                                 totalSize = totalSize + fileList[index][5].size;
-                                index = index + 1;
-                            } else {
-                                list.splice(index, 1);
-                                listLength = listLength - 1;
+                                list.push(fileList[index]);
                             }
+                            index = index + 1;
                             recurse();
                         }
                     } else {
@@ -290,8 +289,8 @@ const init = function () {
                                 `${humanTime(startTime, false)[0]}All files read for ID3 tags. Writing report.`
                             ]);
                         }
-                        write(buildHTML(`<p><span>Total files</span> ${listLength}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${listLength} results (100.00%)</p>`, type), `\\\\192.168.1.3\\write_here\\list_${type}.html`);
-                        write(JSON.stringify(fileList).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
+                        write(buildHTML(`<p><span>Total files</span> ${list.length}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${list.length} results (100.00%)</p>`, type), `\\\\192.168.1.3\\write_here\\list_${type}.html`);
+                        write(JSON.stringify(list).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
                     }
                 };
             fileList.sort(function (a, b):1|-1 {
