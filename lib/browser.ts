@@ -55,6 +55,10 @@ const browser = function ():void {
                             td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf("(") + 1, list[index_list][0].lastIndexOf(")"));
                         } else if (heading(index_cell) === "type") {
                             td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf(".") + 1).toLowerCase();
+                        } else if (heading(index_cell) === "show") {
+                            td.textContent = list[index_list][5].track;
+                        } else if (heading(index_cell) === "season") {
+                            td.textContent = list[index_list][5].genre;
                         } else {
                             if (documentType === "movie" && heading(index_cell) === "track") {
                                 td.setAttribute("class", "number");

@@ -7,7 +7,7 @@ td{padding:0.2em 0.4em}
 fieldset{margin:1em 0}
 th,td{font-family:monospace}
 td,th,table{border-style:solid;border-width:0.1em;border-collapse:collapse}
-th{min-width:1em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+th{min-width:5em;white-space:nowrap}
 table{width:100%}
 table button{border-style:solid;border-width:0.1em}
 thead svg{height:1em;width:1em}
