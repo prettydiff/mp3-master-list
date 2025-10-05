@@ -109,7 +109,7 @@ const init = function () {
             volumeDown:    '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M66.9,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C65.2,20.4,66.9,21.4,66.9,22.9z"/><path d="M72.3,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S76.7,57.9,72.3,57.9z"/><path d="M72.3,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8s-5.7-12.8-12.8-12.8c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S80.5,64.8,72.3,64.8z"/></svg>',
             volumeUp:      '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg>'
         },
-        buildHTML = function (totalData:string, mediaType:mediaType):string {
+        buildHTML = function (totalData:string, mediaType:mediaType, fileCount:number):string {
             const mediaTypeCaps:string = mediaType.charAt(0).toUpperCase() + mediaType.slice(1),
                 headingList:storeString = headingMap(mediaType),
                 headingItems:string[] = Object.keys(headingList),
@@ -123,7 +123,8 @@ const init = function () {
                     "<style type=\"text/css\">",
                     styles,
                     "</style>",
-                    `</head><body class="${mediaType} white">`,
+                    `</head><body class="${mediaType} white" data-json-count="${fileCount}">`,
+                    "<div id=\"load-status\"><h1>Load Status</h1><ol></ol></div>",
                     "<div class=\"body\">",
                     `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox"/></button></p></div>`,
                     `<h1>${mediaTypeCaps} Master List</h1>`,
@@ -245,7 +246,7 @@ const init = function () {
                             }
                         } else {
                             dirs = fileList[index][0].split("/");
-                            if (dirs.length > 1 && list[index][1] === "file") {
+                            if (dirs.length > 1 && fileList[index][1] === "file") {
                                 fileList[index][5].genre = (type === "movie")
                                     ? dirs[0]
                                     : dirs[1];
@@ -266,31 +267,47 @@ const init = function () {
                             recurse();
                         }
                     } else {
+                        let inc:number = 0,
+                            files:number = 0;
                         const write = function (content:string, write_location:string) {
-                            writeFile(
-                                write_location,
-                                content,
-                                function (erw:NodeJS.ErrnoException):void {
-                                    if (erw === null) {
-                                        log([
-                                            `${humanTime(startTime, false)[0]}List written to location: ${write_location}`
-                                        ]);
-                                    } else {
-                                        log([
-                                            `Error writing list to location: ${write_location}`,
-                                            JSON.stringify(erw)
-                                        ]);
+                                writeFile(
+                                    write_location,
+                                    content,
+                                    function (erw:NodeJS.ErrnoException):void {
+                                        if (erw === null) {
+                                            log([
+                                                `${humanTime(startTime, false)[0]}List written to location: ${write_location}`
+                                            ]);
+                                        } else {
+                                            log([
+                                                `Error writing list to location: ${write_location}`,
+                                                JSON.stringify(erw)
+                                            ]);
+                                        }
                                     }
-                                }
-                            );
-                        };
+                                );
+                            },
+                            records:number = 500,
+                            len:number = list.length;
                         if (type === "music") {
                             log([
                                 `${humanTime(startTime, false)[0]}All files read for ID3 tags. Writing report.`
                             ]);
                         }
-                        write(buildHTML(`<p><span>Total files</span> ${list.length}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${list.length} results (100.00%)</p>`, type), `\\\\192.168.1.3\\write_here\\list_${type}.html`);
-                        write(JSON.stringify(list).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
+                        do {
+                            write(JSON.stringify(list.slice(inc, inc + records)).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}_${files}.json`);
+                            inc = inc + records;
+                            files = files + 1;
+                        } while (inc < len);
+                        write(
+                            buildHTML(
+                                `<p><span>Total files</span> ${list.length}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${list.length} results (100.00%)</p>`,
+                                type,
+                                files
+                            ),
+                            `\\\\192.168.1.3\\write_here\\list_${type}.html`
+                        );
+                        // write(JSON.stringify(list).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
                     }
                 };
             fileList.sort(function (a, b):1|-1 {
