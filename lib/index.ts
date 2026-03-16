@@ -289,18 +289,24 @@ const init = function () {
                                     }
                                 );
                             },
-                            records:number = 500,
+                            records:number = (process.argv.includes("split") === true)
+                                ? 500
+                                : 0,
                             len:number = list.length;
                         if (type === "music") {
                             log([
                                 `${humanTime(startTime, false)[0]}All files read for ID3 tags. Writing report.`
                             ]);
                         }
-                        do {
-                            write(JSON.stringify(list.slice(inc, inc + records)).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}_${files}.json`);
-                            inc = inc + records;
-                            files = files + 1;
-                        } while (inc < len);
+                        if (records > 0) {
+                            do {
+                                write(JSON.stringify(list.slice(inc, inc + records)).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}_${files}.json`);
+                                inc = inc + records;
+                                files = files + 1;
+                            } while (inc < len);
+                        } else {
+                            write(JSON.stringify(list).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
+                        }
                         write(
                             buildHTML(
                                 `<p><span>Total files</span> ${list.length}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${list.length} results (100.00%)</p>`,
