@@ -656,7 +656,7 @@ const browser = function ():void {
                     recordsWish: tools.getRecords(1),
                     seekSlider: document.getElementById("seekSlider"),
                     seekTrack: document.getElementById("seekSlider").parentNode as HTMLElement,
-                    title: document.getElementsByTagName("h1")[0],
+                    title: document.getElementsByTagName("h1")[1],
                     volumeSlider: document.getElementById("volumeSlider"),
                     volumeTrack: document.getElementById("volumeSlider").parentNode as HTMLElement,
                     wishlist: document.getElementById("wishlist") as HTMLInputElement
@@ -803,7 +803,7 @@ const browser = function ():void {
             dom.bodyDiv.style.display = "block";
             dom.volumeSlider.style.left = `${((dom.volumeTrack.clientWidth / 2) - (dom.volumeSlider.clientWidth / 2)) / 16}em`;
 
-            // apply a dynamic marge above the title
+            // apply a dynamic margin above the title
             tools.titleTop();
         },
         get = function get(count:number):void {
