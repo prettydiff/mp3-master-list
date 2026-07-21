@@ -1,5 +1,5 @@
 
-import { readFile, writeFile } from "fs";
+import { readFile, stat, Stats, writeFile } from "fs";
 import { sep } from "path";
 
 // import * as tags from "jsmediatags";
@@ -14,21 +14,18 @@ import log from "./log.ts";
 // cspell:words Audiobook, Bhangra, Breakbeat, Breakz, Chillout, Darkwave, Dubstep, Electroclash, Eurodance, Illbient, Industro, Jpop, jsmediatags, Krautrock, Leftfield, Negerpunk, Neue, Polsk, Psybient, Psytrance, Shoegaze, Showtunes, Synthpop, TALB, TLEN, TRCK, Welle, xlink
 
 const init = function () {
-    let styles:string = "",
-        readFiles:number = 0;
-    const location:string = process.argv[2],
+    let styles:string = "";
+    const config:config_application = {
+            paths: {
+                media: "",
+                write: ""
+            },
+            split: false,
+            type_uppercase: "Music",
+            type: "music"
+        },
         startTime:bigint = process.hrtime.bigint(),
-        type:mediaType = (location.indexOf("music") > -1)
-            ? "music"
-            : (location.indexOf("movie") > -1)
-                ? "movie"
-                : "television",
-        typeCaps:string = (type === "movie")
-            ? "Movie"
-                : (type === "television")
-                    ? "Television"
-                    : "Music",
-        nextAction:string = (type === "movie" || type === "television")
+        nextAction:string = (config.type === "movie" || config.type === "television")
             ? " Writing output"
             : "Reading ID3 tags",
         projectPath:string = (function () {
@@ -36,6 +33,8 @@ const init = function () {
             dirs.pop();
             return dirs.join(sep) + sep;
         }()),
+
+        // military date format
         dateFormat = function (dateNumber:number):string {
             const date:Date = new Date(dateNumber),
                 pad = function (input:number, milliseconds:boolean):string {
@@ -68,6 +67,8 @@ const init = function () {
                 };
             return `${pad(date.getDate(), false)} ${months[date.getMonth()]} ${date.getFullYear()} ${pad(date.getHours(), false)}:${pad(date.getMinutes(), false)}:${pad(date.getSeconds(), false)}.${pad(date.getMilliseconds(), true)}`;
         },
+
+        // column definitions
         headingMap = function (mediaType:mediaType):storeString {
             if (mediaType === "music") {
                 return {
@@ -97,6 +98,8 @@ const init = function () {
                 "modified": "Modified"
             };
         },
+
+        // svg icons
         svg:storeString = {
             circle:        '<svg version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g fill="#000000" transform="translate(-170.000000, -86.000000)"><g transform="translate(170.000000, 86.000000)"><path d="M10,0 C4.5,0 0,4.5 0,10 C0,15.5 4.5,20 10,20 C15.5,20 20,15.5 20,10 C20,4.5 15.5,0 10,0 L10,0 Z M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 L10,18 Z"/></g></g></g></svg>',
             play:          '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g><path d="M85.5,51.7l-69,39.8c-1.3,0.8-3-0.2-3-1.7V10.2c0-1.5,1.7-2.5,3-1.7l69,39.8C86.8,49,86.8,51,85.5,51.7z"/></g></svg>',
@@ -109,11 +112,13 @@ const init = function () {
             volumeDown:    '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M66.9,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C65.2,20.4,66.9,21.4,66.9,22.9z"/><path d="M72.3,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S76.7,57.9,72.3,57.9z"/><path d="M72.3,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8s-5.7-12.8-12.8-12.8c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S80.5,64.8,72.3,64.8z"/></svg>',
             volumeUp:      '<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M59.5,22.9v54.1c0,1.5-1.7,2.5-3,1.7l-27-16h-21c-1.1,0-2-0.9-2-2v-22c0-1.1,0.9-2,2-2h21l27-15.6  C57.8,20.4,59.5,21.4,59.5,22.9z"/><path d="M64.9,57.9c-0.6,0-1-0.4-1-1s0.4-1,1-1c3.3,0,5.9-2.6,5.9-5.9c0-3.3-2.6-5.9-5.9-5.9c-0.6,0-1-0.4-1-1s0.4-1,1-1  c4.4,0,7.9,3.5,7.9,7.9S69.3,57.9,64.9,57.9z"/><path d="M64.9,64.8c-0.6,0-1-0.4-1-1s0.4-1,1-1c7.1,0,12.8-5.7,12.8-12.8S72,37.2,64.9,37.2c-0.6,0-1-0.4-1-1s0.4-1,1-1  c8.2,0,14.8,6.6,14.8,14.8S73.1,64.8,64.9,64.8z"/><path d="M64.9,71.7c-0.6,0-1-0.4-1-1s0.4-1,1-1c10.9,0,19.7-8.8,19.7-19.7s-8.8-19.7-19.7-19.7c-0.6,0-1-0.4-1-1s0.4-1,1-1  c12,0,21.7,9.7,21.7,21.7C86.6,62,76.9,71.7,64.9,71.7z"/><path d="M64.9,78.6c-0.6,0-1-0.4-1-1s0.4-1,1-1c14.7,0,26.6-11.9,26.6-26.6S79.6,23.4,64.9,23.4c-0.6,0-1-0.4-1-1s0.4-1,1-1  c15.8,0,28.6,12.8,28.6,28.6C93.5,65.8,80.7,78.6,64.9,78.6z"/></svg>'
         },
+
+        // HTML construction
         buildHTML = function (totalData:string, mediaType:mediaType, fileCount:number):string {
             const mediaTypeCaps:string = mediaType.charAt(0).toUpperCase() + mediaType.slice(1),
                 headingList:storeString = headingMap(mediaType),
                 headingItems:string[] = Object.keys(headingList),
-                html1:string[] = [
+                html_heading:string[] = [
                     "<!doctype html>",
                     "<html>",
                     "<head>",
@@ -125,22 +130,24 @@ const init = function () {
                     "</style>",
                     `</head><body class="${mediaType} white" data-json-count="${fileCount}">`,
                     "<div id=\"load-status\"><h1>Load Status</h1><ol></ol></div>",
-                    "<div class=\"body\">",
-                    `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox"/></button></p></div>`,
+                    "<div class=\"body\">"
+                ],
+                html_player:string = `<div id="player"><p class="track" role="slider"><button id="seekSlider">${svg.circle}</button></p><p id="currentTime">00:00:00</p><p id="duration">00:00:00</p><p class="controls"><button>${svg.trackPrevious}</button><button>${svg.play}</button><button>${svg.pause}</button><button class="active">${svg.stop}</button><button>${svg.trackNext}</button><button class="random">${svg.random}<input type="checkbox"/></button><span class="pipe">|</span><span class="volumeMinus">-</span><span class="trackVolume" role="slider"><button id="volumeSlider">${svg.circle}</button></span><span class="volumePlus">+</span></p><p id="currentTrackName"><button id="minimize">-</button><span></span><button id="mute" class="active">${svg.volumeUp}<input type="checkbox"/></button></p></div>`,
+                html_title:string[] = [
                     `<h1>${mediaTypeCaps} Master List</h1>`,
                     "<fieldset class=\"data-points\"><legend>Summary</legend>"
                 ],
-                totals:string[] = [totalData],
-                html2:string[] = [
+                html_totals:string[] = [totalData],
+                html_summary:string[] = [
                     `<p><span>Dated</span> ${dateFormat(Date.now())}</p>`,
-                    `<p><span>Location</span> ${location}</p>`,
+                    `<p><span>Location</span> ${config.paths.media}</p>`,
                     "</fieldset>",
                     "<fieldset><legend>List Options</legend>",
                     "<p class=\"radio\"><span>Color Scheme</span><label><input checked=\"checked\" name=\"colorScheme\" type=\"radio\" value=\"default\"/> Default</label><label><input name=\"colorScheme\" type=\"radio\" value=\"white\"/> White</label></p>",
                     "<p><label><span>Filter</span><input type=\"text\" id=\"filter\"/></label></p>",
                     "<p><label><span>Filter Field</span><select><option selected=\"selected\">Any</option>"
                 ],
-                html3:string[] = (function ():string[] {
+                html_options_columns:string[] = (function ():string[] {
                     // filter by column
                     let count:number = 1;
                     const output:string[] = [];
@@ -150,7 +157,7 @@ const init = function () {
                     } while (count < headingItems.length);
                     return output;
                 }()),
-                html4:string[] = [
+                html_options_type:string[] = [
                     "</select></label></p>",
                     "<p><label><span>Filter Search Type</span><select>",
                     "<option selected=\"selected\" value=\"fragment\">Text Search</option>",
@@ -162,7 +169,7 @@ const init = function () {
                     "<p><label><span>Case Sensitive</span><input type=\"checkbox\" checked=\"checked\" id=\"caseSensitive\"/></label></p>",
                     "</fieldset><table><thead><tr>"
                 ],
-                html5:string[] = (function ():string[] {
+                html_table_headings:string[] = (function ():string[] {
                     // table headers
                     let count:number = 0;
                     const output:string[] = [];
@@ -173,22 +180,16 @@ const init = function () {
                     output.push("</tr></thead><tbody></tbody></table>");
                     return output;
                 }()),
-                script:string = browser.toString(),
-                html6:string[] = [
+                html_script_code:string = browser.toString(),
+                html_script_tag:string[] = [
                     "<script type=\"application/javascript\">(",
-                    script.slice(script.indexOf("function")).replace(/;\s+export default browser;/, ""),
+                    html_script_code.slice(html_script_code.indexOf("function")).replace(/;\s+export default browser;/, ""),
                     "());</script></div></body></html>"
                 ];
-            // html1 - top of html file: head, body, title
-            // totals - totalData - passed in HTML containing file size calculations
-            // html2 - date, location, color scheme option
-            // html3 - filter field options
-            // html4 - filter search type
-            // html5 - data table header
-            // mediaData - passed in dataList, the data table body
-            // html9 - bottom of file and browser JavaScript
-            return html1.concat(totals, html2, html3, html4, html5, html6).join("\n");
+            return html_heading.concat(html_totals, html_player, html_title, html_summary, html_options_columns, html_options_type, html_table_headings, html_script_tag).join("\n");
         },
+
+        // callback from the recursive file system list
         dirCallback = function (title:string, text:string[], fileList:directory_list):void {
             let index:number = 0,
                 totalSize:number = 0,
@@ -203,12 +204,12 @@ const init = function () {
                 },
                 readTags = function ():void {
                     const absolute = function (dir:string):string {
-                            return location + sep + dir.replace(/\//g, sep);
+                            return config.paths.media + dir.replace(/\//g, sep);
                         };
                     let dirs:string[] = [],
                         listLength:number = fileList.length;
                     if (index < listLength) {
-                        if (type === "music") {
+                        if (config.type === "music") {
                             if (fileList[index][1] === "file") {
                                 // @ts-ignore
                                 id3.default.read(absolute(fileList[index][0]), function (id3Err:NodeJS.ErrnoException, tags:Tags):void {
@@ -237,7 +238,7 @@ const init = function () {
                                         index = index + 1;
                                         recurse();
                                     } else {
-                                        log([`Error reading id3 tag of file: ${absolute(list[index][0])}`, JSON.stringify(id3Err)]);
+                                        log([`Error reading id3 tag of file: ${absolute(fileList[index][0])}`, JSON.stringify(id3Err)]);
                                     }
                                 });
                             } else {
@@ -247,13 +248,13 @@ const init = function () {
                         } else {
                             dirs = fileList[index][0].split("/");
                             if (dirs.length > 1 && fileList[index][1] === "file") {
-                                fileList[index][5].genre = (type === "movie")
+                                fileList[index][5].genre = (config.type === "movie")
                                     ? dirs[0]
                                     : (dirs.length < 4)
                                         ? "Season 1"
                                         : dirs[2];
                                 fileList[index][5].title = dirs[dirs.length - 1].slice(0,  dirs[dirs.length - 1].lastIndexOf("."));
-                                fileList[index][5].track = (type === "movie")
+                                fileList[index][5].track = (config.type === "movie")
                                     ? fileList[index][5].title.slice(fileList[index][5].title.lastIndexOf("(") + 1, fileList[index][5].title.length - 1)
                                     : (dirs.length > 2)
                                         ? dirs[1]
@@ -289,33 +290,32 @@ const init = function () {
                                     }
                                 );
                             },
-                            records:number = (process.argv.includes("split") === true)
+                            records:number = (config.split === true)
                                 ? 500
                                 : 0,
                             len:number = list.length;
-                        if (type === "music") {
+                        if (config.type === "music") {
                             log([
                                 `${humanTime(startTime, false)[0]}All files read for ID3 tags. Writing report.`
                             ]);
                         }
                         if (records > 0) {
                             do {
-                                write(JSON.stringify(list.slice(inc, inc + records)).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}_${files}.json`);
+                                write(JSON.stringify(list.slice(inc, inc + records)).replace(/\],/g, "],\n"), `${config.paths.write}list_${config.type}_${files}.json`);
                                 inc = inc + records;
                                 files = files + 1;
                             } while (inc < len);
                         } else {
-                            write(JSON.stringify(list).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
+                            write(JSON.stringify(list).replace(/\],/g, "],\n"), `${config.paths.write}list_${config.type}.json`);
                         }
                         write(
                             buildHTML(
                                 `<p><span>Total files</span> ${list.length}</p>\n<p><span>Total size</span> ${common.commas(totalSize)} bytes (${common.prettyBytes(totalSize)})</p>\n<p id="filtered-results"><span>Filtered Results</span> ${list.length} results (100.00%)</p>`,
-                                type,
+                                config.type,
                                 files
                             ),
-                            `\\\\192.168.1.3\\write_here\\list_${type}.html`
+                            `${config.paths.write}list_${config.type}.html`
                         );
-                        // write(JSON.stringify(list).replace(/\],/g, "],\n"), `\\\\192.168.1.3\\write_here\\list_${type}.json`);
                     }
                 };
             fileList.sort(function (a, b):1|-1 {
@@ -327,39 +327,112 @@ const init = function () {
             recurse();
             log([
                 "",
-                `${humanTime(startTime, false)[0]}Reading complete for ${fileList.length} ${typeCaps} files. ${nextAction}.`
+                `${humanTime(startTime, false)[0]}Reading directory complete for ${fileList.length} files. ${nextAction}.`
             ]);
         },
         readComplete = function ():void {
-            readFiles = readFiles + 1;
-            if (readFiles === 2) {
-                if (process.argv.length < 3) {
-                    log(["Please specify a file system location."]);
-                } else {
-                    directory({
-                        callback: dirCallback,
-                        depth: 0,
-                        mode: "read",
-                        path: process.argv[2],
-                        search: "",
-                        startTime: startTime,
-                        symbolic: false,
-                        type: type
-                    });
-                }
-            }
+            directory({
+                callback: dirCallback,
+                depth: 0,
+                mode: "read",
+                path: config.paths.media,
+                search: "",
+                startTime: startTime,
+                symbolic: false,
+                type: config.type
+            });
         };
-    log.title(`${typeCaps} Master List`);
-    log([`${humanTime(startTime, false)[0]}Reading files`]);
-    readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
-        if (erRead === null) {
-            styles = fileData.toString();
-            readComplete();
+    stat(process.argv[2], function (ers:NodeJS.ErrnoException) {
+        const bad_file = function (message:string) {
+            console.log();
+            console.log("");
+            console.log("Example execution:");
+            console.log("node lib/index.ts config_music.json");
+            console.log("");
+            console.log("Configuration schema:");
+            console.log("{");
+            console.log("    \"paths\": {");
+            console.log("        \"media\": \"absolute/directory/path/to/media/\"");
+            console.log("        \"write\": \"absolute/directory/path/where/to/write/output/\"");
+            console.log("    },");
+            console.log("    \"split\": false,");
+            console.log("    \"type\": \"music\"");
+            console.log("}");
+            console.log("");
+            console.log(" * paths - each path must conclude with a path separator, such as: '\\' for Windows or '/' for other operating systems.");
+            console.log(" * split - allows writing the output media lists into a list of 500 records.  This is necessary for IPhone support of larger playlists.");
+            console.log(" * type - allows values: \"movie\", \"music\", \"television\". The default value is \"music\".");
+            process.exit(1);
+        };
+        if (ers === null) {
+            const files:storeFlag = {
+                config: false,
+                style: false
+            };
+            readFile(`${projectPath.replace("js", "lib")}style.css`, function (erRead:NodeJS.ErrnoException, fileData:Buffer):void {
+                if (erRead === null) {
+                    styles = fileData.toString();
+                } else {
+                    log(["Error reading style.css", JSON.stringify(erRead)]);
+                }
+                files.style = true;
+                if (files.config === true) {
+                    readComplete();
+                }
+            });
+            readFile(process.argv[2], function (err:NodeJS.ErrnoException, raw_file:Buffer) {
+                if (err === null) {
+                    let config_data:config_application = null;
+                    const flags:storeFlag = {
+                            media: false,
+                            write: false
+                        },
+                        complete = function (path_type:"media"|"write") {
+                            flags[path_type] = true;
+                            config.paths[path_type] = config_data.paths[path_type];
+                            if (flags.media === true && flags.write === true) {
+                                log.title(`${config.type_uppercase} Master List`);
+                                log([`${humanTime(startTime, false)[0]}Reading files`]);
+                                files.config = true;
+                                if (files.style === true) {
+                                    readComplete();
+                                }
+                            }
+                        };
+                    try {
+                        config_data = JSON.parse(raw_file.toString());
+                    } catch (e:unknown) {
+                        bad_file("Configuration file is not in JSON format or has a syntax error.");
+                    }
+                    if (typeof config_data.split === "boolean") {
+                        config.split = config_data.split;
+                    }
+                    if (config_data.type === "movie" || config_data.type === "music" || config_data.type === "television") {
+                        config.type = config_data.type;
+                        config.type_uppercase = config.type.charAt(0).toUpperCase() + config.type.slice(1);
+                    }
+                    stat(config_data.paths.media, function (erp:NodeJS.ErrnoException) {
+                        if (erp === null) {
+                            complete("media");
+                        } else {
+                            bad_file("paths.media from config file could not be resolved.");
+                        }
+                    });
+                    stat(config_data.paths.write, function (erp:NodeJS.ErrnoException) {
+                        if (erp === null) {
+                            complete("write");
+                        } else {
+                            bad_file("paths.write from config file could not be resolved.");
+                        }
+                    });
+                } else {
+                    bad_file("Configuration file not resolved or is incorrect format");
+                }
+            });
         } else {
-            log(["Error reading style.css", JSON.stringify(erRead)]);
+            bad_file("Configuration file not resolved.");
         }
     });
-    readComplete();
 };
 
 init();

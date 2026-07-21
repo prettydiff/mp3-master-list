@@ -1,17 +1,24 @@
+
+
 {
     "compilerOptions": {
         "allowImportingTsExtensions": true,
+        "allowUnreachableCode": false,
         "alwaysStrict": true,
-        "module": "ES2020",
-        "moduleResolution": "node",
-        "outDir": "./js/lib",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
         "noEmit": true,
         "noImplicitAny": true,
-        "pretty": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUncheckedIndexedAccess": true,
+        "pretty": false,
         "strictFunctionTypes": true,
+        "strictNullChecks": false,
         "target": "ES2020",
         "types": ["node"],
-        "typeRoots": ["./node_modules/@types"]
+        "typeRoots": ["./node_modules/@types"],
+        "useUnknownInCatchVariables": true
     },
     "exclude": [
         "js",

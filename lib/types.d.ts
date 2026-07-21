@@ -1,4 +1,6 @@
 
+// cspell: words APIC, BETAMAX, DDMM, ETCO, Eurodisco, ISDN, ISRC, Laserdisc, popularimeter, NTSC, SECAM, SVHS, SYLT, synchronised, TALB, Textwriter, TRCK, UFID, unsynchronised, WCOM, WOAR, WXXX
+
 import { Stats } from "fs";
 
 declare global {
@@ -9,6 +11,30 @@ declare global {
     type hash = "blake2d512" | "blake2s256" | "sha1" | "sha3-224" | "sha3-256" | "sha3-384" | "sha3-512" | "sha384" | "sha512-224" | "sha512-256" | "sha512" | "shake128" | "shake256";
     type mediaType = "movie"|"music"|"television" ;
     type searchType = "fragment" | "list" | "negation" | "negation-list" | "regex";
+
+    /**
+     * User defined configuration data to define application preferences
+     * ```typescript
+     *     interface config_application {
+     *     paths: {
+     *         media: string;
+     *         write: string;
+     *     };
+     *     split: boolean;
+     *     type: "movies" | "music" | "television";
+     *     type_uppercase?: string;
+     * }
+     * ```
+     */
+    interface config_application {
+        paths: {
+            media: string;
+            write: string;
+        };
+        split: boolean;
+        type: "movie" | "music" | "television";
+        type_uppercase?: string;
+    }
 
     /**
      * For directory of terminal/commands/library/directory.
@@ -239,11 +265,11 @@ declare global {
          */
         album?: string,
         /**
-         * The 'BPM' frame contains the number of beats per minute in the mainpart of the audio. The BPM is an integer and represented as a numerical string.
+         * The 'BPM' frame contains the number of beats per minute in the main part of the audio. The BPM is an integer and represented as a numerical string.
          */
         bpm?: string,
         /**
-         *  The 'Composer(s)' frame is intended for the name of the composer(s). They are seperated with the "/" character.
+         *  The 'Composer(s)' frame is intended for the name of the composer(s). They are separated with the "/" character.
          */
         composer?: string,
         /**
@@ -286,11 +312,11 @@ declare global {
          */
         taggingTime?: string,
         /**
-         * The 'Encoded by' frame contains the name of the person or organisation that encoded the audio file. This field may contain a copyright message, if the audio file also is copyrighted by the encoder.
+         * The 'Encoded by' frame contains the name of the person or organization that encoded the audio file. This field may contain a copyright message, if the audio file also is copyrighted by the encoder.
          */
         encodedBy?: string,
         /**
-         * The 'Lyricist(s)/Text writer(s)' frame is intended for the writer(s) of the text or lyrics in the recording. They are seperated with the "/" character.
+         * The 'Lyricist(s)/Text writer(s)' frame is intended for the writer(s) of the text or lyrics in the recording. They are separated with the "/" character.
          */
         textWriter?: string,
         /**
@@ -321,7 +347,7 @@ declare global {
          */
         contentGroup?: string,
         /**
-         * The 'Title/Songname/Content description' frame is the actual name of the piece (e.g. "Adagio", "Hurricane Donna").
+         * The 'Title/Song_name/Content description' frame is the actual name of the piece (e.g. "Adagio", "Hurricane Donna").
          */
         title?: string,
         /**
@@ -329,7 +355,7 @@ declare global {
          */
         subtitle?: string,
         /**
-         * The 'Initial key' frame contains the musical key in which the sound starts. It is represented as a string with a maximum length of three characters. The ground keys are represented with "A","B","C","D","E", "F" and "G" and halfkeys represented with "b" and "#". Minor is represented as "m". Example "Cbm". Off key is represented with an "o" only.
+         * The 'Initial key' frame contains the musical key in which the sound starts. It is represented as a string with a maximum length of three characters. The ground keys are represented with "A","B","C","D","E", "F" and "G" and half keys represented with "b" and "#". Minor is represented as "m". Example "Cbm". Off key is represented with an "o" only.
          */
         initialKey?: string,
         /**
@@ -337,7 +363,7 @@ declare global {
          */
         language?: string,
         /**
-         * The 'Length' frame contains the length of the audiofile in milliseconds, represented as a numeric string.
+         * The 'Length' frame contains the length of the audio file in milliseconds, represented as a numeric string.
          */
         length?: string,
         /**
@@ -443,11 +469,11 @@ declare global {
          */
         originalFilename?: string,
         /**
-         * The 'Original lyricist(s)/text writer(s)' frame is intended for the text writer(s) of the original recording, if for example the music in the file should be a cover of a previously released song. The text writers are seperated with the "/" character.
+         * The 'Original lyricist(s)/text writer(s)' frame is intended for the text writer(s) of the original recording, if for example the music in the file should be a cover of a previously released song. The text writers are separated with the "/" character.
          */
         originalTextwriter?: string,
         /**
-         * The 'Original artist(s)/performer(s)' frame is intended for the performer(s) of the original recording, if for example the music in the file should be a cover of a previously released song. The performers are seperated with the "/" character.
+         * The 'Original artist(s)/performer(s)' frame is intended for the performer(s) of the original recording, if for example the music in the file should be a cover of a previously released song. The performers are separated with the "/" character.
          */
         originalArtist?: string,
         /**
@@ -459,7 +485,7 @@ declare global {
          */
         fileOwner?: string,
         /**
-         * The 'Lead artist(s)/Lead performer(s)/Soloist(s)/Performing group' is used for the main artist(s). They are seperated with the "/" character.
+         * The 'Lead artist(s)/Lead performer(s)/Soloist(s)/Performing group' is used for the main artist(s). They are separated with the "/" character.
          */
         artist?: string,
         /**
@@ -488,7 +514,7 @@ declare global {
          */
         publisher?: string,
         /**
-         * The 'Track number/Position in set' frame is a numeric string containing the order number of the audio-file on its original recording. This may be extended with a "/" character and a numeric string containing the total numer of tracks/elements on the original recording. E.g. "4/9".
+         * The 'Track number/Position in set' frame is a numeric string containing the order number of the audio-file on its original recording. This may be extended with a "/" character and a numeric string containing the total number of tracks/elements on the original recording. E.g. "4/9".
          */
         trackNumber?: string,
         TRCK?: string,
@@ -517,7 +543,7 @@ declare global {
          */
         titleSortOrder?: string,
         /**
-         * The 'Size' frame contains the size of the audiofile in bytes, excluding the ID3v2 tag, represented as a numeric string.
+         * The 'Size' frame contains the size of the audio file in bytes, excluding the ID3v2 tag, represented as a numeric string.
          */
         size?: string,
         /**
@@ -620,10 +646,10 @@ declare global {
         /**
          * This frame's purpose is to be able to identify the audio file in a
          * database that may contain more information relevant to the content.
-         * Since standardisation of such a database is beyond this document,
+         * Since standardization of such a database is beyond this document,
          * all frames begin with a null-terminated string with a URL
          * containing an email address, or a link to a location where an email
-         * address can be found, that belongs to the organisation responsible
+         * address can be found, that belongs to the organization responsible
          * for this specific database implementation. Questions regarding the
          * database should be sent to the indicated email address. The URL
          * should not be used for the actual database queries. The string
@@ -640,7 +666,7 @@ declare global {
             ownerIdentifier: string,
             /**
              * Up to 64 bytes of binary data.
-             * Providing more data will result in an undefined behaviour.
+             * Providing more data will result in an undefined behavior.
              */
             identifier: Buffer
         }>,
@@ -685,11 +711,11 @@ declare global {
          */
         paymentUrl?: string,
         /**
-         * The 'Publishers official webpage' frame is a URL pointing at the official wepage for the publisher.
+         * The 'Publishers official webpage' frame is a URL pointing at the official webpage for the publisher.
          */
         publisherUrl?: string,
         /**
-         * The 'User-defined URL link' frame is intended for URL links concerning the audiofile in a similar way to the other "W"-frames. There may be more than one "WXXX" frame in each tag, but only one with the same description.
+         * The 'User-defined URL link' frame is intended for URL links concerning the audio file in a similar way to the other "W"-frames. There may be more than one "WXXX" frame in each tag, but only one with the same description.
          */
         userDefinedUrl?: Array<{
             description: string,
