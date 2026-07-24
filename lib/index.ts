@@ -344,7 +344,7 @@ const init = function () {
         };
     stat(process.argv[2], function (ers:NodeJS.ErrnoException) {
         const bad_file = function (message:string) {
-            console.log();
+            console.log(message);
             console.log("");
             console.log("Example execution:");
             console.log("node lib/index.ts config_music.json");
