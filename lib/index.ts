@@ -78,6 +78,7 @@ const init = function () {
                     "album": "Album",
                     "title": "Title",
                     "track": "Track",
+                    "year": "Year",
                     "path": "File Path",
                     "sizeFormatted": "File Size",
                     "modified": "Modified"
@@ -186,7 +187,7 @@ const init = function () {
                     html_script_code.slice(html_script_code.indexOf("function")).replace(/;\s+export default browser;/, ""),
                     "());</script></div></body></html>"
                 ];
-            return html_heading.concat(html_totals, html_player, html_title, html_summary, html_options_columns, html_options_type, html_table_headings, html_script_tag).join("\n");
+            return html_heading.concat(html_player, html_title, html_totals, html_summary, html_options_columns, html_options_type, html_table_headings, html_script_tag).join("\n");
         },
 
         // callback from the recursive file system list
@@ -233,6 +234,9 @@ const init = function () {
                                         fileList[index][5].track = (tags.raw.TRCK === undefined) ? "" : tags.raw.TRCK;
                                         fileList[index][5].modified = dateFormat(fileList[index][5].mtimeMs);
                                         fileList[index][5].sizeFormatted = common.commas(fileList[index][5].size);
+                                        fileList[index][5].year = (tags.year === undefined)
+                                            ? ""
+                                            : tags.year;
                                         totalSize = totalSize + fileList[index][5].size;
                                         list.push(fileList[index]);
                                         index = index + 1;

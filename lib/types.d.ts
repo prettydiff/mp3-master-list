@@ -147,6 +147,7 @@ declare global {
         sizeFormatted: string;
         title: string;
         track: string;
+        year: string;
     }
 
     /**

@@ -52,7 +52,9 @@ const browser = function ():void {
                         } else if (heading(index_cell) === "title") {
                             td.textContent = list[index_list][5].title;
                         } else if (heading(index_cell) === "year") {
-                            td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf("(") + 1, list[index_list][0].lastIndexOf(")"));
+                            td.textContent = (documentType === "music")
+                                ? list[index_list][5].year
+                                : list[index_list][0].slice(list[index_list][0].lastIndexOf("(") + 1, list[index_list][0].lastIndexOf(")"));
                         } else if (heading(index_cell) === "type") {
                             td.textContent = list[index_list][0].slice(list[index_list][0].lastIndexOf(".") + 1).toLowerCase();
                         } else if (heading(index_cell) === "show") {
